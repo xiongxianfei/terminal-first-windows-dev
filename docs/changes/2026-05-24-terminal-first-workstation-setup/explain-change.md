@@ -39,6 +39,7 @@ The key risks were unsafe automation, ambiguous WSL command contracts, destructi
 | File or area | Change | Reason | Source artifact | Test/evidence |
 | --- | --- | --- | --- | --- |
 | `README.md` | Replaced template README with project orientation, guide order, warning labels, scope, troubleshooting, and workflow links. | First-time readers need audience, scope, risk labels, and verification posture before running commands. | R1-R4, R39-R40; M1/M5 | `m1-project-entrypoint`, `m5-release-readiness` |
+| `.gitignore`, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `LICENSE`, `SECURITY.md` | Added or refreshed standard repository hygiene and community files. | The bootstrap change makes the repository public-facing, so it needs baseline ignore rules, contribution expectations, license terms, and security reporting guidance alongside the setup guide. | Project bootstrap scope; README public project posture | Final `git diff --check`; PR readiness inspection |
 | `VISION.md`, `docs/vision/strategic-positioning.md` | Added project identity, audience, goals, non-goals, and falsifiability. | Bootstrap proposal required a durable vision before long-term setup docs became source of truth. | Proposal readiness note; Constitution docs rule | M1 static checks and review |
 | `CONSTITUTION.md`, `AGENTS.md`, `docs/workflows.md`, `docs/project-map.md` | Added governance, agent rules, workflow artifact map, and repository map. | The project uses RigorLoop-style artifacts and needed stable rules for proposals, specs, changes, reviews, and docs/changes. | Workflow/constitution/project-map stages | Plan-review and later milestone reviews |
 | `docs/proposals/`, `specs/`, `docs/architecture/`, `docs/adr/` | Added durable decision records and approved requirement/design artifacts. | Setup behavior changes package sources, WSL storage, proxy, sudoers, fstab, editor config, and terminal config, so spec/architecture decisions were required before implementation. | Constitution source-of-truth order | Proposal/spec/architecture reviews |
@@ -52,8 +53,6 @@ The key risks were unsafe automation, ambiguous WSL command contracts, destructi
 | `docs/troubleshooting/` | Added enterprise policy, proxy, WSL, and Ubuntu baseline troubleshooting. | Named edge cases need a durable place for blocked package sources, WSL option drift, proxy limits, fstab/sudoers failures, and rollback notes. | EC2-EC11; R20, R38 | M1-M3 static checks |
 | `docs/release-notes/2026-05-24-tested-versions.md` | Added latest-stable version record and WSL command-contract evidence checklist. | The guide must record tested versions and not treat unrun Windows checks as passed. | R3-R4, R14; version ADR | `m5-release-readiness` |
 | `tests/markdown/*.test.sh` | Added milestone static proof scripts M1-M5. | Documentation-only setup behavior still needs failing-first proof for command contracts, safety warnings, rollback, and verification surfaces. | Test spec T-M1 through T-M5 | All milestone validations |
-
-Unrelated local changes are not justified by this explanation: `.gitignore`, `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `LICENSE`, and `SECURITY.md` are present in the working tree but were not reviewed as part of this feature.
 
 ## Tests Added Or Changed
 
