@@ -6,6 +6,6 @@ proposal: ../../proposals/2026-05-24-bootstrap-terminal-first-windows-dev.md
 spec: ../../../specs/terminal-first-workstation-setup.md
 architecture: ../../architecture/system/architecture.md
 plan: plan.md
-current_stage: explain-change-complete
-next_stage: verify
+current_stage: verify-complete
+next_stage: pr
 open_blockers: []

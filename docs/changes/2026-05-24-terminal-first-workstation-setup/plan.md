@@ -65,13 +65,13 @@ Machine-changing commands must stay visible in the docs near their safety notes.
 ## Current Handoff Summary
 
 - Current milestone: final closeout
-- Current milestone state: explanation-complete
+- Current milestone state: verify-complete
 - Last reviewed milestone: M5
 - Review status: M5 code-review completed with clean-with-notes; M5 closed
 - Remaining in-scope implementation milestones: none
-- Next stage: verify
-- Final closeout readiness: ready to start final closeout sequence
-- Reason final closeout is or is not ready: all implementation milestones are closed and explain-change is complete, but final verify and PR handoff have not happened.
+- Next stage: pr
+- Final closeout readiness: ready for PR handoff
+- Reason final closeout is or is not ready: all implementation milestones are closed, explain-change is complete, final verify passed, and PR handoff remains.
 
 ## Milestones
 
@@ -404,6 +404,7 @@ Repository-wide `git diff --check` is advisory until the known pre-existing whit
 - 2026-05-24: M5 implemented and moved to review-requested after release-readiness static proof and scoped validation passed.
 - 2026-05-24: M5 code-review completed with clean-with-notes; M5 closed and handoff moved to final closeout via explain-change.
 - 2026-05-24: Final explain-change artifact refreshed from the actual diff, review outcomes, and validation evidence; handoff moved to verify.
+- 2026-05-24: Final verify passed on committed branch state; handoff moved to PR preparation.
 
 ## Decision log
 
@@ -501,13 +502,22 @@ Repository-wide `git diff --check` is advisory until the known pre-existing whit
   - `bash tests/markdown/m4-neovim-tmux.test.sh` passed.
   - `bash tests/markdown/m5-release-readiness.test.sh` passed.
   - `git diff --check -- docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md` passed.
+- Final verify:
+  - `bash tests/markdown/m1-project-entrypoint.test.sh` passed.
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh` passed.
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh` passed.
+  - `bash tests/markdown/m4-neovim-tmux.test.sh` passed.
+  - `bash tests/markdown/m5-release-readiness.test.sh` passed.
+  - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +'lua require("terminal_first")' +qa` passed.
+  - `tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check && tmux kill-session -t terminal-first-check` passed.
+  - `git diff --check` passed on the committed branch state before lifecycle handoff metadata was updated.
 
 ## Outcome and retrospective
 
-- Pending. Fill after all milestones and downstream gates complete.
+- Implementation, review, explain-change, and final verify are complete. PR handoff remains.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- M1, M2, M3, M4, and M5 are closed. Explain-change is complete. Ready for verify.
-- Readiness is not Done; final verify and PR handoff remain.
+- M1, M2, M3, M4, and M5 are closed. Explain-change and final verify are complete. Ready for PR handoff.
+- Readiness is not Done; PR handoff remains.
