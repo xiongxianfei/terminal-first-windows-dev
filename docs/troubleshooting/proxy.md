@@ -39,6 +39,8 @@ Use credential-free examples in public docs. Keep private proxy hostnames, usern
 
 Symptoms can include `SSL certificate problem`, `unable to get local issuer certificate`, or HTTPS failures from `apt`, `curl`, `git`, language package managers, or Neovim plugin installation inside WSL while the same site works from Windows.
 
+Design reference: [ADR: WSL Certificate Trust Policy](../adr/2026-05-25-wsl-certificate-trust-policy.md).
+
 Warning: importing all Windows root and intermediate certificates into Ubuntu broadly extends Ubuntu's trust store. Prefer exporting only the required enterprise root or intermediate certificate when you know which certificate is needed. Do not commit exported certificates to this repository.
 
 ### 1. Export Windows certificates from PowerShell

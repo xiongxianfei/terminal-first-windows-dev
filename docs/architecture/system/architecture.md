@@ -56,6 +56,7 @@ Durable decisions are recorded in ADRs:
 - [ADR: Version and Package Policy](../../adr/2026-05-24-version-and-package-policy.md)
 - [ADR: WSL Storage and Data Mount Policy](../../adr/2026-05-24-wsl-storage-and-data-mount-policy.md)
 - [ADR: Proxy Strategy](../../adr/2026-05-24-proxy-strategy.md)
+- [ADR: WSL Certificate Trust Policy](../../adr/2026-05-25-wsl-certificate-trust-policy.md)
 - [ADR: Neovim Plugin Baseline](../../adr/2026-05-24-neovim-plugin-baseline.md)
 
 ## 5. Building Block View
@@ -145,6 +146,7 @@ ADRs:
 - [ADR: Version and Package Policy](../../adr/2026-05-24-version-and-package-policy.md)
 - [ADR: WSL Storage and Data Mount Policy](../../adr/2026-05-24-wsl-storage-and-data-mount-policy.md)
 - [ADR: Proxy Strategy](../../adr/2026-05-24-proxy-strategy.md)
+- [ADR: WSL Certificate Trust Policy](../../adr/2026-05-25-wsl-certificate-trust-policy.md)
 - [ADR: Neovim Plugin Baseline](../../adr/2026-05-24-neovim-plugin-baseline.md)
 
 ## 10. Quality Requirements

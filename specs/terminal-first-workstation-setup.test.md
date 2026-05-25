@@ -16,6 +16,7 @@ active
   - `docs/adr/2026-05-24-version-and-package-policy.md`
   - `docs/adr/2026-05-24-wsl-storage-and-data-mount-policy.md`
   - `docs/adr/2026-05-24-proxy-strategy.md`
+  - `docs/adr/2026-05-25-wsl-certificate-trust-policy.md`
   - `docs/adr/2026-05-24-neovim-plugin-baseline.md`
 
 ## Testing strategy

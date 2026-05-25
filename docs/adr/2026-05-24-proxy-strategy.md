@@ -17,12 +17,12 @@ Use WSL automatic proxy mirroring as the primary path via `%UserProfile%\.wslcon
 autoProxy=true
 ```
 
-Document manual environment-variable fallback guidance. Defer PAC files and corporate CA certificates to troubleshooting notes and known limitations in the first slice.
+Document manual environment-variable fallback guidance. Defer PAC files from the first slice. Keep corporate CA certificate handling manual and troubleshooting-only, governed by [ADR: WSL Certificate Trust Policy](2026-05-25-wsl-certificate-trust-policy.md).
 
 ## Alternatives Considered
 
 - Manual environment variables only: more explicit, but duplicates configuration and is error-prone.
-- Full PAC and corporate CA support: useful, but too organization-specific for first-slice scope.
+- Full PAC and automatic corporate CA support: useful, but too organization-specific and security-sensitive for first-slice scope.
 - Ignore proxy setup: simpler, but package installation may fail without explanation.
 
 ## Consequences
@@ -30,6 +30,7 @@ Document manual environment-variable fallback guidance. Defer PAC files and corp
 - The guide must explain when WSL restart is needed for `.wslconfig` changes.
 - Doctor checks should report proxy auto-mirroring or fallback state.
 - Corporate environments remain partially supported through troubleshooting, not full setup.
+- Certificate trust repair must stay manual unless a future proposal/spec accepts automation.
 
 ## Follow-up
 

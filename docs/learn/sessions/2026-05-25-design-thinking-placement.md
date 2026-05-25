@@ -48,13 +48,13 @@ Evidence:
 | Observation ID | Proposed primary classification | Final primary classification | Secondary routes | Confirmed by | Rationale |
 | --- | --- | --- | --- | --- | --- |
 | O1 | observation | observation | none | evidence only | The existing workflow map already separates artifact types; this session clarifies their use. |
-| O2 | direction | candidate direction, unconfirmed | possible ADR update or troubleshooting "Design notes" subsection | maintainer question, not yet routed | Capturing certificate-export design principles would change or extend authoritative docs, so it needs explicit routing before edits. |
+| O2 | direction | routed direction | ADR update | maintainer confirmed by requesting an ADR | Capturing certificate-export design principles changes authoritative design docs, so it was routed to an ADR after owner confirmation. |
 | O3 | observation | observation | none | evidence only | The project already has proposal, ADR, spec, guide, troubleshooting, and explain-change surfaces with different purposes. |
 
 ## Route
 
 - O1 and O3 are recorded in this session only.
-- O2 is not routed yet because contributor confirmation is required before changing ADRs, workflow docs, or troubleshooting structure.
+- O2 was routed after owner confirmation to `docs/adr/2026-05-25-wsl-certificate-trust-policy.md`.
 - No topic file was created because this is a single maintainer observation plus an example, not an accumulated durable lesson or accepted policy update.
 
 ## Answer
@@ -95,4 +95,4 @@ This session captured a valid design-documentation gap, but it does not by itsel
 
 ## Follow-ups
 
-Candidate follow-up, pending owner confirmation: update `docs/adr/2026-05-24-proxy-strategy.md` or `docs/troubleshooting/proxy.md` to add certificate-export design principles.
+Completed follow-up: `docs/adr/2026-05-25-wsl-certificate-trust-policy.md` records the certificate-export design principles, and `docs/adr/2026-05-24-proxy-strategy.md` links to it.
