@@ -53,7 +53,7 @@ This test spec favors static documentation tests, syntax checks, contract checks
 | R17 | T-M3-003 | static, manual | Locale output must be UTF-8 and warning-free. |
 | R18 | T-M3-001 | static, manual | `.wslconfig` auto-proxy primary path is documented. |
 | R19 | T-M3-001 | static | Manual proxy fallback is documented. |
-| R20 | T-M3-001 | static | PAC and corporate CA support are deferred to troubleshooting. |
+| R20 | T-M3-001 | static | PAC support is deferred and corporate CA support is manual troubleshooting-only. |
 | R21 | T-M3-002 | static, manual | `/etc/wsl.conf` disables automount and enables fstab mounting. |
 | R22 | T-M3-002 | static, manual | `D:\Data` maps to `/home/<user>/data` by fstab or fallback symlink. |
 | R23 | T-M3-002 | static, manual | `sudo mount -a` or equivalent doctor validation is documented. |
@@ -97,7 +97,7 @@ This test spec favors static documentation tests, syntax checks, contract checks
 | EC6 `D:\Data` does not exist | T-M3-002 | static, manual | Guide offers create, skip, or manual path-selection guidance. |
 | EC7 direct DrvFs subdirectory mount is unreliable | T-M3-002 | static, manual | Fallback mount and symlink path is documented. |
 | EC8 enterprise policy blocks tooling | T-M2-001, T-M3-001 | static, manual | Policy-aware fallback notes are required. |
-| EC9 proxy needs PAC or corporate CA | T-M3-001 | static | First slice defers full support to troubleshooting/known limitations. |
+| EC9 proxy needs PAC or corporate CA | T-M3-001 | static | First slice defers PAC and keeps corporate CA handling as manual troubleshooting. |
 | EC10 locale is UTF-8 but not `C.UTF-8` | T-M3-003 | static, manual | Warning-free user-selected UTF-8 locales are accepted. |
 | EC11 user rejects passwordless sudo | T-M3-004 | static | Sudo profile is optional and skip path is documented. |
 | EC12 Neovim config works on only one OS | T-M4-001, T-M4-002 | static, smoke, manual | Windows and Ubuntu config paths are checked separately. |
@@ -250,8 +250,8 @@ This test spec favors static documentation tests, syntax checks, contract checks
 - Covers: R18, R19, R20, EC8, EC9
 - Level: static
 - Fixture/setup: Ubuntu baseline and proxy troubleshooting docs exist.
-- Steps: Check for `%UserProfile%\.wslconfig`, `[wsl2]`, `autoProxy=true`, manual environment-variable fallback, and PAC/corporate CA known-limitation wording.
-- Expected result: Automatic proxy mirroring is primary, manual fallback is available, and first-slice proxy limits are explicit.
+- Steps: Check for `%UserProfile%\.wslconfig`, `[wsl2]`, `autoProxy=true`, manual environment-variable fallback, PAC known-limitation wording, and manual Windows-to-WSL corporate CA troubleshooting commands using `%UserProfile%\all-certificates`, `/usr/local/share/ca-certificates/win11`, and `sudo update-ca-certificates`.
+- Expected result: Automatic proxy mirroring is primary, manual fallback is available, first-slice proxy limits are explicit, and WSL SSL trust repair is documented without automatic certificate installation.
 - Failure proves: Package installation may fail with no documented remediation.
 - Automation location: `tests/markdown/proxy-policy.test.*`
 
@@ -464,7 +464,7 @@ This test spec favors static documentation tests, syntax checks, contract checks
 - Do not test Windows versions older than Windows 11; they are outside first-slice scope.
 - Do not test arbitrary WSL storage roots; only `D:\Software\WSL\Ubuntu` is in scope.
 - Do not test native Windows tmux support; the spec explicitly excludes it.
-- Do not test full PAC or corporate CA setup; first slice defers those to troubleshooting.
+- Do not test full PAC setup or automatic corporate CA setup; first slice keeps corporate CA handling manual and troubleshooting-only.
 - Do not test broad language runtime, Docker, database, cloud, Kubernetes, or AI tooling setup; those are non-goals.
 - Do not execute destructive migration commands on a production distro during automated tests.
 - Do not require repository-wide whitespace cleanup as part of this feature; use staged milestone-scoped whitespace validation.

@@ -62,7 +62,7 @@ export no_proxy="localhost,127.0.0.1"
 
 If a persistent fallback is required, put it in a user-local shell profile only after recording the target path, backup behavior, rollback behavior, and scope. Do not commit private proxy hostnames, usernames, passwords, tokens, or certificate material.
 
-PAC files and corporate CA certificate installation are a known limitation for the first implementation slice. This guide records troubleshooting notes only and does not implement full PAC or corporate CA support.
+PAC files remain a known limitation for the first implementation slice. Corporate CA certificate installation is troubleshooting-only and manual; see `docs/troubleshooting/proxy.md` for the Windows-to-WSL certificate export path. This guide does not implement automatic PAC or corporate CA setup.
 
 ## WSL config
 
