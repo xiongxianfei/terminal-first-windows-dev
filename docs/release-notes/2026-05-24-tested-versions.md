@@ -21,7 +21,7 @@ Use latest stable at setup time, not preview or nightly. Record tested versions 
 | Neovim Windows | `nvim --version` | unrun | manual Windows check required |
 | Neovim Ubuntu | `nvim --version` | observed locally where available | local Linux workspace reported Neovim availability during M4 validation |
 | tmux | `tmux -V` | observed locally where available | local Linux workspace reported tmux availability during M4 validation |
-| core lint/format tools | Lua, Markdown, Shell, and PowerShell tool versions when installed | unrun | record only installed tools; missing optional tools must not be treated as passing |
+| optional language tools | language server, formatter, and linter versions when installed | unrun | record only installed tools; missing optional tools must not be treated as passing |
 
 ## WSL command-contract publication evidence
 

@@ -68,7 +68,7 @@ Repository containers:
 - `docs/guides/`: numbered setup guides for Windows host, WSL2 Ubuntu, Ubuntu baseline, Neovim, tmux, and verification.
 - `scripts/windows/`: optional Windows-side helpers and doctor checks.
 - `scripts/ubuntu/`: optional Ubuntu-side helpers and doctor checks.
-- `config/nvim/`: shared Neovim source config plus OS-specific adapters.
+- `config/nvim/`: single-file shared Neovim config.
 - `config/tmux/`: Ubuntu tmux configuration.
 - `specs/`: behavioral contracts and test specs.
 - `docs/architecture/` and `docs/adr/`: design and durable decisions.
@@ -101,7 +101,7 @@ Execution environments:
 
 - Windows PowerShell: WSL install/migration, Windows package checks, PowerShell/Windows Terminal checks, Windows Neovim checks.
 - Ubuntu shell under WSL2: baseline packages, locale, fstab, sudoers, proxy fallback, Ubuntu Neovim checks, tmux checks.
-- Neovim runtime: Windows and Ubuntu config paths receive deployed or synced config from one shared source.
+- Neovim runtime: Windows and Ubuntu config paths receive deployed or synced config from one shared `init.lua`.
 
 Generated or modified user-machine state:
 

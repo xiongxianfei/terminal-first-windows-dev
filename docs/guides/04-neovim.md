@@ -13,7 +13,7 @@ Provide a minimal Neovim setup for Windows PowerShell and Ubuntu without turning
 ## Safety notes
 
 - Neovim configuration writes affect user-local config directories.
-- Use one shared source config with thin OS-specific adapters.
+- Use one single-file shared config.
 - plugin/runtime state must not be shared through a Windows-mounted path.
 - Optional language profiles must stay optional.
 - This project is not a one-command unattended installer.
@@ -39,12 +39,9 @@ If the Ubuntu package is older than the user's needs, use an official Neovim rel
 
 ## Config strategy
 
-The source config lives in this repository under `config/nvim/`:
+The source config lives in one file:
 
-- `config/nvim/init.lua`: terminal-first shared Neovim config entry point.
-- `config/nvim/lua/terminal_first/init.lua`: shared source config and plugin profile.
-- `config/nvim/lua/terminal_first/windows.lua`: thin Windows adapter.
-- `config/nvim/lua/terminal_first/ubuntu.lua`: thin Ubuntu adapter.
+- `config/nvim/init.lua`: single-file shared config for Windows and Ubuntu.
 
 Deploy or sync the same source config separately into each environment:
 
@@ -53,31 +50,35 @@ Deploy or sync the same source config separately into each environment:
 
 Do not put plugin/runtime state on `D:\Data`, `/home/<user>/data`, or another Windows-mounted path. Let each environment keep its own plugin cache and runtime state.
 
-## Language profile
+## Editing profile
 
 Core profile:
 
-- Lua: `lua_ls`, `stylua`.
-- Markdown: `marksman`, `markdownlint`, `prettier`.
-- Shell: `bashls`, `shellcheck`, `shfmt`.
-- PowerShell: `powershell_es`.
+- editing options, search behavior, splits, clipboard, and diagnostics keymaps;
+- file and text navigation through Telescope;
+- Git change indicators through Gitsigns;
+- a compact statusline through Lualine;
+- LSP wiring with Lua enabled by default when `lua-language-server` is installed.
 
-Optional profile:
+Additional language support is optional and user-installed:
 
-- JavaScript/TypeScript: optional profile using TypeScript, ESLint, and Prettier tools when installed.
-- Python: optional profile using Pyright and Ruff tools when installed.
+- Markdown can use tools such as Marksman, markdownlint, or Prettier.
+- Shell can use tools such as Bash language server, ShellCheck, or shfmt.
+- PowerShell can use PowerShell Editor Services.
+- JavaScript/TypeScript can use TypeScript, ESLint, and Prettier tools.
+- Python can use Pyright and Ruff tools.
 
-The config records these as `core_languages` and `optional_languages`. Installing language servers, formatters, and linters is outside the broad runtime setup scope for this first slice; missing tools should be reported clearly by Neovim health checks or future doctor checks.
+The config stays concise and enables only the tools the user has installed. Installing language servers, formatters, and linters is outside the broad runtime setup scope for this first slice; missing tools should be reported clearly by Neovim health checks or future doctor checks.
 
 ## Plugin baseline
 
-The minimal plugin baseline is:
+The minimal plugin baseline is intentionally small:
 
-- `nvim-treesitter/nvim-treesitter` for syntax support.
 - `neovim/nvim-lspconfig` for LSP diagnostics.
-- `stevearc/conform.nvim` for formatting integration.
-- `mfussenegger/nvim-lint` for linting integration.
 - `nvim-telescope/telescope.nvim` for file and text navigation.
+- `lewis6991/gitsigns.nvim` for Git change indicators.
+- `nvim-lualine/lualine.nvim` for a compact statusline.
+- `folke/tokyonight.nvim` for a predictable colorscheme.
 
 Use a plugin manager such as Lazy to install those plugins in each environment. Keep plugin manager lockfiles environment-local or intentionally copied; do not share plugin/runtime state through a Windows-mounted path.
 
@@ -121,10 +122,10 @@ Expected result:
 ## Validation
 
 - The guide documents Neovim for both Windows PowerShell and Ubuntu.
-- The config uses one shared source config with thin OS-specific adapters.
+- The config uses one single-file shared config at `config/nvim/init.lua`.
 - Plugin/runtime state is not shared through a Windows-mounted path.
-- The core profile covers Lua, Markdown, Shell, and PowerShell where supported by available tools.
-- JavaScript/TypeScript and Python are optional profiles.
+- The core profile covers editing, navigation, diagnostics, Git indicators, and LSP wiring.
+- Additional language support is optional and user-installed.
 - Verification includes `nvim --version`, startup without config errors, plugin manager status, and `:checkhealth`.
 
 ## Rollback

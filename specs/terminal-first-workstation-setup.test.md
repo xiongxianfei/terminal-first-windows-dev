@@ -61,9 +61,9 @@ This test spec favors static documentation tests, syntax checks, contract checks
 | R25 | T-M3-004 | static | Passwordless sudo is optional and labeled as a convenience profile. |
 | R26 | T-M3-004 | static, manual | Project-owned sudoers drop-in, `visudo`, non-interactive verification, and rollback are covered. |
 | R27 | T-M4-001, T-M4-002 | static, smoke, manual | Neovim install/documentation exists for Windows and Ubuntu. |
-| R28 | T-M4-001 | static, integration | Shared source config and OS adapters avoid shared runtime state through mounted paths. |
-| R29 | T-M4-001 | static | Core profile covers Lua, Markdown, Shell, and PowerShell. |
-| R30 | T-M4-001 | static | JavaScript/TypeScript and Python are optional profiles. |
+| R28 | T-M4-001 | static, integration | Single-file shared config avoids shared runtime state through mounted paths. |
+| R29 | T-M4-001 | static | Concise profile covers editing, navigation, diagnostics, Git indicators, and LSP wiring. |
+| R30 | T-M4-001 | static | Additional language support such as JavaScript/TypeScript and Python is optional and user-installed. |
 | R31 | T-M4-002 | smoke, manual | Neovim version, startup, plugin manager, and `:checkhealth` are verified. |
 | R32 | T-M4-004 | static | tmux is Ubuntu-only and native Windows tmux is not claimed. |
 | R33 | T-M4-003 | static, smoke | tmux config covers prefix, panes, windows, mouse, status, and copy mode. |
@@ -300,7 +300,7 @@ This test spec favors static documentation tests, syntax checks, contract checks
 - Covers: R27, R28, R29, R30, EC12
 - Level: integration
 - Fixture/setup: Neovim guide and `config/nvim/` exist.
-- Steps: Check that Windows and Ubuntu install paths are documented; shared source config and thin OS adapters are present; plugin/runtime state is not shared through a Windows-mounted path; Lua, Markdown, Shell, and PowerShell are core; JavaScript/TypeScript and Python are optional.
+- Steps: Check that Windows and Ubuntu install paths are documented; one single-file shared config is present at `config/nvim/init.lua`; plugin/runtime state is not shared through a Windows-mounted path; the profile covers editing, navigation, diagnostics, Git indicators, and LSP wiring; additional language support is optional and user-installed.
 - Expected result: The Neovim setup is useful without becoming a full distribution or platform-coupled runtime.
 - Failure proves: Editor config strategy drifted from the ADR and spec.
 - Automation location: `tests/markdown/nvim-policy.test.*` and config layout tests.

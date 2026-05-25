@@ -10,9 +10,9 @@ The guide should provide useful Neovim behavior on both Windows PowerShell and U
 
 ## Decision
 
-Use one shared source Neovim config with thin OS-specific adapters. Deploy or sync config separately to Windows and Ubuntu paths. Do not share plugin/runtime state through a Windows-mounted path.
+Use one single-file shared Neovim config at `config/nvim/init.lua`. Deploy or sync that file separately to Windows and Ubuntu paths. Do not share plugin/runtime state through a Windows-mounted path.
 
-Core language/tooling profile covers Lua, Markdown, Shell, and PowerShell diagnostics or linting where supported. JavaScript/TypeScript and Python are optional profiles.
+The concise profile covers editing, navigation, diagnostics, Git indicators, and LSP wiring. Extra language servers and formatters remain user-installed and optional.
 
 ## Alternatives Considered
 
@@ -22,7 +22,7 @@ Core language/tooling profile covers Lua, Markdown, Shell, and PowerShell diagno
 
 ## Consequences
 
-- Config deployment needs adapters and verification on both environments.
+- Config deployment stays simple, but verification is still needed on both environments.
 - Plugin lockfile policy is needed where reproducibility matters.
 - Doctor checks should distinguish Windows Neovim from Ubuntu Neovim failures.
 

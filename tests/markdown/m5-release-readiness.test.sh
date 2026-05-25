@@ -48,7 +48,7 @@ grep -q 'WSL version' "$version_record"
 grep -q 'Ubuntu distro' "$version_record"
 grep -q 'Neovim' "$version_record"
 grep -q 'tmux' "$version_record"
-grep -q 'core lint/format tools' "$version_record"
+grep -q 'optional language tools' "$version_record"
 grep -q 'unrun' "$version_record"
 grep -q 'manual Windows' "$version_record"
 

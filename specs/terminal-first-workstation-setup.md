@@ -152,11 +152,11 @@ R26. Passwordless sudo setup MUST use a project-owned sudoers drop-in, validate 
 
 R27. The guide MUST install or document Neovim for both Windows PowerShell and Ubuntu.
 
-R28. The Neovim setup MUST use one shared source config with thin OS-specific adapters and MUST NOT rely on plugin or runtime state shared through a Windows-mounted path.
+R28. The Neovim setup MUST use one single-file shared config at `config/nvim/init.lua` and MUST NOT rely on plugin or runtime state shared through a Windows-mounted path.
 
-R29. The core Neovim profile MUST cover Lua, Markdown, Shell, and PowerShell diagnostics or linting where supported by available tools.
+R29. The concise Neovim profile MUST include editing, navigation, diagnostics, Git indicators, and LSP wiring without requiring a full language-runtime setup.
 
-R30. JavaScript/TypeScript and Python Neovim support MUST be optional profiles, not mandatory core setup.
+R30. Additional language support, including JavaScript/TypeScript and Python, MUST remain optional and user-installed.
 
 R31. Neovim verification MUST include `nvim --version`, startup without config errors, plugin manager status, and documented `:checkhealth` troubleshooting.
 

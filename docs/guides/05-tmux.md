@@ -15,6 +15,7 @@ Provide a minimal tmux setup for daily terminal development inside Ubuntu on WSL
 - tmux support is Ubuntu only in this first slice.
 - Native Windows tmux support is outside the first slice.
 - tmux configuration writes affect user-local config files.
+- The current tmux config does not use tmux plugins or a plugin manager.
 - This project is not a one-command unattended installer.
 
 ## Install tmux
@@ -46,13 +47,14 @@ Back up an existing `~/.tmux.conf` before replacing it.
 
 The config covers:
 
-- prefix: `C-a`;
+- prefix: tmux default `C-b`;
 - pane split keys: `|` for horizontal and `-` for vertical;
 - pane movement: `h`, `j`, `k`, and `l`;
 - window indexing from 1 and automatic renumbering;
 - mouse support;
 - status bar with session and time;
 - copy-mode using vi keys.
+- no tmux plugins.
 
 ## Verification
 
@@ -71,7 +73,7 @@ tmux kill-session -t terminal-first-check
 
 Manual checks:
 
-- prefix `C-a` sends tmux commands;
+- prefix `C-b` sends tmux commands;
 - pane splits work with `prefix |` and `prefix -`;
 - windows start at index 1;
 - mouse selection and pane focus work in Windows Terminal;

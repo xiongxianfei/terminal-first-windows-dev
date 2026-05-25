@@ -47,7 +47,7 @@ The key risks were unsafe automation, ambiguous WSL command contracts, destructi
 | `docs/guides/01-windows-host.md` | Documented PowerShell/WinGet install/update, Windows Terminal, WSL availability, elevation and enterprise-policy caveats. | R5-R7 require a supported PowerShell path and host verification without unsafe execution-policy changes. | R1-R7 | `m2-windows-wsl-storage` |
 | `docs/guides/02-wsl2-ubuntu.md` | Documented fresh WSL install to `D:\Software\WSL\Ubuntu`, version-gated `--location`, migration/import-in-place, destructive unregister warnings, and rollback. | R8-R15 require explicit Ubuntu LTS selection, D-drive WSL storage, safe migration, and storage/data separation. | R8-R15; SR-001 resolution | `m2-windows-wsl-storage` |
 | `docs/guides/03-ubuntu-baseline.md` | Documented WSL auto proxy, manual proxy fallback, `/etc/wsl.conf`, fstab data mount, locale checks, optional passwordless sudo, doctor status expectations, validation, and rollback. | R16-R26 require reversible Ubuntu baseline setup with explicit safety gates. | R16-R26 | `m3-ubuntu-baseline` |
-| `docs/guides/04-neovim.md`, `config/nvim/` | Added Windows/Ubuntu Neovim guide and a small shared source config with thin OS adapters, core language metadata, optional profiles, and plugin baseline. | R27-R31 require Neovim on both environments, shared source config, core lint/diagnostic profile, optional JS/Python, and health checks. | R27-R31; Neovim ADR | `m4-neovim-tmux`, Neovim headless load |
+| `docs/guides/04-neovim.md`, `config/nvim/` | Added Windows/Ubuntu Neovim guide and one concise shared `init.lua` config with a small Lazy plugin baseline. | R27-R31 require Neovim on both environments, a single-file shared config, optional language tooling, and health checks. | R27-R31; Neovim ADR | `m4-neovim-tmux`, Neovim headless load |
 | `docs/guides/05-tmux.md`, `config/tmux/tmux.conf` | Added Ubuntu-only tmux guide and config for prefix, panes, windows, mouse, status, and copy-mode behavior. | R32-R34 scope tmux to Ubuntu and require verifiable daily-use configuration. | R32-R34 | `m4-neovim-tmux`, tmux clean-session load |
 | `docs/guides/99-verification.md` | Added consolidated verification matrix, command checks, publication gate, static check list, staged whitespace policy, and rollback coverage. | R35-R38 require consistent doctor states, mostly observational checks, helper write disclosure, and rollback coverage; R14 requires WSL command publication gate. | R14, R35-R38; PR-001 plan review resolution | `m5-release-readiness` |
 | `docs/troubleshooting/` | Added enterprise policy, proxy, WSL, and Ubuntu baseline troubleshooting. | Named edge cases need a durable place for blocked package sources, WSL option drift, proxy limits, fstab/sudoers failures, and rollback notes. | EC2-EC11; R20, R38 | M1-M3 static checks |
@@ -76,7 +76,7 @@ bash tests/markdown/m2-windows-wsl-storage.test.sh
 bash tests/markdown/m3-ubuntu-baseline.test.sh
 bash tests/markdown/m4-neovim-tmux.test.sh
 bash tests/markdown/m5-release-readiness.test.sh
-nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +'lua require("terminal_first")' +qa
+nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +qa
 tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check && tmux kill-session -t terminal-first-check
 ```
 
@@ -135,7 +135,7 @@ Remaining risks:
 - Manual Windows checks are not yet executed. They must be recorded before publication as tested.
 - WSL `--location` behavior depends on installed WSL version. Publication still requires local or release-captured `wsl --help`.
 - Existing repository-wide whitespace drift remains outside this feature. Staged/path-scoped validation protects new milestone changes.
-- Neovim plugin behavior can drift. Lockfile policy remains future work if the config becomes more automated.
+- Neovim plugin behavior can drift. Keep the config concise and add lockfile policy only if the setup becomes more automated.
 - Proxy/PAC/corporate CA behavior remains troubleshooting-only.
 
 Recommended next stage: `verify`.

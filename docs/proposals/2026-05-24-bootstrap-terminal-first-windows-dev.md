@@ -127,7 +127,7 @@ After this proposal is adopted and implemented through downstream specs and plan
 - expose `D:\Data` inside Ubuntu through `/home/<user>/data`;
 - check and repair locale issues;
 - install Neovim on Windows and Ubuntu;
-- use one shared Neovim source configuration with thin OS-specific adapters and a small plugin baseline for LSP diagnostics, linting, formatting, syntax highlighting, and file navigation;
+- use one single-file shared Neovim configuration with a concise plugin baseline for editing, navigation, diagnostics, Git indicators, statusline, and LSP wiring;
 - install and configure tmux in Ubuntu;
 - run verification checks for each major layer.
 
@@ -302,7 +302,7 @@ Rollback:
 | `D:\Data` may not exist | Setup fails on machines without that path | Check for the path before configuring it and document how to create or skip it |
 | Locale changes can affect scripts and tools | Unexpected language or encoding behavior | Prefer checking and documenting locale before changing it |
 | Neovim plugins drift or break | Editor setup becomes unstable | Keep the plugin set small, use a lockfile when possible, and document update policy |
-| Same Neovim config may not behave identically on Windows and Ubuntu | Users see inconsistent paths or tools | Keep OS-specific adapters thin and document differences |
+| Same Neovim config may not behave identically on Windows and Ubuntu | Users see inconsistent paths or tools | Keep the single-file config portable and document environment-specific verification |
 | tmux requires terminal feature compatibility | Copy mode, colors, and keybindings may vary | Keep the first tmux config conservative and include terminal notes |
 | Automation may modify sensitive files | User trust and system stability risk | Use dry-run or doctor-first behavior where possible and backup before write operations |
 
@@ -331,9 +331,8 @@ Rollback:
 | 2026-05-24 | Use WSL automatic proxy mirroring as primary | Matches modern WSL behavior and reduces duplicated proxy setup | Manual environment variables as the only path |
 | 2026-05-24 | Defer PAC files and corporate CA certificates from the first slice | These cases are organization-specific and can expand troubleshooting scope quickly | Full corporate proxy and certificate support in the first implementation slice |
 | 2026-05-24 | Make passwordless sudo an explicit personal-workstation convenience profile | Preserves public safety expectations while supporting the requested workflow | Silent passwordless sudo; no passwordless sudo path |
-| 2026-05-24 | Use Lua, Markdown, Shell, and PowerShell as the core Neovim linting languages | Covers the repository's likely first documentation and script surface | Starting with a broad language-runtime profile |
-| 2026-05-24 | Keep JavaScript/TypeScript and Python as optional Neovim linting profiles | These are common but outside the first workstation foundation | Making them mandatory in the core editor profile |
-| 2026-05-24 | Use one shared Neovim source config with thin OS-specific adapters | Preserves one editor experience while keeping platform differences isolated | Fully separate Windows and WSL configs; sharing runtime state through DrvFs |
+| 2026-05-24 | Keep the Neovim profile concise and make extra language tooling optional | Preserves a simple first editor setup without pulling broad language runtimes into scope | Making Lua, Markdown, Shell, PowerShell, JavaScript/TypeScript, or Python tooling mandatory |
+| 2026-05-24 | Use one single-file shared Neovim config | Preserves one editor experience while keeping the config easy to inspect and copy | Fully separate Windows and WSL configs; multi-module config with OS adapters; sharing runtime state through DrvFs |
 | 2026-05-24 | Assume Windows Terminal as the terminal host | It supports PowerShell and WSL profiles and fits the project identity | Covering multiple terminal emulators in the first slice |
 | 2026-05-24 | Support both migration and future-install WSL storage paths | Existing users need a relocation path, while fresh installs can use WSL's install-location option | Only documenting one path; requiring users to reinstall Ubuntu manually |
 

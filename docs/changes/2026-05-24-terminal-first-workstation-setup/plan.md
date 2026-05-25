@@ -37,7 +37,7 @@ The implementation surface should follow the architecture package:
 - `docs/guides/` contains numbered setup guides for Windows host, WSL2 Ubuntu, Ubuntu baseline, Neovim, tmux, and consolidated verification.
 - `scripts/windows/` contains optional PowerShell helpers and doctor checks.
 - `scripts/ubuntu/` contains optional shell helpers and doctor checks.
-- `config/nvim/` contains one shared source Neovim config with thin OS-specific adapters.
+- `config/nvim/` contains one concise shared Neovim `init.lua`.
 - `config/tmux/` contains Ubuntu tmux configuration.
 - `specs/terminal-first-workstation-setup.test.md` will be created by the test-spec stage before implementation.
 
@@ -59,7 +59,7 @@ Machine-changing commands must stay visible in the docs near their safety notes.
 | R1-R7, R40 | M1 and M2 establish README orientation, Windows 11 scope, Windows Terminal, PowerShell, WinGet, elevation/policy notes, and host verification. |
 | R8-R15, R38 | M2 covers explicit Ubuntu LTS selection, WSL fresh custom-location install, migration/import-in-place, destructive warnings, storage/data separation, verification, and rollback. |
 | R16-R26, R35-R38 | M3 covers Ubuntu locale, proxy, wsl.conf, fstab/data mount, optional passwordless sudo, doctor status values, helper write rules, and rollback. |
-| R27-R34 | M4 covers Neovim on Windows and Ubuntu, shared config with OS adapters, core/optional language profiles, health checks, and Ubuntu tmux config/verification. |
+| R27-R34 | M4 covers Neovim on Windows and Ubuntu, one single-file shared config, optional language support, health checks, and Ubuntu tmux config/verification. |
 | R3-R4, R14, R35-R40 | M5 covers version records, publication gates, static checks, doctor-check consistency, consolidated verification, README readiness, and release notes. |
 
 ## Current Handoff Summary
@@ -250,8 +250,8 @@ Machine-changing commands must stay visible in the docs near their safety notes.
   - Static docs checks for `tmux -V` and clean-session config loading.
   - Config syntax or startup checks where available in the current environment.
 - Implementation steps:
-  - Add shared Neovim source config and thin OS-specific adapters.
-  - Keep core language profile to Lua, Markdown, Shell, and PowerShell; document JavaScript/TypeScript and Python as optional.
+  - Add one concise shared Neovim `init.lua`.
+  - Keep the editor profile concise; document additional language support as optional and user-installed.
   - Add Ubuntu-only tmux config covering prefix, panes, windows, mouse, status, and copy mode.
   - Extend doctor guidance for Neovim Windows, Neovim Ubuntu, and tmux Ubuntu.
 - Validation commands:
@@ -261,8 +261,8 @@ Machine-changing commands must stay visible in the docs near their safety notes.
   - Config-specific syntax checks selected by the test spec.
 - Result:
   - Added static proof first in `tests/markdown/m4-neovim-tmux.test.sh`; initial run failed because `config/nvim/init.lua` and the M4 config layout did not exist.
-  - Filled Neovim guide with Windows and Ubuntu install paths, one shared source config strategy, thin OS adapters, core and optional language profiles, plugin baseline, verification, and rollback.
-  - Added shared Neovim source config under `config/nvim/` with Windows and Ubuntu adapters, core language metadata for Lua, Markdown, Shell, and PowerShell, optional JavaScript/TypeScript and Python metadata, and a small plugin baseline.
+  - Filled Neovim guide with Windows and Ubuntu install paths, one single-file shared config strategy, optional language support, plugin baseline, verification, and rollback.
+  - Added shared Neovim config under `config/nvim/init.lua` with a small plugin baseline and Lua LSP wiring.
   - Filled tmux guide with Ubuntu-only scope, install path, daily-use baseline, `tmux -V`, clean-session config-load verification, and rollback.
   - Added Ubuntu tmux config under `config/tmux/tmux.conf` covering prefix, panes, windows, mouse, status, and copy-mode behavior.
   - Updated consolidated verification with Neovim Windows, Neovim Ubuntu, and tmux Ubuntu checks.
@@ -277,7 +277,7 @@ Machine-changing commands must stay visible in the docs near their safety notes.
   - milestone committed
 - Risks:
   - Neovim plugin drift can make startup checks unstable.
-  - Windows and Ubuntu config paths can diverge if adapters are unclear.
+  - Windows and Ubuntu config paths can diverge if the single-file config is not deployed consistently.
 - Rollback/recovery:
   - Document restoring backed-up Neovim and tmux config directories.
   - Keep plugin runtime state out of Windows-mounted shared paths.
@@ -467,7 +467,7 @@ Repository-wide `git diff --check` is advisory until the known pre-existing whit
   - `bash tests/markdown/m1-project-entrypoint.test.sh` passed.
   - `bash tests/markdown/m2-windows-wsl-storage.test.sh` passed.
   - `bash tests/markdown/m3-ubuntu-baseline.test.sh` passed.
-  - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +'lua require("terminal_first")' +qa` passed.
+  - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +qa` passed.
   - `tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check && tmux kill-session -t terminal-first-check` passed.
   - `grep -n 'nvim --version' docs/guides/04-neovim.md docs/guides/99-verification.md` passed.
   - `grep -n ':checkhealth' docs/guides/04-neovim.md` passed.
@@ -483,7 +483,7 @@ Repository-wide `git diff --check` is advisory until the known pre-existing whit
   - `bash tests/markdown/m2-windows-wsl-storage.test.sh` passed.
   - `bash tests/markdown/m3-ubuntu-baseline.test.sh` passed.
   - `bash tests/markdown/m4-neovim-tmux.test.sh` passed.
-  - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +'lua require("terminal_first")' +qa` passed.
+  - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +qa` passed.
   - `tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check && tmux kill-session -t terminal-first-check` passed.
   - `grep -n 'Publication gate' docs/guides/99-verification.md` passed.
   - `grep -n 'Microsoft Learn' docs/guides/99-verification.md docs/release-notes/2026-05-24-tested-versions.md` passed.
@@ -508,7 +508,7 @@ Repository-wide `git diff --check` is advisory until the known pre-existing whit
   - `bash tests/markdown/m3-ubuntu-baseline.test.sh` passed.
   - `bash tests/markdown/m4-neovim-tmux.test.sh` passed.
   - `bash tests/markdown/m5-release-readiness.test.sh` passed.
-  - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +'lua require("terminal_first")' +qa` passed.
+  - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +qa` passed.
   - `tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check && tmux kill-session -t terminal-first-check` passed.
   - `git diff --check` passed on the committed branch state before lifecycle handoff metadata was updated.
 

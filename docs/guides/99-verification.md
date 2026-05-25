@@ -219,7 +219,7 @@ bash tests/markdown/m5-release-readiness.test.sh
 Run config smoke checks where tools are available:
 
 ```bash
-nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +'lua require("terminal_first")' +qa
+nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +qa
 tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check
 tmux kill-session -t terminal-first-check
 ```

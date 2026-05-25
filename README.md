@@ -21,7 +21,7 @@ Follow the guides in order:
 1. [Windows host](docs/guides/01-windows-host.md): Windows Terminal, PowerShell, package tooling, and host checks.
 2. [WSL2 Ubuntu](docs/guides/02-wsl2-ubuntu.md): explicit Ubuntu LTS selection, D-drive WSL storage, migration path, and verification.
 3. [Ubuntu baseline](docs/guides/03-ubuntu-baseline.md): proxy posture, data mount, locale, sudo profile, and Linux-side checks.
-4. [Neovim](docs/guides/04-neovim.md): Windows and Ubuntu editor setup with a shared source config model.
+4. [Neovim](docs/guides/04-neovim.md): Windows and Ubuntu editor setup with one concise shared config file.
 5. [tmux](docs/guides/05-tmux.md): Ubuntu tmux setup for daily terminal work.
 6. [Verification](docs/guides/99-verification.md): consolidated checks and result vocabulary.
 

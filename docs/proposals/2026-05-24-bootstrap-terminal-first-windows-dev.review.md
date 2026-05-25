@@ -95,8 +95,8 @@ Safe resolution path: Keep the proposal architecture and scope. Do not redesign 
 | Proxy mode | Use WSL automatic proxy mirroring as primary via `%UserProfile%\.wslconfig` `[wsl2] autoProxy=true`. Document manual env-var fallback. |
 | PAC files and corporate CA certificates | Defer from first implementation slice. Add troubleshooting notes and known limitations only. |
 | Passwordless sudo | Include as an explicit personal-workstation convenience profile, not silent automation. Use a project-owned sudoers drop-in, validate with `visudo`, and make rollback clear. |
-| Initial Neovim linting languages | Core: Lua, Markdown, Shell, PowerShell. Optional profile: JavaScript/TypeScript and Python. |
-| Neovim config strategy | One shared source config with thin OS-specific adapters. Deploy or sync it separately to Windows and WSL config paths; do not rely on plugin/runtime state shared through a Windows-mounted path. |
+| Initial Neovim profile | Keep the config concise. Include editing, navigation, diagnostics, Git indicators, and LSP wiring. Treat additional language servers, formatters, and linters as optional and user-installed. |
+| Neovim config strategy | Use one single-file shared config at `config/nvim/init.lua`. Deploy or sync it separately to Windows and WSL config paths; do not rely on plugin/runtime state shared through a Windows-mounted path. |
 | Windows Terminal | Assume Windows Terminal as the primary terminal emulator. Keep PowerShell and Ubuntu profiles documented. |
 
 ## Recommended WSL Configuration Posture
