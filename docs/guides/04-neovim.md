@@ -37,6 +37,54 @@ sudo apt install -y neovim
 
 If the Ubuntu package is older than the user's needs, use an official Neovim release channel and record the source in verification notes.
 
+### Ubuntu fallback: release tarball
+
+Use this fallback when Ubuntu 24.04 package sources, enterprise mirrors, or distro policy cannot provide the needed stable Neovim version.
+
+This path installs Neovim under `/opt/nvim-linux-x86_64` and exposes it as `/usr/local/bin/nvim`. It does not remove the distro `neovim` package, but `/usr/local/bin` normally has priority over `/usr/bin`.
+
+Install prerequisites:
+
+```bash
+sudo apt update
+sudo apt install -y curl tar gzip git ripgrep fd-find
+```
+
+Download and install the tested stable release:
+
+```bash
+cd /tmp
+curl -LO https://github.com/neovim/neovim-releases/releases/download/v0.12.2/nvim-linux-x86_64.tar.gz
+
+sudo rm -rf /opt/nvim-linux-x86_64
+sudo tar -C /opt -xzf nvim-linux-x86_64.tar.gz
+
+sudo ln -sf /opt/nvim-linux-x86_64/bin/nvim /usr/local/bin/nvim
+```
+
+Verify the selected binary:
+
+```bash
+command -v nvim
+nvim --version
+```
+
+Expected result:
+
+- `command -v nvim` resolves to `/usr/local/bin/nvim`.
+- `nvim --version` reports the installed stable release.
+
+Rollback:
+
+```bash
+sudo rm -f /usr/local/bin/nvim
+sudo rm -rf /opt/nvim-linux-x86_64
+hash -r
+command -v nvim || true
+```
+
+If the distro package is still installed, `command -v nvim` may fall back to `/usr/bin/nvim` after rollback.
+
 ## Config strategy
 
 The source config lives in one file:
