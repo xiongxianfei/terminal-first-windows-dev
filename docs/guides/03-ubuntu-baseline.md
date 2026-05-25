@@ -168,6 +168,40 @@ Expected result:
 
 If a repair is needed, prefer `C.UTF-8` unless the user intentionally chooses a regional UTF-8 locale.
 
+Repair to the default `C.UTF-8` locale:
+
+```bash
+sudo update-locale LANG=C.UTF-8 LC_ALL=
+exec "$SHELL" -l
+locale
+locale charmap
+```
+
+If the output still shows warnings after starting a new shell, clear conflicting user-level locale exports before setting the system default again:
+
+```bash
+grep -nE '^(export )?(LANG|LC_[A-Z_]+)=' ~/.profile ~/.bashrc ~/.zshrc 2>/dev/null || true
+```
+
+Remove or comment stale `LANG` or `LC_*` lines that point to unavailable locales, then rerun:
+
+```bash
+sudo update-locale LANG=C.UTF-8 LC_ALL=
+exec "$SHELL" -l
+```
+
+If the user intentionally wants a regional UTF-8 locale, generate and select it explicitly:
+
+```bash
+sudo apt update
+sudo apt install -y locales
+sudo locale-gen en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8 LC_ALL=
+exec "$SHELL" -l
+```
+
+Replace `en_US.UTF-8` with the user's chosen UTF-8 locale. Do not set `LC_ALL` permanently unless a specific tool requires it; `LC_ALL` should normally stay empty so category-specific locale settings can work.
+
 ## Optional passwordless sudo
 
 Passwordless sudo is optional. Skip this section if you do not want the personal-workstation convenience profile.

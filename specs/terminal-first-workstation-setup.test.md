@@ -270,7 +270,7 @@ This test spec favors static documentation tests, syntax checks, contract checks
 - Covers: R16, R17, EC10
 - Level: manual
 - Fixture/setup: Ubuntu baseline guide and optional WSL Ubuntu shell.
-- Steps: Check that docs define `C.UTF-8` as healthy default, accept user-selected warning-free UTF-8 locales, and require locale output to be UTF-8 and warning-free.
+- Steps: Check that docs define `C.UTF-8` as healthy default, accept user-selected warning-free UTF-8 locales, require locale output to be UTF-8 and warning-free, and document a repair method using `sudo update-locale LANG=C.UTF-8 LC_ALL=` plus an optional `locale-gen` path for regional UTF-8 locales.
 - Expected result: Locale guidance is deterministic without forcing regional locale changes.
 - Failure proves: Locale failures or valid user locale choices are mishandled.
 - Automation location: `tests/markdown/locale-policy.test.*` plus manual locale checklist.

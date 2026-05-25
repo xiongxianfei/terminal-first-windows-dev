@@ -54,6 +54,31 @@ locale charmap
 
 Healthy output is UTF-8 and warning-free. `C.UTF-8` is the default healthy target, but user-selected UTF-8 locales are acceptable when they do not emit warnings.
 
+Repair to the project default:
+
+```bash
+sudo update-locale LANG=C.UTF-8 LC_ALL=
+exec "$SHELL" -l
+locale
+locale charmap
+```
+
+If warnings continue, check for user profile overrides:
+
+```bash
+grep -nE '^(export )?(LANG|LC_[A-Z_]+)=' ~/.profile ~/.bashrc ~/.zshrc 2>/dev/null || true
+```
+
+Remove stale overrides that reference unavailable locales. For a regional UTF-8 locale, install locale support, generate the locale, and then select it:
+
+```bash
+sudo apt update
+sudo apt install -y locales
+sudo locale-gen en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8 LC_ALL=
+exec "$SHELL" -l
+```
+
 ## Sudoers validation fails
 
 If `sudo visudo -cf /etc/sudoers.d/terminal-first-windows-dev` fails, remove the project-owned sudoers drop-in and do not treat passwordless sudo as enabled.
