@@ -43,35 +43,49 @@ Warning: importing all Windows root and intermediate certificates into Ubuntu br
 
 ### 1. Export Windows certificates from PowerShell
 
-Run in Windows PowerShell. This exports public certificates only, not private keys, into `%UserProfile%\all-certificates` as PEM files.
+Run in Windows PowerShell from the folder where you want the export directory created. This exports public certificates only, not private keys, into `.\all-certificates` as PEM files.
 
 ```powershell
-$OutDir = Join-Path $env:USERPROFILE "all-certificates"
-New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
+$StoreToDir = Join-Path (Get-Location) "all-certificates"
+New-Item -ItemType Directory -Force -Path $StoreToDir | Out-Null
 
-$Stores = @(
-  "Cert:\CurrentUser\Root",
-  "Cert:\CurrentUser\CA",
-  "Cert:\LocalMachine\Root",
-  "Cert:\LocalMachine\CA"
-)
+$SeenThumbprints = @{}
 
-foreach ($Store in $Stores) {
-  Get-ChildItem $Store | ForEach-Object {
-    $Name = $_.Thumbprint
-    $Bytes = $_.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Cert)
+Get-ChildItem -Recurse Cert:\ |
+  Where-Object { $_ -is [System.Security.Cryptography.X509Certificates.X509Certificate2] } |
+  ForEach-Object {
+    $Thumbprint = $_.Thumbprint
+
+    if ($SeenThumbprints.ContainsKey($Thumbprint)) {
+      return
+    }
+
+    $SeenThumbprints[$Thumbprint] = $true
+
+    $SafeSubject = $_.Subject -replace '[^\w.-]', '_'
+    if ([string]::IsNullOrWhiteSpace($SafeSubject)) {
+      $SafeSubject = "certificate"
+    }
+
+    $Path = Join-Path $StoreToDir "$SafeSubject-$Thumbprint.pem"
+
     $Pem = @(
       "-----BEGIN CERTIFICATE-----"
-      [Convert]::ToBase64String($Bytes, [System.Base64FormattingOptions]::InsertLineBreaks)
+      [Convert]::ToBase64String($_.RawData, [System.Base64FormattingOptions]::InsertLineBreaks)
       "-----END CERTIFICATE-----"
       ""
     ) -join "`n"
-    Set-Content -Path (Join-Path $OutDir "$Name.pem") -Value $Pem -Encoding ascii
+
+    Set-Content -Path $Path -Value $Pem -Encoding ascii
   }
-}
+
+"Exported PEM files: $((Get-ChildItem $StoreToDir -Filter *.pem).Count)"
+"Output directory: $StoreToDir"
 ```
 
-If local policy blocks reading `Cert:\LocalMachine\*`, rerun PowerShell as Administrator or export only from `Cert:\CurrentUser\Root` and `Cert:\CurrentUser\CA`.
+The recursive `Cert:\` scan finds certificates outside the basic root and intermediate stores, filters only real `X509Certificate2` objects, names files safely with subject plus thumbprint, and deduplicates certificates by thumbprint.
+
+If local policy blocks reading machine-level stores, rerun PowerShell as Administrator or change the scan root to `Cert:\CurrentUser`.
 
 ### 2. Copy PEM files into WSL as CRT files
 
@@ -79,14 +93,14 @@ Run inside Ubuntu:
 
 ```bash
 mkdir -p /tmp/win11-certificates
-cp /mnt/c/Users/<WindowsUser>/all-certificates/*.pem /tmp/win11-certificates/
+cp /mnt/c/<PathToExportFolder>/all-certificates/*.pem /tmp/win11-certificates/
 
 for cert in /tmp/win11-certificates/*.pem; do
   cp "$cert" "/tmp/win11-certificates/$(basename "$cert" .pem).crt"
 done
 ```
 
-Replace `<WindowsUser>` with the Windows profile directory name.
+Replace `<PathToExportFolder>` with the Windows path, below `/mnt/c`, for the folder where PowerShell created `all-certificates`. For example, if PowerShell exported to `C:\Users\Ada\Downloads\all-certificates`, use `/mnt/c/Users/Ada/Downloads/all-certificates/*.pem`.
 
 ### 3. Install certificates into Ubuntu's system CA directory
 
