@@ -36,6 +36,53 @@ wsl --version
 
 If `--web-download` is not supported, record the WSL version and Windows build, then use the policy-approved WSL installer or update path for the machine.
 
+## WSL update fails with `Wsl/UpdatePackage/0x80190193`
+
+`Wsl/UpdatePackage/0x80190193` commonly indicates that the update request reached an HTTP endpoint but was blocked or rejected, often by proxy, VPN, TLS inspection, or enterprise network policy.
+
+Use this recovery path from Windows PowerShell.
+
+First record the current proxy state:
+
+```powershell
+netsh winhttp show proxy
+Get-ChildItem Env:HTTP_PROXY,Env:HTTPS_PROXY,Env:NO_PROXY -ErrorAction SilentlyContinue
+```
+
+Temporarily close or bypass the proxy for the WSL update attempt. For WinHTTP proxy state, reset the proxy:
+
+```powershell
+netsh winhttp reset proxy
+```
+
+If the proxy is configured through Windows Settings, open the proxy settings page and temporarily disable the active proxy or VPN according to local policy:
+
+```powershell
+Start-Process ms-settings:network-proxy
+```
+
+Retry the WSL update using web download instead of Microsoft Store delivery:
+
+```powershell
+wsl --update --web-download
+wsl --shutdown
+wsl --version
+```
+
+If the update succeeds, restore the proxy or VPN settings required by the machine or organization. If a WinHTTP proxy is required, restore it with the policy-approved value:
+
+```powershell
+netsh winhttp set proxy <proxy-server> <bypass-list>
+```
+
+Example shape only:
+
+```powershell
+netsh winhttp set proxy proxy.example:8080 "localhost;127.0.0.1"
+```
+
+Do not commit private proxy hostnames, credentials, tokens, PAC URLs, or internal network details. If enterprise policy controls proxy configuration, ask the device owner or administrator before changing it.
+
 ## WSL install download hangs
 
 If distro installation hangs at `0.0%` or Store delivery is blocked, retry with web download:
