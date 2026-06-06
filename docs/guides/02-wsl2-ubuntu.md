@@ -33,6 +33,15 @@ Do not treat `D:\Data` as the default location for Linux-heavy project code unle
 
 Run these from Windows PowerShell.
 
+Best-practice install posture:
+
+- Use an explicit Ubuntu LTS distro from `wsl --list --online`.
+- Prefer WSL 2 for new installs.
+- Prefer `--location` for fresh custom-location installs when the local WSL command supports it.
+- If Store/App Installer delivery is blocked or hangs, use the documented `--web-download` path.
+- Keep distro storage, shared data, and Linux project code separate.
+- Verify each layer before configuring the next one.
+
 Record the current WSL version:
 
 ```powershell
@@ -84,7 +93,21 @@ wsl --shutdown
 wsl --help
 ```
 
+If `wsl --update` fails because Microsoft Store delivery is blocked or unreliable, use the web-download update path:
+
+```powershell
+wsl --update --web-download
+wsl --shutdown
+wsl --version
+```
+
 If `--location` is still missing, stop the fresh custom-location path and use the migration/import path. Unsupported systems must not silently install to the default location.
+
+If distro install hangs at download time or Store delivery is blocked, retry with web download:
+
+```powershell
+wsl --install --web-download --distribution <UbuntuLtsDistroName> --location "D:\Software\WSL\Ubuntu"
+```
 
 ## Fresh install verification
 

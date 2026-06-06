@@ -56,6 +56,47 @@ The config covers:
 - copy-mode using vi keys.
 - no tmux plugins.
 
+## Quick start
+
+Start a named session:
+
+```bash
+tmux new -s dev
+```
+
+Detach and leave the session running:
+
+```text
+prefix d
+```
+
+List sessions:
+
+```bash
+tmux ls
+```
+
+Attach again:
+
+```bash
+tmux attach -t dev
+```
+
+Common keys:
+
+| Action | Key |
+| --- | --- |
+| Prefix | `C-b` |
+| Split left/right | `prefix |` |
+| Split top/bottom | `prefix -` |
+| New window | `prefix c` |
+| Next window | `prefix n` |
+| Previous window | `prefix p` |
+| Copy mode | `prefix [` |
+| Detach | `prefix d` |
+
+Inside copy mode, use vi-style movement, `v` to start selection, and `y` or `Enter` to copy.
+
 ## Verification
 
 Run:

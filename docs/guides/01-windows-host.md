@@ -53,6 +53,43 @@ wsl --status
 
 Record whether Windows Terminal, PowerShell, WinGet, and WSL are available. Mark blocked policy or missing package-source cases as `needs manual action` in the consolidated verification guide.
 
+## PowerShell best practices
+
+Use PowerShell as the Windows-side control shell for host setup, WSL commands, and Windows package checks.
+
+Recommended posture:
+
+- Use the latest stable `pwsh` for daily work.
+- Keep Windows PowerShell available for compatibility, but prefer `pwsh` when both are available.
+- Start normal shells without elevation; open an elevated shell only when a command needs administrator rights.
+- Keep execution policy unchanged unless an organization-approved installer or script explicitly requires a temporary bypass.
+- Keep local profile files small, readable, and reversible.
+- Put machine-specific aliases, functions, and environment variables in the user profile, not in project docs or committed files.
+- Do not store proxy credentials, tokens, private hostnames, or certificate material in a PowerShell profile.
+
+Open the current user's PowerShell profile:
+
+```powershell
+notepad $PROFILE
+```
+
+Create it first if it does not exist:
+
+```powershell
+New-Item -ItemType File -Force $PROFILE
+notepad $PROFILE
+```
+
+Useful profile checks:
+
+```powershell
+$PROFILE
+Test-Path $PROFILE
+Get-ExecutionPolicy -List
+```
+
+Keep profile changes easy to undo. When testing a profile change, open a new PowerShell session and verify that `pwsh --version`, `winget --version`, and `wsl --version` still work.
+
 ## Validation
 
 - `pwsh --version` reports the installed PowerShell version.

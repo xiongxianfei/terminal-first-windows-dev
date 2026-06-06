@@ -19,6 +19,9 @@ grep -q 'pwsh --version' "$host_guide"
 grep -q 'winget --version' "$host_guide"
 grep -q 'wt --version' "$host_guide"
 grep -q 'wsl --version' "$host_guide"
+grep -q 'PowerShell best practices' "$host_guide"
+grep -q 'notepad $PROFILE' "$host_guide"
+grep -q 'Get-ExecutionPolicy -List' "$host_guide"
 grep -q 'administrator' "$host_guide"
 grep -q 'enterprise policy' "$host_guide"
 
@@ -38,6 +41,8 @@ if grep -q 'wsl --install Ubuntu --location' "$wsl_guide"; then
 fi
 
 grep -q 'wsl --update' "$wsl_guide"
+grep -q 'wsl --update --web-download' "$wsl_guide"
+grep -q 'wsl --install --web-download --distribution <UbuntuLtsDistroName> --location "D:\\Software\\WSL\\Ubuntu"' "$wsl_guide"
 grep -q 'wsl --shutdown' "$wsl_guide"
 grep -q 'migration/import path' "$wsl_guide"
 
@@ -60,5 +65,7 @@ grep -q '/home/<user>/data' "$wsl_guide"
 grep -q '~/src' "$wsl_guide"
 
 grep -q 'unsupported systems' "$troubleshooting"
+grep -q 'wsl --update --web-download' "$troubleshooting"
+grep -q 'wsl --install --web-download --distribution <UbuntuLtsDistroName>' "$troubleshooting"
 grep -q 'import-in-place' "$troubleshooting"
 grep -q 'storage path' "$troubleshooting"

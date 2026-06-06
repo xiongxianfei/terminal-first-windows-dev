@@ -21,6 +21,7 @@ Use latest stable at setup time, not preview or nightly. Record tested versions 
 | Neovim Windows | `nvim --version` | unrun | manual Windows check required |
 | Neovim Ubuntu | `nvim --version`; fallback source `https://github.com/neovim/neovim-releases/releases/download/v0.12.2/nvim-linux-x86_64.tar.gz` | observed locally where available | local Linux workspace reported Neovim availability during M4 validation; Ubuntu fallback installs under `/opt/nvim-linux-x86_64` with `/usr/local/bin/nvim` symlink |
 | tmux | `tmux -V` | observed locally where available | local Linux workspace reported tmux availability during M4 validation |
+| uv | `uv --version` | unrun | optional tool; verify separately on Windows and Ubuntu if installed |
 | optional language tools | language server, formatter, and linter versions when installed | unrun | record only installed tools; missing optional tools must not be treated as passing |
 
 ## WSL command-contract publication evidence

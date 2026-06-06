@@ -24,6 +24,32 @@ wsl --help
 
 If `--location` is still unavailable, stop the fresh custom-location path. These unsupported systems must use the migration/import path or another documented fallback instead of silently installing to the default storage location.
 
+## WSL update fails through Microsoft Store
+
+If `wsl --update` fails because Microsoft Store delivery is blocked, stale, or unavailable, use the web-download path from Windows PowerShell:
+
+```powershell
+wsl --update --web-download
+wsl --shutdown
+wsl --version
+```
+
+If `--web-download` is not supported, record the WSL version and Windows build, then use the policy-approved WSL installer or update path for the machine.
+
+## WSL install download hangs
+
+If distro installation hangs at `0.0%` or Store delivery is blocked, retry with web download:
+
+```powershell
+wsl --install --web-download --distribution <UbuntuLtsDistroName>
+```
+
+For this project's custom storage path, use `--location` only when the local `wsl --help` confirms support:
+
+```powershell
+wsl --install --web-download --distribution <UbuntuLtsDistroName> --location "D:\Software\WSL\Ubuntu"
+```
+
 ## Migration/import-in-place recovery
 
 The migration/import path depends on a successful export or backup before unregister.

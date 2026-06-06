@@ -15,6 +15,7 @@ for path in "$guide" "$verification" "$proxy_troubleshooting" "$ubuntu_troublesh
 done
 
 grep -Fq '%UserProfile%\.wslconfig' "$guide"
+grep -Fq 'notepad $env:USERPROFILE\.wslconfig' "$guide"
 grep -Fq '[wsl2]' "$guide"
 grep -Fq 'autoProxy=true' "$guide"
 grep -q 'manual proxy' "$guide"
@@ -41,6 +42,10 @@ grep -q '/etc/wsl.conf' "$guide"
 grep -q 'enabled=false' "$guide"
 grep -q 'mountFsTab=true' "$guide"
 grep -q 'appendWindowsPath=false' "$guide"
+grep -q 'APT source configuration' "$guide"
+grep -q '/etc/apt/sources.list.d/ubuntu.sources' "$guide"
+grep -q 'sudoedit /etc/apt/sources.list.d/ubuntu.sources' "$guide"
+grep -q 'apt-cache policy' "$guide"
 grep -q '/etc/fstab' "$guide"
 grep -q 'D:/Data /home/<user>/data drvfs' "$guide"
 grep -q '/home/<user>/data' "$guide"

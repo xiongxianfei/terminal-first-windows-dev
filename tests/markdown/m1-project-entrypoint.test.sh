@@ -8,6 +8,7 @@ required_files=(
   docs/guides/03-ubuntu-baseline.md
   docs/guides/04-neovim.md
   docs/guides/05-tmux.md
+  docs/guides/06-uv.md
   docs/guides/99-verification.md
   docs/troubleshooting/enterprise-policy.md
   docs/troubleshooting/proxy.md
@@ -52,6 +53,12 @@ grep -q 'Windows PowerShell' docs/guides/02-wsl2-ubuntu.md
 grep -q 'Ubuntu shell' docs/guides/03-ubuntu-baseline.md
 grep -q 'Neovim command' docs/guides/04-neovim.md
 grep -q 'tmux command' docs/guides/05-tmux.md
+grep -q 'uv --version' docs/guides/06-uv.md
+grep -q 'uv self update' docs/guides/06-uv.md
+grep -q 'pyproject.toml' docs/guides/06-uv.md
+grep -q 'uv.toml' docs/guides/06-uv.md
+grep -q 'UV_DEFAULT_INDEX' docs/guides/06-uv.md
+grep -q 'Do not commit private package indexes' docs/guides/06-uv.md
 grep -q 'pass, fail, skipped, or needs manual action' docs/guides/99-verification.md
 
 grep -Rq 'one-command unattended installer' README.md docs/guides

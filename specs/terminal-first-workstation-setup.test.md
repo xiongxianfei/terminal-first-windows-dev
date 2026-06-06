@@ -75,6 +75,9 @@ This test spec favors static documentation tests, syntax checks, contract checks
 | R38 | T-M5-002 | static | Rollback guidance exists for every state-changing area. |
 | R39 | T-M1-003 | static | One-command unattended installation is excluded from first user-facing contract. |
 | R40 | T-M1-001, T-M5-005 | static | README orients readers to audience, scope, warning labels, layers, and verification. |
+| R41 | T-M1-004 | static | `uv` is optional and does not make Python runtime setup mandatory. |
+| R42 | T-M1-004 | static | `uv` install, update, verification, rollback, and package-index guidance are documented without private secrets. |
+| R43 | T-M1-004 | static | `uv` index guidance separates project-level and user-level configuration. |
 
 ## Example coverage map
 
@@ -135,6 +138,16 @@ This test spec favors static documentation tests, syntax checks, contract checks
 - Expected result: The first user-facing contract remains documentation-first and stable-channel by default.
 - Failure proves: The implementation drifted toward unsupported automation or unstable tooling.
 - Automation location: `tests/markdown/scope-guardrails.test.*`
+
+### T-M1-004. Optional uv guide is scoped and source-safe
+
+- Covers: R41, R42, R43
+- Level: static
+- Fixture/setup: `docs/guides/06-uv.md` exists.
+- Steps: Check that Windows and Ubuntu install paths, `uv self update`, `uv --version`, rollback, `pyproject.toml`, user-level `uv.toml`, `UV_DEFAULT_INDEX`, and private-secret warnings are documented.
+- Expected result: `uv` is available as an optional tool without turning Python runtime setup into a mandatory first-slice requirement.
+- Failure proves: Optional tooling drifted into unscoped runtime setup or unsafe package-source guidance.
+- Automation location: `tests/markdown/m1-project-entrypoint.test.sh`.
 
 ### T-M2-001. Windows host setup commands and policy caveats are documented
 

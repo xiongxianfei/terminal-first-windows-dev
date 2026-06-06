@@ -23,7 +23,8 @@ Follow the guides in order:
 3. [Ubuntu baseline](docs/guides/03-ubuntu-baseline.md): proxy posture, data mount, locale, sudo profile, and Linux-side checks.
 4. [Neovim](docs/guides/04-neovim.md): Windows and Ubuntu editor setup with one concise shared config file.
 5. [tmux](docs/guides/05-tmux.md): Ubuntu tmux setup for daily terminal work.
-6. [Verification](docs/guides/99-verification.md): consolidated checks and result vocabulary.
+6. [uv](docs/guides/06-uv.md): optional Windows and Ubuntu `uv` install, update, and package-index configuration.
+7. [Verification](docs/guides/99-verification.md): consolidated checks and result vocabulary.
 
 ## Warning Labels
 

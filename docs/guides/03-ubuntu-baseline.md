@@ -27,6 +27,12 @@ Warning: this writes the current Windows user's WSL global config file.
 
 Target path: `%UserProfile%\.wslconfig`
 
+Open the target file directly from Windows PowerShell:
+
+```powershell
+notepad $env:USERPROFILE\.wslconfig
+```
+
 Backup behavior: if the file already exists, save a copy before editing it.
 
 Rollback behavior: remove the project-owned `autoProxy=true` entry or restore the backup, then restart WSL.
@@ -92,11 +98,59 @@ enabled=true
 appendWindowsPath=false
 ```
 
+Best-practice WSL configuration posture:
+
+- Use `.wslconfig` for WSL 2 global settings owned by the Windows user.
+- Use `/etc/wsl.conf` for Ubuntu-distro settings.
+- Keep automatic Windows drive mounting disabled when this guide owns the shared-data path.
+- Keep `appendWindowsPath=false` to avoid unexpected Windows command precedence inside Ubuntu.
+- Restart WSL with `wsl --shutdown` after changing either file.
+
 After editing, restart WSL from Windows PowerShell:
 
 ```powershell
 wsl --shutdown
 ```
+
+## APT source configuration
+
+Ubuntu package sources may be slow, blocked, or redirected by enterprise policy. Configure APT only when the default source is unsuitable.
+
+Warning: APT source changes affect package installation inside Ubuntu. Back up source files first and do not commit private mirror hostnames.
+
+Inspect current sources:
+
+```bash
+grep -RhvE '^\s*(#|$)' /etc/apt/sources.list /etc/apt/sources.list.d/*.list /etc/apt/sources.list.d/*.sources 2>/dev/null || true
+```
+
+Back up the current source configuration:
+
+```bash
+sudo mkdir -p /etc/apt/backup-terminal-first
+sudo cp -a /etc/apt/sources.list /etc/apt/sources.list.d /etc/apt/backup-terminal-first/ 2>/dev/null || true
+```
+
+On Ubuntu 24.04, prefer editing Deb822 source files under `/etc/apt/sources.list.d/` when they exist. Open the Ubuntu source file:
+
+```bash
+sudoedit /etc/apt/sources.list.d/ubuntu.sources
+```
+
+Change only the `URIs:` value to the policy-approved mirror. Example:
+
+```text
+URIs: https://archive.ubuntu.com/ubuntu/
+```
+
+Then validate:
+
+```bash
+sudo apt update
+apt-cache policy
+```
+
+Rollback by restoring the backup or reverting the `URIs:` value, then rerun `sudo apt update`.
 
 ## Shared data mount
 

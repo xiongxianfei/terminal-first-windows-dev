@@ -178,6 +178,12 @@ R39. The guide MUST keep one-command unattended installation out of the first us
 
 R40. The README replacement MUST orient first-time readers to audience, scope, warning labels, setup layers, and the verification-first posture.
 
+R41. The guide MAY document `uv` as an optional developer tool for Windows PowerShell and Ubuntu, but MUST NOT make Python runtime setup mandatory for the first workstation slice.
+
+R42. The `uv` guide MUST document install, update, verification, rollback, and package-index configuration without committing private indexes, credentials, tokens, or internal hostnames.
+
+R43. The `uv` package-index guidance MUST prefer project-level configuration when an index is part of the project contract and user-level configuration only for workstation defaults.
+
 ## Inputs and outputs
 
 Inputs:
