@@ -88,6 +88,22 @@ Test-Path $PROFILE
 Get-ExecutionPolicy -List
 ```
 
+Use Emacs-style command-line editing through PSReadLine:
+
+```powershell
+Add-Content -Path $PROFILE -Value 'Set-PSReadLineOption -EditMode Emacs'
+```
+
+Open a new PowerShell session and verify the active edit mode:
+
+```powershell
+Get-PSReadLineOption | Select-Object -ExpandProperty EditMode
+```
+
+Expected result: `Emacs`.
+
+Rollback: remove the `Set-PSReadLineOption -EditMode Emacs` line from `$PROFILE`, or replace `Emacs` with another PSReadLine edit mode such as `Windows` or `Vi`.
+
 Keep profile changes easy to undo. When testing a profile change, open a new PowerShell session and verify that `pwsh --version`, `winget --version`, and `wsl --version` still work.
 
 ## Validation
@@ -96,6 +112,7 @@ Keep profile changes easy to undo. When testing a profile change, open a new Pow
 - `winget --version` reports WinGet availability or identifies a policy/manual fallback.
 - `wt --version` reports Windows Terminal availability.
 - `wsl --version` or `wsl --status` reports WSL availability.
+- Optional profile configuration can set PSReadLine to Emacs edit mode and verify it with `Get-PSReadLineOption`.
 
 ## Rollback
 

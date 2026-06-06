@@ -22,6 +22,8 @@ grep -q 'wsl --version' "$host_guide"
 grep -q 'PowerShell best practices' "$host_guide"
 grep -q 'notepad $PROFILE' "$host_guide"
 grep -q 'Get-ExecutionPolicy -List' "$host_guide"
+grep -q 'Set-PSReadLineOption -EditMode Emacs' "$host_guide"
+grep -q 'Get-PSReadLineOption' "$host_guide"
 grep -q 'administrator' "$host_guide"
 grep -q 'enterprise policy' "$host_guide"
 
