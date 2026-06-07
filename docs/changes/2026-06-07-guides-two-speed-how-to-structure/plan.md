@@ -67,19 +67,19 @@ The first implementation should preserve discoverability for the existing number
 ## Current Handoff Summary
 
 - Current milestone: M1
-- Current milestone state: review-requested
-- Last reviewed milestone: none
-- Review status: plan-review R2 approved
-- Remaining in-scope implementation milestones: M1, M2, M3
-- Next stage: code-review M1
+- Current milestone state: closed
+- Last reviewed milestone: M1
+- Review status: code-review M1 R1 clean-with-notes
+- Remaining in-scope implementation milestones: M2, M3
+- Next stage: implement M2
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M1 is implemented and awaiting code-review; M1-M3 closure, verify, and PR handoff remain.
+- Reason final closeout is or is not ready: M1 is closed; M2 and M3 remain open, and final verify and PR handoff have not run.
 
 ## Milestones
 
 ### M1. Router and template foundation
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Add the reader-intent guide router and contributor-facing how-to template while preserving discoverability for existing numbered guides.
 - Requirements: R1-R11, R37-R39, R41-R42, AC2-AC3, AC10-AC11
 - Files/components likely touched:
@@ -250,6 +250,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-07: M1 implementation started after baseline file-existence checks failed for the missing router and template as expected.
 - 2026-06-07: M1 added the guide router and how-to template, then passed targeted validation.
 - 2026-06-07: M1 explanation recorded in `docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md` for code-review handoff.
+- 2026-06-07: M1 code-review R1 recorded clean-with-notes and closed M1. Next stage is M2 implementation.
 
 ## Decision log
 
@@ -285,6 +286,13 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
   - Re-ran the M1 file, heading, numbered-guide discoverability, and template-location checks; all passed.
   - `git diff --check -- docs/guides/README.md docs/templates/how-to-guide.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` passed.
   - `LC_ALL=C rg -n "[^\\x00-\\x7F]" docs/guides/README.md docs/templates/how-to-guide.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` returned no matches.
+- M1 code-review validation:
+  - `test -f docs/templates/how-to-guide.md` passed.
+  - `test -f docs/guides/README.md` passed.
+  - `rg -n "Fast path|Walkthrough|Prerequisites|Outcome|Verify" docs/templates/how-to-guide.md` passed.
+  - `rg -n "01-windows-host|02-wsl2-ubuntu|03-ubuntu-baseline|04-neovim|05-tmux|99-verification" docs/guides/README.md` passed.
+  - `git diff HEAD^..HEAD --check` passed.
+  - `git status --short` returned no output before review artifacts were recorded.
 
 ## Outcome and retrospective
 

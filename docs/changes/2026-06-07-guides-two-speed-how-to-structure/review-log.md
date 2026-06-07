@@ -156,3 +156,38 @@ Approval date: 2026-06-07
 ### Approval Summary
 
 The owner approved the active test spec for implementation use. The test spec remains in lifecycle state `active` because the test-spec status enum does not include `approved`.
+
+## Code Review Result - M1 R1
+
+- Skill: code-review
+- Status: completed
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Recording blocker: none
+- Review record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m1-r1.md`
+- Review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
+- Review resolution: not-required
+- Reviewed milestone: M1
+- Milestone closeout: closed
+- Remaining implementation milestones: M2, M3
+- Next stage: implement M2
+- Verify readiness: not-claimed
+
+Review date: 2026-06-07
+
+### Review Inputs
+
+- Review surface: commit `b8f6118` (`M1: add guide router and how-to template`)
+- Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Spec: `specs/guides-two-speed-how-to-structure.md`
+- Test spec: `specs/guides-two-speed-how-to-structure.test.md`
+- M1 artifacts: `docs/guides/README.md`, `docs/templates/how-to-guide.md`
+
+### Findings
+
+No material findings.
+
+### Handoff
+
+M1 is closed. The next implementation stage is M2, the proxy setup pilot. Final closeout is not ready because M2 and M3 remain open.
