@@ -64,14 +64,14 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 
 ## Current Handoff Summary
 
-- Current milestone: M3
-- Current milestone state: review-requested
-- Last reviewed milestone: M2 code-review R1
+- Current milestone: M4
+- Current milestone state: planned
+- Last reviewed milestone: M3 code-review R1
 - Review status: clean-with-notes
-- Remaining in-scope implementation milestones: M3, M4
-- Next stage: code-review M3
+- Remaining in-scope implementation milestones: M4
+- Next stage: implement M4
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M1 and M2 are closed and M3 is ready for code-review, but M4, M3 code-review, final verification, and PR gates remain.
+- Reason final closeout is or is not ready: M1, M2, and M3 are closed, but M4, final verification, and PR gates remain.
 
 ## Milestones
 
@@ -159,7 +159,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 
 ### M3. Static validation checks
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Add lightweight static validation for template and guide conformance without executing setup command blocks.
 - Requirements: R46-R54, AC10-AC13
 - Files/components likely touched:
@@ -277,6 +277,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - 2026-06-15: M2 implementation completed targeted validation and moved to `review-requested`.
 - 2026-06-15: M2 code review R1 closed with `clean-with-notes` and no material findings.
 - 2026-06-15: M3 implementation extended the proof script with troubleshooting link/anchor resolution, no-command-execution guardrails, no-Windows-WSL-runner guardrails, pilot path compatibility checks, and secret/generated-tooling negative checks.
+- 2026-06-15: M3 code review R1 closed with `clean-with-notes` and no material findings.
 
 ## Decision log
 
@@ -328,4 +329,4 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M3 code-review. Readiness is not Done; M3 code-review, M4, final verification, and PR handoff remain.
+- Ready for M4 implementation. Readiness is not Done; M4, final verification, and PR handoff remain.

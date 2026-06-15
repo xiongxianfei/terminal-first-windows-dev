@@ -101,3 +101,37 @@ No material findings.
 ### Handoff
 
 M2 is closed. Next stage is `implement M3`. Final closeout remains not ready.
+
+## Code Review Result - M3 R1
+
+- Skill: code-review
+- Status: completed
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Recording blocker: none
+- Review record: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/code-review-m3-r1.md`
+- Review log: `docs/changes/2026-06-15-how-to-guide-template-best-practices/review-log.md`
+- Review resolution: not-required
+- Reviewed milestone: M3
+- Milestone closeout: closed
+- Remaining implementation milestones: M4
+- Required review-resolution: no
+- Finding IDs: none
+- Verify readiness: not-claimed
+
+Review date: 2026-06-15
+
+### Review Inputs
+
+- Diff/review surface: commit `6d3bc94` (`M3: add how-to template validation`)
+- Governing artifacts: spec, test spec, plan, and constitution for how-to guide template best practices
+- Validation evidence: targeted static proof script, commit whitespace check, and M3 diff inspection
+
+### Findings
+
+No material findings.
+
+### Handoff
+
+M3 is closed. Next stage is `implement M4`. Final closeout remains not ready.
