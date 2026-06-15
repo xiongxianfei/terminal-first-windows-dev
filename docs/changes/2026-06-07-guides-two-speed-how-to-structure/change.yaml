@@ -7,6 +7,5 @@ spec: ../../../specs/guides-two-speed-how-to-structure.md
 architecture: not-required
 plan: plan.md
 current_stage: pr-handoff-prepared
-next_stage: push-open-pr
-open_blockers:
-  - GitHub authentication unavailable for pushing branch and opening PR from this environment.
+next_stage: open-pr
+open_blockers: []

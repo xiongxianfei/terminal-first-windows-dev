@@ -6,10 +6,10 @@ Adopt two-speed how-to guide structure
 
 ## PR Open Status
 
-- Status: prepared, not opened.
+- Status: prepared, authentication available, not opened yet.
 - Local branch: `feature/guides-two-speed-how-to-structure`
 - Base branch: `main`
-- Blocker: GitHub authentication is unavailable in this environment. `git push -u origin feature/guides-two-speed-how-to-structure` failed because Git could not read HTTPS credentials, and `gh auth status` reported no logged-in GitHub hosts.
+- Blocker: none currently. GitHub CLI authentication is available; branch push and PR creation are being retried.
 
 ## Summary
 
