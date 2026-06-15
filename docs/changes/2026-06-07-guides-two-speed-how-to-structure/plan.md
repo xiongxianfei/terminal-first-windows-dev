@@ -71,9 +71,9 @@ The first implementation should preserve discoverability for the existing number
 - Last reviewed milestone: M3
 - Review status: code-review M3 R1 clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: pr handoff
+- Next stage: push/open PR
 - Final closeout readiness: ready
-- Reason final closeout is or is not ready: Final verification passed locally; PR handoff is being prepared.
+- Reason final closeout is or is not ready: Final verification passed locally and PR handoff is prepared; opening the PR is blocked by missing GitHub authentication in this environment.
 
 ## Milestones
 
@@ -270,6 +270,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-15: Final explain-change updated to summarize M1-M3 rationale, review outcomes, validation evidence, alternatives, scope control, and risks.
 - 2026-06-15: Final verification passed locally and was recorded in `docs/changes/2026-06-07-guides-two-speed-how-to-structure/verify-report.md`.
 - 2026-06-15: PR handoff prepared at `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pr.md`.
+- 2026-06-15: Created local branch `feature/guides-two-speed-how-to-structure`; pushing/opening PR was blocked because GitHub credentials were unavailable.
 
 ## Decision log
 
@@ -369,5 +370,5 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 ## Readiness
 
 - See `Current Handoff Summary`.
-- PR handoff prepared.
-- Remaining completion gates: open or hand off the PR.
+- PR handoff prepared but not opened.
+- Remaining completion gates: push branch and open PR after GitHub authentication is available.

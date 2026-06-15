@@ -4,6 +4,13 @@
 
 Adopt two-speed how-to guide structure
 
+## PR Open Status
+
+- Status: prepared, not opened.
+- Local branch: `feature/guides-two-speed-how-to-structure`
+- Base branch: `main`
+- Blocker: GitHub authentication is unavailable in this environment. `git push -u origin feature/guides-two-speed-how-to-structure` failed because Git could not read HTTPS credentials, and `gh auth status` reported no logged-in GitHub hosts.
+
 ## Summary
 
 - Add a reader-intent guide router and contributor how-to template.
