@@ -64,14 +64,14 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 
 ## Current Handoff Summary
 
-- Current milestone: M2
-- Current milestone state: review-requested
-- Last reviewed milestone: M1 code-review R1
+- Current milestone: M3
+- Current milestone state: planned
+- Last reviewed milestone: M2 code-review R1
 - Review status: clean-with-notes
-- Remaining in-scope implementation milestones: M2, M3, M4
-- Next stage: code-review M2
+- Remaining in-scope implementation milestones: M3, M4
+- Next stage: implement M3
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M1 is closed and M2 is ready for code-review, but M3, M4, M2 code-review, final verification, and PR gates remain.
+- Reason final closeout is or is not ready: M1 and M2 are closed, but M3, M4, final verification, and PR gates remain.
 
 ## Milestones
 
@@ -116,7 +116,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 
 ### M2. Exemplar and portability pilot conformance
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Validate the template against the demanding proxy exemplar and the independent Ubuntu baseline portability pilot.
 - Requirements: R30-R45, R52-R54, AC7-AC9, AC12-AC13
 - Files/components likely touched:
@@ -275,6 +275,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - 2026-06-15: M1 code review R1 closed with `clean-with-notes` and no material findings.
 - 2026-06-15: M2 implementation started by extending the static proof script to cover guide conformance and required exemplar/pilot evidence before changing the portability pilot.
 - 2026-06-15: M2 implementation completed targeted validation and moved to `review-requested`.
+- 2026-06-15: M2 code review R1 closed with `clean-with-notes` and no material findings.
 
 ## Decision log
 
@@ -323,4 +324,4 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M2 code-review. Readiness is not Done; M2 code-review, M3, M4, final verification, and PR handoff remain.
+- Ready for M3 implementation. Readiness is not Done; M3, M4, final verification, and PR handoff remain.
