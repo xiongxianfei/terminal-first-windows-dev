@@ -69,9 +69,9 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - Last reviewed milestone: M4 code-review R1
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: final closeout
-- Final closeout readiness: ready for final closeout sequence
-- Reason final closeout is or is not ready: M1-M4 are closed after code review; final verification and PR handoff have not run.
+- Next stage: pr
+- Final closeout readiness: branch-ready for PR handoff
+- Reason final closeout is or is not ready: M1-M4 are closed after code review, durable explanation exists, and final local verification passed. PR handoff has not run.
 
 ## Milestones
 
@@ -280,6 +280,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - 2026-06-15: M3 code review R1 closed with `clean-with-notes` and no material findings.
 - 2026-06-15: M4 implementation added the AC14 proposal-status assertion to the static proof and refreshed change-local rationale and handoff evidence without creating verify or PR artifacts early.
 - 2026-06-15: M4 code review R1 closed with `clean-with-notes` and no material findings.
+- 2026-06-15: Final verification found and fixed stale broad-smoke expectations for the converted Ubuntu pilot, restored exact Ubuntu baseline semantic cues, ran the targeted proof and full Markdown/static suite, and recorded `verify-report.md`.
 
 ## Decision log
 
@@ -327,6 +328,12 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
   - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh` passed.
   - `rg -n 'status: accepted|^## Status$|^accepted$' docs/proposals/2026-06-15-how-to-guide-template-best-practices.md` passed.
   - `git diff --check` passed.
+- Final verification validation:
+  - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh` passed.
+  - `rg -n 'status: accepted|^## Status$|^accepted$' docs/proposals/2026-06-15-how-to-guide-template-best-practices.md` passed.
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh` failed before the semantic-cue restoration, then passed.
+  - `bash -c 'set -euo pipefail; for test_script in tests/markdown/*.test.sh; do echo "== $test_script"; bash "$test_script"; done'` failed before verification-stage drift fixes, then passed.
+  - `git diff --check` passed.
 
 ## Outcome and retrospective
 
@@ -335,4 +342,4 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for final closeout sequence. Readiness is not Done; final verification and PR handoff remain.
+- Branch-ready for PR handoff. Readiness is not Done; PR handoff remains.

@@ -210,7 +210,7 @@
 
 ### 1. Configure WSL automatic proxy mirroring
 
-Use WSL automatic proxy mirroring as the primary proxy path when the installed WSL version and local policy support it. Manual proxy environment variables are fallback-only; do not paste proxy credentials into shell history.
+Use WSL automatic proxy mirroring as the primary proxy path when the installed WSL version and local policy support it. Manual proxy environment variables such as `http_proxy`, `https_proxy`, and `no_proxy` are fallback-only; do not paste proxy credentials into shell history.
 
 Safety: `%UserProfile%\.wslconfig` affects WSL behavior for the current Windows user.
 
@@ -247,7 +247,7 @@ wsl --shutdown
 
 Expected result: WSL shuts down without an error. Launch Ubuntu again before continuing.
 
-If automatic proxy mirroring is unavailable or blocked by enterprise policy, use [automatic proxy mirroring does not work](../troubleshooting/proxy.md#automatic-proxy-mirroring-does-not-work). PAC files remain a known limitation for the first implementation slice. Corporate CA certificate installation is troubleshooting-only and manual; see [WSL SSL certificate trust fails](../troubleshooting/proxy.md#wsl-ssl-certificate-trust-fails).
+If automatic proxy mirroring is unavailable or blocked by enterprise policy, use [automatic proxy mirroring does not work](../troubleshooting/proxy.md#automatic-proxy-mirroring-does-not-work). PAC files remain a known limitation for the first implementation slice. Corporate CA certificate installation is troubleshooting-only and manual; corporate CA recovery belongs in [WSL SSL certificate trust fails](../troubleshooting/proxy.md#wsl-ssl-certificate-trust-fails).
 
 ### 2. Apply Ubuntu WSL startup posture
 
@@ -295,7 +295,7 @@ Expected result: WSL shuts down without an error. Launch Ubuntu again before con
 
 ### 3. Optionally configure APT source posture
 
-Ubuntu package sources may be slow, blocked, or redirected by enterprise policy. Configure APT only when the default source is unsuitable. Do not commit private mirror hostnames.
+Ubuntu package sources may be slow, blocked, or redirected by enterprise policy. Configure APT only when the default source is unsuitable. This is the APT source configuration step for the Ubuntu baseline. Do not commit private mirror hostnames.
 
 Safety: APT source changes affect package installation inside Ubuntu.
 
@@ -344,7 +344,7 @@ Expected result: package indexes refresh successfully, and `apt-cache policy` sh
 
 The documented shared data path is `D:\Data` on Windows and `/home/<user>/data` inside Ubuntu. Keep Linux-heavy project code in the WSL filesystem, for example `~/src`; treat `/home/<user>/data` as shared Windows/Linux data unless you accept mounted-drive performance tradeoffs.
 
-If `D:\Data` does not exist, create it on Windows, skip shared data setup, or choose a manually documented replacement path for this machine before configuring fstab.
+If `D:\Data` does not exist, create, skip, or choose one of these paths before configuring fstab: create it on Windows, skip shared data setup, or choose a manually documented replacement path for this machine.
 
 Safety: `/etc/fstab` mistakes can affect mount behavior.
 

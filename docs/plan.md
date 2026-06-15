@@ -5,7 +5,7 @@
 | Change | Plan | State | Next stage | Active context |
 | --- | --- | --- | --- | --- |
 | `2026-05-24-terminal-first-workstation-setup` | `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` | active | pr | First-slice terminal-first Windows 11 workstation setup guide. |
-| `2026-06-15-how-to-guide-template-best-practices` | `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` | active | final closeout | Best-practice how-to guide template, exemplar/pilot conformance, and lightweight validation. |
+| `2026-06-15-how-to-guide-template-best-practices` | `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` | active | pr | Best-practice how-to guide template, exemplar/pilot conformance, and lightweight validation. |
 
 ## Blocked
 
