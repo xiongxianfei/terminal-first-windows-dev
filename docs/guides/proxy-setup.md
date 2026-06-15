@@ -11,6 +11,8 @@
 
    Warning: this changes WSL global configuration for the current Windows user.
 
+   Backup: if `%UserProfile%\.wslconfig` already exists, save a copy before editing it.
+
    ```ini
    [wsl2]
    autoProxy=true

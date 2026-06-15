@@ -1,0 +1,13 @@
+id: 2026-06-15-how-to-guide-template-best-practices
+title: How-To Guide Template Best Practices
+status: active
+created: 2026-06-15
+proposal: ../../proposals/2026-06-15-how-to-guide-template-best-practices.md
+spec: ../../../specs/how-to-guide-template-best-practices.md
+test_spec: ../../../specs/how-to-guide-template-best-practices.test.md
+architecture: not-required
+plan: plan.md
+current_stage: implementation
+current_milestone: M1
+next_stage: code-review
+open_blockers: []

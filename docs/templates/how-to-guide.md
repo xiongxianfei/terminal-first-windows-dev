@@ -1,91 +1,144 @@
+<!--
+Required for every guide:
+- Outcome-led title.
+- Visible metadata: Prerequisites, Time, Outcome, Verify.
+- Fast path before Walkthrough.
+- Explicit command context before commands or snippets.
+- Expected result after meaningful commands and verification commands.
+- Inline troubleshooting links at likely failure points when stable anchors exist.
+
+Conditional for state-changing or environment-sensitive guides:
+- Scope in the metadata block.
+- Safety in the metadata block for destructive, security-sensitive, persistent, or hard-to-undo changes.
+- Backup guidance before edits to user-owned or system-owned files, or a concrete reason backup is not applicable.
+- Rollback guidance for persistent machine-changing guides.
+
+Remove contributor comments and unused placeholders before publishing a guide.
+-->
+
 # <Configure the desired outcome>
 
 **Prerequisites:** <required starting state, tools, policy approvals, or existing setup>.
 **Time:** <estimated time>.
 **Outcome:** <what is true after the task is complete>.
-**Verify:** `<top-level verification command or observable result>`.
+**Verify:** `<top-level verification command or observable result>` succeeds in <environment>.
+**Scope:** <conditional: what user, machine, WSL, shell, editor, tmux, storage, or network state changes>.
+**Safety:** <conditional: security, persistence, storage, identity, proxy, sudoers, fstab, package-source, trust-store, execution-policy, or editor-runtime impact>.
 
 ## Fast path
 
-1. <Run the minimum command or edit needed for the happy path.>
+1. <Action-oriented step title>.
 
-   ```text
-   <command or configuration snippet>
+   Scope: <conditional: what this step changes, or remove for read-only steps>.
+
+   Backup: <conditional: backup the target file/state before editing, or state the concrete reason backup is not applicable>.
+
+   Rollback: <conditional: how to undo this step, or link to the Rollback section>.
+
+   Run from <Windows PowerShell | Ubuntu shell | inside Neovim | inside tmux>:
+
+   ```powershell
+   <command>
    ```
 
    Expected result: <short observable result>.
 
-2. <Run the next required command or check.>
+   If this fails with <specific symptom>, use [<targeted troubleshooting entry>](../troubleshooting/<topic>.md#<anchor>).
 
-   ```text
-   <command or configuration snippet>
+2. <Next action-oriented step title>.
+
+   Run from <Ubuntu shell>:
+
+   ```bash
+   <command>
    ```
 
    Expected result: <short observable result>.
 
 3. Verify the task.
 
-   ```text
+   Run from <environment>:
+
+   ```bash
    <verification command>
    ```
 
    Expected result: <what success looks like>.
 
-   If this fails with <specific symptom>, see [`docs/troubleshooting/<topic>.md#<anchor>`](../troubleshooting/<topic>.md#<anchor>).
-
 ## Walkthrough
 
-### 1. <Repeat fast-path step 1 as an outcome-oriented heading>
+### 1. <Same action-oriented step title>
 
-<Explain why this step is needed, what it changes, and any local policy or safety assumption the reader should know before running it. Keep design rationale brief and link to ADRs or architecture notes when deeper rationale is needed.>
+<Explain only what the reader needs to complete this task safely. Durable design rationale belongs in ADRs or architecture notes. Link to that rationale only when it changes the reader's action.>
 
-```text
-<same command or configuration snippet as the fast path>
+Scope: <conditional: what this step changes, or remove for read-only steps>.
+
+Backup: <conditional: backup the target file/state before editing, or state the concrete reason backup is not applicable>.
+
+Rollback: <conditional: how to undo this step, or link to the Rollback section>.
+
+Run from <Windows PowerShell | Ubuntu shell | inside Neovim | inside tmux>:
+
+```ini
+<configuration snippet>
 ```
 
 Expected result: <short observable result>.
 
-Rollback: <how to undo this step, or `not applicable` for read-only checks>.
+Verify:
 
-### 2. <Repeat fast-path step 2 as an outcome-oriented heading>
+```bash
+<verification command>
+```
 
-<Add context that helps a newer reader complete the same task flow without turning the guide into a tutorial.>
+Expected result: <verification signal>.
 
-```text
-<same command or configuration snippet as the fast path>
+If this fails with <specific symptom>, use [<targeted troubleshooting entry>](../troubleshooting/<topic>.md#<anchor>).
+
+### 2. <Same next action-oriented step title>
+
+<Add task-relevant context for the same high-level step order used in the fast path. If an alternate path is needed, label it explicitly as an alternate path.>
+
+Run from <Ubuntu shell>:
+
+```bash
+<command>
 ```
 
 Expected result: <short observable result>.
-
-Rollback: <how to undo this step, or `not applicable` for read-only checks>.
 
 ### 3. Verify the task
 
-```text
+Run from <environment>:
+
+```bash
 <verification command>
 ```
 
 Expected result: <what success looks like>.
 
-If this fails, use the targeted troubleshooting entry that matches the symptom:
-
-- <Symptom>: [`docs/troubleshooting/<topic>.md#<anchor>`](../troubleshooting/<topic>.md#<anchor>)
-
 ## Rollback
 
-<Summarize rollback for the whole task, or write `not applicable` when the guide is verification-only. Keep detailed recovery in `docs/troubleshooting/` when the recovery tree is long.>
+Rollback is required for persistent machine-changing guides.
+
+<Summarize how to restore the previous user or system state. For verification-only guides, state why rollback is not applicable. Keep detailed recovery in troubleshooting when the recovery tree is long.>
 
 ## Troubleshooting
 
-Use troubleshooting links at the step where failure is likely. Keep deep recovery instructions in `docs/troubleshooting/`, not in this guide.
+The final `Troubleshooting` section is a symptom router. Deep troubleshooting belongs under `docs/troubleshooting/`.
 
-## Review checklist
+Use the targeted entry that matches the symptom:
 
-- The title describes the desired outcome.
-- Prerequisites, Time, Outcome, and Verify appear before the first setup command.
-- Fast path and Walkthrough use the same numbered task flow.
-- Every meaningful state-changing step has a nearby expected result or verification.
-- Commands use clear shell or file-format fences.
-- Troubleshooting links point to specific files and anchors where stable anchors exist.
-- Security-sensitive commands call out their impact near the command.
-- Design rationale is brief and links to ADRs or architecture notes when needed.
+- <Symptom>: [<troubleshooting title>](../troubleshooting/<topic>.md#<anchor>)
+
+## Command-block conventions
+
+- Use `powershell` for Windows PowerShell or PowerShell 7 commands.
+- Use `bash` for Ubuntu shell commands.
+- Use `ini`, `toml`, `lua`, or `tmux` for configuration snippets when the snippet type matches the content.
+- Introduce each command block with where to run it.
+- Do not mix Windows and Ubuntu commands in one code block.
+- Define placeholders such as `<UbuntuUser>` before using them.
+- Do not include secrets, proxy credentials, tokens, private hostnames, or private certificate material in examples.
+- Prefer commands that can be re-run safely.
+- If a command is not idempotent, label that before the command and explain the recovery path.

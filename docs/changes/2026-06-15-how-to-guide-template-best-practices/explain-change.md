@@ -1,0 +1,54 @@
+# Explain Change: How-To Guide Template Best Practices
+
+## Summary
+
+This change defines and implements a stronger reusable template contract for terminal-first Windows development how-to guides. It keeps the approved two-speed guide shape while adding explicit shell context, expected results, conditional safety modules, backup-before-edit guidance, rollback guidance, and troubleshooting routing.
+
+Current implementation evidence covers M1 only: the reusable template contract and its focused static proof. Exemplar review, portability-pilot review, broader static validation, final verification, and PR handoff remain open downstream stages.
+
+## Decision Trail
+
+| Stage | Decision or evidence |
+| --- | --- |
+| Proposal | `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md` accepted the required core plus conditional safety-module direction. |
+| Proposal review | `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md` approved the proposal after resolving circular pilot-validation framing. |
+| Spec | `specs/how-to-guide-template-best-practices.md` defined R1-R54 and AC1-AC14 for the template, exemplar, portability pilot, backup guidance, validation boundaries, and non-goals. |
+| Spec review | `specs/how-to-guide-template-best-practices.review.md` approved the spec after HGT-SR-001 made backup guidance testable. |
+| Test spec | `specs/how-to-guide-template-best-practices.test.md` is active and maps the proof surface to T1-T9. |
+| Plan | `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` splits implementation into M1 template, M2 exemplar/pilot, M3 validation, and M4 lifecycle evidence. |
+
+Architecture was marked not required because this change affects Markdown documentation structure and static validation expectations only.
+
+## Diff Rationale By Area
+
+| File | Change | Reason | Source artifact | Test or evidence |
+| --- | --- | --- | --- | --- |
+| `docs/templates/how-to-guide.md` | Replaced the minimal template with a copyable two-speed guide template containing required metadata, conditional `Scope` and `Safety`, fast path, walkthrough, rollback, troubleshooting, backup-before-edit fields, command context, expected results, and command-block conventions. | Satisfies the M1 template contract for R1-R29 and preserves compatibility with the two-speed guide structure. | Spec R1-R29, R52-R53; plan M1; test spec T1-T2. | `bash tests/markdown/how-to-guide-template-best-practices.test.sh` and M1 `rg` validation checks. |
+| `tests/markdown/how-to-guide-template-best-practices.test.sh` | Added the focused M1 proof script for template structure, metadata, conditional modules, command-block conventions, troubleshooting boundaries, and non-goal guardrails. | Provides tests/proof before implementation and gives reviewers a repeatable static check. | Test spec T1-T2, T8; plan M1/M3 validation direction. | Initial run failed against the old template, then passed after the template update. |
+| `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` | Updated M1 state, progress, validation notes, and handoff state. | Keeps the active implementation plan aligned with actual milestone execution. | Implement skill and plan update requirements. | Plan marker checks and `git diff --check`. |
+| `docs/changes/2026-06-15-how-to-guide-template-best-practices/change.yaml` | Added compact change metadata for current stage and next handoff. | Keeps change-local lifecycle routing discoverable. | Workflow artifact conventions and implement baseline pack. | File exists and is aligned with the active plan state. |
+
+## Validation Evidence So Far
+
+- `bash tests/markdown/how-to-guide-template-best-practices.test.sh` failed before the template change with missing contributor/template contract text.
+- `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh` passed after the template update.
+- `test -f docs/templates/how-to-guide.md` passed.
+- `rg -n "Prerequisites|Time|Outcome|Verify|Scope|Safety" docs/templates/how-to-guide.md` passed.
+- `rg -n "^## Fast path$|^## Walkthrough$|^## Rollback$|^## Troubleshooting$" docs/templates/how-to-guide.md` passed.
+- `rg -n "Backup|Rollback|Scope|powershell|bash|not idempotent|secrets|troubleshooting" docs/templates/how-to-guide.md` passed.
+- `git diff --check` passed.
+
+## Scope Control
+
+This change does not:
+
+- convert all guides;
+- rename `docs/guides/03-ubuntu-baseline.md`;
+- define or change setup command semantics;
+- add command-execution CI;
+- require a Windows + WSL runner;
+- add generated documentation tooling, hidden automation, or installer behavior.
+
+## Current State
+
+M1 implementation is ready for code-review after targeted validation. M2, M3, M4, code-review, review-resolution if needed, final verification, and PR handoff remain open.
