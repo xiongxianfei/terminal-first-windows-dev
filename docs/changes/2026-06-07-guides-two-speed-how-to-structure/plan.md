@@ -2,8 +2,8 @@
 
 ## Status
 
-- Plan lifecycle state: active
-- Terminal disposition: not-terminal
+- Plan lifecycle state: completed
+- Terminal disposition: terminal
 
 ## Purpose / big picture
 
@@ -71,9 +71,9 @@ The first implementation should preserve discoverability for the existing number
 - Last reviewed milestone: M3
 - Review status: code-review M3 R1 clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: PR review
+- Next stage: done
 - Final closeout readiness: ready
-- Reason final closeout is or is not ready: PR is open at https://github.com/xiongxianfei/terminal-first-windows-dev/pull/2; external PR review/merge remains.
+- Reason final closeout is or is not ready: PR https://github.com/xiongxianfei/terminal-first-windows-dev/pull/2 was merged at 2026-06-15T17:17:29Z with merge commit `0a49d6262c98efa36ab88c452ea9bcf48dd807c4`.
 
 ## Milestones
 
@@ -273,6 +273,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-15: Created local branch `feature/guides-two-speed-how-to-structure`; pushing/opening PR was blocked because GitHub credentials were unavailable.
 - 2026-06-16: GitHub CLI authentication became available; branch push and PR creation retried.
 - 2026-06-16: Opened PR https://github.com/xiongxianfei/terminal-first-windows-dev/pull/2.
+- 2026-06-16: Confirmed PR #2 merged at 2026-06-15T17:17:29Z with merge commit `0a49d6262c98efa36ab88c452ea9bcf48dd807c4`; marked change terminal.
 
 ## Decision log
 
@@ -367,10 +368,12 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 
 ## Outcome and retrospective
 
-- Not completed. Fill after implementation, reviews, verification, and PR handoff.
+- Completed. The guide router, contributor template, proxy pilot, pilot evidence, and lightweight guide-structure validation were merged through PR #2.
+- Final local verification passed before PR handoff. Hosted CI was not available or observed.
+- The only verification-stage drift found was the legacy guide glob in `tests/markdown/m1-project-entrypoint.test.sh`, which was corrected to apply setup-guide section checks only to numbered setup guides.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- PR handoff complete.
-- Remaining completion gates: external PR review and merge.
+- Done.
+- Remaining completion gates: none.

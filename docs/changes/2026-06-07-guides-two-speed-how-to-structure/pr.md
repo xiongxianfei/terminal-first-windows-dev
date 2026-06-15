@@ -6,8 +6,10 @@ Adopt two-speed how-to guide structure
 
 ## PR Open Status
 
-- Status: opened.
+- Status: merged.
 - URL: https://github.com/xiongxianfei/terminal-first-windows-dev/pull/2
+- Merged at: 2026-06-15T17:17:29Z
+- Merge commit: `0a49d6262c98efa36ab88c452ea9bcf48dd807c4`
 - Local branch: `feature/guides-two-speed-how-to-structure`
 - Base branch: `main`
 - Blocker: none.
