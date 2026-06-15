@@ -65,13 +65,13 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Current Handoff Summary
 
 - Current milestone: M4
-- Current milestone state: planned
+- Current milestone state: review-requested
 - Last reviewed milestone: M3 code-review R1
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: M4
-- Next stage: implement M4
+- Next stage: code-review M4
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M1, M2, and M3 are closed, but M4, final verification, and PR gates remain.
+- Reason final closeout is or is not ready: M1, M2, and M3 are closed and M4 is ready for code-review, but M4 code-review, final verification, and PR gates remain.
 
 ## Milestones
 
@@ -197,7 +197,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 
 ### M4. Lifecycle closeout and evidence
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Complete change-local evidence and prepare the change for final downstream gates after implementation milestones are closed.
 - Requirements: AC10-AC14
 - Files/components likely touched:
@@ -278,6 +278,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - 2026-06-15: M2 code review R1 closed with `clean-with-notes` and no material findings.
 - 2026-06-15: M3 implementation extended the proof script with troubleshooting link/anchor resolution, no-command-execution guardrails, no-Windows-WSL-runner guardrails, pilot path compatibility checks, and secret/generated-tooling negative checks.
 - 2026-06-15: M3 code review R1 closed with `clean-with-notes` and no material findings.
+- 2026-06-15: M4 implementation added the AC14 proposal-status assertion to the static proof and refreshed change-local rationale and handoff evidence without creating verify or PR artifacts early.
 
 ## Decision log
 
@@ -321,6 +322,10 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - M3 final validation:
   - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh` passed.
   - `git diff --check` passed.
+- M4 final validation:
+  - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh` passed.
+  - `rg -n 'status: accepted|^## Status$|^accepted$' docs/proposals/2026-06-15-how-to-guide-template-best-practices.md` passed.
+  - `git diff --check` passed.
 
 ## Outcome and retrospective
 
@@ -329,4 +334,4 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M4 implementation. Readiness is not Done; M4, final verification, and PR handoff remain.
+- Ready for M4 code-review. Readiness is not Done; M4 code-review, final verification, and PR handoff remain.

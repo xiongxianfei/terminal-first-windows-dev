@@ -4,7 +4,7 @@
 
 This change defines and implements a stronger reusable template contract for terminal-first Windows development how-to guides. It keeps the approved two-speed guide shape while adding explicit shell context, expected results, conditional safety modules, backup-before-edit guidance, rollback guidance, and troubleshooting routing.
 
-Current implementation evidence covers M1 through M3: the reusable template contract, its focused static proof, the proxy exemplar review, the Ubuntu baseline portability pilot review, and lightweight static validation for guide structure, troubleshooting links, anchors, backup cues, and first-slice guardrails. Final verification and PR handoff remain open downstream stages.
+Current implementation evidence covers M1 through M4: the reusable template contract, its focused static proof, the proxy exemplar review, the Ubuntu baseline portability pilot review, lightweight static validation for guide structure, troubleshooting links, anchors, backup cues, first-slice guardrails, and proposal acceptance status. M4 is implementation evidence only; final verification and PR handoff remain open downstream stages.
 
 ## Decision Trail
 
@@ -30,6 +30,7 @@ Architecture was marked not required because this change affects Markdown docume
 | `docs/changes/2026-06-15-how-to-guide-template-best-practices/portability-pilot-review.md` | Recorded dry-run portability-pilot review evidence for `03-ubuntu-baseline.md`. | Proves non-circular validation and records reviewer separation, dry-run mode, fast-path result, verification signal, walkthrough use, defects, and backup coverage. | Spec R41-R45, AC8-AC9; test spec T6. | M2 evidence checks. |
 | `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` | Updated M1 state, progress, validation notes, and handoff state. | Keeps the active implementation plan aligned with actual milestone execution. | Implement skill and plan update requirements. | Plan marker checks and `git diff --check`. |
 | `docs/changes/2026-06-15-how-to-guide-template-best-practices/change.yaml` | Added compact change metadata for current stage and next handoff. | Keeps change-local lifecycle routing discoverable. | Workflow artifact conventions and implement baseline pack. | File exists and is aligned with the active plan state. |
+| `docs/changes/2026-06-15-how-to-guide-template-best-practices/review-log.md` and `reviews/code-review-*.md` | Recorded M1-M3 code-review results with no material findings and current handoff state. | Keeps review outcomes durable before M4 implementation relies on prior milestone closeout. | Code-review skill and plan milestone dependencies. | Review records exist and plan handoff names the last reviewed milestone. |
 
 ## Validation Evidence So Far
 
@@ -46,6 +47,9 @@ Architecture was marked not required because this change affects Markdown docume
 - M2 final `rg` checks passed for proxy backup coverage, guide metadata/sections, command context, expected results, rollback, troubleshooting, and evidence-file existence.
 - M3 final validation passed: `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh`.
 - M3 final whitespace validation passed: `git diff --check`.
+- M4 final validation passed: `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh`.
+- M4 AC14 check passed: `rg -n 'status: accepted|^## Status$|^accepted$' docs/proposals/2026-06-15-how-to-guide-template-best-practices.md`.
+- M4 final whitespace validation passed: `git diff --check`.
 
 ## Scope Control
 
@@ -60,4 +64,4 @@ This change does not:
 
 ## Current State
 
-M1 and M2 are closed after code review. M3 implementation is ready for code-review after targeted validation. M4, code-review, review-resolution if needed, final verification, and PR handoff remain open.
+M1, M2, and M3 are closed after code review. M4 implementation is ready for code-review after targeted validation. M4 code-review, review-resolution if needed, final verification, and PR handoff remain open.

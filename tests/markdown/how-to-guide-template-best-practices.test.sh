@@ -93,12 +93,14 @@ reject_regex() {
 template=docs/templates/how-to-guide.md
 proxy_guide=docs/guides/proxy-setup.md
 ubuntu_pilot=docs/guides/03-ubuntu-baseline.md
+proposal=docs/proposals/2026-06-15-how-to-guide-template-best-practices.md
 exemplar_review=docs/changes/2026-06-15-how-to-guide-template-best-practices/exemplar-review.md
 portability_review=docs/changes/2026-06-15-how-to-guide-template-best-practices/portability-pilot-review.md
 
 require_file "$template"
 require_file "$proxy_guide"
 require_file "$ubuntu_pilot"
+require_file "$proposal"
 require_regex "$template" '^# <(Configure|Verb|[A-Z][^>]*)'
 
 for text in \
@@ -215,6 +217,8 @@ require_text specs/how-to-guide-template-best-practices.md "First-slice validati
 require_text specs/how-to-guide-template-best-practices.md "First-slice validation MUST NOT require a Windows + WSL CI runner."
 require_text specs/how-to-guide-template-best-practices.md 'This spec MUST NOT require renaming `docs/guides/03-ubuntu-baseline.md`'
 require_text specs/guides-two-speed-how-to-structure.md "CI or automated command execution for setup code blocks MUST NOT be required in the first implementation slice."
+require_text "$proposal" "status: accepted"
+require_regex "$proposal" '^accepted$'
 
 for path in \
   "$template" \
