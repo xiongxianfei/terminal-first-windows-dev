@@ -71,9 +71,9 @@ The first implementation should preserve discoverability for the existing number
 - Last reviewed milestone: M3
 - Review status: code-review M3 R1 clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: pr
+- Next stage: pr handoff
 - Final closeout readiness: ready
-- Reason final closeout is or is not ready: Final verification passed locally; PR handoff remains.
+- Reason final closeout is or is not ready: Final verification passed locally; PR handoff is being prepared.
 
 ## Milestones
 
@@ -269,6 +269,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-15: M3 code-review R1 recorded clean-with-notes and closed M3. No in-scope implementation milestones remain.
 - 2026-06-15: Final explain-change updated to summarize M1-M3 rationale, review outcomes, validation evidence, alternatives, scope control, and risks.
 - 2026-06-15: Final verification passed locally and was recorded in `docs/changes/2026-06-07-guides-two-speed-how-to-structure/verify-report.md`.
+- 2026-06-15: PR handoff prepared at `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pr.md`.
 
 ## Decision log
 
@@ -368,5 +369,5 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for PR handoff.
-- Remaining completion gates: PR handoff.
+- PR handoff prepared.
+- Remaining completion gates: open or hand off the PR.
