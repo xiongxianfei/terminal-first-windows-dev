@@ -71,9 +71,9 @@ The first implementation should preserve discoverability for the existing number
 - Last reviewed milestone: M2
 - Review status: code-review M3 R1 clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: final closeout
+- Next stage: verify
 - Final closeout readiness: ready
-- Reason final closeout is or is not ready: All in-scope implementation milestones are closed; final verification and PR handoff have not run.
+- Reason final closeout is or is not ready: All in-scope implementation milestones are closed and final explain-change is current; final verification and PR handoff have not run.
 
 ## Milestones
 
@@ -267,6 +267,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-15: M3 implementation started after the planned proof script was missing as expected.
 - 2026-06-15: M3 added the static guide-structure proof script and passed targeted validation.
 - 2026-06-15: M3 code-review R1 recorded clean-with-notes and closed M3. No in-scope implementation milestones remain.
+- 2026-06-15: Final explain-change updated to summarize M1-M3 rationale, review outcomes, validation evidence, alternatives, scope control, and risks.
 
 ## Decision log
 
@@ -359,5 +360,5 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for final closeout.
+- Ready for final verify.
 - Remaining completion gates: final verify and PR handoff.
