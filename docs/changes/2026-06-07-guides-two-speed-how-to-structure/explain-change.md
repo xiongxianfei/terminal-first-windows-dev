@@ -35,8 +35,7 @@ M1 explanation recorded for code-review handoff.
 
 ## Remaining workflow
 
-- Review M2 proxy pilot.
-- Implement and review M3 lightweight validation after M2 closes.
+- Review M3 lightweight validation.
 - Run final verify and PR handoff only after all implementation milestones and reviews are closed.
 
 ## M2 change rationale
@@ -46,3 +45,10 @@ M1 explanation recorded for code-review handoff.
 | `docs/guides/proxy-setup.md` | Adds the required proxy pilot guide using the two-speed structure, with automatic proxy mirroring as the primary path and inline links to proxy troubleshooting anchors. |
 | `docs/guides/README.md` | Routes proxy readers to the new task-scoped pilot while preserving the legacy Ubuntu baseline proxy section as the compatibility context. |
 | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` | Records the required manual fast-path benefit evidence for the pilot, including starting state, approximate time, completion result, and limits of command execution evidence. |
+
+## M3 change rationale
+
+| File | Why it changed |
+| --- | --- |
+| `tests/markdown/guides-two-speed-how-to-structure.test.sh` | Adds the implementation-owned static proof script required by M3. It checks guide structure, migration discoverability, proxy troubleshooting anchors, pilot evidence, and no-command-execution guardrails without running setup commands. |
+| `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` | Records M3 baseline failure, validation evidence, and review-requested handoff state. |
