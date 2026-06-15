@@ -6,8 +6,8 @@ docs: add best-practice how-to guide template
 
 ## PR Open Status
 
-- Status: prepared before opening.
-- URL: pending.
+- Status: opened.
+- URL: https://github.com/xiongxianfei/terminal-first-windows-dev/pull/3
 - Local branch: `proposal/how-to-guide-template-best-practices`
 - Base branch: `main`
 - Blocker: none.
