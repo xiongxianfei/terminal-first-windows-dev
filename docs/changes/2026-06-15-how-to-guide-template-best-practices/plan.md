@@ -65,13 +65,13 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Current Handoff Summary
 
 - Current milestone: M3
-- Current milestone state: planned
+- Current milestone state: review-requested
 - Last reviewed milestone: M2 code-review R1
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: M3, M4
-- Next stage: implement M3
+- Next stage: code-review M3
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M1 and M2 are closed, but M3, M4, final verification, and PR gates remain.
+- Reason final closeout is or is not ready: M1 and M2 are closed and M3 is ready for code-review, but M4, M3 code-review, final verification, and PR gates remain.
 
 ## Milestones
 
@@ -159,7 +159,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 
 ### M3. Static validation checks
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Add lightweight static validation for template and guide conformance without executing setup command blocks.
 - Requirements: R46-R54, AC10-AC13
 - Files/components likely touched:
@@ -276,6 +276,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - 2026-06-15: M2 implementation started by extending the static proof script to cover guide conformance and required exemplar/pilot evidence before changing the portability pilot.
 - 2026-06-15: M2 implementation completed targeted validation and moved to `review-requested`.
 - 2026-06-15: M2 code review R1 closed with `clean-with-notes` and no material findings.
+- 2026-06-15: M3 implementation extended the proof script with troubleshooting link/anchor resolution, no-command-execution guardrails, no-Windows-WSL-runner guardrails, pilot path compatibility checks, and secret/generated-tooling negative checks.
 
 ## Decision log
 
@@ -316,6 +317,9 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
   - `test -f docs/changes/2026-06-15-how-to-guide-template-best-practices/exemplar-review.md` passed.
   - `test -f docs/changes/2026-06-15-how-to-guide-template-best-practices/portability-pilot-review.md` passed.
   - `git diff --check` passed.
+- M3 final validation:
+  - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh` passed.
+  - `git diff --check` passed.
 
 ## Outcome and retrospective
 
@@ -324,4 +328,4 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M3 implementation. Readiness is not Done; M3, M4, final verification, and PR handoff remain.
+- Ready for M3 code-review. Readiness is not Done; M3 code-review, M4, final verification, and PR handoff remain.

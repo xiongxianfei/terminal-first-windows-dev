@@ -9,5 +9,5 @@ architecture: not-required
 plan: plan.md
 current_stage: implementation
 current_milestone: M3
-next_stage: implement
+next_stage: code-review
 open_blockers: []
