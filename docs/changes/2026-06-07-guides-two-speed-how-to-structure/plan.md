@@ -66,14 +66,14 @@ The first implementation should preserve discoverability for the existing number
 
 ## Current Handoff Summary
 
-- Current milestone: M1
-- Current milestone state: closed
+- Current milestone: M2
+- Current milestone state: review-requested
 - Last reviewed milestone: M1
 - Review status: code-review M1 R1 clean-with-notes
 - Remaining in-scope implementation milestones: M2, M3
-- Next stage: implement M2
+- Next stage: code-review M2
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M1 is closed; M2 and M3 remain open, and final verify and PR handoff have not run.
+- Reason final closeout is or is not ready: M2 is implemented and awaiting code-review; M2 review, M3 implementation/review, final verify, and PR handoff remain.
 
 ## Milestones
 
@@ -124,7 +124,7 @@ The first implementation should preserve discoverability for the existing number
 
 ### M2. Proxy setup pilot
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Convert proxy setup into the first task-scoped two-speed guide and capture pilot benefit evidence.
 - Requirements: R12-R32, R40, AC4-AC7, AC12
 - Files/components likely touched:
@@ -150,6 +150,11 @@ The first implementation should preserve discoverability for the existing number
   - `rg -n "../troubleshooting/proxy.md#" docs/guides/proxy-setup.md`
   - `test -f docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md`
 - Expected observable result: Proxy setup is available as a task-scoped two-speed guide with inline recovery links and recorded fast-path benefit evidence.
+- Result:
+  - Added `docs/guides/proxy-setup.md` as the two-speed proxy pilot guide.
+  - Updated `docs/guides/README.md` so proxy readers route to the task-scoped pilot while the numbered Ubuntu baseline proxy section remains discoverable as compatibility context.
+  - Added `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` with manual fast-path benefit evidence, documented starting state, approximate completion time, and command-execution limits.
+  - M2 validation passed with file, structure, troubleshooting-link, anchor, pilot-evidence, whitespace, and ASCII checks.
 - Commit message: `M2: convert proxy setup pilot guide`
 - Milestone closeout:
   - validation passed
@@ -251,6 +256,8 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-07: M1 added the guide router and how-to template, then passed targeted validation.
 - 2026-06-07: M1 explanation recorded in `docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md` for code-review handoff.
 - 2026-06-07: M1 code-review R1 recorded clean-with-notes and closed M1. Next stage is M2 implementation.
+- 2026-06-15: M2 implementation started after baseline file-existence and structure checks failed for the missing proxy pilot guide and pilot review evidence as expected.
+- 2026-06-15: M2 added the proxy pilot guide, router update, and pilot review evidence, then passed targeted validation.
 
 ## Decision log
 
@@ -293,6 +300,24 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
   - `rg -n "01-windows-host|02-wsl2-ubuntu|03-ubuntu-baseline|04-neovim|05-tmux|99-verification" docs/guides/README.md` passed.
   - `git diff HEAD^..HEAD --check` passed.
   - `git status --short` returned no output before review artifacts were recorded.
+- M2 baseline proof before edits:
+  - `test -f docs/guides/proxy-setup.md` failed because the proxy pilot guide did not exist.
+  - `rg -n "^## Fast path$|^## Walkthrough$|Prerequisites|Outcome|Verify" docs/guides/proxy-setup.md` failed because the proxy pilot guide did not exist.
+  - `rg -n "../troubleshooting/proxy.md#" docs/guides/proxy-setup.md` failed because the proxy pilot guide did not exist.
+  - `test -f docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` failed because the pilot review evidence did not exist.
+- M2 validation after implementation:
+  - `test -f docs/guides/proxy-setup.md` passed.
+  - `rg -n "^## Fast path$|^## Walkthrough$|Prerequisites|Outcome|Verify" docs/guides/proxy-setup.md` passed.
+  - `rg -n "../troubleshooting/proxy.md#" docs/guides/proxy-setup.md` passed.
+  - `test -f docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` passed.
+  - `rg -n "^## Automatic proxy mirroring does not work$|^## Manual proxy fallback cautions$|^## WSL SSL certificate trust fails$" docs/troubleshooting/proxy.md` passed.
+  - `rg -n "Command execution status: not executed|Completion result: completable|Approximate completion time|documented starting state" docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` passed.
+- M2 final handoff validation:
+  - Re-ran the M2 file, metadata/section, troubleshooting-link, pilot-evidence, and numbered-step checks; all passed.
+  - `rg -n "^## Documented starting state$|Completion result|Approximate completion time|Command execution status" docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` passed.
+  - `rg -n "^1\\. |^2\\. |^3\\. |^### 1\\. |^### 2\\. |^### 3\\. " docs/guides/proxy-setup.md` passed.
+  - `git diff --check -- docs/guides/proxy-setup.md docs/guides/README.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/plan.md` passed.
+  - `LC_ALL=C rg -n "[^\\x00-\\x7F]" docs/guides/proxy-setup.md docs/guides/README.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/plan.md` returned no matches.
 
 ## Outcome and retrospective
 

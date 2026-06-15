@@ -26,7 +26,7 @@ Use these task targets when you already know which layer you need:
 | Configure Windows Terminal and host tooling | [Windows host setup](01-windows-host.md) | `windows-terminal-setup.md`, `powershell-setup.md` |
 | Install or migrate WSL2 Ubuntu | [WSL2 Ubuntu setup](02-wsl2-ubuntu.md) | `wsl-ubuntu-setup.md` |
 | Configure Ubuntu baseline behavior | [Ubuntu baseline setup](03-ubuntu-baseline.md) | `ubuntu-baseline.md` |
-| Configure proxy behavior | [Ubuntu baseline setup](03-ubuntu-baseline.md#proxy-primary-path) | `proxy-setup.md` |
+| Configure proxy behavior | [Proxy setup](proxy-setup.md) | Replaces the proxy section in [Ubuntu baseline setup](03-ubuntu-baseline.md#proxy-primary-path) as the task-scoped pilot |
 | Configure shared data access | [Ubuntu baseline setup](03-ubuntu-baseline.md#wsl-config) | `data-mount-setup.md` |
 | Set up Neovim | [Neovim setup](04-neovim.md) | `neovim-setup.md` |
 | Set up tmux | [tmux setup](05-tmux.md) | `tmux-setup.md` |
