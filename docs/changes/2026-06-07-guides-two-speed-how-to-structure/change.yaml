@@ -1,0 +1,11 @@
+id: 2026-06-07-guides-two-speed-how-to-structure
+title: Two-Speed How-To Guide Structure
+status: active
+created: 2026-06-07
+proposal: ../../proposals/2026-06-07-guides-two-speed-how-to-structure.md
+spec: ../../../specs/guides-two-speed-how-to-structure.md
+architecture: not-required
+plan: plan.md
+current_stage: pr-open
+next_stage: external-review
+open_blockers: []

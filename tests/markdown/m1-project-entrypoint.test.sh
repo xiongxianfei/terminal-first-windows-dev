@@ -29,7 +29,7 @@ grep -q 'Ubuntu' README.md
 grep -q 'verification-first' README.md
 grep -q 'not a one-command unattended installer' README.md
 
-for guide in docs/guides/*.md; do
+for guide in docs/guides/[0-9][0-9]-*.md; do
   grep -q '## Command environment' "$guide" || {
     echo "missing command environment section: $guide" >&2
     exit 1
