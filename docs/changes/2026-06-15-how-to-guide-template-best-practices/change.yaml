@@ -8,6 +8,6 @@ test_spec: ../../../specs/how-to-guide-template-best-practices.test.md
 architecture: not-required
 plan: plan.md
 current_stage: implementation
-current_milestone: M1
-next_stage: code-review
+current_milestone: M2
+next_stage: implement
 open_blockers: []
