@@ -67,13 +67,13 @@ The first implementation should preserve discoverability for the existing number
 ## Current Handoff Summary
 
 - Current milestone: M3
-- Current milestone state: review-requested
+- Current milestone state: closed
 - Last reviewed milestone: M2
-- Review status: code-review M2 R1 clean-with-notes
-- Remaining in-scope implementation milestones: M3
-- Next stage: code-review M3
-- Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M3 is implemented and awaiting code-review; M3 review, final verify, and PR handoff remain.
+- Review status: code-review M3 R1 clean-with-notes
+- Remaining in-scope implementation milestones: none
+- Next stage: final closeout
+- Final closeout readiness: ready
+- Reason final closeout is or is not ready: All in-scope implementation milestones are closed; final verification and PR handoff have not run.
 
 ## Milestones
 
@@ -171,7 +171,7 @@ The first implementation should preserve discoverability for the existing number
 
 ### M3. Lightweight guide validation
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Add lightweight validation for guide shape and links without executing setup command blocks.
 - Requirements: R33-R36, AC8-AC10
 - Files/components likely touched:
@@ -266,6 +266,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-15: M2 code-review R1 recorded clean-with-notes and closed M2. Next stage is M3 implementation.
 - 2026-06-15: M3 implementation started after the planned proof script was missing as expected.
 - 2026-06-15: M3 added the static guide-structure proof script and passed targeted validation.
+- 2026-06-15: M3 code-review R1 recorded clean-with-notes and closed M3. No in-scope implementation milestones remain.
 
 ## Decision log
 
@@ -345,6 +346,11 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
   - `LC_ALL=C rg -n "[^\\x00-\\x7F]" tests/markdown/guides-two-speed-how-to-structure.test.sh docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` returned no matches.
   - `git diff --cached --name-only` showed only the M3 proof script and lifecycle metadata files.
   - `git diff --cached --check` passed.
+- M3 code-review validation:
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh` passed.
+  - `git diff HEAD^..HEAD --check` passed.
+  - `git show --check --format=short HEAD` passed.
+  - `rg -n "apt update|sudo apt|winget |wsl --install|update-ca-certificates" tests/markdown/guides-two-speed-how-to-structure.test.sh` returned no matches.
 
 ## Outcome and retrospective
 
@@ -353,5 +359,5 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for code-review M3.
-- Remaining completion gates: code-review M3, review-resolution if triggered, verify, and PR handoff.
+- Ready for final closeout.
+- Remaining completion gates: final verify and PR handoff.

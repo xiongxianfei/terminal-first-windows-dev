@@ -226,3 +226,38 @@ No material findings.
 ### Handoff
 
 M2 is closed. The next implementation stage is M3, lightweight guide validation. Final closeout is not ready because M3 remains open.
+
+## Code Review Result - M3 R1
+
+- Skill: code-review
+- Status: completed
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Recording blocker: none
+- Review record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m3-r1.md`
+- Review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
+- Review resolution: not-required
+- Reviewed milestone: M3
+- Milestone closeout: closed
+- Remaining implementation milestones: none
+- Next stage: final closeout
+- Verify readiness: not-claimed
+
+Review date: 2026-06-15
+
+### Review Inputs
+
+- Review surface: commit `b7d0079` (`M3: add guide structure validation`)
+- Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Spec: `specs/guides-two-speed-how-to-structure.md`
+- Test spec: `specs/guides-two-speed-how-to-structure.test.md`
+- M3 artifact: `tests/markdown/guides-two-speed-how-to-structure.test.sh`
+
+### Findings
+
+No material findings.
+
+### Handoff
+
+M3 is closed. No in-scope implementation milestones remain. The next stage is final closeout; final verification and PR handoff have not run.
