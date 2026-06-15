@@ -33,6 +33,7 @@ Architecture was marked not required because this change affects documentation s
 | `docs/guides/proxy-setup.md` | Added the first task-scoped two-speed pilot guide. | Satisfies R12-R30, R40, AC4-AC6, and AC12 using proxy setup as the representative hard case. | Spec R12-R30, R40; plan M2. | M2 validation, M2 code review, M3 proof script. |
 | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` | Recorded manual fast-path walkthrough evidence and command-execution limits. | Satisfies R31-R32 and AC7 without claiming live Windows/WSL/proxy execution. | Spec R31-R32; test spec T4. | M2 validation and M2 code review. |
 | `tests/markdown/guides-two-speed-how-to-structure.test.sh` | Added static Markdown proof script. | Satisfies R33-R36 and AC8-AC10 by checking guide shape, links, anchors, migration discoverability, pilot evidence, and no-command-execution guardrails. | Spec R33-R36; test spec T5-T8; plan M3. | M3 validation and M3 code review. |
+| `tests/markdown/m1-project-entrypoint.test.sh` | Scoped legacy setup-guide section checks to numbered setup guides. | Final verification found that the previous `docs/guides/*.md` glob incorrectly treated the new router and task guide as old numbered setup guides. | Existing workstation setup validation plus this change's new guide taxonomy. | Full Markdown test suite passed after the fix. |
 | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` | Recorded milestone progress, validation, review closeout, and final-closeout readiness. | Keeps the living plan aligned with implementation and review state. | Workflow and plan requirements. | Code review records and validation notes. |
 | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml` | Updated compact lifecycle stage as milestones advanced. | Keeps change metadata aligned with plan state. | Workflow metadata expectations. | Plan/index consistency checks. |
 | `docs/plan.md` | Updated active plan index through milestone handoffs and final closeout readiness. | Keeps project-level lifecycle routing current. | Workflow guidance. | Plan/index consistency checks. |
@@ -51,6 +52,7 @@ Architecture was marked not required because this change affects documentation s
 - M1 implementation and review ran file, heading, router discoverability, template placement, whitespace, and ASCII checks.
 - M2 implementation and review ran proxy-guide structure, troubleshooting-link, anchor, pilot-evidence, numbered-step, whitespace, and ASCII checks.
 - M3 implementation and review ran `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`, `git diff --check`, `git diff --cached --check`, `git diff HEAD^..HEAD --check`, and `git show --check --format=short HEAD`.
+- Final closeout ran the full `tests/markdown/*.test.sh` suite. It initially exposed that `tests/markdown/m1-project-entrypoint.test.sh` still treated every file under `docs/guides/` as a numbered setup guide; the glob was narrowed to `docs/guides/[0-9][0-9]-*.md`, and the full suite then passed.
 - No hosted CI result has been observed or claimed.
 
 ## Review Resolution Summary

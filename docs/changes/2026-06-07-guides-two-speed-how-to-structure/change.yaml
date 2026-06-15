@@ -6,6 +6,6 @@ proposal: ../../proposals/2026-06-07-guides-two-speed-how-to-structure.md
 spec: ../../../specs/guides-two-speed-how-to-structure.md
 architecture: not-required
 plan: plan.md
-current_stage: verify-ready
-next_stage: verify
+current_stage: pr-ready
+next_stage: pr
 open_blockers: []

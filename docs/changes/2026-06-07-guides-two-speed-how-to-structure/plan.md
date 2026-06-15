@@ -68,12 +68,12 @@ The first implementation should preserve discoverability for the existing number
 
 - Current milestone: M3
 - Current milestone state: closed
-- Last reviewed milestone: M2
+- Last reviewed milestone: M3
 - Review status: code-review M3 R1 clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: verify
+- Next stage: pr
 - Final closeout readiness: ready
-- Reason final closeout is or is not ready: All in-scope implementation milestones are closed and final explain-change is current; final verification and PR handoff have not run.
+- Reason final closeout is or is not ready: Final verification passed locally; PR handoff remains.
 
 ## Milestones
 
@@ -268,6 +268,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-15: M3 added the static guide-structure proof script and passed targeted validation.
 - 2026-06-15: M3 code-review R1 recorded clean-with-notes and closed M3. No in-scope implementation milestones remain.
 - 2026-06-15: Final explain-change updated to summarize M1-M3 rationale, review outcomes, validation evidence, alternatives, scope control, and risks.
+- 2026-06-15: Final verification passed locally and was recorded in `docs/changes/2026-06-07-guides-two-speed-how-to-structure/verify-report.md`.
 
 ## Decision log
 
@@ -352,6 +353,13 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
   - `git diff HEAD^..HEAD --check` passed.
   - `git show --check --format=short HEAD` passed.
   - `rg -n "apt update|sudo apt|winget |wsl --install|update-ca-certificates" tests/markdown/guides-two-speed-how-to-structure.test.sh` returned no matches.
+- Final verification validation:
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh` passed.
+  - `bash tests/markdown/m1-project-entrypoint.test.sh` initially failed because it still applied numbered setup-guide section requirements to `docs/guides/README.md`.
+  - `tests/markdown/m1-project-entrypoint.test.sh` was updated to scope legacy setup-guide section checks to `docs/guides/[0-9][0-9]-*.md`.
+  - `bash tests/markdown/m1-project-entrypoint.test.sh` passed after the fix.
+  - `bash -c 'set -euo pipefail; for test_script in tests/markdown/*.test.sh; do echo "== $test_script"; bash "$test_script"; done'` passed.
+  - Hosted CI was not available or observed.
 
 ## Outcome and retrospective
 
@@ -360,5 +368,5 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for final verify.
-- Remaining completion gates: final verify and PR handoff.
+- Ready for PR handoff.
+- Remaining completion gates: PR handoff.
