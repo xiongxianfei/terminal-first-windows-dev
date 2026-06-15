@@ -65,13 +65,13 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Current Handoff Summary
 
 - Current milestone: M2
-- Current milestone state: planned
+- Current milestone state: review-requested
 - Last reviewed milestone: M1 code-review R1
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: M2, M3, M4
-- Next stage: implement M2
+- Next stage: code-review M2
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M1 is closed, but M2, M3, M4, final verification, and PR gates remain.
+- Reason final closeout is or is not ready: M1 is closed and M2 is ready for code-review, but M3, M4, M2 code-review, final verification, and PR gates remain.
 
 ## Milestones
 
@@ -116,7 +116,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 
 ### M2. Exemplar and portability pilot conformance
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Validate the template against the demanding proxy exemplar and the independent Ubuntu baseline portability pilot.
 - Requirements: R30-R45, R52-R54, AC7-AC9, AC12-AC13
 - Files/components likely touched:
@@ -273,6 +273,8 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - 2026-06-15: M1 implementation started with the template proof script before changing `docs/templates/how-to-guide.md`.
 - 2026-06-15: M1 template implementation completed targeted validation and moved to `review-requested`.
 - 2026-06-15: M1 code review R1 closed with `clean-with-notes` and no material findings.
+- 2026-06-15: M2 implementation started by extending the static proof script to cover guide conformance and required exemplar/pilot evidence before changing the portability pilot.
+- 2026-06-15: M2 implementation completed targeted validation and moved to `review-requested`.
 
 ## Decision log
 
@@ -302,6 +304,17 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
   - `rg -n "^## Fast path$|^## Walkthrough$|^## Rollback$|^## Troubleshooting$" docs/templates/how-to-guide.md` passed.
   - `rg -n "Backup|Rollback|Scope|powershell|bash|not idempotent|secrets|troubleshooting" docs/templates/how-to-guide.md` passed.
   - `git diff --check` passed.
+- M2 proof-first validation:
+  - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh` failed before the portability-pilot rewrite with `missing text in docs/guides/03-ubuntu-baseline.md: **Prerequisites:**`.
+  - After the portability-pilot rewrite, the same command failed with `missing required file: docs/changes/2026-06-15-how-to-guide-template-best-practices/exemplar-review.md`, proving the evidence-record checks were active.
+- M2 final validation:
+  - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh` passed.
+  - `rg -n 'Backup: if `%UserProfile%\\.wslconfig` already exists|Backup behavior: if the file already exists' docs/guides/proxy-setup.md` passed.
+  - `rg -n '^## Fast path$|^## Walkthrough$|Prerequisites|Outcome|Verify' docs/guides/proxy-setup.md docs/guides/03-ubuntu-baseline.md` passed.
+  - `rg -n 'Run from|Expected result|Rollback|Troubleshooting|Backup' docs/guides/proxy-setup.md docs/guides/03-ubuntu-baseline.md` passed.
+  - `test -f docs/changes/2026-06-15-how-to-guide-template-best-practices/exemplar-review.md` passed.
+  - `test -f docs/changes/2026-06-15-how-to-guide-template-best-practices/portability-pilot-review.md` passed.
+  - `git diff --check` passed.
 
 ## Outcome and retrospective
 
@@ -310,4 +323,4 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M2 implementation. Readiness is not Done; M2, M3, M4, final verification, and PR handoff remain.
+- Ready for M2 code-review. Readiness is not Done; M2 code-review, M3, M4, final verification, and PR handoff remain.

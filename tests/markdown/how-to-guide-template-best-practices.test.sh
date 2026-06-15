@@ -39,8 +39,14 @@ require_order() {
 }
 
 template=docs/templates/how-to-guide.md
+proxy_guide=docs/guides/proxy-setup.md
+ubuntu_pilot=docs/guides/03-ubuntu-baseline.md
+exemplar_review=docs/changes/2026-06-15-how-to-guide-template-best-practices/exemplar-review.md
+portability_review=docs/changes/2026-06-15-how-to-guide-template-best-practices/portability-pilot-review.md
 
 require_file "$template"
+require_file "$proxy_guide"
+require_file "$ubuntu_pilot"
 require_regex "$template" '^# <(Configure|Verb|[A-Z][^>]*)'
 
 for text in \
@@ -99,3 +105,54 @@ test ! -f docs/guides/_template.md || fail "template must not live under docs/gu
 if grep -Eiq "generated documentation site|template engine|one-command installer|hidden automation" "$template"; then
   fail "template must not introduce generated docs tooling or hidden automation"
 fi
+
+for guide in "$proxy_guide" "$ubuntu_pilot"; do
+  require_text "$guide" "**Prerequisites:**"
+  require_text "$guide" "**Time:**"
+  require_text "$guide" "**Outcome:**"
+  require_text "$guide" "**Verify:**"
+  require_text "$guide" "## Fast path"
+  require_text "$guide" "## Walkthrough"
+  require_text "$guide" "## Rollback"
+  require_text "$guide" "## Troubleshooting"
+  require_text "$guide" "Run from"
+  require_text "$guide" "Expected result:"
+  require_order "$guide" "**Prerequisites:**" "## Fast path"
+  require_order "$guide" "## Fast path" "## Walkthrough"
+  require_order "$guide" "## Walkthrough" "## Rollback"
+  require_order "$guide" "## Rollback" "## Troubleshooting"
+done
+
+require_text "$proxy_guide" 'Backup: if `%UserProfile%\.wslconfig` already exists, save a copy before editing it.'
+require_text "$proxy_guide" "Backup behavior: if the file already exists, save a copy before editing it."
+
+require_text "$ubuntu_pilot" 'Backup: if `%UserProfile%\.wslconfig` already exists, save a copy before editing it.'
+require_text "$ubuntu_pilot" 'Backup: back up `/etc/wsl.conf` before editing it.'
+require_text "$ubuntu_pilot" "Backup: back up current APT source files before editing them."
+require_text "$ubuntu_pilot" 'Backup: back up `/etc/fstab` before editing it.'
+require_text "$ubuntu_pilot" 'Backup: if `/etc/sudoers.d/terminal-first-windows-dev` already exists, save a copy before replacing it.'
+require_text "$ubuntu_pilot" "Scope:"
+require_text "$ubuntu_pilot" "Safety:"
+require_text "$ubuntu_pilot" "../troubleshooting/proxy.md"
+
+require_file "$exemplar_review"
+require_file "$portability_review"
+
+for review in "$exemplar_review" "$portability_review"; do
+  require_text "$review" "Guide path:"
+  require_text "$review" "Reviewer:"
+  require_text "$review" "Review mode:"
+  require_text "$review" "Starting prerequisites:"
+  require_text "$review" "Fast-path result:"
+  require_text "$review" "Verification signal:"
+  require_text "$review" "Defects found:"
+  require_text "$review" "Backup coverage:"
+  require_text "$review" "Command execution status:"
+  require_text "$review" "No private machine data, credentials, private hostnames, tokens, or personal paths are recorded."
+done
+
+require_text "$exemplar_review" "Reference exemplar, not the only validation pilot"
+require_text "$portability_review" "Reviewer/template author separation:"
+require_text "$portability_review" "Windows 11 + WSL execution or dry-run status:"
+require_text "$portability_review" "Walkthrough use:"
+require_text "$portability_review" "Template portability result:"
