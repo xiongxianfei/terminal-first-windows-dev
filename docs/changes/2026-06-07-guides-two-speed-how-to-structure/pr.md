@@ -6,10 +6,11 @@ Adopt two-speed how-to guide structure
 
 ## PR Open Status
 
-- Status: prepared, authentication available, not opened yet.
+- Status: opened.
+- URL: https://github.com/xiongxianfei/terminal-first-windows-dev/pull/2
 - Local branch: `feature/guides-two-speed-how-to-structure`
 - Base branch: `main`
-- Blocker: none currently. GitHub CLI authentication is available; branch push and PR creation are being retried.
+- Blocker: none.
 
 ## Summary
 

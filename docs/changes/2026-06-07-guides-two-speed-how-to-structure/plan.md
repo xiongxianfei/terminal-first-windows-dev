@@ -71,9 +71,9 @@ The first implementation should preserve discoverability for the existing number
 - Last reviewed milestone: M3
 - Review status: code-review M3 R1 clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: open PR
+- Next stage: PR review
 - Final closeout readiness: ready
-- Reason final closeout is or is not ready: Final verification passed locally and PR handoff is prepared; GitHub authentication is now available and PR opening is in progress.
+- Reason final closeout is or is not ready: PR is open at https://github.com/xiongxianfei/terminal-first-windows-dev/pull/2; external PR review/merge remains.
 
 ## Milestones
 
@@ -272,6 +272,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-15: PR handoff prepared at `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pr.md`.
 - 2026-06-15: Created local branch `feature/guides-two-speed-how-to-structure`; pushing/opening PR was blocked because GitHub credentials were unavailable.
 - 2026-06-16: GitHub CLI authentication became available; branch push and PR creation retried.
+- 2026-06-16: Opened PR https://github.com/xiongxianfei/terminal-first-windows-dev/pull/2.
 
 ## Decision log
 
@@ -371,5 +372,5 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 ## Readiness
 
 - See `Current Handoff Summary`.
-- PR handoff prepared; PR opening in progress.
-- Remaining completion gates: push branch and open PR.
+- PR handoff complete.
+- Remaining completion gates: external PR review and merge.
