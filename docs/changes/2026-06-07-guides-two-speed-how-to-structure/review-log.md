@@ -191,3 +191,38 @@ No material findings.
 ### Handoff
 
 M1 is closed. The next implementation stage is M2, the proxy setup pilot. Final closeout is not ready because M2 and M3 remain open.
+
+## Code Review Result - M2 R1
+
+- Skill: code-review
+- Status: completed
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Recording blocker: none
+- Review record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m2-r1.md`
+- Review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
+- Review resolution: not-required
+- Reviewed milestone: M2
+- Milestone closeout: closed
+- Remaining implementation milestones: M3
+- Next stage: implement M3
+- Verify readiness: not-claimed
+
+Review date: 2026-06-15
+
+### Review Inputs
+
+- Review surface: commit `8e91b91` (`M2: convert proxy setup pilot guide`)
+- Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Spec: `specs/guides-two-speed-how-to-structure.md`
+- Test spec: `specs/guides-two-speed-how-to-structure.test.md`
+- M2 artifacts: `docs/guides/proxy-setup.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md`
+
+### Findings
+
+No material findings.
+
+### Handoff
+
+M2 is closed. The next implementation stage is M3, lightweight guide validation. Final closeout is not ready because M3 remains open.

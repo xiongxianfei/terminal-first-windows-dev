@@ -67,13 +67,13 @@ The first implementation should preserve discoverability for the existing number
 ## Current Handoff Summary
 
 - Current milestone: M2
-- Current milestone state: review-requested
-- Last reviewed milestone: M1
-- Review status: code-review M1 R1 clean-with-notes
-- Remaining in-scope implementation milestones: M2, M3
-- Next stage: code-review M2
+- Current milestone state: closed
+- Last reviewed milestone: M2
+- Review status: code-review M2 R1 clean-with-notes
+- Remaining in-scope implementation milestones: M3
+- Next stage: implement M3
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M2 is implemented and awaiting code-review; M2 review, M3 implementation/review, final verify, and PR handoff remain.
+- Reason final closeout is or is not ready: M2 is closed; M3 remains open, and final verify and PR handoff have not run.
 
 ## Milestones
 
@@ -124,7 +124,7 @@ The first implementation should preserve discoverability for the existing number
 
 ### M2. Proxy setup pilot
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Convert proxy setup into the first task-scoped two-speed guide and capture pilot benefit evidence.
 - Requirements: R12-R32, R40, AC4-AC7, AC12
 - Files/components likely touched:
@@ -258,6 +258,7 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
 - 2026-06-07: M1 code-review R1 recorded clean-with-notes and closed M1. Next stage is M2 implementation.
 - 2026-06-15: M2 implementation started after baseline file-existence and structure checks failed for the missing proxy pilot guide and pilot review evidence as expected.
 - 2026-06-15: M2 added the proxy pilot guide, router update, and pilot review evidence, then passed targeted validation.
+- 2026-06-15: M2 code-review R1 recorded clean-with-notes and closed M2. Next stage is M3 implementation.
 
 ## Decision log
 
@@ -318,6 +319,13 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
   - `rg -n "^1\\. |^2\\. |^3\\. |^### 1\\. |^### 2\\. |^### 3\\. " docs/guides/proxy-setup.md` passed.
   - `git diff --check -- docs/guides/proxy-setup.md docs/guides/README.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/plan.md` passed.
   - `LC_ALL=C rg -n "[^\\x00-\\x7F]" docs/guides/proxy-setup.md docs/guides/README.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/plan.md` returned no matches.
+- M2 code-review validation:
+  - `test -f docs/guides/proxy-setup.md` passed.
+  - `rg -n "^## Fast path$|^## Walkthrough$|Prerequisites|Outcome|Verify" docs/guides/proxy-setup.md` passed.
+  - `rg -n "../troubleshooting/proxy.md#" docs/guides/proxy-setup.md` passed.
+  - `test -f docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` passed.
+  - `rg -n "^## Automatic proxy mirroring does not work$|^## Manual proxy fallback cautions$|^## WSL SSL certificate trust fails$" docs/troubleshooting/proxy.md` passed.
+  - `git diff HEAD^..HEAD --check` passed.
 
 ## Outcome and retrospective
 
