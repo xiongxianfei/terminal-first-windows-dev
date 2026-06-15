@@ -7,7 +7,7 @@ spec: ../../../specs/how-to-guide-template-best-practices.md
 test_spec: ../../../specs/how-to-guide-template-best-practices.test.md
 architecture: not-required
 plan: plan.md
-current_stage: implementation
+current_stage: final-closeout
 current_milestone: M4
-next_stage: code-review
+next_stage: final-closeout
 open_blockers: []
