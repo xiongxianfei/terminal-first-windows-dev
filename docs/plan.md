@@ -15,5 +15,3 @@ None.
 | Change | Plan | Completed | Result |
 | --- | --- | --- | --- |
 | `2026-06-07-guides-two-speed-how-to-structure` | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` | 2026-06-15 | PR #2 merged; guide router, template, proxy pilot, and lightweight validation added. |
-
-None.
