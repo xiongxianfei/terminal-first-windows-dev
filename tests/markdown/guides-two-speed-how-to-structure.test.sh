@@ -44,6 +44,8 @@ require_file "$pilot_review"
 for path in \
   docs/guides/01-windows-host.md \
   docs/guides/02-wsl2-ubuntu.md \
+  docs/guides/wsl-ubuntu-install.md \
+  docs/guides/wsl-ubuntu-migration.md \
   docs/guides/03-ubuntu-baseline.md \
   docs/guides/04-neovim.md \
   docs/guides/05-tmux.md \
@@ -58,7 +60,9 @@ require_text "$router" "I hit a failure"
 require_text "$router" "Task-scoped filenames should be stable, lowercase, hyphenated, and unnumbered"
 require_text "$router" "[Proxy setup](proxy-setup.md)"
 require_text "$router" "[Prepare the Windows host](01-windows-host.md)"
-require_text "$router" "[Install or migrate WSL2 Ubuntu](02-wsl2-ubuntu.md)"
+require_text "$router" "[Install WSL2 Ubuntu](wsl-ubuntu-install.md)"
+require_text "$router" "[Migrate WSL2 Ubuntu](wsl-ubuntu-migration.md)"
+require_text "$router" "[WSL compatibility path](02-wsl2-ubuntu.md)"
 require_text "$router" "[Configure the Ubuntu baseline](03-ubuntu-baseline.md)"
 require_text "$router" "[Set up Neovim](04-neovim.md)"
 require_text "$router" "[Set up tmux](05-tmux.md)"

@@ -1,47 +1,144 @@
-# Verification
+# Verify the terminal-first workstation
 
-## Purpose
+**Prerequisites:** Complete the setup guide paths you want to verify. Use unresolved follow-ups in the inventory instead of active guide links for targets that are not converted yet.
+**Time:** 10-20 minutes for static checks and manual command review; longer if you run every workstation command on Windows and Ubuntu.
+**Outcome:** Each setup layer has a recorded result using `pass`, `fail`, `skipped`, or `needs manual action`.
+**Verify:** `bash tests/markdown/remaining-guides-template-rollout.test.sh` passes for the documentation contract, and manual workstation checks record their result state.
+**Scope:** Verification reads workstation state and may create short-lived local sessions. It does not replace the setup guides.
+**Backup:** Not applicable for read-only verification. If you save local result logs, keep them scrubbed of secrets, proxy credentials, tokens, private hostnames, and private machine paths.
+**Rollback:** Rerun the affected check after correcting setup state, or restore the previous verification record if a result was recorded incorrectly.
+**Safety:** Do not treat manual Windows or machine-changing checks as passed unless they were actually run. Verification output must not include secrets, proxy credentials, tokens, private hostnames, or private machine paths beyond documented examples.
 
-Collect the checks that prove each setup layer is working. Verification is the user-facing proof surface for this project.
+## Fast path
 
-## Command environment
+1. Verify the active guide paths exist.
 
-- Windows PowerShell: Windows host, WSL, Windows Neovim, and Windows Terminal checks.
-- Ubuntu shell: Ubuntu baseline, proxy, data mount, locale, sudo, Ubuntu Neovim, and tmux checks.
-- Neovim command: editor health checks.
-- tmux command: tmux session and config checks.
-- Manual verification: Windows-only and machine-changing paths that cannot be proven safely from static repository checks.
+   Run from Ubuntu:
 
-## Safety notes
+   ```bash
+   test -f docs/guides/01-windows-host.md
+   test -f docs/guides/wsl-ubuntu-install.md
+   test -f docs/guides/wsl-ubuntu-migration.md
+   test -f docs/guides/proxy-setup.md
+   test -f docs/guides/04-neovim.md
+   test -f docs/guides/05-tmux.md
+   test -f docs/guides/06-uv.md
+   ```
 
-- Doctor checks should report state before making changes.
-- Any helper that writes files must disclose target path, backup behavior, rollback behavior, and scope.
-- Verification output must not include secrets, proxy credentials, tokens, private hostnames, or private machine paths beyond documented examples.
-- This project is not a one-command unattended installer.
+   Expected result: every active verification reference exists. The current unresolved Ubuntu baseline target is listed in the verification target inventory instead of linked as an active verification step.
 
-## Result vocabulary
+2. Run the static documentation checks.
 
-Doctor checks report `pass`, `fail`, `skipped`, or `needs manual action`.
+   Run from Ubuntu:
+
+   ```bash
+   bash tests/markdown/m1-project-entrypoint.test.sh
+   bash tests/markdown/m2-windows-wsl-storage.test.sh
+   bash tests/markdown/m3-ubuntu-baseline.test.sh
+   bash tests/markdown/m4-neovim-tmux.test.sh
+   bash tests/markdown/m5-release-readiness.test.sh
+   bash tests/markdown/remaining-guides-template-rollout.test.sh
+   ```
+
+   Expected result: each check exits successfully. Any failure is `fail` for the matching documentation layer until corrected.
+
+3. Record workstation-layer results.
+
+   Run from the environment named in the verification matrix:
+
+   ```text
+   pass
+   fail
+   skipped
+   needs manual action
+   ```
+
+   Expected result: every layer uses exactly one result state. Manual Windows checks that were not run are `needs manual action` or `skipped`, not `pass`.
+
+## Walkthrough
+
+### 1. Verify the active guide paths exist
+
+The verification guide is a proof surface, not a setup guide. It can link active verification targets only when the path exists after this slice. Targets that are missing or not yet converted belong in `docs/changes/2026-06-16-remaining-guides-template-rollout/verification-target-inventory.md` as unresolved follow-ups.
+
+Run from Ubuntu:
+
+```bash
+test -f docs/guides/01-windows-host.md
+test -f docs/guides/wsl-ubuntu-install.md
+test -f docs/guides/wsl-ubuntu-migration.md
+test -f docs/guides/proxy-setup.md
+test -f docs/guides/04-neovim.md
+test -f docs/guides/05-tmux.md
+test -f docs/guides/06-uv.md
+```
+
+Expected result: every active verification reference exists. The old WSL compatibility path remains `docs/guides/02-wsl2-ubuntu.md`, but verification should use the install and migration task guides.
+
+Active verification references:
+
+- [Windows host](01-windows-host.md)
+- [WSL Ubuntu install](wsl-ubuntu-install.md)
+- [WSL Ubuntu migration](wsl-ubuntu-migration.md)
+- [Proxy setup](proxy-setup.md)
+- [Neovim setup](04-neovim.md)
+- [tmux setup](05-tmux.md)
+- [uv setup](06-uv.md)
+
+Unresolved verification follow-up: Ubuntu baseline remains covered by legacy checks and `docs/guides/03-ubuntu-baseline.md`, but it is not an active converted-guide verification link in this slice.
+
+### 2. Run the static documentation checks
+
+Static checks prove documentation structure, link targets, and rollout-specific contracts without executing workstation setup commands.
+
+Run from Ubuntu:
+
+```bash
+bash tests/markdown/m1-project-entrypoint.test.sh
+bash tests/markdown/m2-windows-wsl-storage.test.sh
+bash tests/markdown/m3-ubuntu-baseline.test.sh
+bash tests/markdown/m4-neovim-tmux.test.sh
+bash tests/markdown/m5-release-readiness.test.sh
+bash tests/markdown/remaining-guides-template-rollout.test.sh
+```
+
+Expected result: each check exits successfully.
+
+Run staged whitespace validation before review:
+
+```bash
+git diff --cached --name-only
+git diff --cached --check
+```
+
+Expected result: the staged file list contains only the intended milestone files, and staged whitespace validation passes.
+
+For local editing prechecks, a path-scoped working-tree check is acceptable. The repository-wide `git diff --check` is advisory while known unrelated baseline drift exists.
+
+### 3. Record workstation-layer results
+
+Use this result vocabulary for every layer: `pass`, `fail`, `skipped`, or `needs manual action`.
 
 In plain text, every doctor result is one of: pass, fail, skipped, or needs manual action.
 
-## Verification matrix
+#### Verification matrix
 
-| Layer | Environment | Required observation | Result states |
-| --- | --- | --- | --- |
-| Windows host | Windows PowerShell | `pwsh`, `winget`, `wt`, and WSL availability commands report versions or status | `pass`, `fail`, `skipped`, `needs manual action` |
-| WSL storage | Windows PowerShell | fresh install or migration uses `D:\Software\WSL\Ubuntu` and verifies the distro with `wsl --list --verbose` | `pass`, `fail`, `skipped`, `needs manual action` |
-| WSL config | Ubuntu shell and Windows PowerShell | `/etc/wsl.conf` contains the documented automount and interop posture after WSL restart | `pass`, `fail`, `skipped`, `needs manual action` |
-| Ubuntu baseline | Ubuntu shell | baseline checks can run without locale, mount, or sudoers warnings | `pass`, `fail`, `skipped`, `needs manual action` |
-| proxy | Windows PowerShell and Ubuntu shell | automatic proxy mirroring or manual proxy fallback supports package/network access | `pass`, `fail`, `skipped`, `needs manual action` |
-| data mount | Ubuntu shell | `/home/<user>/data` reaches `D:\Data` through fstab or fallback symlink | `pass`, `fail`, `skipped`, `needs manual action` |
-| locale | Ubuntu shell | `locale` is warning-free and `locale charmap` reports `UTF-8` | `pass`, `fail`, `skipped`, `needs manual action` |
-| sudo | Ubuntu shell | optional passwordless sudo is either skipped or passes `visudo` and non-interactive sudo checks | `pass`, `fail`, `skipped`, `needs manual action` |
-| Neovim Windows | Windows PowerShell and Neovim command | Windows Neovim reports version, starts cleanly, and has reviewed plugin and health status | `pass`, `fail`, `skipped`, `needs manual action` |
-| Neovim Ubuntu | Ubuntu shell and Neovim command | Ubuntu Neovim reports version, starts cleanly, and has reviewed plugin and health status | `pass`, `fail`, `skipped`, `needs manual action` |
-| tmux Ubuntu | Ubuntu shell and tmux command | tmux reports version and loads the project config in a clean session | `pass`, `fail`, `skipped`, `needs manual action` |
+| Layer | Environment | Active guide target | Required observation | Result states |
+| --- | --- | --- | --- | --- |
+| Windows host | Windows PowerShell | [Windows host](01-windows-host.md) | `pwsh`, `winget`, `wt`, and WSL availability commands report versions or status | `pass`, `fail`, `skipped`, `needs manual action` |
+| WSL storage | Windows PowerShell | [WSL Ubuntu install](wsl-ubuntu-install.md) or [WSL Ubuntu migration](wsl-ubuntu-migration.md) | fresh install or migration uses `D:\Software\WSL\Ubuntu` and verifies the distro with `wsl --list --verbose` | `pass`, `fail`, `skipped`, `needs manual action` |
+| WSL config | Ubuntu shell and Windows PowerShell | unresolved verification follow-up | `/etc/wsl.conf` contains the documented automount and interop posture after WSL restart | `pass`, `fail`, `skipped`, `needs manual action` |
+| Ubuntu baseline | Ubuntu shell | unresolved verification follow-up | baseline checks can run without locale, mount, or sudoers warnings | `pass`, `fail`, `skipped`, `needs manual action` |
+| proxy | Windows PowerShell and Ubuntu shell | [Proxy setup](proxy-setup.md) | automatic proxy mirroring or manual proxy fallback supports package/network access | `pass`, `fail`, `skipped`, `needs manual action` |
+| data mount | Ubuntu shell | unresolved verification follow-up | `/home/<user>/data` reaches `D:\Data` through fstab or fallback symlink | `pass`, `fail`, `skipped`, `needs manual action` |
+| locale | Ubuntu shell | unresolved verification follow-up | `locale` is warning-free and `locale charmap` reports `UTF-8` | `pass`, `fail`, `skipped`, `needs manual action` |
+| sudo | Ubuntu shell | unresolved verification follow-up | optional passwordless sudo is either skipped or passes `visudo` and non-interactive sudo checks | `pass`, `fail`, `skipped`, `needs manual action` |
+| Neovim Windows | Windows PowerShell and Neovim command | [Neovim setup](04-neovim.md) | Windows Neovim reports version, starts cleanly, and has reviewed plugin and health status | `pass`, `fail`, `skipped`, `needs manual action` |
+| Neovim Ubuntu | Ubuntu shell and Neovim command | [Neovim setup](04-neovim.md) | Ubuntu Neovim reports version, starts cleanly, and has reviewed plugin and health status | `pass`, `fail`, `skipped`, `needs manual action` |
+| tmux Ubuntu | Ubuntu shell and tmux command | [tmux setup](05-tmux.md) | tmux reports version and loads the project config in a clean session | `pass`, `fail`, `skipped`, `needs manual action` |
+| uv optional tooling | Windows PowerShell or Ubuntu shell | [uv setup](06-uv.md) | uv is either intentionally skipped or reports its version and package-source posture | `pass`, `fail`, `skipped`, `needs manual action` |
 
-## Windows host checks
+#### Windows host checks
 
 Run from Windows PowerShell:
 
@@ -60,9 +157,9 @@ wsl --status
 
 Expected result: each available tool reports a version or status. Missing or policy-blocked tools are `needs manual action`.
 
-## WSL fresh install verification
+#### WSL install and migration checks
 
-Before install, record:
+Before fresh install, record from Windows PowerShell:
 
 ```powershell
 wsl --version
@@ -70,7 +167,7 @@ wsl --help
 wsl --list --online
 ```
 
-After install, record:
+After fresh install, record from Windows PowerShell:
 
 ```powershell
 wsl --list --verbose
@@ -79,9 +176,7 @@ wsl -d <UbuntuLtsDistroName>
 
 Expected result: the selected explicit Ubuntu LTS distro appears in verbose output and launches.
 
-## WSL migration verification
-
-After import-in-place, record:
+After import-in-place migration, record from Windows PowerShell:
 
 ```powershell
 wsl --list --verbose
@@ -90,7 +185,9 @@ wsl -d Ubuntu
 
 Expected result: the imported distro appears, launches, and is the intended default after `wsl --set-default Ubuntu`.
 
-## Ubuntu baseline checks
+#### Ubuntu baseline follow-up checks
+
+These checks remain associated with the unresolved Ubuntu baseline follow-up until that guide is converted. Run them only when the relevant Ubuntu setup path has been completed.
 
 Run WSL config and proxy checks after Ubuntu has restarted from Windows PowerShell:
 
@@ -144,30 +241,30 @@ sudo -n true
 
 Expected result: sudo is `pass` only when passwordless sudo was intentionally enabled and both checks pass. If the user skipped the personal-workstation convenience profile, report sudo as `skipped`, not failed.
 
-## Neovim checks
+#### Neovim checks
 
 Check Neovim Windows separately from Neovim Ubuntu. Do not treat one environment as proof for the other.
 
-Run in Windows PowerShell:
+Run from Windows PowerShell:
 
 ```powershell
 nvim --version
 ```
 
-Run in Ubuntu:
+Run from Ubuntu:
 
 ```bash
 nvim --version
 nvim --clean +'quit'
 ```
 
-After deploying the project config, open Neovim and run:
+After deploying the project config, open Neovim and run from inside Neovim:
 
 ```vim
 :checkhealth
 ```
 
-If Lazy is used as the plugin manager, check plugin manager status with:
+If Lazy is used as the plugin manager, check plugin manager status from inside Neovim:
 
 ```vim
 :Lazy
@@ -175,9 +272,9 @@ If Lazy is used as the plugin manager, check plugin manager status with:
 
 Expected result: Neovim Windows and Neovim Ubuntu each report `pass` only when the local binary works, startup has no config errors, plugin manager status is understood, and `:checkhealth` is reviewed. Missing optional JavaScript/TypeScript or Python tools should not fail the core editor profile.
 
-## tmux Ubuntu checks
+#### tmux Ubuntu checks
 
-Run inside Ubuntu:
+Run from Ubuntu:
 
 ```bash
 tmux -V
@@ -216,7 +313,9 @@ bash tests/markdown/m4-neovim-tmux.test.sh
 bash tests/markdown/m5-release-readiness.test.sh
 ```
 
-Run config smoke checks where tools are available:
+Expected result: each static check exits successfully.
+
+Run config smoke checks only where tools are available:
 
 ```bash
 nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +qa
@@ -224,28 +323,13 @@ tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check
 tmux kill-session -t terminal-first-check
 ```
 
-## Whitespace validation
+Expected result: available local tools exit successfully. Missing optional local tools should be recorded as `skipped` or `needs manual action`.
 
-Required staged milestone gate:
+## Rollback
 
-```bash
-git diff --cached --name-only
-git diff --cached --check
-```
+Verification rollback means restoring the prior verification record or rerunning the relevant check after correcting setup state.
 
-Stage only files intentionally changed for the current milestone before running the gate. Review the staged file list as part of validation.
-
-For local editing prechecks, a path-scoped working-tree check is acceptable:
-
-```bash
-git diff --check -- <milestone-file-or-directory> [<more-paths>...]
-```
-
-The repository-wide `git diff --check` is advisory while known unrelated baseline drift exists.
-
-## Rollback coverage
-
-Rollback paths must exist for:
+Rollback coverage must exist for:
 
 - WSL relocation: preserve the VHDX/export and reset the default distro only after verification.
 - `.wslconfig`: remove project-owned `autoProxy=true` or restore the backup, then run `wsl --shutdown`.
@@ -256,10 +340,11 @@ Rollback paths must exist for:
 - Neovim config: restore backed-up `%LocalAppData%\nvim` or `~/.config/nvim`.
 - tmux config: restore backed-up `~/.tmux.conf` or remove the project-owned tmux config.
 
-## Validation
+## Troubleshooting
 
-M1 validates the project entry point and guide skeleton. M2 validates Windows host and WSL storage checks. M3 validates Ubuntu baseline, proxy, data mount, locale, and sudo checks. M4 validates Neovim Windows, Neovim Ubuntu, and tmux Ubuntu checks. M5 validates the consolidated verification matrix, publication gate, version record, rollback coverage, README final orientation, and staged whitespace policy.
+Use the targeted entry that matches the symptom:
 
-## Rollback
-
-This guide is documentation and verification guidance. Roll back M5 by reverting the release-readiness docs and static checks. Do not remove user-local setup files as part of reverting repository docs.
+- WSL install, migration, or storage verification fails: [WSL issues](../troubleshooting/wsl.md)
+- Proxy verification fails: [Proxy and certificate issues](../troubleshooting/proxy.md)
+- Ubuntu baseline verification fails: [Ubuntu baseline issues](../troubleshooting/ubuntu-baseline.md)
+- Enterprise policy blocks Windows host verification: [Enterprise policy issues](../troubleshooting/enterprise-policy.md)
