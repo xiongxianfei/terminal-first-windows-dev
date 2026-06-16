@@ -108,9 +108,8 @@ Review state:
 - M1-M5 code reviews: clean-with-notes.
 - Material findings: none.
 - Required review-resolution: no.
-- Remaining required gate: verify.
-- Final verification: not claimed.
-- Branch readiness: not claimed.
+- Verification report: docs/changes/2026-06-16-remaining-guides-template-rollout/verify-report.md.
+- Branch readiness: owned by verify.
 - PR readiness: not claimed.
 - Hosted CI: not claimed.
 
@@ -138,14 +137,13 @@ The change preserves these non-goals:
 
 ## Risks and follow-ups
 
-- Final verification is still pending and must run as its own workflow stage.
-- PR readiness is still pending and must not be claimed until `verify` completes and the PR stage prepares the handoff.
+- PR readiness is still pending and must not be claimed until the PR stage prepares the handoff.
 - Hosted CI has not been observed.
 - Broad final filename migration remains deferred to a later compatibility slice.
 - `03-ubuntu-baseline.md`, WSL config, data mount, locale, and sudo verification targets remain unresolved verification follow-ups rather than active converted-guide links.
 
 ## Readiness
 
-M1-M5 are closed after code-review, and this explanation records why the branch changed and what evidence exists before final verification.
+M1-M5 are closed after code-review, and this explanation records why the branch changed and what evidence exists for final verification.
 
-Ready for `verify`.
+Final verification is recorded separately in `verify-report.md`.

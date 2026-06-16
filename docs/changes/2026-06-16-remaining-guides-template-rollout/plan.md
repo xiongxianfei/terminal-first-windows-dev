@@ -70,13 +70,13 @@ Architecture is not required for this change because the work affects documentat
 ## Current Handoff Summary
 
 - Current milestone: final closeout
-- Current milestone state: verify-ready
+- Current milestone state: pr-ready
 - Last reviewed milestone: M5
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: verify
+- Next stage: pr
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M1-M5 are closed after code-review, durable explanation is recorded, and final verify and PR handoff have not run.
+- Reason final closeout is or is not ready: M1-M5 are closed after code-review, durable explanation and final verification are recorded, and PR handoff has not run.
 
 ## Milestones
 
@@ -370,6 +370,7 @@ git diff --cached --check
 - 2026-06-16: M5 implementation recorded completion evidence in `explain-change.md`, extended rollout proof for closeout evidence and non-claims, and updated lifecycle metadata for M5 code-review.
 - 2026-06-16: M5 code-review R1 recorded `clean-with-notes` with no material findings; M5 closed and final closeout is ready to begin at explain-change.
 - 2026-06-16: Explain-change updated `explain-change.md` with full diff rationale, requirement traceability, validation evidence, review state, scope control, and remaining risks; lifecycle metadata now hands off to final verify.
+- 2026-06-16: Final verify recorded branch-ready evidence in `verify-report.md`; lifecycle metadata now hands off to PR. Hosted CI and PR readiness remain unclaimed.
 
 ## Decision log
 
@@ -504,6 +505,17 @@ git diff --cached --check
 - 2026-06-16 explain-change validation passed:
   - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
   - `git diff --check`
+- 2026-06-16 final verify validation passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check`
+  - `git diff --check ab8ada5c47237af6ae718ff4411763f19317dde0..HEAD`
 
 ## Outcome and retrospective
 
@@ -517,5 +529,6 @@ Pending implementation.
 - M4 is closed.
 - M5 is closed.
 - Explain-change is recorded.
-- Ready for final verify.
-- Final verification and PR handoff are not claimed.
+- Final verification is recorded.
+- Branch-ready for PR handoff.
+- PR readiness is not claimed.

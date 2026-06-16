@@ -127,6 +127,7 @@ wsl_migration_guide=docs/guides/wsl-ubuntu-migration.md
 verification_guide=docs/guides/99-verification.md
 verification_inventory=docs/changes/2026-06-16-remaining-guides-template-rollout/verification-target-inventory.md
 explain_change=docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md
+verify_report=docs/changes/2026-06-16-remaining-guides-template-rollout/verify-report.md
 m1_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m1-implementation-evidence.md
 m2_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m2-implementation-evidence.md
 m3_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m3-implementation-evidence.md
@@ -279,12 +280,22 @@ for text in \
   "Checks run:" \
   "Checks intentionally not run:" \
   "Command execution: not executed" \
-  "Final verification: not claimed" \
-  "Branch readiness: not claimed" \
+  "Verification report: docs/changes/2026-06-16-remaining-guides-template-rollout/verify-report.md" \
+  "Branch readiness: owned by verify" \
   "PR readiness: not claimed" \
-  "M1-M5 code reviews: clean-with-notes" \
-  "Remaining required gate: verify"; do
+  "M1-M5 code reviews: clean-with-notes"; do
   require_text "$explain_change" "$text"
+done
+
+require_file "$verify_report"
+for text in \
+  "Skill: verify" \
+  "Status: completed" \
+  "Open blockers: none" \
+  "Next stage: pr" \
+  "Readiness: branch-ready" \
+  "Hosted CI: not observed"; do
+  require_text "$verify_report" "$text"
 done
 
 require_file "$m1_evidence"
