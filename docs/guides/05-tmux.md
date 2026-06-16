@@ -1,49 +1,87 @@
-# tmux Setup
+# Set up tmux in Ubuntu
 
-## Purpose
+**Prerequisites:** Ubuntu on WSL is installed and this repository is available from the Ubuntu shell.
+**Time:** 5-10 minutes.
+**Outcome:** tmux is installed in Ubuntu and the project tmux config can load in a clean session.
+**Verify:** `tmux -V` succeeds and a clean disposable session loads `config/tmux/tmux.conf`.
+**Scope:** Ubuntu user-local tmux setup. Ubuntu only; Windows-host tmux is out of scope.
+**Safety:** Replacing `~/.tmux.conf` changes tmux behavior for the current Ubuntu user.
 
-Provide a minimal tmux setup for daily terminal development inside Ubuntu on WSL.
+## Fast path
 
-## Command environment
+1. Install tmux.
 
-- Ubuntu shell: tmux install and version checks.
-- tmux command: session, pane, window, copy-mode, and config-load checks.
-- Manual verification: terminal behavior and keybinding checks.
+   Run from Ubuntu:
 
-## Safety notes
+   ```bash
+   sudo apt update
+   sudo apt install -y tmux
+   ```
 
-- tmux support is Ubuntu only in this first slice.
-- Native Windows tmux support is outside the first slice.
-- tmux configuration writes affect user-local config files.
-- The current tmux config does not use tmux plugins or a plugin manager.
-- This project is not a one-command unattended installer.
+   Expected result: APT finishes without errors and tmux is available in Ubuntu.
 
-## Install tmux
+2. Install the project tmux config.
 
-Install tmux inside Ubuntu:
+   Backup: if `~/.tmux.conf` already exists, save a copy before replacing it.
+
+   Run from Ubuntu at the repository root:
+
+   ```bash
+   cp config/tmux/tmux.conf ~/.tmux.conf
+   ```
+
+   Expected result: `~/.tmux.conf` contains the project tmux config for the current Ubuntu user.
+
+3. Verify tmux and the config.
+
+   Run from Ubuntu at the repository root:
+
+   ```bash
+   tmux -V
+   tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check
+   tmux kill-session -t terminal-first-check
+   ```
+
+   Expected result: `tmux -V` prints a version and the clean disposable session starts and stops without errors.
+
+## Walkthrough
+
+### 1. Install tmux
+
+tmux support in this guide is scoped to Ubuntu on WSL. The current project setup does not configure a Windows-host tmux package or terminal integration.
+
+Run from Ubuntu:
 
 ```bash
 sudo apt update
 sudo apt install -y tmux
 ```
 
-Verify the installed version:
+Expected result: APT finishes without errors.
+
+Verify:
 
 ```bash
 tmux -V
 ```
 
-## Config strategy
+Expected result: tmux prints its installed version.
 
-The example config lives at `config/tmux/tmux.conf`. Install it as the user's Ubuntu tmux config:
+### 2. Install the project tmux config
+
+The source config lives at `config/tmux/tmux.conf`. The target config is `~/.tmux.conf` for the current Ubuntu user.
+
+- Scope: writes the current user's Ubuntu tmux config.
+- Backup: if `~/.tmux.conf` already exists, save a copy before replacing it.
+- Rollback: restore the backup or remove `~/.tmux.conf`.
+
+Run from Ubuntu at the repository root:
 
 ```bash
 cp config/tmux/tmux.conf ~/.tmux.conf
 ```
 
-Back up an existing `~/.tmux.conf` before replacing it.
-
-## Daily-use baseline
+Expected result: `~/.tmux.conf` is replaced with the project config.
 
 The config covers:
 
@@ -53,16 +91,18 @@ The config covers:
 - window indexing from 1 and automatic renumbering;
 - mouse support;
 - status bar with session and time;
-- copy-mode using vi keys.
+- copy-mode using vi keys;
 - no tmux plugins.
 
-## Quick start
+### 3. Try the daily-use baseline
 
-Start a named session:
+Run from Ubuntu:
 
 ```bash
 tmux new -s dev
 ```
+
+Expected result: tmux opens a named session.
 
 Detach and leave the session running:
 
@@ -70,17 +110,23 @@ Detach and leave the session running:
 prefix d
 ```
 
+Expected result: tmux returns to the shell and leaves the `dev` session running.
+
 List sessions:
 
 ```bash
 tmux ls
 ```
 
+Expected result: the `dev` session appears in the session list.
+
 Attach again:
 
 ```bash
 tmux attach -t dev
 ```
+
+Expected result: tmux reopens the `dev` session.
 
 Common keys:
 
@@ -97,20 +143,24 @@ Common keys:
 
 Inside copy mode, use vi-style movement, `v` to start selection, and `y` or `Enter` to copy.
 
-## Verification
+### 4. Verify tmux and config loading
 
-Run:
+Run from Ubuntu:
 
 ```bash
 tmux -V
 ```
 
-Load the config in a clean disposable session:
+Expected result: tmux prints its installed version.
+
+Load the config in a clean disposable session from the repository root:
 
 ```bash
 tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check
 tmux kill-session -t terminal-first-check
 ```
+
+Expected result: the clean disposable session starts and stops without errors.
 
 Manual checks:
 
@@ -120,13 +170,13 @@ Manual checks:
 - mouse selection and pane focus work in Windows Terminal;
 - copy-mode opens and uses vi-style selection.
 
-## Validation
-
-- tmux is scoped to Ubuntu only.
-- The guide does not claim native Windows tmux support.
-- The config covers prefix, panes, windows, mouse, status, and copy-mode behavior.
-- Verification includes `tmux -V` and loading the configuration in a clean session.
-
 ## Rollback
 
-Restore the backed-up `~/.tmux.conf` or remove the project-owned tmux config file. Kill only tmux sessions that were created for verification unless the user intentionally wants to reset active sessions.
+Restore the backed-up `~/.tmux.conf` or remove the project-owned tmux config file. Kill only tmux sessions that were created for verification unless you intentionally want to reset active sessions.
+
+## Troubleshooting
+
+Use the targeted entry that matches the symptom:
+
+- Package installation fails in a managed environment: [Enterprise policy issues](../troubleshooting/enterprise-policy.md)
+- HTTPS package access fails in Ubuntu: [WSL SSL certificate trust fails](../troubleshooting/proxy.md#wsl-ssl-certificate-trust-fails)

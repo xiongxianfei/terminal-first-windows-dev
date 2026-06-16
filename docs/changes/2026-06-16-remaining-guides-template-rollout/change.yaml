@@ -1,0 +1,13 @@
+id: 2026-06-16-remaining-guides-template-rollout
+title: Remaining Guides Template Rollout
+status: active
+created: 2026-06-16
+proposal: ../../proposals/2026-06-16-remaining-guides-template-rollout.md
+spec: ../../../specs/remaining-guides-template-rollout.md
+test_spec: ../../../specs/remaining-guides-template-rollout.test.md
+architecture: not-required
+plan: plan.md
+current_stage: implement
+current_milestone: M1
+next_stage: code-review
+open_blockers: []

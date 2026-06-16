@@ -1,0 +1,179 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+fail() {
+  echo "$1" >&2
+  exit 1
+}
+
+require_file() {
+  local path="$1"
+  test -f "$path" || fail "missing required file: $path"
+}
+
+require_text() {
+  local path="$1"
+  local text="$2"
+  grep -Fq "$text" "$path" || fail "missing text in $path: $text"
+}
+
+require_regex() {
+  local path="$1"
+  local pattern="$2"
+  grep -Eq "$pattern" "$path" || fail "missing pattern in $path: $pattern"
+}
+
+reject_regex() {
+  local path="$1"
+  local pattern="$2"
+  local reason="$3"
+
+  if grep -Eiq "$pattern" "$path"; then
+    fail "$reason: $path"
+  fi
+}
+
+require_order() {
+  local path="$1"
+  local first="$2"
+  local second="$3"
+  local first_line
+  local second_line
+
+  first_line="$(grep -nF "$first" "$path" | head -n 1 | cut -d: -f1 || true)"
+  second_line="$(grep -nF "$second" "$path" | head -n 1 | cut -d: -f1 || true)"
+
+  test -n "$first_line" || fail "missing ordered text in $path: $first"
+  test -n "$second_line" || fail "missing ordered text in $path: $second"
+  test "$first_line" -lt "$second_line" || fail "expected '$first' before '$second' in $path"
+}
+
+slugify_heading() {
+  local heading="$1"
+
+  printf '%s' "$heading" |
+    sed -E 's/^#+[[:space:]]*//; s/[[:space:]]*$//' |
+    tr '[:upper:]' '[:lower:]' |
+    sed -E 's/`//g; s/[^a-z0-9]+/-/g; s/^-+//; s/-+$//'
+}
+
+require_anchor() {
+  local path="$1"
+  local anchor="$2"
+  local line
+  local slug
+
+  while IFS= read -r line; do
+    slug="$(slugify_heading "$line")"
+    test "$slug" != "$anchor" || return 0
+  done < <(grep -E '^#{1,6}[[:space:]]+' "$path" || true)
+
+  fail "missing anchor in $path: $anchor"
+}
+
+check_troubleshooting_links() {
+  local source="$1"
+  local link
+  local target
+  local target_file
+  local anchor
+
+  while IFS= read -r link; do
+    target="${link#](}"
+    target_file="${target%%#*}"
+    target_file="${target_file#../troubleshooting/}"
+    require_file "docs/troubleshooting/$target_file"
+
+    if [[ "$target" == *"#"* ]]; then
+      anchor="${target#*#}"
+      require_anchor "docs/troubleshooting/$target_file" "$anchor"
+    fi
+  done < <(grep -oE '\]\(\.\./troubleshooting/[^)]+' "$source" || true)
+}
+
+require_converted_guide_shape() {
+  local guide="$1"
+
+  require_file "$guide"
+  require_text "$guide" "**Prerequisites:**"
+  require_text "$guide" "**Time:**"
+  require_text "$guide" "**Outcome:**"
+  require_text "$guide" "**Verify:**"
+  require_text "$guide" "**Scope:**"
+  require_text "$guide" "## Fast path"
+  require_text "$guide" "## Walkthrough"
+  require_text "$guide" "## Rollback"
+  require_text "$guide" "## Troubleshooting"
+  require_text "$guide" "Run from"
+  require_text "$guide" "Expected result:"
+  require_regex "$guide" '^1\. '
+  require_order "$guide" "**Prerequisites:**" "## Fast path"
+  require_order "$guide" "## Fast path" "## Walkthrough"
+  require_order "$guide" "## Walkthrough" "## Rollback"
+  require_order "$guide" "## Rollback" "## Troubleshooting"
+  reject_regex "$guide" '<(Verb|task outcome|topic|anchor|TODO|TBD)>' "converted guide must not contain template placeholders"
+  reject_regex "$guide" '<!--' "converted guide must not contain contributor comments"
+  check_troubleshooting_links "$guide"
+}
+
+router=docs/guides/README.md
+tmux_guide=docs/guides/05-tmux.md
+neovim_guide=docs/guides/04-neovim.md
+uv_guide=docs/guides/06-uv.md
+evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m1-implementation-evidence.md
+
+require_file "$router"
+require_converted_guide_shape "$tmux_guide"
+require_converted_guide_shape "$neovim_guide"
+require_converted_guide_shape "$uv_guide"
+
+for guide in "$tmux_guide" "$neovim_guide" "$uv_guide"; do
+  require_text "$guide" "Backup:"
+  require_text "$guide" "Rollback:"
+  reject_regex "$guide" "generated documentation|template engine|one-command installer|hidden automation" "converted guides must not add generated tooling or hidden automation"
+  reject_regex "$guide" "password=|token=|secret=|proxy\\.corp|internal\\.example|private key" "converted guides must not contain credential-like examples or private hostnames"
+done
+
+require_text "$tmux_guide" "Ubuntu only"
+reject_regex "$tmux_guide" "native Windows tmux support" "tmux guide must not claim native Windows tmux support"
+require_text "$tmux_guide" 'Backup: if `~/.tmux.conf` already exists, save a copy before replacing it.'
+require_text "$tmux_guide" "tmux -V"
+require_text "$tmux_guide" "clean disposable session"
+
+require_text "$neovim_guide" "Windows PowerShell"
+require_text "$neovim_guide" "Ubuntu"
+require_text "$neovim_guide" 'Backup: if `%LocalAppData%\nvim` already exists, save a copy before replacing it.'
+require_text "$neovim_guide" 'Backup: if `~/.config/nvim` already exists, save a copy before replacing it.'
+require_text "$neovim_guide" "Do not share plugin or runtime state through a Windows-mounted path."
+require_text "$neovim_guide" "nvim --version"
+require_text "$neovim_guide" "nvim --clean +'quit'"
+require_text "$neovim_guide" ":Lazy"
+require_text "$neovim_guide" ":checkhealth"
+
+require_text "$uv_guide" "Optional"
+require_text "$uv_guide" "optional"
+require_text "$uv_guide" "Project-level"
+require_text "$uv_guide" "User-level"
+require_text "$uv_guide" "does not make Python runtime setup mandatory"
+reject_regex "$uv_guide" "packages\\.example|internal\\.|company\\.|corp\\.|token=|password=|secret=" "uv examples must be credential-free and non-private"
+
+require_text "$router" "[uv setup](06-uv.md)"
+require_text "$router" "optional"
+
+require_file "$evidence"
+for text in \
+  "Milestone: M1" \
+  "Command inventory:" \
+  "Fast-path/walkthrough parity:" \
+  "Backup-before-edit coverage:" \
+  "Command-context coverage:" \
+  "Expected-result coverage:" \
+  "Troubleshooting-anchor result:" \
+  "Security/privacy result:" \
+  "Setup command execution: not executed"; do
+  require_text "$evidence" "$text"
+done
+
+if grep -Eq '[a]pt update|[s]udo apt|[w]inget |[w]sl --install|[w]sl --unregister|[u]pdate-ca-certificates|[s]udo mount -a|[s]udo visudo' "$0"; then
+  fail "proof script must not contain setup command execution checks"
+fi
