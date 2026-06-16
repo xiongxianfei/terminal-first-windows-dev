@@ -70,13 +70,13 @@ Architecture is not required for this change because the work affects documentat
 ## Current Handoff Summary
 
 - Current milestone: M5
-- Current milestone state: planned
+- Current milestone state: review-requested
 - Last reviewed milestone: M4
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: M5
-- Next stage: implement M5
+- Next stage: code-review M5
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M4 is closed after code-review, but M5 has not started.
+- Reason final closeout is or is not ready: M5 is implemented and awaiting code-review.
 
 ## Milestones
 
@@ -269,7 +269,7 @@ Architecture is not required for this change because the work affects documentat
 
 ### M5. Lifecycle closeout and completion evidence
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Consolidate completion evidence, plan state, and change metadata after guide conversion milestones are reviewed.
 - Requirements: R70-R75, AC16-AC21
 - Files/components likely touched:
@@ -305,6 +305,7 @@ Architecture is not required for this change because the work affects documentat
   - completion evidence recorded
   - validation notes updated
   - milestone committed
+  - ready for code-review
 - Risks:
   - Lifecycle metadata can claim readiness before review or validation has actually run.
 - Rollback/recovery:
@@ -366,6 +367,7 @@ git diff --cached --check
 - 2026-06-16: M3 code-review R1 recorded `clean-with-notes` with no material findings; M3 closed.
 - 2026-06-16: M4 implementation converted `99-verification.md` to the accepted guide shape; added `verification-target-inventory.md`; extended rollout proof for active verification references, unresolved follow-ups, result vocabulary, and M4 evidence; recorded M4 implementation evidence.
 - 2026-06-16: M4 code-review R1 recorded `clean-with-notes` with no material findings; M4 closed.
+- 2026-06-16: M5 implementation recorded completion evidence in `explain-change.md`, extended rollout proof for closeout evidence and non-claims, and updated lifecycle metadata for M5 code-review.
 
 ## Decision log
 
@@ -386,6 +388,7 @@ git diff --cached --check
 - The rollout proof's command-literal self-guard also applies to ordering assertions. M3 constructs the unregister command string before checking backup/destructive ordering so the script does not embed a runnable-looking destructive command.
 - The verification guide has to preserve the legacy release-readiness wording for repository-wide `git diff --check` while also using the new two-speed guide shape. M4 kept the advisory sentence in the converted static-checks walkthrough.
 - `03-ubuntu-baseline.md` still exists but is not a converted active verification target. M4 records Ubuntu baseline, WSL config, data mount, locale, and sudo as unresolved verification follow-ups instead of active converted-guide links.
+- M5 remains a review-requested implementation milestone, not final closeout. The explanation records final verification, branch readiness, and PR readiness as not claimed until later workflow stages own that evidence.
 
 ## Validation notes
 
@@ -475,6 +478,17 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check HEAD^ HEAD`
+- 2026-06-16 M5 pre-implementation proof: `bash tests/markdown/remaining-guides-template-rollout.test.sh` failed as expected with `missing required file: docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md`.
+- 2026-06-16 M5 validation passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check`
 
 ## Outcome and retrospective
 
@@ -486,5 +500,5 @@ Pending implementation.
 - M2 is closed.
 - M3 is closed.
 - M4 is closed.
-- Ready to implement M5.
-- Not ready for final closeout while M5 remains open.
+- M5 is ready for code-review.
+- Not ready for final closeout until M5 code-review closes.

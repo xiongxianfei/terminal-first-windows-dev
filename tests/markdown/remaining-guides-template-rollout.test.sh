@@ -126,6 +126,7 @@ wsl_install_guide=docs/guides/wsl-ubuntu-install.md
 wsl_migration_guide=docs/guides/wsl-ubuntu-migration.md
 verification_guide=docs/guides/99-verification.md
 verification_inventory=docs/changes/2026-06-16-remaining-guides-template-rollout/verification-target-inventory.md
+explain_change=docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md
 m1_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m1-implementation-evidence.md
 m2_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m2-implementation-evidence.md
 m3_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m3-implementation-evidence.md
@@ -234,6 +235,7 @@ require_text "$router" "[Migrate WSL2 Ubuntu](wsl-ubuntu-migration.md)"
 require_text "$router" "[WSL compatibility path](02-wsl2-ubuntu.md)"
 
 require_file "$verification_inventory"
+require_file "$explain_change"
 require_text "$verification_inventory" "Active verification references"
 require_text "$verification_inventory" "Unresolved verification follow-ups"
 require_text "$verification_inventory" "First smaller-guide sequencing"
@@ -270,6 +272,20 @@ require_text "$verification_guide" "Verification matrix"
 require_text "$verification_guide" "Publication gate"
 require_text "$verification_guide" "Static checks"
 require_text "$verification_guide" "Rollback coverage"
+
+for text in \
+  "Converted guides:" \
+  "Compatibility paths:" \
+  "Checks run:" \
+  "Checks intentionally not run:" \
+  "Command execution: not executed" \
+  "Final verification: not claimed" \
+  "Branch readiness: not claimed" \
+  "PR readiness: not claimed" \
+  "M1-M4 code reviews: clean-with-notes" \
+  "Remaining required gate: M5 code-review"; do
+  require_text "$explain_change" "$text"
+done
 
 require_file "$m1_evidence"
 require_file "$m2_evidence"
