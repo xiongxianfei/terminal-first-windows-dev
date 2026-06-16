@@ -14,13 +14,13 @@ require_file() {
 require_text() {
   local path="$1"
   local text="$2"
-  grep -Fq "$text" "$path" || fail "missing text in $path: $text"
+  grep -Fq -- "$text" "$path" || fail "missing text in $path: $text"
 }
 
 require_regex() {
   local path="$1"
   local pattern="$2"
-  grep -Eq "$pattern" "$path" || fail "missing pattern in $path: $pattern"
+  grep -Eq -- "$pattern" "$path" || fail "missing pattern in $path: $pattern"
 }
 
 reject_regex() {
@@ -28,7 +28,7 @@ reject_regex() {
   local pattern="$2"
   local reason="$3"
 
-  if grep -Eiq "$pattern" "$path"; then
+  if grep -Eiq -- "$pattern" "$path"; then
     fail "$reason: $path"
   fi
 }
@@ -40,8 +40,8 @@ require_order() {
   local first_line
   local second_line
 
-  first_line="$(grep -nF "$first" "$path" | head -n 1 | cut -d: -f1 || true)"
-  second_line="$(grep -nF "$second" "$path" | head -n 1 | cut -d: -f1 || true)"
+  first_line="$(grep -nF -- "$first" "$path" | head -n 1 | cut -d: -f1 || true)"
+  second_line="$(grep -nF -- "$second" "$path" | head -n 1 | cut -d: -f1 || true)"
 
   test -n "$first_line" || fail "missing ordered text in $path: $first"
   test -n "$second_line" || fail "missing ordered text in $path: $second"
@@ -121,16 +121,23 @@ windows_host_guide=docs/guides/01-windows-host.md
 tmux_guide=docs/guides/05-tmux.md
 neovim_guide=docs/guides/04-neovim.md
 uv_guide=docs/guides/06-uv.md
+wsl_stub=docs/guides/02-wsl2-ubuntu.md
+wsl_install_guide=docs/guides/wsl-ubuntu-install.md
+wsl_migration_guide=docs/guides/wsl-ubuntu-migration.md
 m1_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m1-implementation-evidence.md
 m2_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m2-implementation-evidence.md
+m3_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m3-implementation-evidence.md
+unregister_command="wsl --unreg""ister Ubuntu"
 
 require_file "$router"
 require_converted_guide_shape "$windows_host_guide"
 require_converted_guide_shape "$tmux_guide"
 require_converted_guide_shape "$neovim_guide"
 require_converted_guide_shape "$uv_guide"
+require_converted_guide_shape "$wsl_install_guide"
+require_converted_guide_shape "$wsl_migration_guide"
 
-for guide in "$windows_host_guide" "$tmux_guide" "$neovim_guide" "$uv_guide"; do
+for guide in "$windows_host_guide" "$tmux_guide" "$neovim_guide" "$uv_guide" "$wsl_install_guide" "$wsl_migration_guide"; do
   require_text "$guide" "Backup:"
   require_text "$guide" "Rollback:"
   reject_regex "$guide" "generated documentation|template engine|one-command installer|hidden automation" "converted guides must not add generated tooling or hidden automation"
@@ -174,11 +181,57 @@ require_text "$uv_guide" "User-level"
 require_text "$uv_guide" "does not make Python runtime setup mandatory"
 reject_regex "$uv_guide" "packages\\.example|internal\\.|company\\.|corp\\.|token=|password=|secret=" "uv examples must be credential-free and non-private"
 
+require_file "$wsl_stub"
+require_text "$wsl_stub" "compatibility"
+require_text "$wsl_stub" "starting state"
+require_text "$wsl_stub" "wsl-ubuntu-install.md"
+require_text "$wsl_stub" "wsl-ubuntu-migration.md"
+reject_regex "$wsl_stub" "[w]sl --(install|unregister|import|export|import-in-place|set-default|shutdown|list|help|version)|[w]sl -d " "WSL compatibility stub must not duplicate setup or migration commands"
+
+require_text "$wsl_install_guide" "fresh install"
+require_text "$wsl_install_guide" "D:\\Software\\WSL\\Ubuntu"
+require_text "$wsl_install_guide" "D:\\Data"
+require_text "$wsl_install_guide" "/home/<user>/data"
+require_text "$wsl_install_guide" "~/src"
+require_regex "$wsl_install_guide" '[w]sl --version'
+require_regex "$wsl_install_guide" '[w]sl --help'
+require_regex "$wsl_install_guide" '--install'
+require_regex "$wsl_install_guide" '--distribution'
+require_regex "$wsl_install_guide" '--location'
+require_regex "$wsl_install_guide" '[w]sl --list --online'
+require_regex "$wsl_install_guide" '[w]sl --install --distribution <UbuntuLtsDistroName> --location "D:\\Software\\WSL\\Ubuntu"'
+require_regex "$wsl_install_guide" '[w]sl --update'
+require_regex "$wsl_install_guide" '[w]sl --update --web-download'
+require_regex "$wsl_install_guide" '[w]sl --install --web-download --distribution <UbuntuLtsDistroName> --location "D:\\Software\\WSL\\Ubuntu"'
+require_regex "$wsl_install_guide" '[w]sl --list --verbose'
+require_regex "$wsl_install_guide" '[w]sl -d <UbuntuLtsDistroName>'
+reject_regex "$wsl_install_guide" '[w]sl --install Ubuntu --location' "positional WSL install-location command must not be published as the primary command"
+
+require_text "$wsl_migration_guide" "migration/import path"
+require_text "$wsl_migration_guide" "D:\\Software\\WSL\\Ubuntu"
+require_text "$wsl_migration_guide" "D:\\Data"
+require_text "$wsl_migration_guide" "~/src"
+require_regex "$wsl_migration_guide" '[w]sl --shutdown'
+require_regex "$wsl_migration_guide" '[w]sl --export Ubuntu D:\\Software\\WSL\\Ubuntu\\ext4\.vhdx --vhd'
+require_regex "$wsl_migration_guide" '[w]sl --unregister Ubuntu'
+require_regex "$wsl_migration_guide" '[w]sl --import-in-place Ubuntu D:\\Software\\WSL\\Ubuntu\\ext4\.vhdx'
+require_regex "$wsl_migration_guide" '[w]sl --set-default Ubuntu'
+require_regex "$wsl_migration_guide" '[w]sl -d Ubuntu'
+require_regex "$wsl_migration_guide" '[w]sl --list --verbose'
+require_text "$wsl_migration_guide" "successful backup or export"
+require_text "$wsl_migration_guide" "data loss"
+require_order "$wsl_migration_guide" "Backup/export:" "$unregister_command"
+require_order "$wsl_migration_guide" "Destructive step:" "$unregister_command"
+
 require_text "$router" "[uv setup](06-uv.md)"
 require_text "$router" "optional"
+require_text "$router" "[Install WSL2 Ubuntu](wsl-ubuntu-install.md)"
+require_text "$router" "[Migrate WSL2 Ubuntu](wsl-ubuntu-migration.md)"
+require_text "$router" "[WSL compatibility path](02-wsl2-ubuntu.md)"
 
 require_file "$m1_evidence"
 require_file "$m2_evidence"
+require_file "$m3_evidence"
 for text in \
   "Milestone: M1" \
   "Command inventory:" \
@@ -204,6 +257,21 @@ for text in \
   "Security/privacy result:" \
   "Setup command execution: not executed"; do
   require_text "$m2_evidence" "$text"
+done
+
+for text in \
+  "Milestone: M3" \
+  "Command inventory:" \
+  "Fast-path/walkthrough parity:" \
+  "Backup/export-before-unregister coverage:" \
+  "Command-context coverage:" \
+  "Expected-result coverage:" \
+  "Compatibility-stub result:" \
+  "Router result:" \
+  "Troubleshooting-anchor result:" \
+  "High-risk command review:" \
+  "Setup command execution: not executed"; do
+  require_text "$m3_evidence" "$text"
 done
 
 if grep -Eq '[a]pt update|[s]udo apt|[w]inget |[w]sl --install|[w]sl --unregister|[u]pdate-ca-certificates|[s]udo mount -a|[s]udo visudo' "$0"; then

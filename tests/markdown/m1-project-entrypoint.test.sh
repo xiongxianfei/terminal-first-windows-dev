@@ -5,6 +5,8 @@ required_files=(
   README.md
   docs/guides/01-windows-host.md
   docs/guides/02-wsl2-ubuntu.md
+  docs/guides/wsl-ubuntu-install.md
+  docs/guides/wsl-ubuntu-migration.md
   docs/guides/03-ubuntu-baseline.md
   docs/guides/04-neovim.md
   docs/guides/05-tmux.md
@@ -69,7 +71,9 @@ for guide in docs/guides/[0-9][0-9]-*.md; do
 done
 
 grep -q 'Windows PowerShell' docs/guides/01-windows-host.md
-grep -q 'Windows PowerShell' docs/guides/02-wsl2-ubuntu.md
+grep -q 'compatibility path' docs/guides/02-wsl2-ubuntu.md
+grep -q 'Windows PowerShell' docs/guides/wsl-ubuntu-install.md
+grep -q 'Windows PowerShell' docs/guides/wsl-ubuntu-migration.md
 grep -q 'Ubuntu shell' docs/guides/03-ubuntu-baseline.md
 grep -q 'inside Neovim' docs/guides/04-neovim.md
 grep -q 'Run from Ubuntu' docs/guides/05-tmux.md

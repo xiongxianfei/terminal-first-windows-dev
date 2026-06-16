@@ -9,13 +9,13 @@ The current setup guide set is still migrating from numbered first-slice guides 
 Follow the current first-slice sequence:
 
 1. [Prepare the Windows host](01-windows-host.md)
-2. [Install or migrate WSL2 Ubuntu](02-wsl2-ubuntu.md)
+2. [Install WSL2 Ubuntu](wsl-ubuntu-install.md)
 3. [Configure the Ubuntu baseline](03-ubuntu-baseline.md)
 4. [Set up Neovim](04-neovim.md)
 5. [Set up tmux](05-tmux.md)
 6. [Run verification](99-verification.md)
 
-The future sequence guide will be `fresh-setup.md`. Until that guide exists, the numbered files above are the compatibility path for the full setup order.
+The future sequence guide will be `fresh-setup.md`. Until that guide exists, the numbered files above remain compatibility paths for the full setup order. The old WSL numbered path is retained as the [WSL compatibility path](02-wsl2-ubuntu.md).
 
 ## I want to configure one task
 
@@ -24,7 +24,9 @@ Use these task targets when you already know which layer you need:
 | Task | Current guide | Planned task-scoped guide |
 | --- | --- | --- |
 | Configure Windows Terminal and host tooling | [Windows host setup](01-windows-host.md) | `windows-terminal-setup.md`, `powershell-setup.md` |
-| Install or migrate WSL2 Ubuntu | [WSL2 Ubuntu setup](02-wsl2-ubuntu.md) | `wsl-ubuntu-setup.md` |
+| Install WSL2 Ubuntu | [Install WSL2 Ubuntu](wsl-ubuntu-install.md) | Current task-scoped guide |
+| Migrate WSL2 Ubuntu | [Migrate WSL2 Ubuntu](wsl-ubuntu-migration.md) | Current task-scoped guide |
+| Follow an old WSL numbered link | [WSL compatibility path](02-wsl2-ubuntu.md) | Routes by starting state only |
 | Configure Ubuntu baseline behavior | [Ubuntu baseline setup](03-ubuntu-baseline.md) | `ubuntu-baseline.md` |
 | Configure proxy behavior | [Proxy setup](proxy-setup.md) | Replaces the proxy section in [Ubuntu baseline setup](03-ubuntu-baseline.md#proxy-primary-path) as the task-scoped pilot |
 | Configure shared data access | [Ubuntu baseline setup](03-ubuntu-baseline.md#wsl-config) | `data-mount-setup.md` |

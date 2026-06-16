@@ -69,14 +69,14 @@ Architecture is not required for this change because the work affects documentat
 
 ## Current Handoff Summary
 
-- Current milestone: M2
-- Current milestone state: closed
+- Current milestone: M3
+- Current milestone state: review-requested
 - Last reviewed milestone: M2
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: M3-M5
-- Next stage: implement M3
+- Next stage: code-review M3
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M2 is closed after code-review, but M3-M5 have not started.
+- Reason final closeout is or is not ready: M3 is implemented and awaiting code-review, and M4-M5 are not started.
 
 ## Milestones
 
@@ -174,7 +174,7 @@ Architecture is not required for this change because the work affects documentat
 
 ### M3. WSL install and migration split
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Split `02-wsl2-ubuntu.md` into fresh-install and migration guides, then replace the numbered path with a command-free compatibility stub.
 - Requirements: R1-R26, R44-R57, R61, R63, R67-R74, AC1, AC6-AC9, AC12-AC19
 - Files/components likely touched:
@@ -212,6 +212,7 @@ Architecture is not required for this change because the work affects documentat
   - high-risk review evidence recorded
   - validation notes updated
   - milestone committed
+  - ready for code-review
 - Risks:
   - The split can accidentally lose recovery guidance or change command ordering.
   - The compatibility stub can grow into a duplicate guide.
@@ -360,6 +361,7 @@ git diff --cached --check
 - 2026-06-16: M1 code-review R1 recorded `clean-with-notes` with no material findings; M1 closed.
 - 2026-06-16: M2 implementation converted `01-windows-host.md` as one unified guide; extended the scoped rollout proof for Windows host policy/elevation coverage; updated the legacy Windows/WSL baseline check for converted guide wording; recorded M2 implementation evidence.
 - 2026-06-16: M2 code-review R1 recorded `clean-with-notes` with no material findings; M2 closed.
+- 2026-06-16: M3 implementation split `02-wsl2-ubuntu.md` into `wsl-ubuntu-install.md` and `wsl-ubuntu-migration.md`; replaced the numbered file with a command-free compatibility stub; updated the router and WSL storage checks for the split; recorded high-risk WSL command review evidence.
 
 ## Decision log
 
@@ -376,6 +378,8 @@ git diff --cached --check
 - The legacy entrypoint and Neovim/tmux checks still asserted pre-template guide wording. M1 updated those checks to preserve their original contract while accepting the converted guide shape.
 - The first draft of the rollout proof rejected the word `secret` in safety prose. M1 narrowed that assertion to credential-like patterns and private-looking hostnames so safety cautions remain allowed.
 - The legacy Windows/WSL baseline check asserted the old `PowerShell best practices` heading. M2 updated that assertion to the converted `Windows-side shell posture` walkthrough heading without weakening the underlying host checks.
+- The WSL compatibility stub needed to keep two-speed headings for legacy guide-shape checks while avoiding all setup command duplication. M3 made it a route-only page with metadata, fast path, walkthrough, rollback, and troubleshooting links, but no WSL command blocks.
+- The rollout proof's command-literal self-guard also applies to ordering assertions. M3 constructs the unregister command string before checking backup/destructive ordering so the script does not embed a runnable-looking destructive command.
 
 ## Validation notes
 
@@ -423,6 +427,17 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check HEAD^ HEAD`
+- 2026-06-16 M3 pre-implementation proof: `bash tests/markdown/remaining-guides-template-rollout.test.sh` failed as expected with `missing required file: docs/guides/wsl-ubuntu-install.md`.
+- 2026-06-16 M3 validation passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check`
 
 ## Outcome and retrospective
 
@@ -432,5 +447,5 @@ Pending implementation.
 
 - M1 is closed.
 - M2 is closed.
-- Ready to implement M3.
+- M3 is ready for code-review.
 - Not ready for final closeout while M3-M5 remain open.
