@@ -124,9 +124,12 @@ uv_guide=docs/guides/06-uv.md
 wsl_stub=docs/guides/02-wsl2-ubuntu.md
 wsl_install_guide=docs/guides/wsl-ubuntu-install.md
 wsl_migration_guide=docs/guides/wsl-ubuntu-migration.md
+verification_guide=docs/guides/99-verification.md
+verification_inventory=docs/changes/2026-06-16-remaining-guides-template-rollout/verification-target-inventory.md
 m1_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m1-implementation-evidence.md
 m2_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m2-implementation-evidence.md
 m3_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m3-implementation-evidence.md
+m4_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m4-implementation-evidence.md
 unregister_command="wsl --unreg""ister Ubuntu"
 
 require_file "$router"
@@ -136,8 +139,9 @@ require_converted_guide_shape "$neovim_guide"
 require_converted_guide_shape "$uv_guide"
 require_converted_guide_shape "$wsl_install_guide"
 require_converted_guide_shape "$wsl_migration_guide"
+require_converted_guide_shape "$verification_guide"
 
-for guide in "$windows_host_guide" "$tmux_guide" "$neovim_guide" "$uv_guide" "$wsl_install_guide" "$wsl_migration_guide"; do
+for guide in "$windows_host_guide" "$tmux_guide" "$neovim_guide" "$uv_guide" "$wsl_install_guide" "$wsl_migration_guide" "$verification_guide"; do
   require_text "$guide" "Backup:"
   require_text "$guide" "Rollback:"
   reject_regex "$guide" "generated documentation|template engine|one-command installer|hidden automation" "converted guides must not add generated tooling or hidden automation"
@@ -229,9 +233,48 @@ require_text "$router" "[Install WSL2 Ubuntu](wsl-ubuntu-install.md)"
 require_text "$router" "[Migrate WSL2 Ubuntu](wsl-ubuntu-migration.md)"
 require_text "$router" "[WSL compatibility path](02-wsl2-ubuntu.md)"
 
+require_file "$verification_inventory"
+require_text "$verification_inventory" "Active verification references"
+require_text "$verification_inventory" "Unresolved verification follow-ups"
+require_text "$verification_inventory" "First smaller-guide sequencing"
+require_text "$verification_inventory" "not converted in M1"
+require_text "$verification_inventory" "docs/guides/01-windows-host.md"
+require_text "$verification_inventory" "docs/guides/wsl-ubuntu-install.md"
+require_text "$verification_inventory" "docs/guides/wsl-ubuntu-migration.md"
+require_text "$verification_inventory" "docs/guides/proxy-setup.md"
+require_text "$verification_inventory" "docs/guides/04-neovim.md"
+require_text "$verification_inventory" "docs/guides/05-tmux.md"
+require_text "$verification_inventory" "docs/guides/06-uv.md"
+require_text "$verification_inventory" "docs/guides/03-ubuntu-baseline.md"
+require_text "$verification_inventory" "unresolved follow-up"
+
+for path in \
+  docs/guides/01-windows-host.md \
+  docs/guides/wsl-ubuntu-install.md \
+  docs/guides/wsl-ubuntu-migration.md \
+  docs/guides/proxy-setup.md \
+  docs/guides/04-neovim.md \
+  docs/guides/05-tmux.md \
+  docs/guides/06-uv.md; do
+  require_file "$path"
+  require_text "$verification_guide" "$path"
+done
+
+reject_regex "$verification_guide" '\]\(03-ubuntu-baseline\.md\)' "verification guide must not actively link unresolved Ubuntu baseline target"
+reject_regex "$verification_guide" '\]\(ubuntu-baseline\.md\)' "verification guide must not actively link unresolved Ubuntu baseline target"
+require_text "$verification_guide" "pass"
+require_text "$verification_guide" "fail"
+require_text "$verification_guide" "skipped"
+require_text "$verification_guide" "needs manual action"
+require_text "$verification_guide" "Verification matrix"
+require_text "$verification_guide" "Publication gate"
+require_text "$verification_guide" "Static checks"
+require_text "$verification_guide" "Rollback coverage"
+
 require_file "$m1_evidence"
 require_file "$m2_evidence"
 require_file "$m3_evidence"
+require_file "$m4_evidence"
 for text in \
   "Milestone: M1" \
   "Command inventory:" \
@@ -272,6 +315,20 @@ for text in \
   "High-risk command review:" \
   "Setup command execution: not executed"; do
   require_text "$m3_evidence" "$text"
+done
+
+for text in \
+  "Milestone: M4" \
+  "Verification target inventory:" \
+  "Active-reference result:" \
+  "Unresolved-follow-up result:" \
+  "First-slice sequencing result:" \
+  "Result-vocabulary coverage:" \
+  "Command-context coverage:" \
+  "Expected-result coverage:" \
+  "Static-link result:" \
+  "Setup command execution: not executed"; do
+  require_text "$m4_evidence" "$text"
 done
 
 if grep -Eq '[a]pt update|[s]udo apt|[w]inget |[w]sl --install|[w]sl --unregister|[u]pdate-ca-certificates|[s]udo mount -a|[s]udo visudo' "$0"; then

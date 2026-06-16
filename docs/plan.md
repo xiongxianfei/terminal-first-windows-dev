@@ -5,7 +5,7 @@
 | Change | Plan | State | Next stage | Active context |
 | --- | --- | --- | --- | --- |
 | `2026-05-24-terminal-first-workstation-setup` | `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` | active | pr | First-slice terminal-first Windows 11 workstation setup guide. |
-| `2026-06-16-remaining-guides-template-rollout` | `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md` | active | implement M4 | M3 WSL split is closed; verification guide conversion is next. |
+| `2026-06-16-remaining-guides-template-rollout` | `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md` | active | code-review M4 | Verification guide conversion is implemented and awaiting review. |
 
 ## Blocked
 

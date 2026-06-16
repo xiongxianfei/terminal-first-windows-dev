@@ -70,13 +70,13 @@ Architecture is not required for this change because the work affects documentat
 ## Current Handoff Summary
 
 - Current milestone: M4
-- Current milestone state: planned
+- Current milestone state: review-requested
 - Last reviewed milestone: M3
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: M4-M5
-- Next stage: implement M4
+- Next stage: code-review M4
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M3 is closed after code-review, but M4-M5 have not started.
+- Reason final closeout is or is not ready: M4 is implemented and awaiting code-review, and M5 has not started.
 
 ## Milestones
 
@@ -222,7 +222,7 @@ Architecture is not required for this change because the work affects documentat
 
 ### M4. Verification guide and router proof surface
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Convert `99-verification.md` only when active referenced guide paths exist or unresolved verification targets are explicitly inventoried.
 - Requirements: R1-R26, R58-R63, R67-R75, AC1, AC12-AC21
 - Files/components likely touched:
@@ -260,6 +260,7 @@ Architecture is not required for this change because the work affects documentat
   - review evidence recorded
   - validation notes updated
   - milestone committed
+  - ready for code-review
 - Risks:
   - Verification references can point to not-yet-converted paths.
   - The verification guide can become a broad implementation checklist instead of a proof surface.
@@ -363,6 +364,7 @@ git diff --cached --check
 - 2026-06-16: M2 code-review R1 recorded `clean-with-notes` with no material findings; M2 closed.
 - 2026-06-16: M3 implementation split `02-wsl2-ubuntu.md` into `wsl-ubuntu-install.md` and `wsl-ubuntu-migration.md`; replaced the numbered file with a command-free compatibility stub; updated the router and WSL storage checks for the split; recorded high-risk WSL command review evidence.
 - 2026-06-16: M3 code-review R1 recorded `clean-with-notes` with no material findings; M3 closed.
+- 2026-06-16: M4 implementation converted `99-verification.md` to the accepted guide shape; added `verification-target-inventory.md`; extended rollout proof for active verification references, unresolved follow-ups, result vocabulary, and M4 evidence; recorded M4 implementation evidence.
 
 ## Decision log
 
@@ -381,6 +383,8 @@ git diff --cached --check
 - The legacy Windows/WSL baseline check asserted the old `PowerShell best practices` heading. M2 updated that assertion to the converted `Windows-side shell posture` walkthrough heading without weakening the underlying host checks.
 - The WSL compatibility stub needed to keep two-speed headings for legacy guide-shape checks while avoiding all setup command duplication. M3 made it a route-only page with metadata, fast path, walkthrough, rollback, and troubleshooting links, but no WSL command blocks.
 - The rollout proof's command-literal self-guard also applies to ordering assertions. M3 constructs the unregister command string before checking backup/destructive ordering so the script does not embed a runnable-looking destructive command.
+- The verification guide has to preserve the legacy release-readiness wording for repository-wide `git diff --check` while also using the new two-speed guide shape. M4 kept the advisory sentence in the converted static-checks walkthrough.
+- `03-ubuntu-baseline.md` still exists but is not a converted active verification target. M4 records Ubuntu baseline, WSL config, data mount, locale, and sudo as unresolved verification follow-ups instead of active converted-guide links.
 
 ## Validation notes
 
@@ -449,6 +453,17 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check HEAD^ HEAD`
+- 2026-06-16 M4 pre-implementation proof: `bash tests/markdown/remaining-guides-template-rollout.test.sh` failed as expected with `missing text in docs/guides/99-verification.md: **Prerequisites:**`.
+- 2026-06-16 M4 validation passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check`
 
 ## Outcome and retrospective
 
@@ -459,5 +474,5 @@ Pending implementation.
 - M1 is closed.
 - M2 is closed.
 - M3 is closed.
-- Ready to implement M4.
+- M4 is ready for code-review.
 - Not ready for final closeout while M4-M5 remain open.
