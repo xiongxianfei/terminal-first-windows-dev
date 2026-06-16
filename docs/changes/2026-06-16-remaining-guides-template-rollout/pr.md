@@ -6,8 +6,10 @@ docs: roll out guide template to remaining guides
 
 ## PR Open Status
 
-- Status: opened.
+- Status: merged.
 - URL: https://github.com/xiongxianfei/terminal-first-windows-dev/pull/4
+- Merged at: 2026-06-16T13:20:16Z
+- Merge commit: `d7ee9ac45cad6a8d0284486a2c90edf58e0af4c3`
 - Local branch: `proposal/other-guides-template-rollout`
 - Base branch: `main`
 - Blocker: none.
