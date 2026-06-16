@@ -69,14 +69,14 @@ Architecture is not required for this change because the work affects documentat
 
 ## Current Handoff Summary
 
-- Current milestone: M3
-- Current milestone state: review-requested
-- Last reviewed milestone: M2
+- Current milestone: M4
+- Current milestone state: planned
+- Last reviewed milestone: M3
 - Review status: clean-with-notes
-- Remaining in-scope implementation milestones: M3-M5
-- Next stage: code-review M3
+- Remaining in-scope implementation milestones: M4-M5
+- Next stage: implement M4
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M3 is implemented and awaiting code-review, and M4-M5 are not started.
+- Reason final closeout is or is not ready: M3 is closed after code-review, but M4-M5 have not started.
 
 ## Milestones
 
@@ -174,7 +174,7 @@ Architecture is not required for this change because the work affects documentat
 
 ### M3. WSL install and migration split
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Split `02-wsl2-ubuntu.md` into fresh-install and migration guides, then replace the numbered path with a command-free compatibility stub.
 - Requirements: R1-R26, R44-R57, R61, R63, R67-R74, AC1, AC6-AC9, AC12-AC19
 - Files/components likely touched:
@@ -362,6 +362,7 @@ git diff --cached --check
 - 2026-06-16: M2 implementation converted `01-windows-host.md` as one unified guide; extended the scoped rollout proof for Windows host policy/elevation coverage; updated the legacy Windows/WSL baseline check for converted guide wording; recorded M2 implementation evidence.
 - 2026-06-16: M2 code-review R1 recorded `clean-with-notes` with no material findings; M2 closed.
 - 2026-06-16: M3 implementation split `02-wsl2-ubuntu.md` into `wsl-ubuntu-install.md` and `wsl-ubuntu-migration.md`; replaced the numbered file with a command-free compatibility stub; updated the router and WSL storage checks for the split; recorded high-risk WSL command review evidence.
+- 2026-06-16: M3 code-review R1 recorded `clean-with-notes` with no material findings; M3 closed.
 
 ## Decision log
 
@@ -438,6 +439,16 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check`
+- 2026-06-16 M3 code-review validation rerun passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check HEAD^ HEAD`
 
 ## Outcome and retrospective
 
@@ -447,5 +458,6 @@ Pending implementation.
 
 - M1 is closed.
 - M2 is closed.
-- M3 is ready for code-review.
-- Not ready for final closeout while M3-M5 remain open.
+- M3 is closed.
+- Ready to implement M4.
+- Not ready for final closeout while M4-M5 remain open.
