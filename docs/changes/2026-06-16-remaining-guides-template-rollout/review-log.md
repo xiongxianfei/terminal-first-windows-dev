@@ -69,3 +69,38 @@ No material findings.
 ### Handoff
 
 M1 is closed. Continue with M2 implementation. No review-resolution is required.
+
+## Code Review Result - M2 R1
+
+- Skill: code-review
+- Status: completed
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Recording blocker: none
+- Review record: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/code-review-m2-r1.md`
+- Review log: `docs/changes/2026-06-16-remaining-guides-template-rollout/review-log.md`
+- Review resolution: not-required
+- Reviewed milestone: M2
+- Milestone closeout: closed
+- Remaining implementation milestones: M3-M5
+- Required review-resolution: no
+- Immediate next stage: implement M3
+
+Review date: 2026-06-16
+
+### Review Inputs
+
+- Diff/review surface: `54915c3 M2: convert Windows host guide`
+- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Spec: `specs/remaining-guides-template-rollout.md`
+- Test spec: `specs/remaining-guides-template-rollout.test.md`
+- Implementation evidence: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m2-implementation-evidence.md`
+
+### Findings
+
+No material findings.
+
+### Handoff
+
+M2 is closed. Continue with M3 implementation. No review-resolution is required.
