@@ -70,13 +70,13 @@ Architecture is not required for this change because the work affects documentat
 ## Current Handoff Summary
 
 - Current milestone: final closeout
-- Current milestone state: pr-ready
+- Current milestone state: pr-opened
 - Last reviewed milestone: M5
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: pr
+- Next stage: owner-review
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M1-M5 are closed after code-review, durable explanation and final verification are recorded, and PR handoff has not run.
+- Reason final closeout is or is not ready: M1-M5 are closed after code-review, durable explanation and final verification are recorded, and PR #4 is open for owner review.
 
 ## Milestones
 
@@ -371,6 +371,7 @@ git diff --cached --check
 - 2026-06-16: M5 code-review R1 recorded `clean-with-notes` with no material findings; M5 closed and final closeout is ready to begin at explain-change.
 - 2026-06-16: Explain-change updated `explain-change.md` with full diff rationale, requirement traceability, validation evidence, review state, scope control, and remaining risks; lifecycle metadata now hands off to final verify.
 - 2026-06-16: Final verify recorded branch-ready evidence in `verify-report.md`; lifecycle metadata now hands off to PR. Hosted CI and PR readiness remain unclaimed.
+- 2026-06-16: PR handoff opened PR #4 at https://github.com/xiongxianfei/terminal-first-windows-dev/pull/4 and recorded the PR body in `pr.md`.
 
 ## Decision log
 
@@ -530,5 +531,4 @@ Pending implementation.
 - M5 is closed.
 - Explain-change is recorded.
 - Final verification is recorded.
-- Branch-ready for PR handoff.
-- PR readiness is not claimed.
+- PR #4 is open for owner review.

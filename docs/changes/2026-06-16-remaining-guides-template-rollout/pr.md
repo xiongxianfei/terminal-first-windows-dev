@@ -6,8 +6,8 @@ docs: roll out guide template to remaining guides
 
 ## PR Open Status
 
-- Status: prepared-pending-open.
-- URL: pending.
+- Status: opened.
+- URL: https://github.com/xiongxianfei/terminal-first-windows-dev/pull/4
 - Local branch: `proposal/other-guides-template-rollout`
 - Base branch: `main`
 - Blocker: none.
