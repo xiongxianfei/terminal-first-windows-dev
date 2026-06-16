@@ -30,6 +30,26 @@ grep -q 'verification-first' README.md
 grep -q 'not a one-command unattended installer' README.md
 
 for guide in docs/guides/[0-9][0-9]-*.md; do
+  if [ "$guide" = "docs/guides/03-ubuntu-baseline.md" ]; then
+    grep -q '## Fast path' "$guide" || {
+      echo "missing fast path section: $guide" >&2
+      exit 1
+    }
+    grep -q '## Walkthrough' "$guide" || {
+      echo "missing walkthrough section: $guide" >&2
+      exit 1
+    }
+    grep -q '## Rollback' "$guide" || {
+      echo "missing rollback section: $guide" >&2
+      exit 1
+    }
+    grep -q '## Troubleshooting' "$guide" || {
+      echo "missing troubleshooting section: $guide" >&2
+      exit 1
+    }
+    continue
+  fi
+
   grep -q '## Command environment' "$guide" || {
     echo "missing command environment section: $guide" >&2
     exit 1
