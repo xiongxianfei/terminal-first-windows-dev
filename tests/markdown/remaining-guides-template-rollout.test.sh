@@ -117,22 +117,39 @@ require_converted_guide_shape() {
 }
 
 router=docs/guides/README.md
+windows_host_guide=docs/guides/01-windows-host.md
 tmux_guide=docs/guides/05-tmux.md
 neovim_guide=docs/guides/04-neovim.md
 uv_guide=docs/guides/06-uv.md
-evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m1-implementation-evidence.md
+m1_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m1-implementation-evidence.md
+m2_evidence=docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m2-implementation-evidence.md
 
 require_file "$router"
+require_converted_guide_shape "$windows_host_guide"
 require_converted_guide_shape "$tmux_guide"
 require_converted_guide_shape "$neovim_guide"
 require_converted_guide_shape "$uv_guide"
 
-for guide in "$tmux_guide" "$neovim_guide" "$uv_guide"; do
+for guide in "$windows_host_guide" "$tmux_guide" "$neovim_guide" "$uv_guide"; do
   require_text "$guide" "Backup:"
   require_text "$guide" "Rollback:"
   reject_regex "$guide" "generated documentation|template engine|one-command installer|hidden automation" "converted guides must not add generated tooling or hidden automation"
   reject_regex "$guide" "password=|token=|secret=|proxy\\.corp|internal\\.example|private key" "converted guides must not contain credential-like examples or private hostnames"
 done
+
+require_text "$windows_host_guide" "Windows Terminal"
+require_text "$windows_host_guide" "PowerShell"
+require_text "$windows_host_guide" "WinGet"
+require_text "$windows_host_guide" "Microsoft Store/App Installer"
+require_text "$windows_host_guide" "WSL availability"
+require_text "$windows_host_guide" "administrator"
+require_text "$windows_host_guide" "enterprise policy"
+require_text "$windows_host_guide" "Do not run all install commands from an elevated shell by default."
+require_regex "$windows_host_guide" '[w]inget install --id Microsoft\.PowerShell --source winget'
+require_regex "$windows_host_guide" '[w]inget upgrade --id Microsoft\.PowerShell --source winget'
+require_regex "$windows_host_guide" '[w]t --version'
+require_regex "$windows_host_guide" '[w]sl --(version|status)'
+require_regex "$windows_host_guide" 'Get-ExecutionPolicy -List'
 
 require_text "$tmux_guide" "Ubuntu only"
 reject_regex "$tmux_guide" "native Windows tmux support" "tmux guide must not claim native Windows tmux support"
@@ -160,7 +177,8 @@ reject_regex "$uv_guide" "packages\\.example|internal\\.|company\\.|corp\\.|toke
 require_text "$router" "[uv setup](06-uv.md)"
 require_text "$router" "optional"
 
-require_file "$evidence"
+require_file "$m1_evidence"
+require_file "$m2_evidence"
 for text in \
   "Milestone: M1" \
   "Command inventory:" \
@@ -171,7 +189,21 @@ for text in \
   "Troubleshooting-anchor result:" \
   "Security/privacy result:" \
   "Setup command execution: not executed"; do
-  require_text "$evidence" "$text"
+  require_text "$m1_evidence" "$text"
+done
+
+for text in \
+  "Milestone: M2" \
+  "Command inventory:" \
+  "Fast-path/walkthrough parity:" \
+  "Backup-before-edit coverage:" \
+  "Command-context coverage:" \
+  "Expected-result coverage:" \
+  "Policy/elevation coverage:" \
+  "Troubleshooting-anchor result:" \
+  "Security/privacy result:" \
+  "Setup command execution: not executed"; do
+  require_text "$m2_evidence" "$text"
 done
 
 if grep -Eq '[a]pt update|[s]udo apt|[w]inget |[w]sl --install|[w]sl --unregister|[u]pdate-ca-certificates|[s]udo mount -a|[s]udo visudo' "$0"; then

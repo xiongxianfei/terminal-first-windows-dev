@@ -69,14 +69,14 @@ Architecture is not required for this change because the work affects documentat
 
 ## Current Handoff Summary
 
-- Current milestone: M1
-- Current milestone state: closed
+- Current milestone: M2
+- Current milestone state: review-requested
 - Last reviewed milestone: M1
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: M2-M5
-- Next stage: implement M2
+- Next stage: code-review
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M1 is closed after code-review, but M2-M5 have not started.
+- Reason final closeout is or is not ready: M2 implementation is ready for code-review, but M2 is not reviewed or closed and M3-M5 have not started.
 
 ## Milestones
 
@@ -131,7 +131,7 @@ Architecture is not required for this change because the work affects documentat
 
 ### M2. Windows host guide conversion
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Convert `01-windows-host.md` as one unified host-baseline guide.
 - Requirements: R1-R26, R40-R43, R61, R67-R74, AC1, AC5, AC12-AC19
 - Files/components likely touched:
@@ -165,6 +165,7 @@ Architecture is not required for this change because the work affects documentat
   - review evidence recorded
   - validation notes updated
   - milestone committed
+  - ready for code-review
 - Risks:
   - Combining host setup topics may make the fast path too dense.
   - Elevation or enterprise-policy caveats may move too far from the commands they qualify.
@@ -357,6 +358,7 @@ git diff --cached --check
 - 2026-06-16: Test spec approved and activated.
 - 2026-06-16: M1 implementation converted `05-tmux.md`, `04-neovim.md`, and `06-uv.md`; added scoped rollout proof script; updated legacy Neovim/tmux and entrypoint checks for converted-guide coexistence; recorded M1 implementation evidence.
 - 2026-06-16: M1 code-review R1 recorded `clean-with-notes` with no material findings; M1 closed.
+- 2026-06-16: M2 implementation converted `01-windows-host.md` as one unified guide; extended the scoped rollout proof for Windows host policy/elevation coverage; updated the legacy Windows/WSL baseline check for converted guide wording; recorded M2 implementation evidence.
 
 ## Decision log
 
@@ -372,6 +374,7 @@ git diff --cached --check
 - The second-pass spec review approved the spec, but the spec body still said `draft`; this plan normalizes the spec status to `approved` before downstream artifacts rely on it.
 - The legacy entrypoint and Neovim/tmux checks still asserted pre-template guide wording. M1 updated those checks to preserve their original contract while accepting the converted guide shape.
 - The first draft of the rollout proof rejected the word `secret` in safety prose. M1 narrowed that assertion to credential-like patterns and private-looking hostnames so safety cautions remain allowed.
+- The legacy Windows/WSL baseline check asserted the old `PowerShell best practices` heading. M2 updated that assertion to the converted `Windows-side shell posture` walkthrough heading without weakening the underlying host checks.
 
 ## Validation notes
 
@@ -398,6 +401,17 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check HEAD^ HEAD`
+- 2026-06-16 M2 pre-implementation proof: `bash tests/markdown/remaining-guides-template-rollout.test.sh` failed as expected with `missing text in docs/guides/01-windows-host.md: **Prerequisites:**`.
+- 2026-06-16 M2 validation passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check`
 
 ## Outcome and retrospective
 
@@ -406,5 +420,6 @@ Pending implementation.
 ## Readiness
 
 - M1 is closed.
-- Ready to implement M2.
-- Not ready for final closeout while M2-M5 remain open.
+- M2 is ready for code-review.
+- M3 must not start until M2 code-review is complete and any required review-resolution is closed.
+- Not ready for final closeout while M2 is unreviewed and M3-M5 remain open.
