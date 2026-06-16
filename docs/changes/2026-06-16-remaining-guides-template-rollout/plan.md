@@ -70,13 +70,13 @@ Architecture is not required for this change because the work affects documentat
 ## Current Handoff Summary
 
 - Current milestone: final closeout
-- Current milestone state: explain-change-ready
+- Current milestone state: verify-ready
 - Last reviewed milestone: M5
 - Review status: clean-with-notes
 - Remaining in-scope implementation milestones: none
-- Next stage: explain-change
+- Next stage: verify
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M1-M5 are closed after code-review, durable explanation exists, and final verify and PR handoff have not run.
+- Reason final closeout is or is not ready: M1-M5 are closed after code-review, durable explanation is recorded, and final verify and PR handoff have not run.
 
 ## Milestones
 
@@ -369,6 +369,7 @@ git diff --cached --check
 - 2026-06-16: M4 code-review R1 recorded `clean-with-notes` with no material findings; M4 closed.
 - 2026-06-16: M5 implementation recorded completion evidence in `explain-change.md`, extended rollout proof for closeout evidence and non-claims, and updated lifecycle metadata for M5 code-review.
 - 2026-06-16: M5 code-review R1 recorded `clean-with-notes` with no material findings; M5 closed and final closeout is ready to begin at explain-change.
+- 2026-06-16: Explain-change updated `explain-change.md` with full diff rationale, requirement traceability, validation evidence, review state, scope control, and remaining risks; lifecycle metadata now hands off to final verify.
 
 ## Decision log
 
@@ -389,7 +390,7 @@ git diff --cached --check
 - The rollout proof's command-literal self-guard also applies to ordering assertions. M3 constructs the unregister command string before checking backup/destructive ordering so the script does not embed a runnable-looking destructive command.
 - The verification guide has to preserve the legacy release-readiness wording for repository-wide `git diff --check` while also using the new two-speed guide shape. M4 kept the advisory sentence in the converted static-checks walkthrough.
 - `03-ubuntu-baseline.md` still exists but is not a converted active verification target. M4 records Ubuntu baseline, WSL config, data mount, locale, and sudo as unresolved verification follow-ups instead of active converted-guide links.
-- M5 remains a review-requested implementation milestone, not final closeout. The explanation records final verification, branch readiness, and PR readiness as not claimed until later workflow stages own that evidence.
+- Explain-change records final verification, branch readiness, and PR readiness as not claimed until later workflow stages own that evidence.
 
 ## Validation notes
 
@@ -500,6 +501,9 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check HEAD^ HEAD`
+- 2026-06-16 explain-change validation passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `git diff --check`
 
 ## Outcome and retrospective
 
@@ -512,5 +516,6 @@ Pending implementation.
 - M3 is closed.
 - M4 is closed.
 - M5 is closed.
-- Ready for final closeout via explain-change.
+- Explain-change is recorded.
+- Ready for final verify.
 - Final verification and PR handoff are not claimed.

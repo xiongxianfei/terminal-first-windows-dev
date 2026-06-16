@@ -282,8 +282,8 @@ for text in \
   "Final verification: not claimed" \
   "Branch readiness: not claimed" \
   "PR readiness: not claimed" \
-  "M1-M4 code reviews: clean-with-notes" \
-  "Remaining required gate: M5 code-review"; do
+  "M1-M5 code reviews: clean-with-notes" \
+  "Remaining required gate: verify"; do
   require_text "$explain_change" "$text"
 done
 

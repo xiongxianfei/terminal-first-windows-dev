@@ -5,7 +5,7 @@
 | Change | Plan | State | Next stage | Active context |
 | --- | --- | --- | --- | --- |
 | `2026-05-24-terminal-first-workstation-setup` | `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` | active | pr | First-slice terminal-first Windows 11 workstation setup guide. |
-| `2026-06-16-remaining-guides-template-rollout` | `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md` | active | explain-change | M1-M5 are closed; final closeout starts with explain-change. |
+| `2026-06-16-remaining-guides-template-rollout` | `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md` | active | verify | M1-M5 are closed; explanation is recorded; final verification is next. |
 
 ## Blocked
 
