@@ -69,14 +69,14 @@ Architecture is not required for this change because the work affects documentat
 
 ## Current Handoff Summary
 
-- Current milestone: M5
-- Current milestone state: review-requested
-- Last reviewed milestone: M4
+- Current milestone: final closeout
+- Current milestone state: explain-change-ready
+- Last reviewed milestone: M5
 - Review status: clean-with-notes
-- Remaining in-scope implementation milestones: M5
-- Next stage: code-review M5
+- Remaining in-scope implementation milestones: none
+- Next stage: explain-change
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M5 is implemented and awaiting code-review.
+- Reason final closeout is or is not ready: M1-M5 are closed after code-review, durable explanation exists, and final verify and PR handoff have not run.
 
 ## Milestones
 
@@ -269,7 +269,7 @@ Architecture is not required for this change because the work affects documentat
 
 ### M5. Lifecycle closeout and completion evidence
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Consolidate completion evidence, plan state, and change metadata after guide conversion milestones are reviewed.
 - Requirements: R70-R75, AC16-AC21
 - Files/components likely touched:
@@ -368,6 +368,7 @@ git diff --cached --check
 - 2026-06-16: M4 implementation converted `99-verification.md` to the accepted guide shape; added `verification-target-inventory.md`; extended rollout proof for active verification references, unresolved follow-ups, result vocabulary, and M4 evidence; recorded M4 implementation evidence.
 - 2026-06-16: M4 code-review R1 recorded `clean-with-notes` with no material findings; M4 closed.
 - 2026-06-16: M5 implementation recorded completion evidence in `explain-change.md`, extended rollout proof for closeout evidence and non-claims, and updated lifecycle metadata for M5 code-review.
+- 2026-06-16: M5 code-review R1 recorded `clean-with-notes` with no material findings; M5 closed and final closeout is ready to begin at explain-change.
 
 ## Decision log
 
@@ -489,6 +490,16 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check`
+- 2026-06-16 M5 code-review validation rerun passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check HEAD^ HEAD`
 
 ## Outcome and retrospective
 
@@ -500,5 +511,6 @@ Pending implementation.
 - M2 is closed.
 - M3 is closed.
 - M4 is closed.
-- M5 is ready for code-review.
-- Not ready for final closeout until M5 code-review closes.
+- M5 is closed.
+- Ready for final closeout via explain-change.
+- Final verification and PR handoff are not claimed.

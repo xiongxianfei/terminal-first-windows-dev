@@ -176,3 +176,38 @@ No material findings.
 ### Handoff
 
 M4 is closed. Continue with M5 implementation. No review-resolution is required.
+
+## Code Review Result - M5 R1
+
+- Skill: code-review
+- Status: completed
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Recording blocker: none
+- Review record: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/code-review-m5-r1.md`
+- Review log: `docs/changes/2026-06-16-remaining-guides-template-rollout/review-log.md`
+- Review resolution: not-required
+- Reviewed milestone: M5
+- Milestone closeout: closed
+- Remaining implementation milestones: none
+- Required review-resolution: no
+- Immediate next stage: explain-change
+
+Review date: 2026-06-16
+
+### Review Inputs
+
+- Diff/review surface: `239ea5b M5: record rollout completion evidence`
+- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Spec: `specs/remaining-guides-template-rollout.md`
+- Test spec: `specs/remaining-guides-template-rollout.test.md`
+- Explanation record: `docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md`
+
+### Findings
+
+No material findings.
+
+### Handoff
+
+M5 is closed. No implementation milestones remain. Continue to final closeout via explain-change. No review-resolution is required.
