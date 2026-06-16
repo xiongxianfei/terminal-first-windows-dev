@@ -70,19 +70,19 @@ Architecture is not required for this change because the work affects documentat
 ## Current Handoff Summary
 
 - Current milestone: M1
-- Current milestone state: review-requested
-- Last reviewed milestone: none
-- Review status: not-reviewed
-- Remaining in-scope implementation milestones: M1-M5
-- Next stage: code-review
+- Current milestone state: closed
+- Last reviewed milestone: M1
+- Review status: clean-with-notes
+- Remaining in-scope implementation milestones: M2-M5
+- Next stage: implement M2
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M1 implementation is ready for code-review, but M1 is not reviewed or closed and M2-M5 have not started.
+- Reason final closeout is or is not ready: M1 is closed after code-review, but M2-M5 have not started.
 
 ## Milestones
 
 ### M1. Smaller tool guides and scoped checks
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Convert `05-tmux.md`, `04-neovim.md`, and `06-uv.md` to the accepted guide shape while preserving their numbered paths and command semantics.
 - Requirements: R1-R39, R61-R62, R67-R74, AC1-AC4, AC12-AC18
 - Files/components likely touched:
@@ -356,6 +356,7 @@ git diff --cached --check
 - 2026-06-16: Plan drafted and spec status normalized to `approved`.
 - 2026-06-16: Test spec approved and activated.
 - 2026-06-16: M1 implementation converted `05-tmux.md`, `04-neovim.md`, and `06-uv.md`; added scoped rollout proof script; updated legacy Neovim/tmux and entrypoint checks for converted-guide coexistence; recorded M1 implementation evidence.
+- 2026-06-16: M1 code-review R1 recorded `clean-with-notes` with no material findings; M1 closed.
 
 ## Decision log
 
@@ -387,6 +388,16 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check`
+- 2026-06-16 M1 code-review validation rerun passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check HEAD^ HEAD`
 
 ## Outcome and retrospective
 
@@ -394,6 +405,6 @@ Pending implementation.
 
 ## Readiness
 
-- M1 is ready for code-review.
-- M2 must not start until M1 code-review is complete and any required review-resolution is closed.
-- Not ready for final closeout while M1 is unreviewed and M2-M5 remain open.
+- M1 is closed.
+- Ready to implement M2.
+- Not ready for final closeout while M2-M5 remain open.
