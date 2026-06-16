@@ -140,3 +140,39 @@ No material findings.
 ### Handoff
 
 M3 is closed. Continue with M4 implementation. No review-resolution is required.
+
+## Code Review Result - M4 R1
+
+- Skill: code-review
+- Status: completed
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Recording blocker: none
+- Review record: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/code-review-m4-r1.md`
+- Review log: `docs/changes/2026-06-16-remaining-guides-template-rollout/review-log.md`
+- Review resolution: not-required
+- Reviewed milestone: M4
+- Milestone closeout: closed
+- Remaining implementation milestones: M5
+- Required review-resolution: no
+- Immediate next stage: implement M5
+
+Review date: 2026-06-16
+
+### Review Inputs
+
+- Diff/review surface: `fcafd69 M4: convert verification guide`
+- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Spec: `specs/remaining-guides-template-rollout.md`
+- Test spec: `specs/remaining-guides-template-rollout.test.md`
+- Implementation evidence: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m4-implementation-evidence.md`
+- Verification target inventory: `docs/changes/2026-06-16-remaining-guides-template-rollout/verification-target-inventory.md`
+
+### Findings
+
+No material findings.
+
+### Handoff
+
+M4 is closed. Continue with M5 implementation. No review-resolution is required.

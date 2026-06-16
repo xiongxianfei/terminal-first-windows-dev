@@ -7,7 +7,7 @@ spec: ../../../specs/remaining-guides-template-rollout.md
 test_spec: ../../../specs/remaining-guides-template-rollout.test.md
 architecture: not-required
 plan: plan.md
-current_stage: review-requested
-current_milestone: M4
-next_stage: code-review
+current_stage: code-reviewed
+current_milestone: M5
+next_stage: implement
 open_blockers: []

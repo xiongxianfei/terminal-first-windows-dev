@@ -69,14 +69,14 @@ Architecture is not required for this change because the work affects documentat
 
 ## Current Handoff Summary
 
-- Current milestone: M4
-- Current milestone state: review-requested
-- Last reviewed milestone: M3
+- Current milestone: M5
+- Current milestone state: planned
+- Last reviewed milestone: M4
 - Review status: clean-with-notes
-- Remaining in-scope implementation milestones: M4-M5
-- Next stage: code-review M4
+- Remaining in-scope implementation milestones: M5
+- Next stage: implement M5
 - Final closeout readiness: not ready
-- Reason final closeout is or is not ready: M4 is implemented and awaiting code-review, and M5 has not started.
+- Reason final closeout is or is not ready: M4 is closed after code-review, but M5 has not started.
 
 ## Milestones
 
@@ -222,7 +222,7 @@ Architecture is not required for this change because the work affects documentat
 
 ### M4. Verification guide and router proof surface
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Convert `99-verification.md` only when active referenced guide paths exist or unresolved verification targets are explicitly inventoried.
 - Requirements: R1-R26, R58-R63, R67-R75, AC1, AC12-AC21
 - Files/components likely touched:
@@ -365,6 +365,7 @@ git diff --cached --check
 - 2026-06-16: M3 implementation split `02-wsl2-ubuntu.md` into `wsl-ubuntu-install.md` and `wsl-ubuntu-migration.md`; replaced the numbered file with a command-free compatibility stub; updated the router and WSL storage checks for the split; recorded high-risk WSL command review evidence.
 - 2026-06-16: M3 code-review R1 recorded `clean-with-notes` with no material findings; M3 closed.
 - 2026-06-16: M4 implementation converted `99-verification.md` to the accepted guide shape; added `verification-target-inventory.md`; extended rollout proof for active verification references, unresolved follow-ups, result vocabulary, and M4 evidence; recorded M4 implementation evidence.
+- 2026-06-16: M4 code-review R1 recorded `clean-with-notes` with no material findings; M4 closed.
 
 ## Decision log
 
@@ -464,6 +465,16 @@ git diff --cached --check
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `git diff --check`
+- 2026-06-16 M4 code-review validation rerun passed:
+  - `bash tests/markdown/remaining-guides-template-rollout.test.sh`
+  - `bash tests/markdown/how-to-guide-template-best-practices.test.sh`
+  - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh`
+  - `bash tests/markdown/m1-project-entrypoint.test.sh`
+  - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
+  - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
+  - `bash tests/markdown/m4-neovim-tmux.test.sh`
+  - `bash tests/markdown/m5-release-readiness.test.sh`
+  - `git diff --check HEAD^ HEAD`
 
 ## Outcome and retrospective
 
@@ -474,5 +485,6 @@ Pending implementation.
 - M1 is closed.
 - M2 is closed.
 - M3 is closed.
-- M4 is ready for code-review.
-- Not ready for final closeout while M4-M5 remain open.
+- M4 is closed.
+- Ready to implement M5.
+- Not ready for final closeout while M5 remains open.
