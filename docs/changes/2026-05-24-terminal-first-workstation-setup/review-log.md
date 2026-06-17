@@ -23,8 +23,8 @@ Review date: 2026-05-24
 
 ### Review inputs
 
-- Diff/review surface: `docs/guides/99-verification.md`, `docs/release-notes/2026-05-24-tested-versions.md`, `README.md`, `tests/markdown/m5-release-readiness.test.sh`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
-- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/architecture/system/architecture.md`, `docs/adr/2026-05-24-version-and-package-policy.md`.
+- Diff/review surface: `docs/guides/99-verification.md`, `docs/release-notes/2026-05-24-tested-versions.md`, `README.md`, `tests/markdown/m5-release-readiness.test.sh`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
+- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/architecture/system/architecture.md`, `docs/adr/2026-05-24-version-and-package-policy.md`.
 - Validation evidence reviewed and rerun:
   - `bash tests/markdown/m5-release-readiness.test.sh`
   - `bash tests/markdown/m1-project-entrypoint.test.sh`
@@ -33,7 +33,7 @@ Review date: 2026-05-24
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +'lua require("terminal_first")' +qa`
   - `tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check && tmux kill-session -t terminal-first-check`
-  - `git diff --check -- docs/guides/99-verification.md docs/release-notes/2026-05-24-tested-versions.md README.md tests/markdown/m5-release-readiness.test.sh docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
+  - `git diff --check -- docs/guides/99-verification.md docs/release-notes/2026-05-24-tested-versions.md README.md tests/markdown/m5-release-readiness.test.sh docs/plans/2026-05-24-terminal-first-workstation-setup.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
   - temporary-index staged gate for the M5 file set: `git diff --cached --name-only` and `git diff --cached --check`
 
 ### Diff summary
@@ -102,8 +102,8 @@ Review date: 2026-05-24
 
 ### Review inputs
 
-- Diff/review surface: `docs/guides/04-neovim.md`, `docs/guides/05-tmux.md`, `docs/guides/99-verification.md`, `config/nvim/`, `config/tmux/`, `tests/markdown/m4-neovim-tmux.test.sh`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
-- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/architecture/system/architecture.md`, `docs/adr/2026-05-24-neovim-plugin-baseline.md`.
+- Diff/review surface: `docs/guides/04-neovim.md`, `docs/guides/05-tmux.md`, `docs/guides/99-verification.md`, `config/nvim/`, `config/tmux/`, `tests/markdown/m4-neovim-tmux.test.sh`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
+- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/architecture/system/architecture.md`, `docs/adr/2026-05-24-neovim-plugin-baseline.md`.
 - Validation evidence reviewed and rerun:
   - `bash tests/markdown/m4-neovim-tmux.test.sh`
   - `bash tests/markdown/m1-project-entrypoint.test.sh`
@@ -111,7 +111,7 @@ Review date: 2026-05-24
   - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
   - `nvim --headless --cmd 'set runtimepath^=config/nvim' -u config/nvim/init.lua +'lua require("terminal_first")' +qa`
   - `tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check && tmux kill-session -t terminal-first-check`
-  - `git diff --check -- docs/guides/04-neovim.md docs/guides/05-tmux.md docs/guides/99-verification.md config/nvim config/tmux tests/markdown/m4-neovim-tmux.test.sh docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
+  - `git diff --check -- docs/guides/04-neovim.md docs/guides/05-tmux.md docs/guides/99-verification.md config/nvim config/tmux tests/markdown/m4-neovim-tmux.test.sh docs/plans/2026-05-24-terminal-first-workstation-setup.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
 
 ### Diff summary
 
@@ -179,8 +179,8 @@ Review date: 2026-05-24
 
 ### Review inputs
 
-- Diff/review surface: `docs/guides/03-ubuntu-baseline.md`, `docs/guides/99-verification.md`, `docs/troubleshooting/proxy.md`, `docs/troubleshooting/ubuntu-baseline.md`, `tests/markdown/m3-ubuntu-baseline.test.sh`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
-- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/architecture/system/architecture.md`, `docs/adr/2026-05-24-wsl-storage-and-data-mount-policy.md`, `docs/adr/2026-05-24-proxy-strategy.md`.
+- Diff/review surface: `docs/guides/03-ubuntu-baseline.md`, `docs/guides/99-verification.md`, `docs/troubleshooting/proxy.md`, `docs/troubleshooting/ubuntu-baseline.md`, `tests/markdown/m3-ubuntu-baseline.test.sh`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
+- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/architecture/system/architecture.md`, `docs/adr/2026-05-24-wsl-storage-and-data-mount-policy.md`, `docs/adr/2026-05-24-proxy-strategy.md`.
 - Validation evidence reviewed and rerun:
   - `bash tests/markdown/m3-ubuntu-baseline.test.sh`
   - `bash tests/markdown/m1-project-entrypoint.test.sh`
@@ -188,7 +188,7 @@ Review date: 2026-05-24
   - `grep -n 'autoProxy=true' docs/guides/03-ubuntu-baseline.md`
   - `grep -n '/home/<user>/data' docs/guides/03-ubuntu-baseline.md docs/guides/99-verification.md`
   - `grep -n 'visudo' docs/guides/03-ubuntu-baseline.md`
-  - `git diff --check -- docs/guides/03-ubuntu-baseline.md docs/guides/99-verification.md docs/troubleshooting/proxy.md docs/troubleshooting/ubuntu-baseline.md tests/markdown/m3-ubuntu-baseline.test.sh docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
+  - `git diff --check -- docs/guides/03-ubuntu-baseline.md docs/guides/99-verification.md docs/troubleshooting/proxy.md docs/troubleshooting/ubuntu-baseline.md tests/markdown/m3-ubuntu-baseline.test.sh docs/plans/2026-05-24-terminal-first-workstation-setup.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
 
 ### Diff summary
 
@@ -256,15 +256,15 @@ Review date: 2026-05-24
 
 ### Review inputs
 
-- Diff/review surface: `docs/guides/01-windows-host.md`, `docs/guides/02-wsl2-ubuntu.md`, `docs/guides/99-verification.md`, `docs/troubleshooting/wsl.md`, `tests/markdown/m2-windows-wsl-storage.test.sh`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
-- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/architecture/system/architecture.md`, `docs/adr/2026-05-24-version-and-package-policy.md`, `docs/adr/2026-05-24-wsl-storage-and-data-mount-policy.md`.
+- Diff/review surface: `docs/guides/01-windows-host.md`, `docs/guides/02-wsl2-ubuntu.md`, `docs/guides/99-verification.md`, `docs/troubleshooting/wsl.md`, `tests/markdown/m2-windows-wsl-storage.test.sh`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
+- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/architecture/system/architecture.md`, `docs/adr/2026-05-24-version-and-package-policy.md`, `docs/adr/2026-05-24-wsl-storage-and-data-mount-policy.md`.
 - Validation evidence reviewed and rerun:
   - `bash tests/markdown/m2-windows-wsl-storage.test.sh`
   - `bash tests/markdown/m1-project-entrypoint.test.sh`
   - `grep -n 'wsl --install --distribution <UbuntuLtsDistroName> --location "D:\\Software\\WSL\\Ubuntu"' docs/guides/02-wsl2-ubuntu.md`
   - `! grep -n 'wsl --install Ubuntu --location' docs/guides/02-wsl2-ubuntu.md`
   - `grep -n 'wsl --list --verbose' docs/guides/02-wsl2-ubuntu.md docs/guides/99-verification.md`
-  - `git diff --check -- docs/guides/01-windows-host.md docs/guides/02-wsl2-ubuntu.md docs/guides/99-verification.md docs/troubleshooting/wsl.md tests/markdown/m2-windows-wsl-storage.test.sh docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
+  - `git diff --check -- docs/guides/01-windows-host.md docs/guides/02-wsl2-ubuntu.md docs/guides/99-verification.md docs/troubleshooting/wsl.md tests/markdown/m2-windows-wsl-storage.test.sh docs/plans/2026-05-24-terminal-first-workstation-setup.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
 
 ### Diff summary
 
@@ -332,13 +332,13 @@ Review date: 2026-05-24
 
 ### Review inputs
 
-- Diff/review surface: `README.md`, `docs/guides/`, `docs/troubleshooting/`, `tests/markdown/m1-project-entrypoint.test.sh`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
-- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`, `docs/architecture/system/architecture.md`, `CONSTITUTION.md`, `AGENTS.md`.
+- Diff/review surface: `README.md`, `docs/guides/`, `docs/troubleshooting/`, `tests/markdown/m1-project-entrypoint.test.sh`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`, `docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md`, `docs/plan.md`.
+- Governing artifacts: `specs/terminal-first-workstation-setup.md`, `specs/terminal-first-workstation-setup.test.md`, `docs/plans/2026-05-24-terminal-first-workstation-setup.md`, `docs/architecture/system/architecture.md`, `CONSTITUTION.md`, `AGENTS.md`.
 - Validation evidence reviewed and rerun:
   - `bash tests/markdown/m1-project-entrypoint.test.sh`
   - `test -f docs/guides/01-windows-host.md && test -f docs/guides/99-verification.md`
   - `grep -n 'one-command unattended' README.md docs/guides/*.md`
-  - `git diff --check -- README.md docs/guides docs/troubleshooting tests/markdown/m1-project-entrypoint.test.sh docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
+  - `git diff --check -- README.md docs/guides docs/troubleshooting tests/markdown/m1-project-entrypoint.test.sh docs/plans/2026-05-24-terminal-first-workstation-setup.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md`
   - temporary-index staged gate for the M1 file set: `git diff --cached --name-only` and `git diff --cached --check`
 
 ### Diff summary
@@ -400,13 +400,13 @@ Latest review round: 2026-05-24 second pass.
 
 Reviewed artifacts:
 
-- `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`
+- `docs/plans/2026-05-24-terminal-first-workstation-setup.md`
 - `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`
 - `docs/plan.md`
 - `specs/terminal-first-workstation-setup.md`
-- `specs/terminal-first-workstation-setup.review.md`
+- `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
 - `docs/architecture/system/architecture.md`
-- `docs/architecture/2026-05-24-workstation-setup-boundaries.review.md`
+- `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review.md`
 - `docs/workflows.md`
 
 ## Review Log
@@ -447,7 +447,7 @@ None.
 ### PR-001 - Full diff whitespace check is known to fail before implementation
 
 - Severity: major
-- Location: `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` M5 validation commands and Validation plan
+- Location: `docs/plans/2026-05-24-terminal-first-workstation-setup.md` M5 validation commands and Validation plan
 - Evidence: The plan requires `git diff --check` in M5 and the overall validation plan. Running `git diff --check` in the current worktree fails before implementation because unrelated template/community files already contain trailing-whitespace or line-ending changes, including `CODE_OF_CONDUCT.md`, `CONTRIBUTING.md`, `LICENSE`, `README.md`, and `SECURITY.md`. The plan does not record this baseline failure or define how implementers should distinguish milestone regressions from pre-existing unrelated whitespace drift.
 - Required outcome: The plan must make whitespace validation executable in the current repository state without forcing unrelated cleanup into this feature.
 - Safe resolution path: Update the plan to use scoped whitespace validation for files touched by each milestone, and keep full `git diff --check` as a final or optional repository-wide check only after the pre-existing unrelated whitespace baseline is resolved. Record the known baseline issue in Validation notes or Risks and recovery. No owner decision is needed unless the owner wants this change to include cleanup of unrelated template/community files.

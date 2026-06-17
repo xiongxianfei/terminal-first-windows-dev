@@ -6,7 +6,7 @@
 - Resolution status: addressed
 - Closeout status: closed
 - Owner decision needed: no
-- Updated artifact: `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`
+- Updated artifact: `docs/plans/2026-05-24-terminal-first-workstation-setup.md`
 - Review log: `docs/changes/2026-05-24-terminal-first-workstation-setup/review-log.md`
 - Next stage: test-spec and implementation, now completed through final verification handoff
 

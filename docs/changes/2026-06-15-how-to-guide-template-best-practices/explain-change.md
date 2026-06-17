@@ -17,12 +17,12 @@ This is safety-sensitive for this project because guides may touch WSL configura
 | Stage | Decision or evidence |
 | --- | --- |
 | Proposal | `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md` selected a small required core plus conditional safety modules. |
-| Proposal review | `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md` approved the proposal after reframing `proxy-setup.md` as the reference exemplar and `03-ubuntu-baseline.md` as the non-circular portability pilot. |
+| Proposal review | `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md` approved the proposal after reframing `proxy-setup.md` as the reference exemplar and `03-ubuntu-baseline.md` as the non-circular portability pilot. |
 | Spec | `specs/how-to-guide-template-best-practices.md` defined R1-R54 and AC1-AC14 for the template, published guides, backup guidance, validation boundaries, compatibility, and non-goals. |
-| Spec review | `specs/how-to-guide-template-best-practices.review.md` approved the spec after `specs/how-to-guide-template-best-practices.review-resolution.md` addressed HGT-SR-001 by making backup guidance testable for file-editing guides. |
+| Spec review | `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md` approved the spec after `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md` addressed HGT-SR-001 by making backup guidance testable for file-editing guides. |
 | Architecture | Architecture was not required because this is Markdown documentation structure and static validation, not generated assets, setup automation, data flow, or machine-changing runtime behavior. |
 | Test spec | `specs/how-to-guide-template-best-practices.test.md` maps coverage to T1-T9, including template structure, guide conformance, backup-before-edit checks, troubleshooting links and anchors, validation boundaries, and AC1-AC14 proof. |
-| Plan | `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` split implementation into M1 template, M2 exemplar/pilot, M3 validation, and M4 lifecycle evidence. |
+| Plan | `docs/plans/2026-06-15-how-to-guide-template-best-practices.md` split implementation into M1 template, M2 exemplar/pilot, M3 validation, and M4 lifecycle evidence. |
 | Code review | `review-log.md` records clean M1-M4 code reviews with no material findings. |
 
 ## Diff Rationale By Area
@@ -40,7 +40,7 @@ This is safety-sensitive for this project because guides may touch WSL configura
 | `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md` | Recorded the accepted proposal with the non-circular exemplar/pilot framing and an explicit exemplar-only option rejection. | Preserves the product and process decision that downstream spec and implementation rely on. | Proposal-review findings and AC14. | M4 proof checks `status: accepted` and rendered `accepted` status. |
 | `specs/how-to-guide-template-best-practices.md` | Added the normative template, guide conformance, backup, validation, compatibility, and non-goal contract. | Makes the proposal reviewable and testable before implementation. | Proposal and spec-review resolution. | Spec review approved; test spec maps requirements to tests. |
 | `specs/how-to-guide-template-best-practices.test.md` | Added traceable T1-T9 test requirements. | Defines how implementation proves template, guide, validation, security, non-goal, and acceptance-criteria coverage. | Spec R1-R54 and AC1-AC14. | Implemented by the proof script and evidence records. |
-| `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` | Added and maintained the milestone plan, validation notes, progress, risks, and current handoff summary. | Keeps implementation order and lifecycle state auditable. | Plan-review R1 and implement/code-review skill requirements. | M1-M4 review records and handoff marker checks. |
+| `docs/plans/2026-06-15-how-to-guide-template-best-practices.md` | Added and maintained the milestone plan, validation notes, progress, risks, and current handoff summary. | Keeps implementation order and lifecycle state auditable. | Plan-review R1 and implement/code-review skill requirements. | M1-M4 review records and handoff marker checks. |
 | `docs/changes/2026-06-15-how-to-guide-template-best-practices/change.yaml` and `docs/plan.md` | Added compact change metadata and plan-index routing. | Makes the active change discoverable and keeps lifecycle handoff state synchronized. | Workflow conventions used by this repo. | State-sync checks after each milestone and review. |
 | `docs/changes/2026-06-15-how-to-guide-template-best-practices/review-log.md` and `reviews/code-review-*.md` | Recorded plan review and M1-M4 code-review results. | Keeps review outcomes durable without requiring an empty review-resolution artifact for clean reviews. | Code-review and plan-review skill rules. | All M1-M4 code reviews recorded `clean-with-notes` and no material findings. |
 
@@ -75,7 +75,7 @@ Important limits:
 
 There are no material code-review findings to resolve. M1, M2, M3, and M4 code reviews are recorded as `clean-with-notes` with no material findings in `docs/changes/2026-06-15-how-to-guide-template-best-practices/review-log.md`.
 
-The only spec-review finding requiring resolution was HGT-SR-001, recorded in `specs/how-to-guide-template-best-practices.review-resolution.md`; it was addressed before implementation by making backup guidance testable and adding the proxy fast-path backup cue.
+The only spec-review finding requiring resolution was HGT-SR-001, recorded in `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`; it was addressed before implementation by making backup guidance testable and adding the proxy fast-path backup cue.
 
 ## Alternatives Rejected
 

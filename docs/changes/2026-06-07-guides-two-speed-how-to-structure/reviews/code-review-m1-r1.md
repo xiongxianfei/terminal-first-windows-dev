@@ -4,7 +4,7 @@
 
 - Skill: code-review
 - Status: completed
-- Artifacts changed: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m1-r1.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml`, `docs/plan.md`
+- Artifacts changed: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m1-r1.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`, `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml`, `docs/plan.md`
 - Open blockers: none
 - Next stage: implement M2
 - Review status: clean-with-notes
@@ -25,7 +25,7 @@
 
 - Diff/review surface: commit `b8f6118` (`M1: add guide router and how-to template`).
 - Tracked governing branch state: commit `b8f6118` includes the proposal, proposal review, spec, spec review, test spec, plan, review log, M1 router, M1 template, and change metadata.
-- Governing artifacts: `specs/guides-two-speed-how-to-structure.md`, `specs/guides-two-speed-how-to-structure.test.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`, `CONSTITUTION.md`, `VISION.md`, and `AGENTS.md`.
+- Governing artifacts: `specs/guides-two-speed-how-to-structure.md`, `specs/guides-two-speed-how-to-structure.test.md`, `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`, `CONSTITUTION.md`, `VISION.md`, and `AGENTS.md`.
 - Validation evidence: M1 implementation validation recorded in the plan, plus reviewer rerun of the M1 file, heading, discoverability, whitespace, and clean-status checks.
 
 ## Diff Summary

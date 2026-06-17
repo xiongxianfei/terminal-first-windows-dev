@@ -12,7 +12,7 @@ Follow this order when artifacts disagree:
 2. `VISION.md`
 3. Accepted specs under `specs/`
 4. Architecture docs under `docs/architecture/`
-5. Change plans under `docs/changes/<change-id>/`
+5. Change plans under `docs/plans/`
 6. Tests, checks, review evidence, and verification evidence
 7. Code, scripts, and documentation
 8. Chat context
@@ -58,17 +58,21 @@ Manual single-skill invocation is allowed, but it stays isolated unless the owne
 | Workflow guide | `docs/workflows.md` |
 | Exploration | `docs/proposals/YYYY-MM-DD-slug.explore.md` |
 | Proposal | `docs/proposals/YYYY-MM-DD-slug.md` |
-| Proposal review | `docs/proposals/YYYY-MM-DD-slug.review.md` |
+| Proposal review | `docs/changes/<change-id>/reviews/proposal-review.md` |
+| Proposal review resolution | `docs/changes/<change-id>/reviews/proposal-review-resolution.md` |
 | Spec | `specs/slug.md` |
-| Spec review | `specs/slug.review.md` |
+| Spec review | `docs/changes/<change-id>/reviews/spec-review.md` |
+| Spec review resolution | `docs/changes/<change-id>/reviews/spec-review-resolution.md` |
 | Test spec | `specs/slug.test.md` |
 | Canonical architecture package | `docs/architecture/system/architecture.md` |
 | Architecture diagrams | `docs/architecture/system/diagrams/` |
-| Architecture review record | `docs/architecture/YYYY-MM-DD-slug.review.md` |
-| Architecture review resolution | `docs/architecture/YYYY-MM-DD-slug.review-resolution.md` |
+| Architecture review record | `docs/changes/<change-id>/reviews/architecture-review.md` |
+| Architecture review resolution | `docs/changes/<change-id>/reviews/architecture-review-resolution.md` |
 | ADR | `docs/adr/YYYY-MM-DD-slug.md` |
-| Change plan | `docs/changes/<change-id>/plan.md` |
+| Change plan | `docs/plans/<change-id>.md` |
 | Change metadata | `docs/changes/<change-id>/change.yaml` |
+| Plan review | `docs/changes/<change-id>/reviews/plan-review.md` |
+| Plan review resolution | `docs/changes/<change-id>/reviews/plan-review-resolution.md` |
 | Code review | `docs/changes/<change-id>/review-log.md` |
 | Review resolution | `docs/changes/<change-id>/review-resolution.md` |
 | Explanation | `docs/changes/<change-id>/explain-change.md` |
@@ -76,6 +80,10 @@ Manual single-skill invocation is allowed, but it stays isolated unless the owne
 | PR handoff | `docs/changes/<change-id>/pr.md` |
 | Learnings | `docs/learnings/YYYY-MM-DD-slug.md` |
 | Follow-ups | `docs/follow-ups.md` |
+
+Plan bodies live under `docs/plans/`; change-local reviews, metadata, resolutions, explanations, verification reports, and PR handoffs live under `docs/changes/<change-id>/`.
+
+All review records live under `docs/changes/<change-id>/`. For early lifecycle stages such as proposal review or spec review, create the change pack as soon as the review record is needed, even if the implementation plan does not exist yet. The early change pack records lifecycle evidence; it does not imply implementation is allowed.
 
 ## Current Workflow State
 
@@ -111,6 +119,7 @@ Implementation is not allowed yet for setup behavior, command defaults, scripts,
 - Use `plan` for multi-file, risky, migration-heavy, or milestone-based implementation.
 - Use `test-spec` before production implementation when requirements need traceable validation.
 - Use `implement` only after the required upstream artifacts exist for the change risk.
+- Generate review records under `docs/changes/<change-id>/`, including proposal, spec, architecture, plan, and code reviews.
 - Use `code-review`, `explain-change`, `verify`, and `pr` only when there is an implementation diff and stage-owned evidence.
 - Use `learn` when work reveals durable process lessons, recurring mistakes, or project rules that should guide future agents.
 

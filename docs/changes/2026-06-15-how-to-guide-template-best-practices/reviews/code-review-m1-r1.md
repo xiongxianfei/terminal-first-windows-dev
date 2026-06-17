@@ -25,8 +25,8 @@
 - Governing artifacts:
   - `specs/how-to-guide-template-best-practices.md`
   - `specs/how-to-guide-template-best-practices.test.md`
-  - `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
-  - `specs/how-to-guide-template-best-practices.review.md`
+  - `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
+  - `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md`
 - Validation evidence:
   - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh`
   - `git diff HEAD^..HEAD --check`

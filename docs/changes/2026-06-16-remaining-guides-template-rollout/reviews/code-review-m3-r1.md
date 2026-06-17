@@ -4,7 +4,7 @@
 
 - Skill: code-review
 - Status: completed
-- Artifacts changed: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/code-review-m3-r1.md`, `docs/changes/2026-06-16-remaining-guides-template-rollout/review-log.md`, `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`, `docs/changes/2026-06-16-remaining-guides-template-rollout/change.yaml`, `docs/plan.md`
+- Artifacts changed: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/code-review-m3-r1.md`, `docs/changes/2026-06-16-remaining-guides-template-rollout/review-log.md`, `docs/plans/2026-06-16-remaining-guides-template-rollout.md`, `docs/changes/2026-06-16-remaining-guides-template-rollout/change.yaml`, `docs/plan.md`
 - Open blockers: none
 - Next stage: implement next milestone
 - Review status: clean-with-notes
@@ -25,7 +25,7 @@
 
 - Diff/review surface: `371b5d2 M3: split WSL install and migration guides`
 - Tracked governing branch state: reviewed commit is present in local branch history
-- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Plan: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
 - Test spec: `specs/remaining-guides-template-rollout.test.md`
 - Workstation setup spec: `specs/terminal-first-workstation-setup.md`

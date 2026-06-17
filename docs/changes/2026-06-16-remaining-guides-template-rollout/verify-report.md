@@ -74,7 +74,7 @@ There is no `.github` directory in this workspace, so no repository-hosted workf
 
 None blocking.
 
-- `docs/plan.md` and `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md` both hand off to `pr`.
+- `docs/plan.md` and `docs/plans/2026-06-16-remaining-guides-template-rollout.md` both hand off to `pr`.
 - `docs/changes/2026-06-16-remaining-guides-template-rollout/change.yaml` records `current_stage: verified` and `next_stage: pr`.
 - `docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md` points to this verify report and still leaves PR readiness unclaimed.
 - No implementation `review-resolution.md` is required because M1-M5 code reviews recorded no material findings.

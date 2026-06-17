@@ -14,10 +14,10 @@ The work is documentation-only. It must improve structure, safety cues, verifica
 ## Source artifacts
 
 - Proposal: `docs/proposals/2026-06-16-remaining-guides-template-rollout.md`
-- Proposal review: `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md`
+- Proposal review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
-- Spec review: `specs/remaining-guides-template-rollout.review.md`
-- Spec review resolution: `specs/remaining-guides-template-rollout.review-resolution.md`
+- Spec review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review.md`
+- Spec review resolution: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review-resolution.md`
 - Upstream template spec: `specs/how-to-guide-template-best-practices.md`
 - Upstream setup contract: `specs/terminal-first-workstation-setup.md`
 - Workflow guide: `docs/workflows.md`
@@ -273,7 +273,7 @@ Architecture is not required for this change because the work affects documentat
 - Goal: Consolidate completion evidence, plan state, and change metadata after guide conversion milestones are reviewed.
 - Requirements: R70-R75, AC16-AC21
 - Files/components likely touched:
-  - `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+  - `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
   - `docs/changes/2026-06-16-remaining-guides-template-rollout/change.yaml`
   - `docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md`
   - `docs/plan.md`

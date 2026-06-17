@@ -19,7 +19,7 @@
 
 - Finding ID: PR-001
 - Severity: major
-- Location: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`, M3 "Files/components likely touched", M3 dependencies, validation plan
+- Location: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`, M3 "Files/components likely touched", M3 dependencies, validation plan
 - Evidence: The plan correctly says the test spec is pending and expected after plan-review, and M3 depends on "Test spec exists and names the checks." However, M3 also lists `specs/guides-two-speed-how-to-structure.test.md` under "Files/components likely touched" and includes that path in the M3 path-scoped whitespace command. This makes the implementation milestone appear to own or modify the test-spec artifact, which conflicts with the workflow sequence where `test-spec` is authored before implementation and then used as source evidence.
 - Required outcome: Remove the test-spec file from implementation-owned M3 files and implementation-surface validation commands. Keep it as a source artifact/dependency and ensure the plan states test-spec authoring happens after plan-review and before implementation.
 - Safe resolution path: In M3, replace `specs/guides-two-speed-how-to-structure.test.md` under "Files/components likely touched" with the actual implementation proof script path, likely `tests/markdown/guides-two-speed-how-to-structure.test.sh`. In the validation plan and M3 whitespace command, scope implementation whitespace to implementation-owned files and the change-local plan/review evidence, not the already-authored test spec. Preserve the dependency line that the test spec must exist before implementation.

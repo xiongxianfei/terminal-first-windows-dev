@@ -15,9 +15,9 @@ repo: xiongxianfei/terminal-first-windows-dev
 - Material findings: none
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `specs/how-to-guide-template-best-practices.review.md`
-- Review log: `specs/how-to-guide-template-best-practices.review.md`
-- Review resolution: `specs/how-to-guide-template-best-practices.review-resolution.md`
+- Review record: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md`
+- Review log: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md`
+- Review resolution: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`
 - Open blockers: none
 - Immediate next stage: plan
 - Eventual test-spec readiness: ready
@@ -38,7 +38,7 @@ The spec is approved for planning. HGT-SR-001 is addressed by the spec revision 
 
 | Finding ID | Disposition | Evidence |
 | --- | --- | --- |
-| HGT-SR-001 | addressed | The spec now defines backup guidance, revises R18, adds R35a, adds boundary behavior for missing or late backup guidance, updates AC2, AC9, and AC10, and records the disposition in `specs/how-to-guide-template-best-practices.review-resolution.md`. The proxy exemplar fast path now includes backup guidance before editing `%UserProfile%\.wslconfig`. |
+| HGT-SR-001 | addressed | The spec now defines backup guidance, revises R18, adds R35a, adds boundary behavior for missing or late backup guidance, updates AC2, AC9, and AC10, and records the disposition in `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`. The proxy exemplar fast path now includes backup guidance before editing `%UserProfile%\.wslconfig`. |
 
 ## Second-Pass Review Dimensions
 

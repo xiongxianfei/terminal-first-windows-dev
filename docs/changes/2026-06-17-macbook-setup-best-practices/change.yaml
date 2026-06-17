@@ -1,0 +1,15 @@
+id: 2026-06-17-macbook-setup-best-practices
+title: MacBook Setup Best Practices
+status: active
+created: 2026-06-17
+proposal: ../../proposals/2026-06-17-macbook-setup-best-practices.md
+spec: ../../../specs/macbook-setup-best-practices.md
+test_spec: ../../../specs/macbook-setup-best-practices.test.md
+test_spec_status: approved
+architecture: not-required-for-first-slice
+plan: ../../plans/2026-06-17-macbook-setup-best-practices.md
+companion_workdir: ../../../../20260617-terminal-first-macos-dev
+current_stage: pr
+current_milestone: M3
+next_stage: external-pr-review
+open_blockers: []

@@ -15,9 +15,9 @@ repo: xiongxianfei/terminal-first-windows-dev
 - Material findings: none
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `specs/remaining-guides-template-rollout.review.md`
-- Review log: `specs/remaining-guides-template-rollout.review.md`
-- Review resolution: `specs/remaining-guides-template-rollout.review-resolution.md`
+- Review record: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review.md`
+- Review log: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review.md`
+- Review resolution: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review-resolution.md`
 - Open blockers: none
 - Immediate next stage: plan
 - Eventual test-spec readiness: ready

@@ -7,9 +7,9 @@
 - Material findings: none in latest pass
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `docs/architecture/2026-05-24-workstation-setup-boundaries.review.md`
-- Review log: `docs/architecture/2026-05-24-workstation-setup-boundaries.review.md`
-- Review resolution: `docs/architecture/2026-05-24-workstation-setup-boundaries.review-resolution.md`
+- Review record: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review.md`
+- Review log: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review.md`
+- Review resolution: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review-resolution.md`
 - Open blockers: none
 - Required canonical updates: none from this review; normalize architecture status to `approved` before downstream planning relies on it
 - Required ADR updates: none
@@ -27,7 +27,7 @@ Reviewed artifacts:
 - `docs/adr/2026-05-24-proxy-strategy.md`
 - `docs/adr/2026-05-24-neovim-plugin-baseline.md`
 - `specs/terminal-first-workstation-setup.md`
-- `specs/terminal-first-workstation-setup.review.md`
+- `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
 - `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.md`
 - `docs/workflows.md`
 - `docs/project-map.md`
@@ -96,7 +96,7 @@ Location: `docs/workflows.md` Artifact Locations; `docs/architecture/system/arch
 
 Severity: material
 
-Evidence: The workflow guide lists the default architecture path as `docs/architecture/YYYY-MM-DD-slug.md` and architecture-review path as `docs/architecture/YYYY-MM-DD-slug.review.md`. The architecture skill uses the canonical package default `docs/architecture/system/architecture.md`, and the reviewed architecture was authored there. Without a workflow-map update, future agents may look for a dated architecture document instead of the canonical package before planning.
+Evidence: At the time of this review, the workflow guide listed dated architecture and architecture-review paths instead of the canonical architecture package path. The architecture skill uses the canonical package default `docs/architecture/system/architecture.md`, and the reviewed architecture was authored there. Without a workflow-map update, future agents may look for a dated architecture document instead of the canonical package before planning.
 
 Required outcome: The workflow guide must clearly identify `docs/architecture/system/architecture.md` as the canonical architecture package path, while preserving the dated architecture-review record path if that remains the intended review-record convention.
 

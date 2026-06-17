@@ -28,12 +28,12 @@ docs: add best-practice how-to guide template
 ## Spec / Plan / Architecture
 
 - Proposal: `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md`
-- Proposal review: `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md`
+- Proposal review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md`
 - Spec: `specs/how-to-guide-template-best-practices.md`
-- Spec review: `specs/how-to-guide-template-best-practices.review.md`
-- Spec review resolution: `specs/how-to-guide-template-best-practices.review-resolution.md`
+- Spec review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md`
+- Spec review resolution: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`
 - Test spec: `specs/how-to-guide-template-best-practices.test.md`
-- Plan: `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
+- Plan: `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
 - Architecture / ADRs: not required; this change is Markdown documentation structure, guide evidence, and local static validation only.
 - Explain change: `docs/changes/2026-06-15-how-to-guide-template-best-practices/explain-change.md`
 - Verify report: `docs/changes/2026-06-15-how-to-guide-template-best-practices/verify-report.md`
@@ -78,7 +78,7 @@ docs: add best-practice how-to guide template
 - Needs decision: 0
 - Review-resolution: not required for code-review findings
 
-Spec-review finding HGT-SR-001 was addressed before implementation in `specs/how-to-guide-template-best-practices.review-resolution.md`.
+Spec-review finding HGT-SR-001 was addressed before implementation in `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`.
 
 ## Risks and Rollback
 

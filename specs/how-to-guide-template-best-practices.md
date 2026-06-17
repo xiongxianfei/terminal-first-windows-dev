@@ -7,7 +7,7 @@ approved
 ## Related proposal
 
 - Proposal: `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md`
-- Proposal review: `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md`
+- Proposal review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md`
 - Upstream structure spec: `specs/guides-two-speed-how-to-structure.md`
 - Reference exemplar: `docs/guides/proxy-setup.md`
 - Portability pilot: `docs/guides/03-ubuntu-baseline.md`
@@ -209,7 +209,7 @@ R54. This spec MUST NOT require renaming `docs/guides/03-ubuntu-baseline.md`; th
 Inputs:
 
 - Accepted proposal `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md`.
-- Approved proposal review `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md`.
+- Approved proposal review `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md`.
 - Existing two-speed guide structure spec `specs/guides-two-speed-how-to-structure.md`.
 - Existing template `docs/templates/how-to-guide.md`.
 - Existing guide exemplar `docs/guides/proxy-setup.md`.
@@ -372,7 +372,7 @@ The test spec should cover backup guidance through layered checks:
 - review-check evidence for published guides that edit user-owned or system-owned files;
 - no command execution requirement in the first slice.
 
-- `specs/how-to-guide-template-best-practices.review.md` for spec review.
+- `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md` for spec review.
 - `specs/how-to-guide-template-best-practices.test.md` for traceable structure, link, anchor, exemplar, and portability-pilot checks after spec review.
 - `docs/templates/how-to-guide.md` update after spec and test-spec approval.
 - `tests/markdown/how-to-guide-template-best-practices.test.sh` after the test spec defines the validation contract.

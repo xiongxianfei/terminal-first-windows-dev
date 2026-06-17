@@ -15,11 +15,11 @@ The project needed a guide structure that lets readers configure a terminal-firs
 | Stage | Decision or evidence |
 | --- | --- |
 | Proposal | `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.md` accepted the two-speed guide structure, reader-intent router, separate troubleshooting area, unnumbered task guide filenames, and proxy pilot. |
-| Proposal review | `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.review.md` recorded no material findings after revision. |
+| Proposal review | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/proposal-review.md` recorded no material findings after revision. |
 | Spec | `specs/guides-two-speed-how-to-structure.md` defined R1-R42 and AC1-AC12 for router, template, proxy pilot, troubleshooting boundary, and validation boundaries. |
-| Spec review | `specs/guides-two-speed-how-to-structure.review.md` approved the spec. |
+| Spec review | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md` approved the spec. |
 | Test spec | `specs/guides-two-speed-how-to-structure.test.md` mapped requirements to T1-T9, including static structure checks and manual pilot evidence. |
-| Plan | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` split implementation into M1 router/template, M2 proxy pilot, and M3 lightweight validation. |
+| Plan | `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md` split implementation into M1 router/template, M2 proxy pilot, and M3 lightweight validation. |
 | Reviews | M1, M2, and M3 code reviews recorded `clean-with-notes` with no material findings under `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/`. |
 
 Architecture was marked not required because this change affects documentation structure and validation expectations only.
@@ -34,7 +34,7 @@ Architecture was marked not required because this change affects documentation s
 | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` | Recorded manual fast-path walkthrough evidence and command-execution limits. | Satisfies R31-R32 and AC7 without claiming live Windows/WSL/proxy execution. | Spec R31-R32; test spec T4. | M2 validation and M2 code review. |
 | `tests/markdown/guides-two-speed-how-to-structure.test.sh` | Added static Markdown proof script. | Satisfies R33-R36 and AC8-AC10 by checking guide shape, links, anchors, migration discoverability, pilot evidence, and no-command-execution guardrails. | Spec R33-R36; test spec T5-T8; plan M3. | M3 validation and M3 code review. |
 | `tests/markdown/m1-project-entrypoint.test.sh` | Scoped legacy setup-guide section checks to numbered setup guides. | Final verification found that the previous `docs/guides/*.md` glob incorrectly treated the new router and task guide as old numbered setup guides. | Existing workstation setup validation plus this change's new guide taxonomy. | Full Markdown test suite passed after the fix. |
-| `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` | Recorded milestone progress, validation, review closeout, and final-closeout readiness. | Keeps the living plan aligned with implementation and review state. | Workflow and plan requirements. | Code review records and validation notes. |
+| `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md` | Recorded milestone progress, validation, review closeout, and final-closeout readiness. | Keeps the living plan aligned with implementation and review state. | Workflow and plan requirements. | Code review records and validation notes. |
 | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml` | Updated compact lifecycle stage as milestones advanced. | Keeps change metadata aligned with plan state. | Workflow metadata expectations. | Plan/index consistency checks. |
 | `docs/plan.md` | Updated active plan index through milestone handoffs and final closeout readiness. | Keeps project-level lifecycle routing current. | Workflow guidance. | Plan/index consistency checks. |
 | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md` and `reviews/*.md` | Recorded proposal/spec/plan/code-review outcomes. | Preserves formal review evidence and confirms no material code-review findings remain. | Review skills and workflow recording rules. | Review records M1-M3. |

@@ -15,7 +15,7 @@ repo: xiongxianfei/terminal-first-windows-dev
 - Material findings: none
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `specs/guides-two-speed-how-to-structure.review.md`
+- Review record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md`
 - Review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
 - Review resolution: not-required
 - Open blockers: none

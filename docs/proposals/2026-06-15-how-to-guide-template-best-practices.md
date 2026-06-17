@@ -524,7 +524,7 @@ Resolved decisions to carry into the downstream spec:
 
 ## Next artifacts
 
-- `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md` for proposal review.
+- `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md` for proposal review.
 - `specs/how-to-guide-template-best-practices.md` for the guide-template requirements after proposal review.
 - `specs/how-to-guide-template-best-practices.test.md` for structure, link, and review-check coverage.
 - `docs/templates/how-to-guide.md` for the reusable template after proposal and spec work.
@@ -534,7 +534,7 @@ Resolved decisions to carry into the downstream spec:
 
 ## Follow-on artifacts
 
-- `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md`
+- `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md`
 - `specs/how-to-guide-template-best-practices.md`
 
 ## Readiness

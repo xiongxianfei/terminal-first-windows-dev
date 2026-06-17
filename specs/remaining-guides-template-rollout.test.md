@@ -7,8 +7,8 @@ active
 ## Related spec and plan
 
 - Spec: `specs/remaining-guides-template-rollout.md`
-- Spec review: `specs/remaining-guides-template-rollout.review.md`
-- Spec review resolution: `specs/remaining-guides-template-rollout.review-resolution.md`
+- Spec review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review.md`
+- Spec review resolution: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review-resolution.md`
 - Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
 - Plan review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/plan-review-r1.md`
 - Architecture/ADRs: not applicable; the approved spec and plan keep the change to Markdown guide structure, router updates, compatibility stubs, static checks, and review evidence.

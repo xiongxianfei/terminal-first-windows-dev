@@ -16,8 +16,8 @@ recording_status: recorded
 - Material findings: none
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md`
-- Review log: `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md`
+- Review record: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`
+- Review log: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`
 - Review resolution: not required
 - Open blockers: none
 - Immediate next stage: `specs/remaining-guides-template-rollout.md`
@@ -167,8 +167,8 @@ The proposal says the how-to guide template spec is approved. Current local evid
 
 - `specs/how-to-guide-template-best-practices.md` status is `approved`.
 - `specs/how-to-guide-template-best-practices.md` includes `R18` and `R35a` backup-before-edit coverage.
-- `specs/how-to-guide-template-best-practices.review-resolution.md` records `HGT-SR-001` as `addressed`.
-- `specs/how-to-guide-template-best-practices.review.md` records second-pass approval.
+- `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md` records `HGT-SR-001` as `addressed`.
+- `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md` records second-pass approval.
 
 ## Recommendation
 

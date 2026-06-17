@@ -7,7 +7,7 @@ approved
 ## Related proposal
 
 - Proposal: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.md`
-- Proposal review: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.review.md`
+- Proposal review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/proposal-review.md`
 - Change review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
 - Related prior proposal: `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.md`
 
@@ -298,7 +298,7 @@ The implementation plan should decide the exact compatibility mechanism for exis
 
 ## Next artifacts
 
-- `specs/guides-two-speed-how-to-structure.review.md` for spec review.
+- `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md` for spec review.
 - `specs/guides-two-speed-how-to-structure.test.md` for guide structure, link, and pilot walkthrough validation.
 - `docs/architecture/system/architecture.md` update if the canonical architecture needs to record documentation-boundary changes.
 - `docs/adr/2026-06-07-guide-information-architecture.md` only if the project wants the guide/troubleshooting/template split recorded as a durable ADR.

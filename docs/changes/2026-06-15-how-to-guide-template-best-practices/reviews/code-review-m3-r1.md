@@ -25,7 +25,7 @@
 - Governing artifacts:
   - `specs/how-to-guide-template-best-practices.md`
   - `specs/how-to-guide-template-best-practices.test.md`
-  - `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
+  - `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
   - `CONSTITUTION.md`
 - Validation evidence:
   - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh`
