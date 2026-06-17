@@ -2,8 +2,8 @@
 
 ## Status
 
-- Plan lifecycle state: active
-- Terminal disposition: not-terminal
+- Plan lifecycle state: done
+- Terminal disposition: merged
 
 ## Purpose / big picture
 
@@ -60,9 +60,9 @@ Architecture is not needed before this plan because no machine-changing automati
 - Last reviewed milestone: M3
 - Review status: M3 code-review and M3 drift-fix re-review clean-with-notes; no material findings
 - Remaining in-scope implementation milestones: none
-- Next stage: external PR review
-- Final closeout readiness: pr-open-ready
-- Reason final closeout is or is not ready: M1-M3 are closed by code-review with no open findings, durable explanation exists, local final verification passed, and PRs are open. The change remains active until PR review/merge completes.
+- Next stage: none
+- Final closeout readiness: done
+- Reason final closeout is or is not ready: PR #5 in this repository and companion PR #1 are merged. No local workflow stage remains open for this change.
 
 ## Milestones
 
@@ -267,6 +267,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Closed the companion drift fix with clean code-review in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m3-r2.md`.
 - 2026-06-17: Recorded final verification in `docs/changes/2026-06-17-macbook-setup-best-practices/verify-report.md`; next stage is PR handoff.
 - 2026-06-17: Opened companion PR https://github.com/xiongxianfei/terminal-first-macos-dev/pull/1 and current repository PR https://github.com/xiongxianfei/terminal-first-windows-dev/pull/5.
+- 2026-06-17: Confirmed current repository PR #5 merged at `abd7998cb4e19e0e64f4c697993e310b2d7f3a74` and companion repository PR #1 merged at `8d3521798dde9af1aec1d803591eda1fbacbf18f`.
 
 ## Decision log
 
@@ -323,4 +324,4 @@ Architecture is not needed before this plan because no machine-changing automati
 ## Readiness
 
 - See `Current Handoff Summary`.
-- PRs are open. Readiness is not Done; external PR review and merge remain.
+- Done. Current repository PR #5 and companion repository PR #1 are merged.
