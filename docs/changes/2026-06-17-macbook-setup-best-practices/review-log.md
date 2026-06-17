@@ -82,6 +82,18 @@ M1-M3 validation commands now name whether they run from `/home/xiongxianfei/dat
 - Remaining implementation milestones: M2, M3
 - Immediate next stage: implement M2
 
+## Code Review M2
+
+- Review record: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m2.md`
+- Review status: changes-requested
+- Material findings: CR-M2-001
+- Recording status: recorded
+- Review resolution: required
+- Reviewed milestone: M2
+- Milestone closeout: resolution-needed
+- Remaining implementation milestones: M2, M3
+- Immediate next stage: review-resolution
+
 ## Current Findings
 
-No open findings.
+- CR-M2-001: M2 guide and proof do not include or validate Apple/Homebrew source-reference links required by the plan. Status: open.

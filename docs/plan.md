@@ -4,7 +4,7 @@
 
 | Change | Plan | State | Next stage | Active context |
 | --- | --- | --- | --- | --- |
-| `2026-06-17-macbook-setup-best-practices` | `docs/plans/2026-06-17-macbook-setup-best-practices.md` | active | code-review | M2 guide implementation complete in `../20260617-terminal-first-macos-dev`; ready for M2 code-review. |
+| `2026-06-17-macbook-setup-best-practices` | `docs/plans/2026-06-17-macbook-setup-best-practices.md` | active | review-resolution | M2 code-review requested CR-M2-001 resolution for missing Apple/Homebrew source-reference link checks. |
 | `2026-05-24-terminal-first-workstation-setup` | `docs/plans/2026-05-24-terminal-first-workstation-setup.md` | active | pr | First-slice terminal-first Windows 11 workstation setup guide. |
 
 ## Blocked

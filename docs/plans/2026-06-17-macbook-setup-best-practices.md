@@ -56,13 +56,13 @@ Architecture is not needed before this plan because no machine-changing automati
 ## Current Handoff Summary
 
 - Current milestone: M2
-- Current milestone state: review-requested
+- Current milestone state: resolution-needed
 - Last reviewed milestone: M1
-- Review status: M2 implementation complete; code-review pending
+- Review status: M2 code-review changes-requested; CR-M2-001 open
 - Remaining in-scope implementation milestones: M2, M3
-- Next stage: code-review
+- Next stage: review-resolution
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M2 implementation is ready for code-review, but M2 is not reviewed or closed and downstream M3, explanation, verification, and PR handoff remain open.
+- Reason final closeout is or is not ready: M2 has an open code-review finding, CR-M2-001, and downstream M3, explanation, verification, and PR handoff remain open.
 
 ## Milestones
 
@@ -117,7 +117,7 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ### M2. Personal MacBook terminal-baseline guide
 
-- Milestone state: review-requested
+- Milestone state: resolution-needed
 - Goal: Author the first-slice guide content for a personal developer Apple silicon MacBook terminal baseline.
 - Requirements: R1-R23, R27-R29, AC2-AC5, AC7
 - Files/components likely touched:
@@ -250,6 +250,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Implemented M1 companion baseline in `../20260617-terminal-first-macos-dev` on branch `macbook-setup-baseline` with commit `f090d60`.
 - 2026-06-17: Closed M1 with clean code-review in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m1.md`; next stage is M2 implementation.
 - 2026-06-17: Implemented M2 personal MacBook terminal-baseline guide in `../20260617-terminal-first-macos-dev` on branch `macbook-setup-baseline` with commit `2a503a8`.
+- 2026-06-17: M2 code-review recorded finding CR-M2-001 for missing Apple/Homebrew source-reference link checks.
 
 ## Decision log
 
@@ -269,6 +270,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - The first proof run failed as expected because the guide index did not exist yet.
 - The proof script initially failed on evidence-field capitalization; the implementation fixed the check to match case-insensitively while preserving the required fields.
 - M2 proof initially treated non-goal wording such as hidden setup automation as if it were an added automation command. The test was corrected to require the non-goal guardrail while forbidding concrete automation commands such as `brew bundle` and `mas install`.
+- M2 code-review found that the guide names Apple and Homebrew setup sources without adding official links or proof checks for those links, despite the M2 plan calling for link checks.
 
 ## Validation notes
 
@@ -286,9 +288,9 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Outcome and retrospective
 
-- M1 is closed by code-review with no material findings. M2 implementation is ready for code-review. M3 remains open.
+- M1 is closed by code-review with no material findings. M2 has open finding CR-M2-001. M3 remains open.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M2 code-review. Readiness is not Done; M2 review, any review-resolution, M3, explanation, final verification, and PR handoff remain.
+- Ready for review-resolution on CR-M2-001. Readiness is not Done; M2 re-review, M3, explanation, final verification, and PR handoff remain.
