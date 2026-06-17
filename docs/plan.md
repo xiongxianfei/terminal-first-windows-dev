@@ -4,7 +4,7 @@
 
 | Change | Plan | State | Next stage | Active context |
 | --- | --- | --- | --- | --- |
-| `2026-06-17-macbook-setup-best-practices` | `docs/plans/2026-06-17-macbook-setup-best-practices.md` | active | plan-review | MacBook setup best-practices companion guide first slice; implementation belongs in `terminal-first-macos-dev` unless a later vision revision changes scope. |
+| `2026-06-17-macbook-setup-best-practices` | `docs/plans/2026-06-17-macbook-setup-best-practices.md` | active | implement | MacBook setup best-practices companion guide first slice; M1 implementation belongs in `../20260617-terminal-first-macos-dev`. |
 | `2026-05-24-terminal-first-workstation-setup` | `docs/plans/2026-05-24-terminal-first-workstation-setup.md` | active | pr | First-slice terminal-first Windows 11 workstation setup guide. |
 
 ## Blocked

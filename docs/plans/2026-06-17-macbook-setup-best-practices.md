@@ -18,7 +18,7 @@ The work remains documentation-first and terminal-first. The first slice must pr
 - Spec: `specs/macbook-setup-best-practices.md`
 - Spec review: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/spec-review-r1.md`
 - Architecture: not required for the first slice because the approved spec excludes Brewfiles, scripts, generated shell configuration, hidden dotfile bootstrap, and setup automation
-- Test spec: pending
+- Test spec: `specs/macbook-setup-best-practices.test.md`
 - Workflow guide: `docs/workflows.md`
 - Constitution: `CONSTITUTION.md`
 
@@ -55,14 +55,14 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Current Handoff Summary
 
-- Current milestone: not-started
+- Current milestone: M1
 - Current milestone state: planned
 - Last reviewed milestone: none
-- Review status: plan-review R1 changes-requested; PR-001 addressed pending second-pass plan-review
+- Review status: plan-review R2 approved; test-spec authored
 - Remaining in-scope implementation milestones: M1, M2, M3
-- Next stage: plan-review
+- Next stage: implement
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: Plan-review R1 requested changes and the plan has been revised for PR-001, but second-pass plan-review is pending; test-spec is pending, implementation has not started, and downstream review, explanation, verification, and PR handoff remain open.
+- Reason final closeout is or is not ready: Plan-review R2 approved the plan and the test spec exists, but implementation has not started and downstream code review, explanation, verification, and PR handoff remain open.
 
 ## Milestones
 
@@ -224,8 +224,8 @@ Architecture is not needed before this plan because no machine-changing automati
 
 - Owner-created companion repository exists at `../20260617-terminal-first-macos-dev`.
 - Spec review is approved with no open findings.
-- Plan review must approve this plan before test-spec or implementation.
-- Test-spec must exist before implementation.
+- Plan review R2 approved this plan.
+- Test spec exists at `specs/macbook-setup-best-practices.test.md`.
 - A real Apple silicon MacBook is required before verified command-success or compatibility claims can be published.
 - Architecture is required only if future work introduces Brewfiles, scripts, generated shell configuration, hidden dotfile bootstrap, setup automation, or other machine-changing automation.
 
@@ -234,6 +234,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Created plan from accepted proposal and approved spec-review evidence.
 - 2026-06-17: Recorded owner-created companion repository workdir `../20260617-terminal-first-macos-dev` as the implementation surface.
 - 2026-06-17: Revised validation commands to name the current repository and companion repository workdirs, addressing plan-review PR-001 pending second-pass plan-review.
+- 2026-06-17: Authored `specs/macbook-setup-best-practices.test.md`; next stage is M1 implementation.
 
 ## Decision log
 
@@ -260,4 +261,4 @@ Architecture is not needed before this plan because no machine-changing automati
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for plan-review. Readiness is not Done; plan-review, test-spec, implementation, code-review, explanation, verification, and PR handoff remain.
+- Ready for M1 implementation. Readiness is not Done; implementation, code-review, later milestones, explanation, verification, and PR handoff remain.

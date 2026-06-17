@@ -263,7 +263,8 @@ Non-blocking downstream questions:
 ## Follow-on artifacts
 
 - Spec review: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/spec-review-r1.md`
-- Plan: `docs/changes/2026-06-17-macbook-setup-best-practices/plan.md`
+- Plan: `docs/plans/2026-06-17-macbook-setup-best-practices.md`
+- Test spec: `specs/macbook-setup-best-practices.test.md`
 
 ## Readiness
 
