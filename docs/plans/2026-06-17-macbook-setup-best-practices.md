@@ -24,7 +24,7 @@ The work remains documentation-first and terminal-first. The first slice must pr
 
 ## Context and orientation
 
-The accepted direction is a macOS companion surface, not a cross-platform rewrite of this repository. The plan therefore records the implementation sequence and evidence expectations here, while the eventual reader-facing guide files should be created in `terminal-first-macos-dev` or another owner-accepted macOS companion location.
+The accepted direction is a macOS companion surface, not a cross-platform rewrite of this repository. The plan therefore records the implementation sequence and evidence expectations here, while the eventual reader-facing guide files should be created in the owner-created companion repository at `../20260617-terminal-first-macos-dev`.
 
 The approved spec defines a first-slice personal developer Apple silicon MacBook path. Corporate-managed Macs, Intel compatibility, Mac App Store automation, GUI app bundles, language runtimes, containers, cloud tooling, and full editor configuration are out of the default first slice unless later proposals or verification evidence add them.
 
@@ -72,13 +72,13 @@ Architecture is not needed before this plan because no machine-changing automati
 - Goal: Establish or connect the macOS companion surface and its first-slice validation baseline before writing guide content.
 - Requirements: R29, AC1, AC4, AC5
 - Files/components likely touched:
-  - `terminal-first-macos-dev/README.md`
-  - `terminal-first-macos-dev/docs/guides/`
-  - `terminal-first-macos-dev/docs/verification/`
-  - `terminal-first-macos-dev/tests/markdown/`
+  - `../20260617-terminal-first-macos-dev/README.md`
+  - `../20260617-terminal-first-macos-dev/docs/guides/`
+  - `../20260617-terminal-first-macos-dev/docs/verification/`
+  - `../20260617-terminal-first-macos-dev/tests/markdown/`
   - `docs/plans/2026-06-17-macbook-setup-best-practices.md`
 - Dependencies:
-  - Owner accepts creating or using `terminal-first-macos-dev`.
+  - Owner-created companion repository exists at `../20260617-terminal-first-macos-dev`.
   - Plan review approval.
   - Test specification that maps R1-R29 to static checks, command review, and manual walkthrough evidence.
 - Tests to add/update:
@@ -86,7 +86,7 @@ Architecture is not needed before this plan because no machine-changing automati
   - Static check that the companion guide states it is a macOS companion surface and does not modify `terminal-first-windows-dev` scope.
   - Link check for local guide and verification links once companion paths exist.
 - Implementation steps:
-  - Confirm the companion repository or local path to use.
+  - Use `../20260617-terminal-first-macos-dev` as the companion repository workdir.
   - Create minimal guide, verification, and test directories in the companion surface.
   - Add or adapt a lightweight Markdown validation script for the first-slice guide structure.
   - Add traceability references back to the approved proposal and spec without copying Windows-specific scope into the companion guide.
@@ -102,11 +102,11 @@ Architecture is not needed before this plan because no machine-changing automati
   - validation notes updated
   - milestone committed
 - Risks:
-  - Companion repo ownership or path is unresolved.
+  - Companion repo default files may need alignment with the approved first-slice scope.
   - Validation becomes too specific before guide content exists.
   - Windows repo scope leaks into companion guide language.
 - Rollback/recovery:
-  - Revert companion-surface scaffolding and keep this plan active until the owner provides a usable macOS surface.
+  - Revert companion-surface scaffolding and keep this plan active until the companion repo baseline is usable.
 
 ### M2. Personal MacBook terminal-baseline guide
 
@@ -114,9 +114,9 @@ Architecture is not needed before this plan because no machine-changing automati
 - Goal: Author the first-slice guide content for a personal developer Apple silicon MacBook terminal baseline.
 - Requirements: R1-R23, R27-R29, AC2-AC5, AC7
 - Files/components likely touched:
-  - `terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
-  - `terminal-first-macos-dev/docs/guides/README.md`
-  - `terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
+  - `../20260617-terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
+  - `../20260617-terminal-first-macos-dev/docs/guides/README.md`
+  - `../20260617-terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
 - Dependencies:
   - M1 closed.
   - Test spec approved.
@@ -159,9 +159,9 @@ Architecture is not needed before this plan because no machine-changing automati
 - Goal: Add the verification template and manual walkthrough evidence path required before command success or compatibility is claimed.
 - Requirements: R24-R26, R4-R6, R7, R18, R21, R25, AC6, AC8
 - Files/components likely touched:
-  - `terminal-first-macos-dev/docs/verification/macbook-terminal-baseline.md`
-  - `terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
-  - `terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
+  - `../20260617-terminal-first-macos-dev/docs/verification/macbook-terminal-baseline.md`
+  - `../20260617-terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
+  - `../20260617-terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
 - Dependencies:
   - M2 closed.
   - Access to a real Apple silicon MacBook for manual verification before any success claims are published.
@@ -205,8 +205,8 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Risks and recovery
 
-- Risk: The companion repository or path is not available when implementation starts.
-  - Recovery: Keep M1 planned and block implementation until the owner provides the companion surface.
+- Risk: The companion repository baseline does not match the approved first-slice scope.
+  - Recovery: Keep M1 planned and adjust only companion-repo scaffolding after plan-review and test-spec.
 - Risk: The work drifts into a broad macOS productivity or role-stack guide.
   - Recovery: Revert out-of-scope sections and route role-specific content to separate follow-up modules.
 - Risk: Setup guidance includes automation despite the spec excluding it.
@@ -218,7 +218,7 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Dependencies
 
-- `terminal-first-macos-dev` or another owner-accepted macOS companion surface must exist before implementation.
+- Owner-created companion repository exists at `../20260617-terminal-first-macos-dev`.
 - Spec review is approved with no open findings.
 - Plan review must approve this plan before test-spec or implementation.
 - Test-spec must exist before implementation.
@@ -228,12 +228,14 @@ Architecture is not needed before this plan because no machine-changing automati
 ## Progress
 
 - 2026-06-17: Created plan from accepted proposal and approved spec-review evidence.
+- 2026-06-17: Recorded owner-created companion repository workdir `../20260617-terminal-first-macos-dev` as the implementation surface.
 
 ## Decision log
 
 | Date | Decision | Reason | Alternatives rejected |
 | --- | --- | --- | --- |
 | 2026-06-17 | Plan implementation for a separate macOS companion surface, not this Windows repository. | The accepted proposal and approved spec keep `terminal-first-windows-dev` Windows-first. | Adding macOS guide content to this repository by default. |
+| 2026-06-17 | Use `../20260617-terminal-first-macos-dev` as the companion repository workdir. | The owner created the GitHub repository and local workdir for the macOS companion surface. | Continuing to leave the companion path unresolved. |
 | 2026-06-17 | Skip architecture for the first slice unless automation is introduced. | The approved spec excludes Brewfiles, scripts, generated config, hidden dotfile bootstrap, and setup automation. | Running architecture unconditionally for documentation-only guide work. |
 | 2026-06-17 | Require test-spec before implementation. | The spec contains many safety, compatibility, and verification requirements that need traceable checks. | Implementing guide content directly after plan-review. |
 
