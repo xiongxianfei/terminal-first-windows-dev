@@ -55,14 +55,14 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Current Handoff Summary
 
-- Current milestone: M2
-- Current milestone state: review-requested
-- Last reviewed milestone: M1
-- Review status: CR-M2-001 addressed; M2 re-review pending
-- Remaining in-scope implementation milestones: M2, M3
-- Next stage: code-review
+- Current milestone: M3
+- Current milestone state: planned
+- Last reviewed milestone: M2
+- Review status: M2 code-review R2 clean-with-notes; CR-M2-001 closed
+- Remaining in-scope implementation milestones: M3
+- Next stage: implement
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: CR-M2-001 is addressed pending re-review, but M2 is not closed and downstream M3, explanation, verification, and PR handoff remain open.
+- Reason final closeout is or is not ready: M2 is closed, but downstream M3, explanation, verification, and PR handoff remain open.
 
 ## Milestones
 
@@ -117,7 +117,7 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ### M2. Personal MacBook terminal-baseline guide
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Author the first-slice guide content for a personal developer Apple silicon MacBook terminal baseline.
 - Requirements: R1-R23, R27-R29, AC2-AC5, AC7
 - Files/components likely touched:
@@ -253,6 +253,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Implemented M2 personal MacBook terminal-baseline guide in `../20260617-terminal-first-macos-dev` on branch `macbook-setup-baseline` with commit `2a503a8`.
 - 2026-06-17: M2 code-review recorded finding CR-M2-001 for missing Apple/Homebrew source-reference link checks.
 - 2026-06-17: Addressed CR-M2-001 in companion commit `271f260` by adding official Apple/Homebrew source links and proof assertions; M2 re-review is pending.
+- 2026-06-17: Closed M2 with clean code-review R2 in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m2-r2.md`; next stage is M3 implementation.
 
 ## Decision log
 
@@ -294,9 +295,9 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Outcome and retrospective
 
-- M1 is closed by code-review with no material findings. CR-M2-001 is addressed pending M2 re-review. M3 remains open.
+- M1 and M2 are closed by code-review with no open findings. M3 remains open.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M2 code-review re-run. Readiness is not Done; M2 re-review, M3, explanation, final verification, and PR handoff remain.
+- Ready for M3 implementation. Readiness is not Done; M3, explanation, final verification, and PR handoff remain.

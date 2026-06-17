@@ -28,15 +28,15 @@
 - Skill: implement
 - Status: completed
 - Finding: CR-M2-001
-- Resolution status: addressed pending M2 re-review
+- Resolution status: closed by code-review M2 R2
 - Recording status: recorded
 - Review record: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m2.md`
 - Review log: `docs/changes/2026-06-17-macbook-setup-best-practices/review-log.md`
 - Updated companion artifact: `../20260617-terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
 - Updated companion proof: `../20260617-terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
 - Companion commit: `271f260 M2: add source reference checks`
-- Open blockers: none for M2 re-review
-- Next stage: code-review
+- Open blockers: none
+- Next stage: implement M3
 
 ### Finding
 
@@ -61,4 +61,4 @@ Extended `tests/markdown/macbook-setup-best-practices.test.sh` to assert those s
 
 ### Remaining Action
 
-Run M2 code-review again. The finding is addressed but not closed until re-review.
+Closed by `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m2-r2.md`. Proceed to M3 implementation.

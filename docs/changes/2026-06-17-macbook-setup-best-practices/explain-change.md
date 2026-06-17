@@ -2,7 +2,7 @@
 
 ## Status
 
-M2 implementation is ready for code-review.
+M2 is closed by code-review R2. M3 remains open.
 
 ## What changed
 
@@ -88,4 +88,4 @@ M2 intentionally keeps the guide evidence-bound:
 
 ## Remaining work
 
-M1 is closed. CR-M2-001 is addressed and M2 is ready for code-review re-run, not closed. M3 still needs to add the verification evidence package. A real Apple silicon MacBook walkthrough is still required before verified command-success or compatibility claims can be published.
+M1 and M2 are closed. M3 still needs to add the verification evidence package. A real Apple silicon MacBook walkthrough is still required before verified command-success or compatibility claims can be published.
