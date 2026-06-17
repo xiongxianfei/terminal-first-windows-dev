@@ -7,8 +7,8 @@
 - Material findings: none
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md`
-- Review log: not-required; `docs/workflows.md` maps proposal reviews to a standalone `docs/proposals/*.review.md` artifact
+- Review record: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md`
+- Review log: not-required; this proposal review is the stage-owned review record under the change pack
 - Review resolution: not-required
 - Open blockers: none
 - Immediate next stage: isolated stop; next valid lifecycle stage is `spec` if the owner accepts the proposal direction

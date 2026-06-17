@@ -7,11 +7,11 @@ active
 ## Related spec and plan
 
 - Spec: `specs/terminal-first-workstation-setup.md`
-- Spec review: `specs/terminal-first-workstation-setup.review.md`
+- Spec review: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
 - Plan: `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`
 - Plan review: `docs/changes/2026-05-24-terminal-first-workstation-setup/review-log.md`
 - Architecture: `docs/architecture/system/architecture.md`
-- Architecture review: `docs/architecture/2026-05-24-workstation-setup-boundaries.review.md`
+- Architecture review: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review.md`
 - ADRs:
   - `docs/adr/2026-05-24-version-and-package-policy.md`
   - `docs/adr/2026-05-24-wsl-storage-and-data-mount-policy.md`

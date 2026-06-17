@@ -8,7 +8,7 @@
 - Material findings: none
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.review.md`
+- Review record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/proposal-review.md`
 - Review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
 - Review resolution: not-required
 - Reviewed proposal: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.md`
@@ -38,7 +38,7 @@ Approved for spec authoring after owner acceptance/status normalization. No auto
 - Material findings: none
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `specs/guides-two-speed-how-to-structure.review.md`
+- Review record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md`
 - Review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
 - Review resolution: not-required
 - Reviewed spec: `specs/guides-two-speed-how-to-structure.md`
@@ -51,7 +51,7 @@ Review date: 2026-06-07
 
 - Spec under review: `specs/guides-two-speed-how-to-structure.md`
 - Related proposal: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.md`
-- Proposal review: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.review.md`
+- Proposal review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/proposal-review.md`
 - Workflow guide: `docs/workflows.md`
 
 ### Findings
@@ -82,7 +82,7 @@ Review date: 2026-06-07
 
 - Plan under review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
 - Spec: `specs/guides-two-speed-how-to-structure.md`
-- Spec review: `specs/guides-two-speed-how-to-structure.review.md`
+- Spec review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md`
 - Workflow guide: `docs/workflows.md`
 
 ### Findings

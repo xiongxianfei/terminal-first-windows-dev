@@ -29,9 +29,9 @@ Adopt two-speed how-to guide structure
 ## Spec / Plan / Architecture
 
 - Proposal: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.md`
-- Proposal review: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.review.md`
+- Proposal review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/proposal-review.md`
 - Spec: `specs/guides-two-speed-how-to-structure.md`
-- Spec review: `specs/guides-two-speed-how-to-structure.review.md`
+- Spec review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md`
 - Test spec: `specs/guides-two-speed-how-to-structure.test.md`
 - Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
 - Architecture: not required; this change is documentation structure plus local static validation.

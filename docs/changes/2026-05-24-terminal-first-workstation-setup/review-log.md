@@ -404,9 +404,9 @@ Reviewed artifacts:
 - `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`
 - `docs/plan.md`
 - `specs/terminal-first-workstation-setup.md`
-- `specs/terminal-first-workstation-setup.review.md`
+- `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
 - `docs/architecture/system/architecture.md`
-- `docs/architecture/2026-05-24-workstation-setup-boundaries.review.md`
+- `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review.md`
 - `docs/workflows.md`
 
 ## Review Log

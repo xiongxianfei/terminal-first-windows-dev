@@ -27,7 +27,7 @@ The key risks were unsafe automation, ambiguous WSL command contracts, destructi
 | Stage | Decision | Source |
 | --- | --- | --- |
 | Exploration/proposal | Use a documentation-first guide with small inspectable helpers only when needed. | `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.md` |
-| Proposal review | Resolve open questions as decisions: explicit Ubuntu LTS, latest stable policy, `D:\Software\WSL\Ubuntu`, `/home/<user>/data`, `C.UTF-8`, WSL auto proxy, optional sudo, shared Neovim source config, Windows Terminal. | `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.review.md` |
+| Proposal review | Resolve open questions as decisions: explicit Ubuntu LTS, latest stable policy, `D:\Software\WSL\Ubuntu`, `/home/<user>/data`, `C.UTF-8`, WSL auto proxy, optional sudo, shared Neovim source config, Windows Terminal. | `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/proposal-review.md` |
 | Spec | Requirements R1-R40 define the observable setup contract. | `specs/terminal-first-workstation-setup.md` |
 | Architecture | Keep the architecture documentation-first; separate guides, config examples, validation, and optional future helpers. | `docs/architecture/system/architecture.md` |
 | ADRs | Record version/package policy, WSL storage/data mount policy, proxy strategy, and Neovim plugin baseline. | `docs/adr/` |

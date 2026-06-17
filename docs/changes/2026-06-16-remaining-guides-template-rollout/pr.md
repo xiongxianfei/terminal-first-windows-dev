@@ -30,10 +30,10 @@ docs: roll out guide template to remaining guides
 ## Spec / plan / architecture
 
 - Proposal: `docs/proposals/2026-06-16-remaining-guides-template-rollout.md`
-- Proposal review: `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md`
+- Proposal review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
-- Spec review: `specs/remaining-guides-template-rollout.review.md`
-- Spec review resolution: `specs/remaining-guides-template-rollout.review-resolution.md`
+- Spec review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review.md`
+- Spec review resolution: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review-resolution.md`
 - Test spec: `specs/remaining-guides-template-rollout.test.md`
 - Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
 - Architecture / ADRs: not required; this change is Markdown guide structure, router updates, compatibility stubs, static checks, and review evidence only.
@@ -88,7 +88,7 @@ docs: roll out guide template to remaining guides
 - Needs decision: 0
 - Review-resolution: not required for implementation code-review findings
 
-Spec-review finding RGT-SR-001 was resolved before implementation in `specs/remaining-guides-template-rollout.review-resolution.md`.
+Spec-review finding RGT-SR-001 was resolved before implementation in `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review-resolution.md`.
 
 ## Risks and rollback
 

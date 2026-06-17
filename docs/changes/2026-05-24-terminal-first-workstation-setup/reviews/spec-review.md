@@ -7,9 +7,9 @@
 - Material findings: none
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `specs/terminal-first-workstation-setup.review.md`
-- Review log: `specs/terminal-first-workstation-setup.review.md`
-- Review resolution: `specs/terminal-first-workstation-setup.review-resolution.md`
+- Review record: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
+- Review log: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
+- Review resolution: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review-resolution.md`
 - Open blockers: none
 - Immediate next stage: architecture
 
@@ -28,7 +28,7 @@ The spec is approved for architecture authoring. SR-001 is addressed by the spec
 
 | Finding ID | Disposition | Evidence |
 | --- | --- | --- |
-| SR-001 | addressed | R9 now defines `wsl --install --distribution <UbuntuLtsDistroName> --location "D:\Software\WSL\Ubuntu"` as the primary fresh-install command contract. R14 now requires official-doc and `wsl --help` validation, negative checks for unresolved/positional command forms, and post-install verification. `specs/terminal-first-workstation-setup.review-resolution.md` records the disposition. |
+| SR-001 | addressed | R9 now defines `wsl --install --distribution <UbuntuLtsDistroName> --location "D:\Software\WSL\Ubuntu"` as the primary fresh-install command contract. R14 now requires official-doc and `wsl --help` validation, negative checks for unresolved/positional command forms, and post-install verification. `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review-resolution.md` records the disposition. |
 
 ## Second-Pass Review Dimensions
 
@@ -57,8 +57,8 @@ The spec is approved for architecture authoring. SR-001 is addressed by the spec
 - Material findings: SR-001
 - Recording status: recorded
 - Recording blocker: none
-- Review record: `specs/terminal-first-workstation-setup.review.md`
-- Review log: `specs/terminal-first-workstation-setup.review.md`
+- Review record: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
+- Review log: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
 - Review resolution: not-required until findings are addressed
 - Open blockers: SR-001
 - Immediate next stage: spec revision

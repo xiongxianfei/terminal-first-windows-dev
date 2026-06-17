@@ -7,7 +7,7 @@ approved
 ## Related proposal
 
 - Proposal: `docs/proposals/2026-06-16-remaining-guides-template-rollout.md`
-- Proposal review: `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md`
+- Proposal review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`
 - Upstream guide structure spec: `specs/guides-two-speed-how-to-structure.md`
 - Upstream guide template spec: `specs/how-to-guide-template-best-practices.md`
 - Setup command contract spec: `specs/terminal-first-workstation-setup.md`
@@ -249,7 +249,7 @@ R75. The verification conversion slice MUST include a verification target invent
 Inputs:
 
 - Accepted proposal `docs/proposals/2026-06-16-remaining-guides-template-rollout.md`.
-- Approved proposal review `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md`.
+- Approved proposal review `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`.
 - Approved guide structure spec `specs/guides-two-speed-how-to-structure.md`.
 - Approved guide template spec `specs/how-to-guide-template-best-practices.md`.
 - Approved setup command contract spec `specs/terminal-first-workstation-setup.md`.

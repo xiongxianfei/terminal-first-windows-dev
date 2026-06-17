@@ -14,12 +14,12 @@ Implementation proceeds milestone by milestone after plan-review approval and ac
 ## Source artifacts
 
 - Proposal: `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.md`
-- Proposal review: `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.review.md`
+- Proposal review: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/proposal-review.md`
 - Spec: `specs/terminal-first-workstation-setup.md`
-- Spec review: `specs/terminal-first-workstation-setup.review.md`
+- Spec review: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
 - Architecture: `docs/architecture/system/architecture.md`
-- Architecture review: `docs/architecture/2026-05-24-workstation-setup-boundaries.review.md`
-- Architecture review resolution: `docs/architecture/2026-05-24-workstation-setup-boundaries.review-resolution.md`
+- Architecture review: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review.md`
+- Architecture review resolution: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review-resolution.md`
 - ADRs:
   - `docs/adr/2026-05-24-version-and-package-policy.md`
   - `docs/adr/2026-05-24-wsl-storage-and-data-mount-policy.md`

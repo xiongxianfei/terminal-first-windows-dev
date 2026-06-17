@@ -366,7 +366,7 @@ Resolved decisions to carry into the spec:
 
 ## Next Artifacts
 
-- `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md` for proposal review.
+- `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md` for proposal review.
 - `specs/remaining-guides-template-rollout.md` for conversion order, conformance rules, compatibility policy, and validation scope after proposal review.
 - `specs/remaining-guides-template-rollout.test.md` for structure, link, backup, and review-check coverage after spec review.
 - `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md` for implementation slices after test-spec approval.

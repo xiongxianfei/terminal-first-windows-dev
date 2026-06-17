@@ -17,9 +17,9 @@ This is safety-sensitive for this project because guides may touch WSL configura
 | Stage | Decision or evidence |
 | --- | --- |
 | Proposal | `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md` selected a small required core plus conditional safety modules. |
-| Proposal review | `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md` approved the proposal after reframing `proxy-setup.md` as the reference exemplar and `03-ubuntu-baseline.md` as the non-circular portability pilot. |
+| Proposal review | `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md` approved the proposal after reframing `proxy-setup.md` as the reference exemplar and `03-ubuntu-baseline.md` as the non-circular portability pilot. |
 | Spec | `specs/how-to-guide-template-best-practices.md` defined R1-R54 and AC1-AC14 for the template, published guides, backup guidance, validation boundaries, compatibility, and non-goals. |
-| Spec review | `specs/how-to-guide-template-best-practices.review.md` approved the spec after `specs/how-to-guide-template-best-practices.review-resolution.md` addressed HGT-SR-001 by making backup guidance testable for file-editing guides. |
+| Spec review | `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md` approved the spec after `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md` addressed HGT-SR-001 by making backup guidance testable for file-editing guides. |
 | Architecture | Architecture was not required because this is Markdown documentation structure and static validation, not generated assets, setup automation, data flow, or machine-changing runtime behavior. |
 | Test spec | `specs/how-to-guide-template-best-practices.test.md` maps coverage to T1-T9, including template structure, guide conformance, backup-before-edit checks, troubleshooting links and anchors, validation boundaries, and AC1-AC14 proof. |
 | Plan | `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` split implementation into M1 template, M2 exemplar/pilot, M3 validation, and M4 lifecycle evidence. |
@@ -75,7 +75,7 @@ Important limits:
 
 There are no material code-review findings to resolve. M1, M2, M3, and M4 code reviews are recorded as `clean-with-notes` with no material findings in `docs/changes/2026-06-15-how-to-guide-template-best-practices/review-log.md`.
 
-The only spec-review finding requiring resolution was HGT-SR-001, recorded in `specs/how-to-guide-template-best-practices.review-resolution.md`; it was addressed before implementation by making backup guidance testable and adding the proxy fast-path backup cue.
+The only spec-review finding requiring resolution was HGT-SR-001, recorded in `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`; it was addressed before implementation by making backup guidance testable and adding the proxy fast-path backup cue.
 
 ## Alternatives Rejected
 

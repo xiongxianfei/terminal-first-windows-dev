@@ -14,9 +14,9 @@ The plan deliberately avoids command-contract changes and command-execution CI. 
 ## Source artifacts
 
 - Proposal: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.md`
-- Proposal review: `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.review.md`
+- Proposal review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/proposal-review.md`
 - Spec: `specs/guides-two-speed-how-to-structure.md`
-- Spec review: `specs/guides-two-speed-how-to-structure.review.md`
+- Spec review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md`
 - Architecture: not required for this slice because the approved spec changes documentation structure and validation expectations only.
 - Test spec: `specs/guides-two-speed-how-to-structure.test.md`
 

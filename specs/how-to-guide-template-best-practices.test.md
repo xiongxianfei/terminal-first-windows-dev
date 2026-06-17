@@ -7,8 +7,8 @@ active
 ## Related spec and plan
 
 - Spec: `specs/how-to-guide-template-best-practices.md`
-- Spec review: `specs/how-to-guide-template-best-practices.review.md`
-- Spec review resolution: `specs/how-to-guide-template-best-practices.review-resolution.md`
+- Spec review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md`
+- Spec review resolution: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`
 - Plan: `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
 - Plan review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/plan-review-r1.md`
 - Architecture/ADRs: not applicable for this slice; the approved spec and plan keep the change to Markdown structure, guide conformance evidence, and static validation.

@@ -14,10 +14,10 @@ The work is documentation-only. It must improve structure, safety cues, verifica
 ## Source artifacts
 
 - Proposal: `docs/proposals/2026-06-16-remaining-guides-template-rollout.md`
-- Proposal review: `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md`
+- Proposal review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
-- Spec review: `specs/remaining-guides-template-rollout.review.md`
-- Spec review resolution: `specs/remaining-guides-template-rollout.review-resolution.md`
+- Spec review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review.md`
+- Spec review resolution: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review-resolution.md`
 - Upstream template spec: `specs/how-to-guide-template-best-practices.md`
 - Upstream setup contract: `specs/terminal-first-workstation-setup.md`
 - Workflow guide: `docs/workflows.md`

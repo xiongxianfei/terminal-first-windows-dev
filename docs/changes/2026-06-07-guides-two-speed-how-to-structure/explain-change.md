@@ -15,9 +15,9 @@ The project needed a guide structure that lets readers configure a terminal-firs
 | Stage | Decision or evidence |
 | --- | --- |
 | Proposal | `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.md` accepted the two-speed guide structure, reader-intent router, separate troubleshooting area, unnumbered task guide filenames, and proxy pilot. |
-| Proposal review | `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.review.md` recorded no material findings after revision. |
+| Proposal review | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/proposal-review.md` recorded no material findings after revision. |
 | Spec | `specs/guides-two-speed-how-to-structure.md` defined R1-R42 and AC1-AC12 for router, template, proxy pilot, troubleshooting boundary, and validation boundaries. |
-| Spec review | `specs/guides-two-speed-how-to-structure.review.md` approved the spec. |
+| Spec review | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md` approved the spec. |
 | Test spec | `specs/guides-two-speed-how-to-structure.test.md` mapped requirements to T1-T9, including static structure checks and manual pilot evidence. |
 | Plan | `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` split implementation into M1 router/template, M2 proxy pilot, and M3 lightweight validation. |
 | Reviews | M1, M2, and M3 code reviews recorded `clean-with-notes` with no material findings under `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/`. |

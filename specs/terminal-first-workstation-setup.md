@@ -7,7 +7,7 @@ approved
 ## Related proposal
 
 - Proposal: `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.md`
-- Proposal review: `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.review.md`
+- Proposal review: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/proposal-review.md`
 - Research: `docs/research/2026-05-24-windows-terminal-first-tooling.md`
 
 ## Goal and context
@@ -339,7 +339,7 @@ AC9. The spec is ready for architecture review because it identifies the state-c
 
 ## Next artifacts
 
-- `specs/terminal-first-workstation-setup.review.md` for spec review.
+- `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md` for spec review.
 - `docs/architecture/2026-05-24-workstation-setup-boundaries.md` for docs, scripts, config, validation, rollback, and machine-changing boundaries.
 - `docs/adr/2026-05-24-version-and-package-policy.md`.
 - `docs/adr/2026-05-24-wsl-storage-and-data-mount-policy.md`.

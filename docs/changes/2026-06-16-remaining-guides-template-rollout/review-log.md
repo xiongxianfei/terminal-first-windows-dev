@@ -20,10 +20,10 @@ Review date: 2026-06-16
 
 - Plan under review: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
 - Proposal: `docs/proposals/2026-06-16-remaining-guides-template-rollout.md`
-- Proposal review: `docs/proposals/2026-06-16-remaining-guides-template-rollout.review.md`
+- Proposal review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
-- Spec review: `specs/remaining-guides-template-rollout.review.md`
-- Spec review resolution: `specs/remaining-guides-template-rollout.review-resolution.md`
+- Spec review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review.md`
+- Spec review resolution: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review-resolution.md`
 - Workflow guide: `docs/workflows.md`
 - Constitution: `CONSTITUTION.md`
 

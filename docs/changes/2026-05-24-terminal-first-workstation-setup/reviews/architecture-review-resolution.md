@@ -2,7 +2,7 @@
 
 ## Result
 
-- Review record: `docs/architecture/2026-05-24-workstation-setup-boundaries.review.md`
+- Review record: `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/architecture-review.md`
 - Resolution status: addressed
 - Addressed findings: AR-001, AR-002
 - Owner decision required: none
@@ -33,16 +33,16 @@ The workflow artifact map now identifies the canonical architecture package as:
 docs/architecture/system/architecture.md
 ```
 
-Dated architecture review records remain under:
+Dated architecture review records were later migrated under the change pack review directory:
 
 ```text
-docs/architecture/YYYY-MM-DD-slug.review.md
+docs/changes/<change-id>/reviews/architecture-review.md
 ```
 
-Dated architecture review resolutions may be recorded under:
+Dated architecture review resolutions were later migrated under the change pack review directory:
 
 ```text
-docs/architecture/YYYY-MM-DD-slug.review-resolution.md
+docs/changes/<change-id>/reviews/architecture-review-resolution.md
 ```
 
 ## Validation
@@ -52,7 +52,7 @@ grep -n '^## 2\. Architecture Constraints$' docs/architecture/system/architectur
 ! grep -n '^## 2\. Constraints$' docs/architecture/system/architecture.md
 
 grep -n 'docs/architecture/system/architecture.md' docs/workflows.md
-grep -n 'docs/architecture/YYYY-MM-DD-slug.review.md' docs/workflows.md
+grep -n 'docs/changes/<change-id>/reviews/architecture-review.md' docs/workflows.md
 ```
 
 ## Readiness

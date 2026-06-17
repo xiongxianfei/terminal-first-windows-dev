@@ -8,20 +8,20 @@
 - Evidence in scope:
   - `docs/workflows.md`
   - `CONSTITUTION.md`
-  - `docs/proposals/2026-05-24-bootstrap-terminal-first-windows-dev.review.md`
-  - `specs/terminal-first-workstation-setup.review.md`
+  - `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/proposal-review.md`
+  - `docs/changes/2026-05-24-terminal-first-workstation-setup/reviews/spec-review.md`
 - Explicit exclusions: no changes to workflow policy, skill behavior, or existing review artifacts in this session.
 - Prior learnings reviewed: no existing `docs/learn/` records were present.
 - Session record path: `docs/learn/sessions/2026-05-24-review-record-location-ambiguity.md`
 
 ## Observe
 
-O1. The current project-local workflow guide maps proposal and spec reviews beside their source artifacts, while `docs/changes/<change-id>/review-log.md` is mapped specifically to code review.
+O1. At the time of this session, the project-local workflow guide mapped proposal and spec reviews beside their source artifacts, while `docs/changes/<change-id>/review-log.md` was mapped specifically to code review.
 
 Evidence:
 
-- `docs/workflows.md` maps proposal review to `docs/proposals/YYYY-MM-DD-slug.review.md`.
-- `docs/workflows.md` maps spec review to `specs/slug.review.md`.
+- `docs/workflows.md` mapped proposal review to a proposal-side review artifact.
+- `docs/workflows.md` mapped spec review to a spec-side review artifact.
 - `docs/workflows.md` maps code review to `docs/changes/<change-id>/review-log.md`.
 - `CONSTITUTION.md` describes `docs/changes/<change-id>/` as execution-plan scope for approved changes.
 
@@ -56,14 +56,12 @@ Evidence:
 
 ## No-Learn Rationale
 
-This session captured a useful workflow ambiguity, but not a durable lesson. The current behavior was consistent with `docs/workflows.md`; changing it would be workflow policy work, not learn-session authority.
+This session captured a useful workflow ambiguity, but not a durable lesson. The behavior was consistent with `docs/workflows.md` at the time; changing it was workflow policy work, not learn-session authority.
+
+## Subsequent Workflow Update
+
+On 2026-06-17, the owner directed that all review files should be generated under `docs/changes/`. `docs/workflows.md` now routes proposal, spec, architecture, plan, and code review records under `docs/changes/<change-id>/`.
 
 ## Follow-ups
 
-No follow-up artifact was created in this session.
-
-Candidate follow-up, pending owner confirmation: revise `docs/workflows.md` or create a workflow proposal to state whether early lifecycle review findings should be:
-
-- stored beside proposals/specs until a change pack exists;
-- mirrored into `docs/changes/<change-id>/review-log.md` after a change pack is created;
-- recorded only in `docs/changes/<change-id>/review-log.md` once the project chooses change-pack-first workflow for all non-trivial work.
+Follow-up completed on 2026-06-17: `docs/workflows.md` now routes review records under `docs/changes/<change-id>/`.

@@ -480,7 +480,7 @@ Resolved owner decisions to carry into the spec:
 
 ## Next artifacts
 
-- `docs/proposals/2026-06-07-guides-two-speed-how-to-structure.review.md` for proposal review.
+- `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/proposal-review.md` for proposal review.
 - `specs/guides-two-speed-how-to-structure.md` for guide-structure requirements after proposal review.
 - `specs/guides-two-speed-how-to-structure.test.md` for documentation structure, link, and review-check coverage.
 - `docs/architecture/system/architecture.md` update if the canonical architecture needs to record documentation-boundary changes.

@@ -14,10 +14,10 @@ The plan keeps the project documentation-first. It does not change setup command
 ## Source artifacts
 
 - Proposal: `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md`
-- Proposal review: `docs/proposals/2026-06-15-how-to-guide-template-best-practices.review.md`
+- Proposal review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md`
 - Spec: `specs/how-to-guide-template-best-practices.md`
-- Spec review: `specs/how-to-guide-template-best-practices.review.md`
-- Spec review resolution: `specs/how-to-guide-template-best-practices.review-resolution.md`
+- Spec review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md`
+- Spec review resolution: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`
 - Upstream structure spec: `specs/guides-two-speed-how-to-structure.md`
 - Architecture: not required because the approved spec changes documentation structure and static validation expectations only.
 - Test spec: pending; next after plan-review.

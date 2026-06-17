@@ -7,7 +7,7 @@ active
 ## Related spec and plan
 
 - Spec: `specs/guides-two-speed-how-to-structure.md`
-- Spec review: `specs/guides-two-speed-how-to-structure.review.md`
+- Spec review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md`
 - Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
 - Plan review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/plan-review-r2.md`
 - Architecture/ADRs: not applicable for this slice; architecture was reviewed as not required because the change is documentation structure and validation only.
