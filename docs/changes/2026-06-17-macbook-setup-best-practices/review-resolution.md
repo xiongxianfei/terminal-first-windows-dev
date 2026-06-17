@@ -22,3 +22,43 @@
 - Rationale: The implementation surface is the sibling macOS companion repository while lifecycle artifacts remain in this Windows repository, so validation commands need explicit workdir boundaries.
 - Validation evidence: current-repo `git diff --check` passed for the resolution edits.
 - Remaining action: none; plan-review R2 approved the resolution.
+
+## Code Review Resolution - CR-M2-001
+
+- Skill: implement
+- Status: completed
+- Finding: CR-M2-001
+- Resolution status: addressed pending M2 re-review
+- Recording status: recorded
+- Review record: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m2.md`
+- Review log: `docs/changes/2026-06-17-macbook-setup-best-practices/review-log.md`
+- Updated companion artifact: `../20260617-terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
+- Updated companion proof: `../20260617-terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
+- Companion commit: `271f260 M2: add source reference checks`
+- Open blockers: none for M2 re-review
+- Next stage: code-review
+
+### Finding
+
+CR-M2-001 - M2 guide and proof do not include or validate Apple/Homebrew source-reference links required by the plan.
+
+### Resolution Summary
+
+Added official source links near the relevant setup guidance:
+
+- Apple Software Update: `https://support.apple.com/en-us/108382`
+- Apple Command Line Tools: `https://developer.apple.com/documentation/xcode/installing-the-command-line-tools`
+- Homebrew installation documentation: `https://docs.brew.sh/Installation`
+- Homebrew install and uninstall script repository: `https://github.com/Homebrew/install`
+
+Extended `tests/markdown/macbook-setup-best-practices.test.sh` to assert those source links. No setup automation, Brewfiles, generated configuration, or command-success claims were added.
+
+### Validation Evidence
+
+- Expected failing proof before the guide fix: `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh` failed with `FAIL: docs/guides/macbook-terminal-baseline.md missing official Apple Software Update source link`.
+- After the guide fix: `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh` passed.
+- `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check` passed.
+
+### Remaining Action
+
+Run M2 code-review again. The finding is addressed but not closed until re-review.

@@ -94,6 +94,18 @@ M1-M3 validation commands now name whether they run from `/home/xiongxianfei/dat
 - Remaining implementation milestones: M2, M3
 - Immediate next stage: review-resolution
 
+## Code Review Resolution - CR-M2-001
+
+- Skill: implement
+- Finding: CR-M2-001
+- Resolution status: addressed pending M2 re-review
+- Recording status: recorded
+- Resolution record: `docs/changes/2026-06-17-macbook-setup-best-practices/review-resolution.md`
+- Updated companion artifact: `../20260617-terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
+- Updated companion proof: `../20260617-terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
+- Companion commit: `271f260 M2: add source reference checks`
+- Immediate next stage: code-review
+
 ## Current Findings
 
-- CR-M2-001: M2 guide and proof do not include or validate Apple/Homebrew source-reference links required by the plan. Status: open.
+- CR-M2-001: M2 guide and proof do not include or validate Apple/Homebrew source-reference links required by the plan. Status: addressed pending M2 re-review.

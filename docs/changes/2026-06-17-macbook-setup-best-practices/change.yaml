@@ -11,6 +11,5 @@ plan: ../../plans/2026-06-17-macbook-setup-best-practices.md
 companion_workdir: ../../../../20260617-terminal-first-macos-dev
 current_stage: code-review
 current_milestone: M2
-next_stage: review-resolution
-open_blockers:
-  - CR-M2-001
+next_stage: code-review
+open_blockers: []

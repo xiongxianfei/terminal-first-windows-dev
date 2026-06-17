@@ -56,13 +56,13 @@ Architecture is not needed before this plan because no machine-changing automati
 ## Current Handoff Summary
 
 - Current milestone: M2
-- Current milestone state: resolution-needed
+- Current milestone state: review-requested
 - Last reviewed milestone: M1
-- Review status: M2 code-review changes-requested; CR-M2-001 open
+- Review status: CR-M2-001 addressed; M2 re-review pending
 - Remaining in-scope implementation milestones: M2, M3
-- Next stage: review-resolution
+- Next stage: code-review
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M2 has an open code-review finding, CR-M2-001, and downstream M3, explanation, verification, and PR handoff remain open.
+- Reason final closeout is or is not ready: CR-M2-001 is addressed pending re-review, but M2 is not closed and downstream M3, explanation, verification, and PR handoff remain open.
 
 ## Milestones
 
@@ -117,7 +117,7 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ### M2. Personal MacBook terminal-baseline guide
 
-- Milestone state: resolution-needed
+- Milestone state: review-requested
 - Goal: Author the first-slice guide content for a personal developer Apple silicon MacBook terminal baseline.
 - Requirements: R1-R23, R27-R29, AC2-AC5, AC7
 - Files/components likely touched:
@@ -149,6 +149,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - Implementation evidence:
   - Companion branch: `macbook-setup-baseline`
   - Companion commit: `2a503a8 M2: add MacBook terminal baseline guide`
+  - Resolution commit: `271f260 M2: add source reference checks`
   - Proof updated first: `../20260617-terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
   - Expected failing proof before guide implementation: `bash tests/markdown/macbook-setup-best-practices.test.sh` failed with `FAIL: docs/guides/macbook-terminal-baseline.md missing Prerequisites section`.
   - Implemented surfaces: `README.md`, `docs/guides/README.md`, `docs/guides/macbook-terminal-baseline.md`, and `tests/markdown/macbook-setup-best-practices.test.sh` in the companion repository.
@@ -251,6 +252,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Closed M1 with clean code-review in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m1.md`; next stage is M2 implementation.
 - 2026-06-17: Implemented M2 personal MacBook terminal-baseline guide in `../20260617-terminal-first-macos-dev` on branch `macbook-setup-baseline` with commit `2a503a8`.
 - 2026-06-17: M2 code-review recorded finding CR-M2-001 for missing Apple/Homebrew source-reference link checks.
+- 2026-06-17: Addressed CR-M2-001 in companion commit `271f260` by adding official Apple/Homebrew source links and proof assertions; M2 re-review is pending.
 
 ## Decision log
 
@@ -271,6 +273,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - The proof script initially failed on evidence-field capitalization; the implementation fixed the check to match case-insensitively while preserving the required fields.
 - M2 proof initially treated non-goal wording such as hidden setup automation as if it were an added automation command. The test was corrected to require the non-goal guardrail while forbidding concrete automation commands such as `brew bundle` and `mas install`.
 - M2 code-review found that the guide names Apple and Homebrew setup sources without adding official links or proof checks for those links, despite the M2 plan calling for link checks.
+- Official source links were enough for this slice because the companion repo has no adopted network link checker yet; the static proof now validates the selected source-reference URLs directly.
 
 ## Validation notes
 
@@ -285,12 +288,15 @@ Architecture is not needed before this plan because no machine-changing automati
 - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`: passed before M2 companion commit.
 - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --cached --check`: passed before M2 companion commit.
 - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh && git diff --check`: passed after M2 companion commit.
+- CR-M2-001 expected failing proof before guide fix: `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh` failed with `FAIL: docs/guides/macbook-terminal-baseline.md missing official Apple Software Update source link`.
+- `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`: passed after CR-M2-001 fix.
+- `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`: passed after CR-M2-001 fix.
 
 ## Outcome and retrospective
 
-- M1 is closed by code-review with no material findings. M2 has open finding CR-M2-001. M3 remains open.
+- M1 is closed by code-review with no material findings. CR-M2-001 is addressed pending M2 re-review. M3 remains open.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for review-resolution on CR-M2-001. Readiness is not Done; M2 re-review, M3, explanation, final verification, and PR handoff remain.
+- Ready for M2 code-review re-run. Readiness is not Done; M2 re-review, M3, explanation, final verification, and PR handoff remain.
