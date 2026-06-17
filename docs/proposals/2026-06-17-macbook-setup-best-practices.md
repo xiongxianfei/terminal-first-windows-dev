@@ -273,6 +273,7 @@ Resolved decisions:
 ## Follow-on Artifacts
 
 - Proposal review: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/proposal-review.md`
+- Spec: `specs/macbook-setup-best-practices.md`
 
 ## Readiness
 

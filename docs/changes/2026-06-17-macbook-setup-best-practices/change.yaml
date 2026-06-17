@@ -1,0 +1,13 @@
+id: 2026-06-17-macbook-setup-best-practices
+title: MacBook Setup Best Practices
+status: active
+created: 2026-06-17
+proposal: ../../proposals/2026-06-17-macbook-setup-best-practices.md
+spec: ../../../specs/macbook-setup-best-practices.md
+test_spec: pending
+architecture: not-required-for-first-slice
+plan: plan.md
+current_stage: plan
+current_milestone: not-started
+next_stage: plan-review
+open_blockers: []

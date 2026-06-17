@@ -1,0 +1,255 @@
+# MacBook Setup Best Practices Plan
+
+## Status
+
+- Plan lifecycle state: active
+- Terminal disposition: not-terminal
+
+## Purpose / big picture
+
+Sequence the approved MacBook setup best-practices spec into reviewable implementation slices for a separate macOS companion surface, recommended as `terminal-first-macos-dev`.
+
+The work remains documentation-first and terminal-first. The first slice must produce a personal developer MacBook terminal-baseline guide with explicit safety gates, package-source trust assumptions, shell boundaries, Git/SSH readiness, and manual verification evidence. It must not add macOS setup guide content to `terminal-first-windows-dev` unless a separate vision-revision proposal changes this repository's scope.
+
+## Source artifacts
+
+- Proposal: `docs/proposals/2026-06-17-macbook-setup-best-practices.md`
+- Proposal review: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/proposal-review-r2.md`
+- Spec: `specs/macbook-setup-best-practices.md`
+- Spec review: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/spec-review-r1.md`
+- Architecture: not required for the first slice because the approved spec excludes Brewfiles, scripts, generated shell configuration, hidden dotfile bootstrap, and setup automation
+- Test spec: pending
+- Workflow guide: `docs/workflows.md`
+- Constitution: `CONSTITUTION.md`
+
+## Context and orientation
+
+The accepted direction is a macOS companion surface, not a cross-platform rewrite of this repository. The plan therefore records the implementation sequence and evidence expectations here, while the eventual reader-facing guide files should be created in `terminal-first-macos-dev` or another owner-accepted macOS companion location.
+
+The approved spec defines a first-slice personal developer Apple silicon MacBook path. Corporate-managed Macs, Intel compatibility, Mac App Store automation, GUI app bundles, language runtimes, containers, cloud tooling, and full editor configuration are out of the default first slice unless later proposals or verification evidence add them.
+
+Architecture is not needed before this plan because no machine-changing automation is in scope. If implementation introduces Brewfiles, scripts, generated shell configuration, dotfile bootstrap, or setup automation, stop and author architecture before continuing.
+
+## Non-goals
+
+- Adding macOS setup guide content to `terminal-first-windows-dev` by default.
+- Revising `VISION.md` to make this repository cross-platform.
+- Creating Brewfiles, generated dotfiles, helper scripts, one-command bootstrap, or hidden automation.
+- Claiming command success or compatibility without recorded manual verification on a real Mac.
+- Covering managed/corporate Mac setup as the default path.
+- Covering web development, Python, containers, cloud CLIs, GUI app bundles, Mac App Store automation, or full editor configuration in the first slice.
+- Claiming Intel support without separate Intel verification evidence.
+
+## Requirements covered
+
+| Requirements | Plan coverage |
+|---|---|
+| R1-R3, R28 | M2 handles ownership context and managed/corporate Mac routing. |
+| R4-R6 | M2 handles hardware, architecture, Apple silicon default, and Intel non-claim language. |
+| R7-R12 | M2 handles backup, Software Update, FileVault, Apple Account, administrator-account, and Privacy & Security sections. |
+| R13-R18 | M2 handles Command Line Tools and Homebrew boundaries, trust, prefix, update, and rollback notes. |
+| R19-R23, R27 | M2 handles shell boundaries, Git/SSH, minimal editor availability, auditability, and follow-up routing. |
+| R24-R26 | M3 handles verification checklist, evidence template, and command-success claim guards. |
+| R29 | M1 and M2 keep the companion-surface boundary visible. |
+| AC1-AC8 | M1-M3 collectively create traceability, requirement coverage, companion-surface boundaries, verification evidence, and managed-Mac routing. |
+
+## Current Handoff Summary
+
+- Current milestone: not-started
+- Current milestone state: planned
+- Last reviewed milestone: none
+- Review status: not-reviewed
+- Remaining in-scope implementation milestones: M1, M2, M3
+- Next stage: plan-review
+- Final closeout readiness: not-ready
+- Reason final closeout is or is not ready: The plan has not been reviewed, test-spec is pending, implementation has not started, and downstream review, explanation, verification, and PR handoff remain open.
+
+## Milestones
+
+### M1. Companion surface and validation baseline
+
+- Milestone state: planned
+- Goal: Establish or connect the macOS companion surface and its first-slice validation baseline before writing guide content.
+- Requirements: R29, AC1, AC4, AC5
+- Files/components likely touched:
+  - `terminal-first-macos-dev/README.md`
+  - `terminal-first-macos-dev/docs/guides/`
+  - `terminal-first-macos-dev/docs/verification/`
+  - `terminal-first-macos-dev/tests/markdown/`
+  - `docs/changes/2026-06-17-macbook-setup-best-practices/plan.md`
+- Dependencies:
+  - Owner accepts creating or using `terminal-first-macos-dev`.
+  - Plan review approval.
+  - Test specification that maps R1-R29 to static checks, command review, and manual walkthrough evidence.
+- Tests to add/update:
+  - Static check for required first-slice guide sections.
+  - Static check that the companion guide states it is a macOS companion surface and does not modify `terminal-first-windows-dev` scope.
+  - Link check for local guide and verification links once companion paths exist.
+- Implementation steps:
+  - Confirm the companion repository or local path to use.
+  - Create minimal guide, verification, and test directories in the companion surface.
+  - Add or adapt a lightweight Markdown validation script for the first-slice guide structure.
+  - Add traceability references back to the approved proposal and spec without copying Windows-specific scope into the companion guide.
+- Validation commands:
+  - `git diff --check`
+  - `bash tests/markdown/macbook-setup-best-practices.test.sh`
+- Expected observable result: A companion surface exists with guide, verification, and validation locations ready for first-slice content.
+- Commit message: `M1: establish macOS companion baseline`
+- Milestone closeout:
+  - validation passed
+  - progress updated
+  - decision log updated if needed
+  - validation notes updated
+  - milestone committed
+- Risks:
+  - Companion repo ownership or path is unresolved.
+  - Validation becomes too specific before guide content exists.
+  - Windows repo scope leaks into companion guide language.
+- Rollback/recovery:
+  - Revert companion-surface scaffolding and keep this plan active until the owner provides a usable macOS surface.
+
+### M2. Personal MacBook terminal-baseline guide
+
+- Milestone state: planned
+- Goal: Author the first-slice guide content for a personal developer Apple silicon MacBook terminal baseline.
+- Requirements: R1-R23, R27-R29, AC2-AC5, AC7
+- Files/components likely touched:
+  - `terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
+  - `terminal-first-macos-dev/docs/guides/README.md`
+  - `terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
+- Dependencies:
+  - M1 closed.
+  - Test spec approved.
+  - No Brewfile, script, generated config, or hidden automation added; otherwise architecture becomes mandatory before implementation continues.
+- Tests to add/update:
+  - Static checks for ownership context before state-changing sections.
+  - Static checks for Apple silicon default and Intel non-claim language.
+  - Static checks for backup, Software Update, FileVault, Privacy & Security, Command Line Tools, Homebrew, shell boundaries, Git/SSH, minimal editor, and managed-Mac routing sections.
+  - Link checks for Apple and Homebrew source references.
+- Implementation steps:
+  - Write the guide's prerequisites, scope, outcome, safety, and verification overview.
+  - Add ownership and managed-Mac stop conditions before setup guidance.
+  - Add hardware and CPU architecture inspection guidance without claiming unverified compatibility.
+  - Add backup, Software Update, FileVault, Apple Account, administrator-account, and Privacy & Security sections.
+  - Add Apple Command Line Tools and Homebrew sections with source-trust, prefix, update, and rollback notes.
+  - Add conservative shell boundary, Git identity, SSH key handling, credential expectation, and minimal editor availability sections.
+  - Add follow-up routing for role-specific stacks and managed/corporate Macs.
+- Validation commands:
+  - `bash tests/markdown/macbook-setup-best-practices.test.sh`
+  - `git diff --check`
+- Expected observable result: The companion guide covers the approved first-slice terminal baseline without automation, role-stack sprawl, managed-Mac defaults, Intel claims, or unverified command-success claims.
+- Commit message: `M2: add MacBook terminal baseline guide`
+- Milestone closeout:
+  - validation passed
+  - progress updated
+  - decision log updated if needed
+  - validation notes updated
+  - milestone committed
+- Risks:
+  - The guide becomes a broad macOS app checklist.
+  - Homebrew is presented as an Apple-owned system setup tool.
+  - Managed-Mac users receive unsafe generic instructions.
+  - Shell or credential guidance changes persistent state without visible rollback.
+- Rollback/recovery:
+  - Revert the guide body and tests for M2 while preserving M1 companion scaffolding.
+
+### M3. Verification evidence and manual walkthrough package
+
+- Milestone state: planned
+- Goal: Add the verification template and manual walkthrough evidence path required before command success or compatibility is claimed.
+- Requirements: R24-R26, R4-R6, R7, R18, R21, R25, AC6, AC8
+- Files/components likely touched:
+  - `terminal-first-macos-dev/docs/verification/macbook-terminal-baseline.md`
+  - `terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md`
+  - `terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
+- Dependencies:
+  - M2 closed.
+  - Access to a real Apple silicon MacBook for manual verification before any success claims are published.
+- Tests to add/update:
+  - Static check that verification evidence fields include `sw_vers`, hardware model, CPU architecture, Command Line Tools state, Homebrew prefix, Homebrew health, Git availability, SSH readiness, minimal editor launch, verification date, and verifier context.
+  - Static check that the guide labels compatibility or command success as unverified until evidence is recorded.
+  - Manual walkthrough checklist on a real Apple silicon MacBook.
+- Implementation steps:
+  - Add a verification evidence template with required fields from R25.
+  - Add guide text that distinguishes verified, manually checked, skipped, blocked, and policy-dependent steps.
+  - Run or schedule the manual walkthrough on a real Apple silicon MacBook.
+  - Record exact verification evidence before changing any compatibility or command-success language from unverified to verified.
+  - Add transcript-scrubbing instructions for private data, keys, usernames, paths, and organization identifiers.
+- Validation commands:
+  - `bash tests/markdown/macbook-setup-best-practices.test.sh`
+  - `git diff --check`
+  - Manual: complete the verification checklist on a real Apple silicon MacBook and record exact `sw_vers`, hardware model, CPU architecture, Command Line Tools state, Homebrew prefix, verification date, and verifier context.
+- Expected observable result: The companion guide has a durable verification evidence path and does not claim success or compatibility beyond recorded evidence.
+- Commit message: `M3: add MacBook setup verification evidence`
+- Milestone closeout:
+  - validation passed
+  - manual verification evidence recorded or claims remain explicitly unverified
+  - progress updated
+  - decision log updated if needed
+  - validation notes updated
+  - milestone committed
+- Risks:
+  - No Apple silicon MacBook is available for manual verification.
+  - Verification transcript leaks private data.
+  - The guide overstates compatibility based on incomplete evidence.
+- Rollback/recovery:
+  - Revert verification-claim changes and leave the guide marked unverified until real evidence is available.
+
+## Validation plan
+
+- `git diff --check`: catch whitespace and patch formatting problems.
+- `bash tests/markdown/macbook-setup-best-practices.test.sh`: validate first-slice guide structure, required sections, companion-surface boundary, managed-Mac routing, compatibility claims, and verification evidence fields.
+- Manual command review: confirm that setup commands and expected results match the documented execution context before publication.
+- Manual walkthrough on one real Apple silicon MacBook: record the R25 evidence fields before any command-success or compatibility claims are marked verified.
+- Link check command: to be selected in the companion repo before implementation; plan-review should challenge this if the companion repo already has a preferred link checker.
+
+## Risks and recovery
+
+- Risk: The companion repository or path is not available when implementation starts.
+  - Recovery: Keep M1 planned and block implementation until the owner provides the companion surface.
+- Risk: The work drifts into a broad macOS productivity or role-stack guide.
+  - Recovery: Revert out-of-scope sections and route role-specific content to separate follow-up modules.
+- Risk: Setup guidance includes automation despite the spec excluding it.
+  - Recovery: Stop implementation and author architecture before continuing, or remove the automation.
+- Risk: Managed/corporate Mac users receive unsafe default guidance.
+  - Recovery: Move managed-Mac details behind policy-dependent routing and keep the personal Mac path explicit.
+- Risk: Verification evidence cannot be collected.
+  - Recovery: Keep command-success and compatibility language explicitly unverified.
+
+## Dependencies
+
+- `terminal-first-macos-dev` or another owner-accepted macOS companion surface must exist before implementation.
+- Spec review is approved with no open findings.
+- Plan review must approve this plan before test-spec or implementation.
+- Test-spec must exist before implementation.
+- A real Apple silicon MacBook is required before verified command-success or compatibility claims can be published.
+- Architecture is required only if future work introduces Brewfiles, scripts, generated shell configuration, hidden dotfile bootstrap, setup automation, or other machine-changing automation.
+
+## Progress
+
+- 2026-06-17: Created plan from accepted proposal and approved spec-review evidence.
+
+## Decision log
+
+| Date | Decision | Reason | Alternatives rejected |
+| --- | --- | --- | --- |
+| 2026-06-17 | Plan implementation for a separate macOS companion surface, not this Windows repository. | The accepted proposal and approved spec keep `terminal-first-windows-dev` Windows-first. | Adding macOS guide content to this repository by default. |
+| 2026-06-17 | Skip architecture for the first slice unless automation is introduced. | The approved spec excludes Brewfiles, scripts, generated config, hidden dotfile bootstrap, and setup automation. | Running architecture unconditionally for documentation-only guide work. |
+| 2026-06-17 | Require test-spec before implementation. | The spec contains many safety, compatibility, and verification requirements that need traceable checks. | Implementing guide content directly after plan-review. |
+
+## Surprises and discoveries
+
+- None yet.
+
+## Validation notes
+
+- Not run yet for implementation. Plan authoring validation should check required plan sections, `git diff --check`, and plan-review.
+
+## Outcome and retrospective
+
+- Pending implementation and downstream lifecycle gates.
+
+## Readiness
+
+- See `Current Handoff Summary`.
+- Ready for plan-review. Readiness is not Done; plan-review, test-spec, implementation, code-review, explanation, verification, and PR handoff remain.
