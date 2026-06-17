@@ -56,13 +56,13 @@ Architecture is not needed before this plan because no machine-changing automati
 ## Current Handoff Summary
 
 - Current milestone: M3
-- Current milestone state: review-requested
-- Last reviewed milestone: M2
-- Review status: M3 implementation complete; code-review pending
-- Remaining in-scope implementation milestones: M3
-- Next stage: code-review
-- Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M3 implementation is ready for code-review, but M3 is not reviewed or closed and downstream explanation, verification, and PR handoff remain open.
+- Current milestone state: closed
+- Last reviewed milestone: M3
+- Review status: M3 code-review clean-with-notes; no material findings
+- Remaining in-scope implementation milestones: none
+- Next stage: final closeout sequence, starting with explain-change
+- Final closeout readiness: ready
+- Reason final closeout is or is not ready: M1-M3 are closed by code-review with no open findings. Explanation, final verification, and PR handoff remain open and must not be skipped.
 
 ## Milestones
 
@@ -170,7 +170,7 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ### M3. Verification evidence and manual walkthrough package
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Add the verification template and manual walkthrough evidence path required before command success or compatibility is claimed.
 - Requirements: R24-R26, R4-R6, R7, R18, R21, R25, AC6, AC8
 - Files/components likely touched:
@@ -262,6 +262,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Addressed CR-M2-001 in companion commit `271f260` by adding official Apple/Homebrew source links and proof assertions; M2 re-review is pending.
 - 2026-06-17: Closed M2 with clean code-review R2 in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m2-r2.md`; next stage is M3 implementation.
 - 2026-06-17: Implemented M3 verification evidence package in `../20260617-terminal-first-macos-dev` on branch `macbook-setup-baseline` with commit `1fe76fd`.
+- 2026-06-17: Closed M3 with clean code-review in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m3.md`; all implementation milestones are closed and the next stage is final closeout starting with explain-change.
 
 ## Decision log
 
@@ -308,9 +309,9 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Outcome and retrospective
 
-- M1 and M2 are closed by code-review with no open findings. M3 implementation is ready for code-review.
+- M1, M2, and M3 are closed by code-review with no open findings.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M3 code-review. Readiness is not Done; M3 review, any review-resolution, explanation, final verification, and PR handoff remain.
+- Ready for final closeout sequence starting with explain-change. Readiness is not Done; explanation, final verification, and PR handoff remain.

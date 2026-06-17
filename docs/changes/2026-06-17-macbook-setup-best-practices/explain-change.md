@@ -2,7 +2,7 @@
 
 ## Status
 
-M3 implementation is ready for code-review.
+M1, M2, and M3 are closed by code-review. The change is ready for the final closeout sequence starting with explanation.
 
 ## What changed
 
@@ -107,4 +107,4 @@ M3 intentionally does not mark commands verified:
 
 ## Remaining work
 
-M1 and M2 are closed. M3 is ready for code-review, not closed. A real Apple silicon MacBook walkthrough is still required before verified command-success or compatibility claims can be published.
+M1, M2, and M3 are closed. A real Apple silicon MacBook walkthrough is still required before verified command-success or compatibility claims can be published.
