@@ -60,9 +60,9 @@ Architecture is not needed before this plan because no machine-changing automati
 - Last reviewed milestone: M3
 - Review status: M3 code-review and M3 drift-fix re-review clean-with-notes; no material findings
 - Remaining in-scope implementation milestones: none
-- Next stage: pr
-- Final closeout readiness: branch-ready
-- Reason final closeout is or is not ready: M1-M3 are closed by code-review with no open findings, durable explanation exists, and local final verification passed. PR handoff remains open and owns PR body/open readiness.
+- Next stage: external PR review
+- Final closeout readiness: pr-open-ready
+- Reason final closeout is or is not ready: M1-M3 are closed by code-review with no open findings, durable explanation exists, local final verification passed, and PRs are open. The change remains active until PR review/merge completes.
 
 ## Milestones
 
@@ -266,6 +266,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Final verification found and fixed stale workflow-milestone wording in the companion guide; companion commit `7e978ad` removed the stale note and added a regression guard.
 - 2026-06-17: Closed the companion drift fix with clean code-review in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m3-r2.md`.
 - 2026-06-17: Recorded final verification in `docs/changes/2026-06-17-macbook-setup-best-practices/verify-report.md`; next stage is PR handoff.
+- 2026-06-17: Opened companion PR https://github.com/xiongxianfei/terminal-first-macos-dev/pull/1 and current repository PR https://github.com/xiongxianfei/terminal-first-windows-dev/pull/5.
 
 ## Decision log
 
@@ -322,4 +323,4 @@ Architecture is not needed before this plan because no machine-changing automati
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for PR handoff. Readiness is not Done; PR body/open readiness remains owned by the PR stage.
+- PRs are open. Readiness is not Done; external PR review and merge remain.

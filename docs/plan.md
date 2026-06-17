@@ -4,7 +4,7 @@
 
 | Change | Plan | State | Next stage | Active context |
 | --- | --- | --- | --- | --- |
-| `2026-06-17-macbook-setup-best-practices` | `docs/plans/2026-06-17-macbook-setup-best-practices.md` | active | pr | Final verification passed locally; branch-ready for PR handoff. |
+| `2026-06-17-macbook-setup-best-practices` | `docs/plans/2026-06-17-macbook-setup-best-practices.md` | active | external PR review | PRs opened: current repo #5 and companion repo #1. Await review/merge; PR stage owns no further local work. |
 | `2026-05-24-terminal-first-workstation-setup` | `docs/plans/2026-05-24-terminal-first-workstation-setup.md` | active | pr | First-slice terminal-first Windows 11 workstation setup guide. |
 
 ## Blocked

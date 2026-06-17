@@ -3,15 +3,22 @@
 ## Result
 
 - Skill: pr
-- Status: prepared
-- Artifacts changed: `docs/changes/2026-06-17-macbook-setup-best-practices/pr.md`
+- Status: completed
+- Artifacts changed: `docs/changes/2026-06-17-macbook-setup-best-practices/pr.md`, `docs/changes/2026-06-17-macbook-setup-best-practices/change.yaml`, `docs/plan.md`, `docs/plans/2026-06-17-macbook-setup-best-practices.md`
 - Open blockers: none
-- Next stage: open pull request
-- Readiness: PR body ready; PR open readiness pending actual `gh pr create`
+- Next stage: external PR review
+- Readiness: PR body ready and PR open ready
+- Current repository PR: https://github.com/xiongxianfei/terminal-first-windows-dev/pull/5
+- Companion repository PR: https://github.com/xiongxianfei/terminal-first-macos-dev/pull/1
 
 ## PR Title
 
 docs: route workflow artifacts and add MacBook companion setup plan
+
+## Opened PRs
+
+- Current repository: https://github.com/xiongxianfei/terminal-first-windows-dev/pull/5
+- Companion repository: https://github.com/xiongxianfei/terminal-first-macos-dev/pull/1
 
 ## PR Body
 
