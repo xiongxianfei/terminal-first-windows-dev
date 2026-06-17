@@ -58,11 +58,11 @@ Architecture is not needed before this plan because no machine-changing automati
 - Current milestone: M1
 - Current milestone state: planned
 - Last reviewed milestone: none
-- Review status: plan-review R2 approved; test-spec authored
+- Review status: plan-review R2 approved; test-spec approved
 - Remaining in-scope implementation milestones: M1, M2, M3
 - Next stage: implement
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: Plan-review R2 approved the plan and the test spec exists, but implementation has not started and downstream code review, explanation, verification, and PR handoff remain open.
+- Reason final closeout is or is not ready: Plan-review R2 approved the plan and the test spec is approved, but implementation has not started and downstream code review, explanation, verification, and PR handoff remain open.
 
 ## Milestones
 

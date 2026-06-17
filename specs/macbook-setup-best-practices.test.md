@@ -2,7 +2,7 @@
 
 ## Status
 
-active
+approved
 
 ## Related spec and plan
 
@@ -81,7 +81,7 @@ The proof script must not execute setup commands from guide code blocks and must
 | AC5 | T-MAC-012 | contract | Scripts, Brewfiles, generated config, and hidden automation are rejected. |
 | AC6 | T-MAC-007, T-MAC-010 | manual | Manual verification evidence is required before success claims. |
 | AC7 | T-MAC-002 | contract | Managed/corporate Mac behavior is routed out of the default path. |
-| AC8 | T-MAC-000 | smoke | This active test spec exists after approved plan-review. |
+| AC8 | T-MAC-000 | smoke | This approved test spec exists after approved plan-review. |
 
 ## Example coverage map
 
@@ -343,4 +343,4 @@ None yet.
 
 ## Readiness
 
-Ready for implementation of M1 after this test spec is committed. Readiness is not Done; implementation, code-review, any review-resolution, later milestone work, explanation, final verification, and PR handoff remain.
+Approved for implementation of M1. Readiness is not Done; implementation, code-review, any review-resolution, later milestone work, explanation, final verification, and PR handoff remain.
