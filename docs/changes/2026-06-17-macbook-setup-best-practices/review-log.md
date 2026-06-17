@@ -41,4 +41,21 @@
 
 ## Findings
 
-- PR-001: Companion-repo validation commands do not name their execution workdir.
+- PR-001: Companion-repo validation commands do not name their execution workdir. Status: addressed pending second-pass plan-review.
+
+## Plan Review Resolution - PR-001
+
+- Skill: plan
+- Status: completed
+- Finding: PR-001
+- Resolution status: addressed-pending-second-pass-plan-review
+- Recording status: recorded
+- Resolution record: `docs/changes/2026-06-17-macbook-setup-best-practices/review-resolution.md`
+- Updated artifact: `docs/plans/2026-06-17-macbook-setup-best-practices.md`
+- Next stage: plan-review second pass
+
+Resolution date: 2026-06-17
+
+### Resolution Summary
+
+M1-M3 validation commands now name whether they run from `/home/xiongxianfei/data/20260524-terminal-dev` or `/home/xiongxianfei/data/20260617-terminal-first-macos-dev`. The global validation plan separates current-repo lifecycle metadata checks from companion-repo guide/test checks.

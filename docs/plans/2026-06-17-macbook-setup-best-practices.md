@@ -58,11 +58,11 @@ Architecture is not needed before this plan because no machine-changing automati
 - Current milestone: not-started
 - Current milestone state: planned
 - Last reviewed milestone: none
-- Review status: not-reviewed
+- Review status: plan-review R1 changes-requested; PR-001 addressed pending second-pass plan-review
 - Remaining in-scope implementation milestones: M1, M2, M3
 - Next stage: plan-review
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: The plan has not been reviewed, test-spec is pending, implementation has not started, and downstream review, explanation, verification, and PR handoff remain open.
+- Reason final closeout is or is not ready: Plan-review R1 requested changes and the plan has been revised for PR-001, but second-pass plan-review is pending; test-spec is pending, implementation has not started, and downstream review, explanation, verification, and PR handoff remain open.
 
 ## Milestones
 
@@ -91,8 +91,9 @@ Architecture is not needed before this plan because no machine-changing automati
   - Add or adapt a lightweight Markdown validation script for the first-slice guide structure.
   - Add traceability references back to the approved proposal and spec without copying Windows-specific scope into the companion guide.
 - Validation commands:
-  - `git diff --check`
-  - `bash tests/markdown/macbook-setup-best-practices.test.sh`
+  - `cd /home/xiongxianfei/data/20260524-terminal-dev && git diff --check -- docs/plans/2026-06-17-macbook-setup-best-practices.md docs/changes/2026-06-17-macbook-setup-best-practices/review-log.md docs/changes/2026-06-17-macbook-setup-best-practices/review-resolution.md`
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`
 - Expected observable result: A companion surface exists with guide, verification, and validation locations ready for first-slice content.
 - Commit message: `M1: establish macOS companion baseline`
 - Milestone closeout:
@@ -135,8 +136,9 @@ Architecture is not needed before this plan because no machine-changing automati
   - Add conservative shell boundary, Git identity, SSH key handling, credential expectation, and minimal editor availability sections.
   - Add follow-up routing for role-specific stacks and managed/corporate Macs.
 - Validation commands:
-  - `bash tests/markdown/macbook-setup-best-practices.test.sh`
-  - `git diff --check`
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`
+  - `cd /home/xiongxianfei/data/20260524-terminal-dev && git diff --check -- docs/plans/2026-06-17-macbook-setup-best-practices.md docs/changes/2026-06-17-macbook-setup-best-practices/review-log.md docs/changes/2026-06-17-macbook-setup-best-practices/review-resolution.md`
 - Expected observable result: The companion guide covers the approved first-slice terminal baseline without automation, role-stack sprawl, managed-Mac defaults, Intel claims, or unverified command-success claims.
 - Commit message: `M2: add MacBook terminal baseline guide`
 - Milestone closeout:
@@ -176,8 +178,9 @@ Architecture is not needed before this plan because no machine-changing automati
   - Record exact verification evidence before changing any compatibility or command-success language from unverified to verified.
   - Add transcript-scrubbing instructions for private data, keys, usernames, paths, and organization identifiers.
 - Validation commands:
-  - `bash tests/markdown/macbook-setup-best-practices.test.sh`
-  - `git diff --check`
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`
+  - `cd /home/xiongxianfei/data/20260524-terminal-dev && git diff --check -- docs/plans/2026-06-17-macbook-setup-best-practices.md docs/changes/2026-06-17-macbook-setup-best-practices/review-log.md docs/changes/2026-06-17-macbook-setup-best-practices/review-resolution.md`
   - Manual: complete the verification checklist on a real Apple silicon MacBook and record exact `sw_vers`, hardware model, CPU architecture, Command Line Tools state, Homebrew prefix, verification date, and verifier context.
 - Expected observable result: The companion guide has a durable verification evidence path and does not claim success or compatibility beyond recorded evidence.
 - Commit message: `M3: add MacBook setup verification evidence`
@@ -197,8 +200,9 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Validation plan
 
-- `git diff --check`: catch whitespace and patch formatting problems.
-- `bash tests/markdown/macbook-setup-best-practices.test.sh`: validate first-slice guide structure, required sections, companion-surface boundary, managed-Mac routing, compatibility claims, and verification evidence fields.
+- From `/home/xiongxianfei/data/20260524-terminal-dev`, use `git diff --check` for plan metadata and lifecycle-record edits in this repository.
+- From `/home/xiongxianfei/data/20260617-terminal-first-macos-dev`, use `git diff --check` for companion-repo guide, verification, and test edits.
+- From `/home/xiongxianfei/data/20260617-terminal-first-macos-dev`, use `bash tests/markdown/macbook-setup-best-practices.test.sh` to validate first-slice guide structure, required sections, companion-surface boundary, managed-Mac routing, compatibility claims, and verification evidence fields.
 - Manual command review: confirm that setup commands and expected results match the documented execution context before publication.
 - Manual walkthrough on one real Apple silicon MacBook: record the R25 evidence fields before any command-success or compatibility claims are marked verified.
 - Link check command: to be selected in the companion repo before implementation; plan-review should challenge this if the companion repo already has a preferred link checker.
@@ -229,6 +233,7 @@ Architecture is not needed before this plan because no machine-changing automati
 
 - 2026-06-17: Created plan from accepted proposal and approved spec-review evidence.
 - 2026-06-17: Recorded owner-created companion repository workdir `../20260617-terminal-first-macos-dev` as the implementation surface.
+- 2026-06-17: Revised validation commands to name the current repository and companion repository workdirs, addressing plan-review PR-001 pending second-pass plan-review.
 
 ## Decision log
 
@@ -236,6 +241,7 @@ Architecture is not needed before this plan because no machine-changing automati
 | --- | --- | --- | --- |
 | 2026-06-17 | Plan implementation for a separate macOS companion surface, not this Windows repository. | The accepted proposal and approved spec keep `terminal-first-windows-dev` Windows-first. | Adding macOS guide content to this repository by default. |
 | 2026-06-17 | Use `../20260617-terminal-first-macos-dev` as the companion repository workdir. | The owner created the GitHub repository and local workdir for the macOS companion surface. | Continuing to leave the companion path unresolved. |
+| 2026-06-17 | Require explicit repository workdirs in validation commands. | The plan spans this Windows repo for lifecycle artifacts and the sibling macOS repo for implementation files, so bare paths are ambiguous. | Bare `git diff --check` and `bash tests/markdown/...` commands without workdir context. |
 | 2026-06-17 | Skip architecture for the first slice unless automation is introduced. | The approved spec excludes Brewfiles, scripts, generated config, hidden dotfile bootstrap, and setup automation. | Running architecture unconditionally for documentation-only guide work. |
 | 2026-06-17 | Require test-spec before implementation. | The spec contains many safety, compatibility, and verification requirements that need traceable checks. | Implementing guide content directly after plan-review. |
 
@@ -245,7 +251,7 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Validation notes
 
-- Not run yet for implementation. Plan authoring validation should check required plan sections, `git diff --check`, and plan-review.
+- Not run yet for implementation. Plan authoring validation should check required plan sections, current-repo `git diff --check`, and second-pass plan-review.
 
 ## Outcome and retrospective
 
