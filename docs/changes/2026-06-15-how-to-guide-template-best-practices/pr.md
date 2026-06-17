@@ -33,7 +33,7 @@ docs: add best-practice how-to guide template
 - Spec review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review.md`
 - Spec review resolution: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/spec-review-resolution.md`
 - Test spec: `specs/how-to-guide-template-best-practices.test.md`
-- Plan: `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
+- Plan: `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
 - Architecture / ADRs: not required; this change is Markdown documentation structure, guide evidence, and local static validation only.
 - Explain change: `docs/changes/2026-06-15-how-to-guide-template-best-practices/explain-change.md`
 - Verify report: `docs/changes/2026-06-15-how-to-guide-template-best-practices/verify-report.md`

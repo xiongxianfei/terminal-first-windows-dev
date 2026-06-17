@@ -165,7 +165,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - Files/components likely touched:
   - `tests/markdown/how-to-guide-template-best-practices.test.sh`
   - `tests/markdown/`
-  - `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
+  - `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
 - Dependencies:
   - M1 and M2 closed.
   - Test spec approved enough to define the validation contract.
@@ -201,7 +201,7 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 - Goal: Complete change-local evidence and prepare the change for final downstream gates after implementation milestones are closed.
 - Requirements: AC10-AC14
 - Files/components likely touched:
-  - `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
+  - `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
   - `docs/changes/2026-06-15-how-to-guide-template-best-practices/explain-change.md`
   - `docs/changes/2026-06-15-how-to-guide-template-best-practices/verify-report.md`
   - `docs/changes/2026-06-15-how-to-guide-template-best-practices/pr.md`
@@ -287,7 +287,8 @@ The proxy guide already received a fast-path backup cue while resolving `HGT-SR-
 | Date | Decision | Reason | Alternatives rejected |
 | --- | --- | --- | --- |
 | 2026-06-15 | Use four milestones: template, exemplar/pilot, validation, lifecycle closeout | Keeps implementation reviewable while preserving downstream lifecycle gates | One large documentation rewrite |
-| 2026-06-15 | Put the concrete plan under `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` | `docs/workflows.md` maps change plans to `docs/changes/<change-id>/plan.md` | `docs/plans/YYYY-MM-DD-slug.md` portable fallback |
+| 2026-06-15 | Put the concrete plan under `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md` | Matched `docs/workflows.md` change-plan mapping at the time | `docs/plans/YYYY-MM-DD-slug.md` portable fallback |
+| 2026-06-17 | Migrate the concrete plan to `docs/plans/2026-06-15-how-to-guide-template-best-practices.md` | Owner updated workflow routing so plan bodies live under `docs/plans/` | Keeping the plan body under `docs/changes/<change-id>/plan.md` |
 | 2026-06-15 | Treat architecture as not required before planning | The approved spec-review states this is documentation structure and validation work, not scripts, generated files, data flow, or machine-changing automation | Creating an architecture package for documentation-only structure |
 
 ## Surprises and discoveries

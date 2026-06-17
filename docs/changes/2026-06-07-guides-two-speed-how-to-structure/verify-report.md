@@ -34,8 +34,8 @@ Run from repository root `/home/xiongxianfei/data/20260607-terminal-first-window
 | `bash tests/markdown/guides-two-speed-how-to-structure.test.sh` | pass | Targeted guide-structure proof. |
 | `bash tests/markdown/m1-project-entrypoint.test.sh` | initial fail, then pass | Initially failed because legacy setup-guide checks applied to `docs/guides/README.md`; fixed by scoping those checks to numbered setup guides. |
 | `bash -c 'set -euo pipefail; for test_script in tests/markdown/*.test.sh; do echo "== $test_script"; bash "$test_script"; done'` | pass | Full local Markdown/static test suite. |
-| `git diff --check -- tests/markdown/m1-project-entrypoint.test.sh docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` | pass | Whitespace check for verification-stage edits. |
-| `LC_ALL=C rg -n "[^\\x00-\\x7F]" tests/markdown/m1-project-entrypoint.test.sh docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` | pass | Returned no matches. |
+| `git diff --check -- tests/markdown/m1-project-entrypoint.test.sh docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plans/2026-06-07-guides-two-speed-how-to-structure.md` | pass | Whitespace check for verification-stage edits. |
+| `LC_ALL=C rg -n "[^\\x00-\\x7F]" tests/markdown/m1-project-entrypoint.test.sh docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plans/2026-06-07-guides-two-speed-how-to-structure.md` | pass | Returned no matches. |
 
 ## Verification Dimensions
 

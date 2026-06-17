@@ -76,7 +76,7 @@ Architecture is not needed before this plan because no machine-changing automati
   - `terminal-first-macos-dev/docs/guides/`
   - `terminal-first-macos-dev/docs/verification/`
   - `terminal-first-macos-dev/tests/markdown/`
-  - `docs/changes/2026-06-17-macbook-setup-best-practices/plan.md`
+  - `docs/plans/2026-06-17-macbook-setup-best-practices.md`
 - Dependencies:
   - Owner accepts creating or using `terminal-first-macos-dev`.
   - Plan review approval.

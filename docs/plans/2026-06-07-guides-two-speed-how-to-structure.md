@@ -177,7 +177,7 @@ The first implementation should preserve discoverability for the existing number
 - Files/components likely touched:
   - `tests/markdown/`
   - `tests/markdown/guides-two-speed-how-to-structure.test.sh`
-  - `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+  - `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
   - `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
   - `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-resolution.md`
 - Dependencies:
@@ -304,11 +304,11 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
   - `rg -n "Fast path|Walkthrough|Prerequisites|Outcome|Verify" docs/templates/how-to-guide.md` passed.
   - `rg -n "01-windows-host|02-wsl2-ubuntu|03-ubuntu-baseline|04-neovim|05-tmux|99-verification" docs/guides/README.md` passed.
   - `test ! -f docs/guides/_template.md && test ! -f docs/guides/how-to-guide.md` passed.
-  - `git diff --check -- docs/guides/README.md docs/templates/how-to-guide.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml` passed.
+  - `git diff --check -- docs/guides/README.md docs/templates/how-to-guide.md docs/plans/2026-06-07-guides-two-speed-how-to-structure.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml` passed.
 - M1 final handoff validation:
   - Re-ran the M1 file, heading, numbered-guide discoverability, and template-location checks; all passed.
-  - `git diff --check -- docs/guides/README.md docs/templates/how-to-guide.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` passed.
-  - `LC_ALL=C rg -n "[^\\x00-\\x7F]" docs/guides/README.md docs/templates/how-to-guide.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` returned no matches.
+  - `git diff --check -- docs/guides/README.md docs/templates/how-to-guide.md docs/plans/2026-06-07-guides-two-speed-how-to-structure.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` passed.
+  - `LC_ALL=C rg -n "[^\\x00-\\x7F]" docs/guides/README.md docs/templates/how-to-guide.md docs/plans/2026-06-07-guides-two-speed-how-to-structure.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` returned no matches.
 - M1 code-review validation:
   - `test -f docs/templates/how-to-guide.md` passed.
   - `test -f docs/guides/README.md` passed.
@@ -332,8 +332,8 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
   - Re-ran the M2 file, metadata/section, troubleshooting-link, pilot-evidence, and numbered-step checks; all passed.
   - `rg -n "^## Documented starting state$|Completion result|Approximate completion time|Command execution status" docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md` passed.
   - `rg -n "^1\\. |^2\\. |^3\\. |^### 1\\. |^### 2\\. |^### 3\\. " docs/guides/proxy-setup.md` passed.
-  - `git diff --check -- docs/guides/proxy-setup.md docs/guides/README.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/plan.md` passed.
-  - `LC_ALL=C rg -n "[^\\x00-\\x7F]" docs/guides/proxy-setup.md docs/guides/README.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/plan.md` returned no matches.
+  - `git diff --check -- docs/guides/proxy-setup.md docs/guides/README.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plans/2026-06-07-guides-two-speed-how-to-structure.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/plan.md` passed.
+  - `LC_ALL=C rg -n "[^\\x00-\\x7F]" docs/guides/proxy-setup.md docs/guides/README.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plans/2026-06-07-guides-two-speed-how-to-structure.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/plan.md` returned no matches.
 - M2 code-review validation:
   - `test -f docs/guides/proxy-setup.md` passed.
   - `rg -n "^## Fast path$|^## Walkthrough$|Prerequisites|Outcome|Verify" docs/guides/proxy-setup.md` passed.
@@ -349,8 +349,8 @@ Implementation-owned validation scripts belong under `tests/`, such as `tests/ma
   - The proof script initially exposed literal-backtick quoting defects in its own checks; the checks were corrected to treat Markdown code spans as literal text.
 - M3 final handoff validation:
   - `bash tests/markdown/guides-two-speed-how-to-structure.test.sh` passed.
-  - `git diff --check -- tests/markdown/guides-two-speed-how-to-structure.test.sh docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` passed.
-  - `LC_ALL=C rg -n "[^\\x00-\\x7F]" tests/markdown/guides-two-speed-how-to-structure.test.sh docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` returned no matches.
+  - `git diff --check -- tests/markdown/guides-two-speed-how-to-structure.test.sh docs/plans/2026-06-07-guides-two-speed-how-to-structure.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` passed.
+  - `LC_ALL=C rg -n "[^\\x00-\\x7F]" tests/markdown/guides-two-speed-how-to-structure.test.sh docs/plans/2026-06-07-guides-two-speed-how-to-structure.md docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md docs/plan.md` returned no matches.
   - `git diff --cached --name-only` showed only the M3 proof script and lifecycle metadata files.
   - `git diff --cached --check` passed.
 - M3 code-review validation:

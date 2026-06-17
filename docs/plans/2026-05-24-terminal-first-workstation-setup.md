@@ -336,7 +336,7 @@ Machine-changing commands must stay visible in the docs near their safety notes.
 
 ## Validation plan
 
-- Plan review: `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` must be reviewed before test-spec or implementation.
+- Plan review: `docs/plans/2026-05-24-terminal-first-workstation-setup.md` must be reviewed before test-spec or implementation.
 - Test-spec: create `specs/terminal-first-workstation-setup.test.md` after plan-review and before implementation.
 - Static docs checks: validate required command strings, forbidden primary command strings, warning placement, guide links, and requirement coverage.
 - Script syntax checks: use PowerShell parser/analyzer for `scripts/windows/*.ps1` and `bash -n` or shell linting for `scripts/ubuntu/*.sh` when scripts exist.
@@ -411,7 +411,8 @@ Repository-wide `git diff --check` is advisory until the known pre-existing whit
 | Date | Decision | Reason | Alternatives rejected |
 | --- | --- | --- | --- |
 | 2026-05-24 | Use five implementation milestones split by setup layer and verification maturity | Matches the architecture boundaries and keeps each slice reviewable | One large implementation milestone; tiny per-file milestones |
-| 2026-05-24 | Put the active execution plan under `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` | Matches the workflow guide's change-plan location | A standalone `docs/plans/` plan outside the change record |
+| 2026-05-24 | Put the active execution plan under `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` | Matched the workflow guide's change-plan location at the time | A standalone `docs/plans/` plan outside the change record |
+| 2026-06-17 | Migrate the active execution plan to `docs/plans/2026-05-24-terminal-first-workstation-setup.md` | Owner updated workflow routing so plan bodies live under `docs/plans/` | Keeping the plan body under `docs/changes/<change-id>/plan.md` |
 | 2026-05-24 | Defer test-spec until after plan-review | Matches the lifecycle order and lets tests trace to approved milestones | Writing tests directly from spec without reviewing implementation sequence |
 | 2026-05-24 | Use staged milestone-scoped whitespace validation | Full `git diff --check` is known to fail before implementation due to unrelated template/community baseline drift | Forcing unrelated cleanup into this feature; ignoring whitespace validation entirely |
 
@@ -487,8 +488,8 @@ Repository-wide `git diff --check` is advisory until the known pre-existing whit
   - `tmux -f config/tmux/tmux.conf new-session -d -s terminal-first-check && tmux kill-session -t terminal-first-check` passed.
   - `grep -n 'Publication gate' docs/guides/99-verification.md` passed.
   - `grep -n 'Microsoft Learn' docs/guides/99-verification.md docs/release-notes/2026-05-24-tested-versions.md` passed.
-  - `grep -n 'git diff --cached --check' docs/guides/99-verification.md docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` passed.
-  - `git diff --check -- docs/guides/99-verification.md docs/release-notes/2026-05-24-tested-versions.md README.md tests/markdown/m5-release-readiness.test.sh docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md` passed.
+  - `grep -n 'git diff --cached --check' docs/guides/99-verification.md docs/plans/2026-05-24-terminal-first-workstation-setup.md` passed.
+  - `git diff --check -- docs/guides/99-verification.md docs/release-notes/2026-05-24-tested-versions.md README.md tests/markdown/m5-release-readiness.test.sh docs/plans/2026-05-24-terminal-first-workstation-setup.md docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml docs/changes/2026-05-24-terminal-first-workstation-setup/explain-change.md docs/plan.md` passed.
   - Temporary-index staged gate passed with the M5 file set: `git diff --cached --name-only` and `git diff --cached --check`.
 - M5 code-review:
   - Review status: clean-with-notes.

@@ -4,7 +4,7 @@
 
 - Skill: code-review
 - Status: completed
-- Artifacts changed: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m2-r1.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml`, `docs/plan.md`
+- Artifacts changed: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m2-r1.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`, `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml`, `docs/plan.md`
 - Open blockers: none
 - Next stage: implement M3
 - Review status: clean-with-notes
@@ -25,7 +25,7 @@
 
 - Diff/review surface: commit `8e91b91` (`M2: convert proxy setup pilot guide`).
 - Tracked governing branch state: commit `8e91b91` includes the M2 proxy pilot guide, router update, pilot review evidence, plan updates, and change metadata.
-- Governing artifacts: `specs/guides-two-speed-how-to-structure.md`, `specs/guides-two-speed-how-to-structure.test.md`, `specs/terminal-first-workstation-setup.md`, and `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`.
+- Governing artifacts: `specs/guides-two-speed-how-to-structure.md`, `specs/guides-two-speed-how-to-structure.test.md`, `specs/terminal-first-workstation-setup.md`, and `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`.
 - Validation evidence: M2 implementation validation recorded in the plan, plus reviewer rerun of file, structure, troubleshooting-link, anchor, and whitespace checks.
 
 ## Diff Summary

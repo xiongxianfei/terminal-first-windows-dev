@@ -31,7 +31,7 @@ The key risks were unsafe automation, ambiguous WSL command contracts, destructi
 | Spec | Requirements R1-R40 define the observable setup contract. | `specs/terminal-first-workstation-setup.md` |
 | Architecture | Keep the architecture documentation-first; separate guides, config examples, validation, and optional future helpers. | `docs/architecture/system/architecture.md` |
 | ADRs | Record version/package policy, WSL storage/data mount policy, proxy strategy, and Neovim plugin baseline. | `docs/adr/` |
-| Plan | Implement five reviewable milestones: entry point, Windows/WSL, Ubuntu baseline, Neovim/tmux, final verification. | `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` |
+| Plan | Implement five reviewable milestones: entry point, Windows/WSL, Ubuntu baseline, Neovim/tmux, final verification. | `docs/plans/2026-05-24-terminal-first-workstation-setup.md` |
 | Test spec | Use static docs checks, config smoke checks, and manual Windows check records where execution is not possible from this workspace. | `specs/terminal-first-workstation-setup.test.md` |
 
 ## Diff Rationale By Area
@@ -69,7 +69,7 @@ The test level is appropriate because most first-slice behavior is documentation
 
 ## Validation Evidence Before Final Verify
 
-The following validation evidence exists in `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` and review records:
+The following validation evidence exists in `docs/plans/2026-05-24-terminal-first-workstation-setup.md` and review records:
 
 ```bash
 bash tests/markdown/m1-project-entrypoint.test.sh

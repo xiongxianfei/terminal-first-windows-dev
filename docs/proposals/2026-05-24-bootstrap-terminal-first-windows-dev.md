@@ -385,7 +385,7 @@ Rollback:
 - `docs/adr/2026-05-24-proxy-strategy.md` for automatic and manual proxy approaches.
 - `docs/adr/2026-05-24-neovim-plugin-baseline.md` for plugin selection and lockfile policy.
 - `specs/terminal-first-workstation-setup.test.md` for host, Ubuntu, Neovim, and tmux validation.
-- A future implementation plan under `docs/changes/<change-id>/plan.md` after proposal review, spec authoring, architecture, and test-spec work.
+- A future implementation plan under `docs/plans/<change-id>.md` after proposal review, spec authoring, architecture, and test-spec work.
 
 ## Follow-on Artifacts
 

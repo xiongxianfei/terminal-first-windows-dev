@@ -273,7 +273,7 @@ Architecture is not required for this change because the work affects documentat
 - Goal: Consolidate completion evidence, plan state, and change metadata after guide conversion milestones are reviewed.
 - Requirements: R70-R75, AC16-AC21
 - Files/components likely touched:
-  - `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+  - `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
   - `docs/changes/2026-06-16-remaining-guides-template-rollout/change.yaml`
   - `docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md`
   - `docs/plan.md`

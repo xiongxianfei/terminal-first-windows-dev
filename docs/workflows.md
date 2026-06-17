@@ -12,7 +12,7 @@ Follow this order when artifacts disagree:
 2. `VISION.md`
 3. Accepted specs under `specs/`
 4. Architecture docs under `docs/architecture/`
-5. Change plans under `docs/changes/<change-id>/`
+5. Change plans under `docs/plans/`
 6. Tests, checks, review evidence, and verification evidence
 7. Code, scripts, and documentation
 8. Chat context
@@ -69,7 +69,7 @@ Manual single-skill invocation is allowed, but it stays isolated unless the owne
 | Architecture review record | `docs/changes/<change-id>/reviews/architecture-review.md` |
 | Architecture review resolution | `docs/changes/<change-id>/reviews/architecture-review-resolution.md` |
 | ADR | `docs/adr/YYYY-MM-DD-slug.md` |
-| Change plan | `docs/changes/<change-id>/plan.md` |
+| Change plan | `docs/plans/<change-id>.md` |
 | Change metadata | `docs/changes/<change-id>/change.yaml` |
 | Plan review | `docs/changes/<change-id>/reviews/plan-review.md` |
 | Plan review resolution | `docs/changes/<change-id>/reviews/plan-review-resolution.md` |
@@ -80,6 +80,8 @@ Manual single-skill invocation is allowed, but it stays isolated unless the owne
 | PR handoff | `docs/changes/<change-id>/pr.md` |
 | Learnings | `docs/learnings/YYYY-MM-DD-slug.md` |
 | Follow-ups | `docs/follow-ups.md` |
+
+Plan bodies live under `docs/plans/`; change-local reviews, metadata, resolutions, explanations, verification reports, and PR handoffs live under `docs/changes/<change-id>/`.
 
 All review records live under `docs/changes/<change-id>/`. For early lifecycle stages such as proposal review or spec review, create the change pack as soon as the review record is needed, even if the implementation plan does not exist yet. The early change pack records lifecycle evidence; it does not imply implementation is allowed.
 

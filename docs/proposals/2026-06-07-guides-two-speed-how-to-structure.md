@@ -485,7 +485,7 @@ Resolved owner decisions to carry into the spec:
 - `specs/guides-two-speed-how-to-structure.test.md` for documentation structure, link, and review-check coverage.
 - `docs/architecture/system/architecture.md` update if the canonical architecture needs to record documentation-boundary changes.
 - `docs/adr/2026-06-07-guide-information-architecture.md` only if the project wants the guide/troubleshooting/ADR split recorded as a durable architecture decision.
-- `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md` after proposal review and spec work.
+- `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md` after proposal review and spec work.
 
 ## Follow-on artifacts
 

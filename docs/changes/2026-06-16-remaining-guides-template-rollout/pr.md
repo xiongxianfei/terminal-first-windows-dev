@@ -35,7 +35,7 @@ docs: roll out guide template to remaining guides
 - Spec review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review.md`
 - Spec review resolution: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/spec-review-resolution.md`
 - Test spec: `specs/remaining-guides-template-rollout.test.md`
-- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Plan: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Architecture / ADRs: not required; this change is Markdown guide structure, router updates, compatibility stubs, static checks, and review evidence only.
 - Explain change: `docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md`
 - Verify report: `docs/changes/2026-06-16-remaining-guides-template-rollout/verify-report.md`

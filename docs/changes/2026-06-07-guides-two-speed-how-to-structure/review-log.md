@@ -73,14 +73,14 @@ Approved for planning. Eventual test-spec authoring is ready after planning iden
 - Review record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/plan-review-r1.md`
 - Review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
 - Review resolution: not-required before fixing; required after revision only if the finding disposition needs separate explanation
-- Reviewed plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Reviewed plan: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - Immediate next stage: plan revision
 
 Review date: 2026-06-07
 
 ### Review Inputs
 
-- Plan under review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Plan under review: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - Spec: `specs/guides-two-speed-how-to-structure.md`
 - Spec review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md`
 - Workflow guide: `docs/workflows.md`
@@ -101,7 +101,7 @@ Changes requested. Revise the plan to keep `specs/guides-two-speed-how-to-struct
 - Resolution status: addressed-pending-second-pass-plan-review
 - Recording status: recorded
 - Resolution record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-resolution.md`
-- Updated artifact: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Updated artifact: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - Next stage: plan-review second pass
 
 Resolution date: 2026-06-07
@@ -121,14 +121,14 @@ M3 no longer lists `specs/guides-two-speed-how-to-structure.test.md` as an imple
 - Review record: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/plan-review-r2.md`
 - Review log: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`
 - Review resolution: not-required
-- Reviewed plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Reviewed plan: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - Immediate next stage: test-spec
 
 Review date: 2026-06-07
 
 ### Review Inputs
 
-- Plan under review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Plan under review: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - PR-001 resolution: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-resolution.md`
 - Prior plan review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/plan-review-r1.md`
 - Spec: `specs/guides-two-speed-how-to-structure.md`
@@ -179,7 +179,7 @@ Review date: 2026-06-07
 ### Review Inputs
 
 - Review surface: commit `b8f6118` (`M1: add guide router and how-to template`)
-- Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Plan: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - Spec: `specs/guides-two-speed-how-to-structure.md`
 - Test spec: `specs/guides-two-speed-how-to-structure.test.md`
 - M1 artifacts: `docs/guides/README.md`, `docs/templates/how-to-guide.md`
@@ -214,7 +214,7 @@ Review date: 2026-06-15
 ### Review Inputs
 
 - Review surface: commit `8e91b91` (`M2: convert proxy setup pilot guide`)
-- Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Plan: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - Spec: `specs/guides-two-speed-how-to-structure.md`
 - Test spec: `specs/guides-two-speed-how-to-structure.test.md`
 - M2 artifacts: `docs/guides/proxy-setup.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/pilot-review.md`
@@ -249,7 +249,7 @@ Review date: 2026-06-15
 ### Review Inputs
 
 - Review surface: commit `b7d0079` (`M3: add guide structure validation`)
-- Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Plan: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - Spec: `specs/guides-two-speed-how-to-structure.md`
 - Test spec: `specs/guides-two-speed-how-to-structure.test.md`
 - M3 artifact: `tests/markdown/guides-two-speed-how-to-structure.test.sh`

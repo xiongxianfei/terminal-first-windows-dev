@@ -4,7 +4,7 @@
 
 - Skill: code-review
 - Status: completed
-- Artifacts changed: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m3-r1.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml`, `docs/plan.md`
+- Artifacts changed: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/code-review-m3-r1.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/review-log.md`, `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`, `docs/changes/2026-06-07-guides-two-speed-how-to-structure/change.yaml`, `docs/plan.md`
 - Open blockers: none
 - Next stage: final closeout
 - Review status: clean-with-notes
@@ -25,7 +25,7 @@
 
 - Diff/review surface: commit `b7d0079` (`M3: add guide structure validation`).
 - Tracked governing branch state: commit `b7d0079` includes the M3 proof script, plan updates, change metadata, project plan index, and explain-change update.
-- Governing artifacts: `specs/guides-two-speed-how-to-structure.md`, `specs/guides-two-speed-how-to-structure.test.md`, and `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`.
+- Governing artifacts: `specs/guides-two-speed-how-to-structure.md`, `specs/guides-two-speed-how-to-structure.test.md`, and `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`.
 - Validation evidence: M3 implementation validation recorded in the plan, plus reviewer rerun of the proof script, commit whitespace checks, and setup-command string guard.
 
 ## Diff Summary

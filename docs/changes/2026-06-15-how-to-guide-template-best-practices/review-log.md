@@ -11,14 +11,14 @@
 - Review record: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/plan-review-r1.md`
 - Review log: `docs/changes/2026-06-15-how-to-guide-template-best-practices/review-log.md`
 - Review resolution: not-required
-- Reviewed plan: `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
+- Reviewed plan: `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
 - Immediate next stage: test-spec
 
 Review date: 2026-06-15
 
 ### Review Inputs
 
-- Plan under review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
+- Plan under review: `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
 - Proposal: `docs/proposals/2026-06-15-how-to-guide-template-best-practices.md`
 - Proposal review: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/proposal-review.md`
 - Spec: `specs/how-to-guide-template-best-practices.md`

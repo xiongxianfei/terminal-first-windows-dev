@@ -1,5 +1,11 @@
 # Learn Session: Change Plan Placement Strategy
 
+## Current Status
+
+Superseded by the 2026-06-17 workflow routing update that moved detailed plan bodies to `docs/plans/<change-id>.md`.
+
+This session remains historical evidence for the earlier placement rationale. The current authoritative rule lives in `docs/workflows.md`.
+
 ## Frame
 
 - Trigger: Maintainer question after PR handoff: "Our project has already created workflows.md. But we generate plan.md under docs/changes. Why do we use this strategy?"
@@ -8,7 +14,7 @@
 - Evidence in scope:
   - `docs/workflows.md`
   - `docs/plan.md`
-  - `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`
+  - `docs/plans/2026-05-24-terminal-first-workstation-setup.md`
   - `docs/changes/2026-05-24-terminal-first-workstation-setup/change.yaml`
   - prior learn session `docs/learn/sessions/2026-05-24-review-record-location-ambiguity.md`
 - Explicit exclusions: no workflow-policy update, skill update, ADR, or PR-readiness claim is made by this learn session.
@@ -30,16 +36,16 @@ O2. `docs/plan.md` is a small active-plan index, not the detailed plan body.
 Evidence:
 
 - `docs/plan.md` lists the active change, its plan path, state, next stage, and active context.
-- It points to `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md` for the concrete plan.
+- It points to `docs/plans/2026-05-24-terminal-first-workstation-setup.md` for the concrete plan.
 
-O3. The per-change plan under `docs/changes/<change-id>/plan.md` contains mutable execution state that would not belong in the global workflow guide.
+O3. The per-change plan under the then-current `docs/changes/<change-id>/plan.md` location contained mutable execution state that would not belong in the global workflow guide.
 
 Evidence:
 
 - The change plan includes the current handoff summary, milestone states, validation plan, progress log, decision log, discoveries, validation notes, outcome, and readiness.
-- The plan decision log records: "Put the active execution plan under `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`" because it matches the workflow guide's change-plan location.
+- The plan decision log recorded: "Put the active execution plan under `docs/changes/2026-05-24-terminal-first-workstation-setup/plan.md`" because it matched the workflow guide's change-plan location at the time.
 
-O4. Keeping detailed plans under `docs/changes/<change-id>/` keeps all change-specific lifecycle evidence together.
+O4. At the time, keeping detailed plans under `docs/changes/<change-id>/` kept all change-specific lifecycle evidence together.
 
 Evidence:
 
@@ -74,6 +80,8 @@ Putting the detailed plan under `docs/changes/<change-id>/` keeps volatile, chan
 ## No-Learn Rationale
 
 This session captured a useful clarification, but not a new durable lesson. The current strategy is already encoded in `docs/workflows.md` and demonstrated by the active change pack.
+
+This rationale is now historical. The workflow later changed the current strategy to store plan bodies under `docs/plans/`.
 
 ## Follow-ups
 

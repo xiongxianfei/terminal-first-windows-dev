@@ -11,14 +11,14 @@
 - Review record: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/plan-review-r1.md`
 - Review log: `docs/changes/2026-06-16-remaining-guides-template-rollout/review-log.md`
 - Review resolution: not-required
-- Reviewed plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Reviewed plan: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Immediate next stage: test-spec
 
 Review date: 2026-06-16
 
 ### Review Inputs
 
-- Plan under review: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Plan under review: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Proposal: `docs/proposals/2026-06-16-remaining-guides-template-rollout.md`
 - Proposal review: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/proposal-review.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
@@ -57,7 +57,7 @@ Review date: 2026-06-16
 ### Review Inputs
 
 - Diff/review surface: `e2e9059 M1: convert smaller tool guides`
-- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Plan: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
 - Test spec: `specs/remaining-guides-template-rollout.test.md`
 - Implementation evidence: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m1-implementation-evidence.md`
@@ -92,7 +92,7 @@ Review date: 2026-06-16
 ### Review Inputs
 
 - Diff/review surface: `54915c3 M2: convert Windows host guide`
-- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Plan: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
 - Test spec: `specs/remaining-guides-template-rollout.test.md`
 - Implementation evidence: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m2-implementation-evidence.md`
@@ -127,7 +127,7 @@ Review date: 2026-06-16
 ### Review Inputs
 
 - Diff/review surface: `371b5d2 M3: split WSL install and migration guides`
-- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Plan: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
 - Test spec: `specs/remaining-guides-template-rollout.test.md`
 - Workstation setup spec: `specs/terminal-first-workstation-setup.md`
@@ -163,7 +163,7 @@ Review date: 2026-06-16
 ### Review Inputs
 
 - Diff/review surface: `fcafd69 M4: convert verification guide`
-- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Plan: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
 - Test spec: `specs/remaining-guides-template-rollout.test.md`
 - Implementation evidence: `docs/changes/2026-06-16-remaining-guides-template-rollout/reviews/m4-implementation-evidence.md`
@@ -199,7 +199,7 @@ Review date: 2026-06-16
 ### Review Inputs
 
 - Diff/review surface: `239ea5b M5: record rollout completion evidence`
-- Plan: `docs/changes/2026-06-16-remaining-guides-template-rollout/plan.md`
+- Plan: `docs/plans/2026-06-16-remaining-guides-template-rollout.md`
 - Spec: `specs/remaining-guides-template-rollout.md`
 - Test spec: `specs/remaining-guides-template-rollout.test.md`
 - Explanation record: `docs/changes/2026-06-16-remaining-guides-template-rollout/explain-change.md`

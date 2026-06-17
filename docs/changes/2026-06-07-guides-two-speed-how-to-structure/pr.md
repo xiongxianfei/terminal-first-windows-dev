@@ -33,7 +33,7 @@ Adopt two-speed how-to guide structure
 - Spec: `specs/guides-two-speed-how-to-structure.md`
 - Spec review: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/reviews/spec-review.md`
 - Test spec: `specs/guides-two-speed-how-to-structure.test.md`
-- Plan: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/plan.md`
+- Plan: `docs/plans/2026-06-07-guides-two-speed-how-to-structure.md`
 - Architecture: not required; this change is documentation structure plus local static validation.
 - Explain change: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/explain-change.md`
 - Verify report: `docs/changes/2026-06-07-guides-two-speed-how-to-structure/verify-report.md`

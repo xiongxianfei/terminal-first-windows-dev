@@ -4,7 +4,7 @@
 
 - Skill: code-review
 - Status: completed
-- Artifacts changed: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/code-review-m4-r1.md`, `docs/changes/2026-06-15-how-to-guide-template-best-practices/review-log.md`, `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`, `docs/changes/2026-06-15-how-to-guide-template-best-practices/change.yaml`, `docs/plan.md`
+- Artifacts changed: `docs/changes/2026-06-15-how-to-guide-template-best-practices/reviews/code-review-m4-r1.md`, `docs/changes/2026-06-15-how-to-guide-template-best-practices/review-log.md`, `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`, `docs/changes/2026-06-15-how-to-guide-template-best-practices/change.yaml`, `docs/plan.md`
 - Open blockers: none
 - Next stage: final closeout
 - Review status: clean-with-notes
@@ -28,7 +28,7 @@
 - Governing artifacts:
   - `specs/how-to-guide-template-best-practices.md`
   - `specs/how-to-guide-template-best-practices.test.md`
-  - `docs/changes/2026-06-15-how-to-guide-template-best-practices/plan.md`
+  - `docs/plans/2026-06-15-how-to-guide-template-best-practices.md`
   - `CONSTITUTION.md`
 - Validation evidence:
   - `bash -n tests/markdown/how-to-guide-template-best-practices.test.sh && bash tests/markdown/how-to-guide-template-best-practices.test.sh`

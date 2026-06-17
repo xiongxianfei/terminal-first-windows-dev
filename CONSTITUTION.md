@@ -10,7 +10,7 @@ This repository exists to produce a concise, auditable guide for setting up term
 2. `VISION.md` defines project identity, scope, fit, and falsifiability.
 3. Accepted specs under `specs/` define behavior for specific changes.
 4. Architecture docs under `docs/architecture/` define durable design boundaries when the project adds scripts, generated assets, data flow, or automation.
-5. Execution plans under `docs/changes/<change-id>/` define implementation order for approved changes.
+5. Execution plans under `docs/plans/` define implementation order for approved changes.
 6. Tests, checks, and review evidence show whether implementation matches the governing artifacts.
 7. Code, scripts, and documentation implement the approved behavior.
 8. Chat context is useful background but is not a source of truth unless captured in a durable artifact.

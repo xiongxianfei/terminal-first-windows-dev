@@ -3,25 +3,25 @@
 ## Result
 
 - Skill: learn
-- Status: recorded; no new durable lesson
+- Status: recorded; superseded by later workflow update
 - Artifacts changed:
   - `docs/learn/sessions/2026-06-17-plan-directory-placement.md`
 - Open blockers: none
 - Next stage: none by default
 - Session path: `docs/learn/sessions/2026-06-17-plan-directory-placement.md`
-- Lessons captured: none; existing workflow and prior learn session already cover the placement rule
-- Follow-ups: none
+- Lessons captured: none; owner changed workflow routing after this observation
+- Follow-ups: workflow artifact-location map updated in `docs/workflows.md`
 
 ## Frame
 
-- Trigger: Maintainer question after creating `docs/changes/2026-06-17-macbook-setup-best-practices/plan.md`: "why don't we generate plan.md under docs/plan/"
+- Trigger: Maintainer question after creating `docs/plans/2026-06-17-macbook-setup-best-practices.md`: "why don't we generate plan.md under docs/plan/"
 - Trigger type: explicit maintainer/contributor observation.
 - Scope: whether detailed change plans belong under `docs/plan/`, `docs/plan.md`, or `docs/changes/<change-id>/plan.md`.
 - Evidence in scope:
   - `CONSTITUTION.md`
   - `docs/workflows.md`
   - `docs/plan.md`
-  - `docs/changes/2026-06-17-macbook-setup-best-practices/plan.md`
+  - `docs/plans/2026-06-17-macbook-setup-best-practices.md`
   - `docs/changes/2026-06-17-macbook-setup-best-practices/change.yaml`
   - `docs/learn/sessions/2026-05-24-change-plan-placement-strategy.md`
   - `docs/learn/sessions/2026-06-17-proposal-review-location.md`
@@ -49,7 +49,7 @@ O2. `docs/plan.md` is the global plan index, not a directory for detailed plan b
 Evidence:
 
 - `docs/plan.md` contains compact rows with change ID, plan path, state, next stage, and active context.
-- The MacBook setup row points to `docs/changes/2026-06-17-macbook-setup-best-practices/plan.md`.
+- The MacBook setup row points to `docs/plans/2026-06-17-macbook-setup-best-practices.md`.
 
 O3. The prior learn session already explains the strategy.
 
@@ -83,6 +83,10 @@ Evidence:
 
 ## Answer
 
+This answer is superseded. The project owner later directed that detailed plans should be generated under `docs/plans/`, and that current policy now lives in `docs/workflows.md`.
+
+## Original Answer
+
 We do not generate detailed plans under `docs/plan/` because this repository uses:
 
 - `docs/plan.md` as the small global index of active and recent plans.
@@ -93,9 +97,15 @@ Keeping the detailed plan inside `docs/changes/<change-id>/` keeps the mutable p
 
 If the owner wants to move detailed plans to `docs/plan/` or `docs/plans/`, that should be handled as workflow artifact-location work by updating `docs/workflows.md`, `CONSTITUTION.md` if needed, migration rules, and affected skill behavior. This learn session does not make that policy change.
 
+## Subsequent Workflow Update
+
+After this learn session, the owner directed that plans should be generated at `docs/plans/`. The workflow artifact-location map and source-of-truth references were updated, and existing plan bodies were migrated to `docs/plans/<change-id>.md`.
+
 ## No-Learn Rationale
 
 No new durable lesson was captured. The current plan placement is already explicit in `docs/workflows.md` and previously explained in `docs/learn/sessions/2026-05-24-change-plan-placement-strategy.md`.
+
+This rationale is now historical because the workflow policy changed after the session.
 
 ## Follow-ups
 
