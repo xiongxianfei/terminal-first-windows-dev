@@ -56,13 +56,13 @@ Architecture is not needed before this plan because no machine-changing automati
 ## Current Handoff Summary
 
 - Current milestone: M3
-- Current milestone state: planned
+- Current milestone state: review-requested
 - Last reviewed milestone: M2
-- Review status: M2 code-review R2 clean-with-notes; CR-M2-001 closed
+- Review status: M3 implementation complete; code-review pending
 - Remaining in-scope implementation milestones: M3
-- Next stage: implement
+- Next stage: code-review
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M2 is closed, but downstream M3, explanation, verification, and PR handoff remain open.
+- Reason final closeout is or is not ready: M3 implementation is ready for code-review, but M3 is not reviewed or closed and downstream explanation, verification, and PR handoff remain open.
 
 ## Milestones
 
@@ -170,7 +170,7 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ### M3. Verification evidence and manual walkthrough package
 
-- Milestone state: planned
+- Milestone state: review-requested
 - Goal: Add the verification template and manual walkthrough evidence path required before command success or compatibility is claimed.
 - Requirements: R24-R26, R4-R6, R7, R18, R21, R25, AC6, AC8
 - Files/components likely touched:
@@ -196,6 +196,13 @@ Architecture is not needed before this plan because no machine-changing automati
   - `cd /home/xiongxianfei/data/20260524-terminal-dev && git diff --check -- docs/plans/2026-06-17-macbook-setup-best-practices.md docs/changes/2026-06-17-macbook-setup-best-practices/review-log.md docs/changes/2026-06-17-macbook-setup-best-practices/review-resolution.md`
   - Manual: complete the verification checklist on a real Apple silicon MacBook and record exact `sw_vers`, hardware model, CPU architecture, Command Line Tools state, Homebrew prefix, verification date, and verifier context.
 - Expected observable result: The companion guide has a durable verification evidence path and does not claim success or compatibility beyond recorded evidence.
+- Implementation evidence:
+  - Companion branch: `macbook-setup-baseline`
+  - Companion commit: `1fe76fd M3: add MacBook setup verification evidence`
+  - Proof updated first: `../20260617-terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh`
+  - Expected failing proof before verification-template implementation: `bash tests/markdown/macbook-setup-best-practices.test.sh` failed with `FAIL: docs/verification/macbook-terminal-baseline.md missing manual walkthrough record section`.
+  - Implemented surfaces: `docs/verification/macbook-terminal-baseline.md`, `docs/guides/macbook-terminal-baseline.md`, and `tests/markdown/macbook-setup-best-practices.test.sh` in the companion repository.
+  - Manual walkthrough status: not run in this implementation environment; command-success and compatibility claims remain explicitly unverified.
 - Commit message: `M3: add MacBook setup verification evidence`
 - Milestone closeout:
   - validation passed
@@ -254,6 +261,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: M2 code-review recorded finding CR-M2-001 for missing Apple/Homebrew source-reference link checks.
 - 2026-06-17: Addressed CR-M2-001 in companion commit `271f260` by adding official Apple/Homebrew source links and proof assertions; M2 re-review is pending.
 - 2026-06-17: Closed M2 with clean code-review R2 in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m2-r2.md`; next stage is M3 implementation.
+- 2026-06-17: Implemented M3 verification evidence package in `../20260617-terminal-first-macos-dev` on branch `macbook-setup-baseline` with commit `1fe76fd`.
 
 ## Decision log
 
@@ -275,6 +283,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - M2 proof initially treated non-goal wording such as hidden setup automation as if it were an added automation command. The test was corrected to require the non-goal guardrail while forbidding concrete automation commands such as `brew bundle` and `mas install`.
 - M2 code-review found that the guide names Apple and Homebrew setup sources without adding official links or proof checks for those links, despite the M2 plan calling for link checks.
 - Official source links were enough for this slice because the companion repo has no adopted network link checker yet; the static proof now validates the selected source-reference URLs directly.
+- M3 did not run a real Apple silicon walkthrough in this environment. The template and guide preserve unverified command-success and compatibility language until a real walkthrough is recorded.
 
 ## Validation notes
 
@@ -292,12 +301,16 @@ Architecture is not needed before this plan because no machine-changing automati
 - CR-M2-001 expected failing proof before guide fix: `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh` failed with `FAIL: docs/guides/macbook-terminal-baseline.md missing official Apple Software Update source link`.
 - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`: passed after CR-M2-001 fix.
 - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`: passed after CR-M2-001 fix.
+- M3 expected failing proof before verification-template implementation: `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh` failed with `FAIL: docs/verification/macbook-terminal-baseline.md missing manual walkthrough record section`.
+- `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`: passed after M3 implementation.
+- `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`: passed before M3 companion commit.
+- `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --cached --check`: passed before M3 companion commit.
 
 ## Outcome and retrospective
 
-- M1 and M2 are closed by code-review with no open findings. M3 remains open.
+- M1 and M2 are closed by code-review with no open findings. M3 implementation is ready for code-review.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M3 implementation. Readiness is not Done; M3, explanation, final verification, and PR handoff remain.
+- Ready for M3 code-review. Readiness is not Done; M3 review, any review-resolution, explanation, final verification, and PR handoff remain.
