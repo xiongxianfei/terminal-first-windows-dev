@@ -58,11 +58,11 @@ Architecture is not needed before this plan because no machine-changing automati
 - Current milestone: M3
 - Current milestone state: closed
 - Last reviewed milestone: M3
-- Review status: M3 code-review clean-with-notes; no material findings
+- Review status: M3 code-review and M3 drift-fix re-review clean-with-notes; no material findings
 - Remaining in-scope implementation milestones: none
-- Next stage: final closeout sequence, starting with explain-change
-- Final closeout readiness: ready
-- Reason final closeout is or is not ready: M1-M3 are closed by code-review with no open findings. Explanation, final verification, and PR handoff remain open and must not be skipped.
+- Next stage: pr
+- Final closeout readiness: branch-ready
+- Reason final closeout is or is not ready: M1-M3 are closed by code-review with no open findings, durable explanation exists, and local final verification passed. PR handoff remains open and owns PR body/open readiness.
 
 ## Milestones
 
@@ -263,6 +263,9 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Closed M2 with clean code-review R2 in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m2-r2.md`; next stage is M3 implementation.
 - 2026-06-17: Implemented M3 verification evidence package in `../20260617-terminal-first-macos-dev` on branch `macbook-setup-baseline` with commit `1fe76fd`.
 - 2026-06-17: Closed M3 with clean code-review in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m3.md`; all implementation milestones are closed and the next stage is final closeout starting with explain-change.
+- 2026-06-17: Final verification found and fixed stale workflow-milestone wording in the companion guide; companion commit `7e978ad` removed the stale note and added a regression guard.
+- 2026-06-17: Closed the companion drift fix with clean code-review in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m3-r2.md`.
+- 2026-06-17: Recorded final verification in `docs/changes/2026-06-17-macbook-setup-best-practices/verify-report.md`; next stage is PR handoff.
 
 ## Decision log
 
@@ -285,6 +288,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - M2 code-review found that the guide names Apple and Homebrew setup sources without adding official links or proof checks for those links, despite the M2 plan calling for link checks.
 - Official source links were enough for this slice because the companion repo has no adopted network link checker yet; the static proof now validates the selected source-reference URLs directly.
 - M3 did not run a real Apple silicon walkthrough in this environment. The template and guide preserve unverified command-success and compatibility language until a real walkthrough is recorded.
+- Final verification found stale reader-facing workflow status in the companion guide. The stale `Current milestone` section was removed, and the companion proof now rejects workflow milestone status in the reader guide.
 
 ## Validation notes
 
@@ -306,12 +310,16 @@ Architecture is not needed before this plan because no machine-changing automati
 - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`: passed after M3 implementation.
 - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`: passed before M3 companion commit.
 - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --cached --check`: passed before M3 companion commit.
+- `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`: passed after companion drift fix.
+- `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check cdd8b2d..HEAD`: passed after companion drift fix.
+- `cd /home/xiongxianfei/data/20260524-terminal-dev && git diff --check main...HEAD`: passed during final verification.
+- `cd /home/xiongxianfei/data/20260524-terminal-dev && git diff --check`: passed during final verification.
 
 ## Outcome and retrospective
 
-- M1, M2, and M3 are closed by code-review with no open findings.
+- M1, M2, M3, and the M3 drift fix are closed by code-review with no open findings. Final verification passed locally.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for final closeout sequence starting with explain-change. Readiness is not Done; explanation, final verification, and PR handoff remain.
+- Ready for PR handoff. Readiness is not Done; PR body/open readiness remains owned by the PR stage.

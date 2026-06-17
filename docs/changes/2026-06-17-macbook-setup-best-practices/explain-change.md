@@ -44,6 +44,7 @@ Requirement coverage:
 | `../20260617-terminal-first-macos-dev/README.md` | Replaced template content with companion repo identity, Windows-repo boundary, guide/verification links, and validation command. | Establish the companion surface without changing this repository's vision. | Proposal Option D; R29; AC4 | M1 proof and code-review M1 |
 | `../20260617-terminal-first-macos-dev/docs/guides/README.md` | Added guide index and status text. | Give the companion repo a durable reader entry point for the first-slice guide. | M1 plan | M1/M2 proof |
 | `../20260617-terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md` | Added guide scaffold in M1, full terminal-baseline content in M2, source links in CR-M2-001 resolution, and verification-status labels in M3. | Implement the personal MacBook terminal baseline while keeping commands evidence-bound and managed Macs policy-dependent. | R1-R23, R27-R29; T-MAC-001 through T-MAC-006, T-MAC-008, T-MAC-012 | Companion proof script; code-review M1, M2, M2 R2, M3 |
+| `../20260617-terminal-first-macos-dev/docs/guides/macbook-terminal-baseline.md` | Removed stale workflow-milestone status found during final verification. | Keep reader-facing guide content independent of implementation milestone state after M3 closed. | Artifact lifecycle and drift-detection rules | Companion proof script; code-review M3 drift fix |
 | `../20260617-terminal-first-macos-dev/docs/verification/macbook-terminal-baseline.md` | Added required evidence fields, manual walkthrough record, verification checklist, transcript-scrubbing guidance, and claim boundary. | Provide the only allowed path for future command-success or compatibility claims. | R24-R26; Observability; Security/privacy; T-MAC-007, T-MAC-010, T-MAC-011 | M3 proof and code-review M3 |
 | `../20260617-terminal-first-macos-dev/tests/markdown/macbook-setup-best-practices.test.sh` | Added static checks for required files, guide sections, ordering, scope boundaries, managed-Mac routing, Apple/Homebrew source links, verification fields, and forbidden automation. | Make documentation regressions visible without executing setup commands or requiring a Mac. | Test spec T-MAC-001 through T-MAC-013 where automatable | Expected failing proofs and passing validation |
 | `docs/changes/2026-06-17-macbook-setup-best-practices/*` | Recorded change metadata, review log, review-resolution, code-review records, and this explanation. | Preserve lifecycle evidence and make review decisions auditable in this repository. | Constitution workflow rules; code-review records | Current-repo `git diff --check` |
@@ -79,6 +80,7 @@ Expected failing proof points were recorded before implementation or fixes:
 - M2: missing `Prerequisites` section.
 - CR-M2-001: missing official Apple Software Update source link.
 - M3: missing manual walkthrough record section.
+- Final verification drift fix: stale `Current milestone` reader-guide section removed and guarded against regression.
 
 ## Validation Evidence Available Before Final Verify
 
@@ -95,6 +97,8 @@ Validation recorded during implementation and review:
 | CR-M2-001 | `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check` | passed after fix |
 | M3 | `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh` | failed before implementation for missing manual walkthrough record; passed after M3 implementation |
 | M3 | `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check` | passed before companion commit and during review |
+| Drift fix | `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh` | passed after stale milestone note removal |
+| Drift fix | `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check cdd8b2d..HEAD` | passed after stale milestone note removal |
 | Lifecycle docs | `cd /home/xiongxianfei/data/20260524-terminal-dev && git diff --check` | passed during implementation and review stages |
 
 No hosted CI status is claimed. No setup command success is claimed. The real Apple silicon walkthrough has not been run.
@@ -153,4 +157,4 @@ Follow-ups before PR handoff:
 
 M1, M2, and M3 are closed by code-review. This explanation records the rationale needed before final verification.
 
-Ready for `verify` as the next workflow stage, subject to the active plan being advanced by the workflow owner. This explanation does not claim final verification, branch readiness, PR readiness, or hosted CI success.
+Final verification is recorded separately in `docs/changes/2026-06-17-macbook-setup-best-practices/verify-report.md`. This explanation does not claim PR body readiness, PR open readiness, or hosted CI success.

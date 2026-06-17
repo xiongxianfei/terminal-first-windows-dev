@@ -4,6 +4,9 @@
 
 - Skill: plan
 - Status: completed
+- Closeout status: closed
+- Material findings closed: PR-001, CR-M2-001
+- Open findings: none
 - Finding: PR-001
 - Resolution status: closed by plan-review R2
 - Recording status: recorded

@@ -130,6 +130,18 @@ M1-M3 validation commands now name whether they run from `/home/xiongxianfei/dat
 - Remaining implementation milestones: none
 - Immediate next stage: final closeout sequence starting with explain-change
 
+## Code Review M3 Drift Fix
+
+- Review record: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m3-r2.md`
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Review resolution: not required
+- Reviewed milestone: M3 drift fix
+- Milestone closeout: closed
+- Remaining implementation milestones: none
+- Immediate next stage: verify
+
 ## Current Findings
 
 No open findings.
