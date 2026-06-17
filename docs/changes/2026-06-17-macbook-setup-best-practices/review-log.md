@@ -70,6 +70,18 @@ M1-M3 validation commands now name whether they run from `/home/xiongxianfei/dat
 - Open blockers: none
 - Immediate next stage: test-spec
 
+## Code Review M1
+
+- Review record: `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m1.md`
+- Review status: clean-with-notes
+- Material findings: none
+- Recording status: recorded
+- Review resolution: not required
+- Reviewed milestone: M1
+- Milestone closeout: closed
+- Remaining implementation milestones: M2, M3
+- Immediate next stage: implement M2
+
 ## Current Findings
 
 No open findings.

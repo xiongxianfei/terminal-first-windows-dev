@@ -4,7 +4,7 @@
 
 | Change | Plan | State | Next stage | Active context |
 | --- | --- | --- | --- | --- |
-| `2026-06-17-macbook-setup-best-practices` | `docs/plans/2026-06-17-macbook-setup-best-practices.md` | active | code-review | M1 companion baseline implemented in `../20260617-terminal-first-macos-dev`; ready for M1 code-review. |
+| `2026-06-17-macbook-setup-best-practices` | `docs/plans/2026-06-17-macbook-setup-best-practices.md` | active | implement | M1 closed by code-review; next stage is M2 guide implementation in `../20260617-terminal-first-macos-dev`. |
 | `2026-05-24-terminal-first-workstation-setup` | `docs/plans/2026-05-24-terminal-first-workstation-setup.md` | active | pr | First-slice terminal-first Windows 11 workstation setup guide. |
 
 ## Blocked

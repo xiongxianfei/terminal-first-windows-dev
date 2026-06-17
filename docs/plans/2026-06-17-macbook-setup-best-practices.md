@@ -55,20 +55,20 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Current Handoff Summary
 
-- Current milestone: M1
-- Current milestone state: review-requested
-- Last reviewed milestone: none
-- Review status: M1 implementation complete; code-review pending
-- Remaining in-scope implementation milestones: M1, M2, M3
-- Next stage: code-review
+- Current milestone: M2
+- Current milestone state: planned
+- Last reviewed milestone: M1
+- Review status: M1 code-review clean-with-notes; no material findings
+- Remaining in-scope implementation milestones: M2, M3
+- Next stage: implement
 - Final closeout readiness: not-ready
-- Reason final closeout is or is not ready: M1 implementation is ready for code-review, but M1 is not reviewed or closed and downstream M2, M3, explanation, verification, and PR handoff remain open.
+- Reason final closeout is or is not ready: M1 is closed by code-review, but M2, M3, explanation, verification, and PR handoff remain open.
 
 ## Milestones
 
 ### M1. Companion surface and validation baseline
 
-- Milestone state: review-requested
+- Milestone state: closed
 - Goal: Establish or connect the macOS companion surface and its first-slice validation baseline before writing guide content.
 - Requirements: R29, AC1, AC4, AC5
 - Files/components likely touched:
@@ -242,6 +242,7 @@ Architecture is not needed before this plan because no machine-changing automati
 - 2026-06-17: Revised validation commands to name the current repository and companion repository workdirs, addressing plan-review PR-001 pending second-pass plan-review.
 - 2026-06-17: Authored `specs/macbook-setup-best-practices.test.md`; next stage is M1 implementation.
 - 2026-06-17: Implemented M1 companion baseline in `../20260617-terminal-first-macos-dev` on branch `macbook-setup-baseline` with commit `f090d60`.
+- 2026-06-17: Closed M1 with clean code-review in `docs/changes/2026-06-17-macbook-setup-best-practices/reviews/code-review-m1.md`; next stage is M2 implementation.
 
 ## Decision log
 
@@ -271,9 +272,9 @@ Architecture is not needed before this plan because no machine-changing automati
 
 ## Outcome and retrospective
 
-- M1 implementation is ready for code-review. M1 is not closed until code-review and any required review-resolution are complete.
+- M1 is closed by code-review with no material findings. M2 and M3 remain open.
 
 ## Readiness
 
 - See `Current Handoff Summary`.
-- Ready for M1 code-review. Readiness is not Done; M1 review, any review-resolution, M2, M3, explanation, final verification, and PR handoff remain.
+- Ready for M2 implementation. Readiness is not Done; M2, M3, explanation, final verification, and PR handoff remain.
