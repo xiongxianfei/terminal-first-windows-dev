@@ -2,7 +2,7 @@
 
 ## Status
 
-M1 implementation is ready for code-review.
+M2 implementation is ready for code-review.
 
 ## What changed
 
@@ -14,17 +14,30 @@ M1 established the separate macOS companion baseline in `../20260617-terminal-fi
 - Added `docs/verification/macbook-terminal-baseline.md` as the manual verification template.
 - Added `tests/markdown/macbook-setup-best-practices.test.sh` as the static baseline proof.
 
+M2 added the personal MacBook terminal-baseline guide content and expanded the static proof:
+
+- Updated `docs/guides/macbook-terminal-baseline.md` with prerequisites, outcome, safety gates, ownership routing, hardware and compatibility guidance, backup and Apple-owned system setup, Apple developer tooling, Homebrew boundaries, shell/Git/SSH/editor baseline, and follow-up routing.
+- Updated `tests/markdown/macbook-setup-best-practices.test.sh` to check required sections, safety-gate ordering, managed-Mac routing, Apple silicon and Intel non-claim language, Homebrew boundaries, shell/Git/SSH coverage, persistent-state auditability, and non-goal guardrails.
+- Updated companion README and guide index status text from scaffold to guide content.
+
 The current Windows-first repository was updated only for lifecycle tracking: change metadata, plan index, and the active plan.
 
 ## Why it changed
 
 The approved proposal, spec, test spec, and plan require MacBook setup guidance to live in a separate macOS companion surface rather than inside `terminal-first-windows-dev`.
 
-M1 intentionally creates locations and checks before full setup guidance:
+M1 intentionally created locations and checks before full setup guidance:
 
 - Guide content belongs in the companion repo.
 - Verification evidence has a durable path before any command-success or compatibility claims are made.
 - Static validation can prove the companion boundary, traceability, and baseline file structure without executing setup commands.
+
+M2 intentionally keeps the guide evidence-bound:
+
+- Commands are presented as guide contracts for later manual verification, not as verified transcripts.
+- Managed/corporate Macs route out of the default path before state-changing setup.
+- Homebrew is scoped to third-party developer CLI tooling and separated from Apple-owned system setup.
+- Role-specific stacks and full editor configuration remain deferred.
 
 ## Requirements covered
 
@@ -32,6 +45,8 @@ M1 intentionally creates locations and checks before full setup guidance:
 - AC1: the companion baseline references the approved proposal/spec/test-spec/plan lineage.
 - AC4: reader-facing macOS guide content is in the companion repository, not this Windows-first repository.
 - AC5: M1 adds documentation and static proof only; it does not add setup automation, generated configuration, or hidden bootstrap behavior.
+- R1-R23, R27-R29: M2 covers the personal developer MacBook terminal-baseline guide requirements.
+- AC2-AC5, AC7: M2 extends requirement coverage, keeps reader-facing macOS content in the companion repo, avoids hidden automation, and routes managed/corporate Macs out of the default path.
 
 ## Validation evidence
 
@@ -45,12 +60,23 @@ M1 intentionally creates locations and checks before full setup guidance:
   - Result: passed.
   - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --cached --check`
   - Result: passed before companion commit.
+- M2 first proof run before guide implementation failed as expected:
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`
+  - Result: `FAIL: docs/guides/macbook-terminal-baseline.md missing Prerequisites section`
+- After M2 implementation:
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && bash tests/markdown/macbook-setup-best-practices.test.sh`
+  - Result: passed.
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --check`
+  - Result: passed.
+  - `cd /home/xiongxianfei/data/20260617-terminal-first-macos-dev && git diff --cached --check`
+  - Result: passed before companion commit.
 
 ## Companion commit
 
 - Branch: `macbook-setup-baseline`
 - Commit: `f090d60 M1: establish macOS companion baseline`
+- Commit: `2a503a8 M2: add MacBook terminal baseline guide`
 
 ## Remaining work
 
-M1 is ready for code-review, not closed. M2 and M3 still need to author the full guide content and verification evidence surfaces. A real Apple silicon MacBook walkthrough is still required before verified command-success or compatibility claims can be published.
+M1 is closed. M2 is ready for code-review, not closed. M3 still needs to add the verification evidence package. A real Apple silicon MacBook walkthrough is still required before verified command-success or compatibility claims can be published.
